@@ -15,6 +15,9 @@ title: TMW Labs Blog
 		{% endif %}
 
 		{{ post.content }}
+
+		{% assign author = site.authors[post.author] %}
+		<a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a>
 	</article>
 {% endfor %}
 </div>

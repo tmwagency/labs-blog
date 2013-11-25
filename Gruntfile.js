@@ -129,35 +129,68 @@ module.exports = function (grunt) {
 				// tasks: ['sass:dev', 'autoprefixer:dist', 'csso']
 			},
 
+			img: {
+				files: [
+					'img/*.jpeg',
+					'img/*.gif',
+					'img/*.png'
+				],
+				tasks : 'copy:img'
+			},
+
 			js: {
 				files: [
 					'Gruntfile.js',
 					'js/*.js',
 					'js/libs/**/*.js'
 				],
-				tasks: ['uglify', 'jekyll']
+				tasks: ['uglify', 'copy:js']
 			},
 
 			jekyll : {
-				files: ['**/*.html'],
+				files: [
+					'_includes/**/*.html',
+					'_layouts/**/*.html',
+					'_posts/**/*.html',
+					'*.html'
+				],
 				tasks: 'jekyll'
 			},
 
 			livereload: {
 				options: { livereload: true },
 				files: [
+					'_site/**/*.html',
 					'css/*.css'
+
 				]
 			}
 		},
 
 		copy: {
+			dist: {
+				files: [
+					{ expand: true, cwd: './img', src: ['./**/*.*'], dest: '_site/img' },
+					{ expand: true, cwd: './css', src: ['./**/*.*'], dest: '_site/css' },
+					{ expand: true, cwd: './js', src: ['./**/*.*'], dest: '_site/js' }
+				]
+			},
+			img : {
+				files: [
+					{ expand: true, cwd: './img', src: ['./**/*.*'], dest: 'img' }
+				]
+			},
 			css : {
 				files: {
 					// Copy the sass-generated style file to
 					// the _site/ folder
 					'_site/css/kickoff.css': 'css/kickoff.css'
 				}
+			},
+			js: {
+				files: [
+					{ expand: true, cwd: './js', src: ['./**/*.*'], dest: 'dist/assets/js' }
+				]
 			}
 		},
 
@@ -267,7 +300,7 @@ module.exports = function (grunt) {
 	 * run jshint, uglify and sass:dev
 	 */
 	// Default task
-	grunt.registerTask('default', ['jshint', 'uglify', 'sass:dev']);
+	grunt.registerTask('default', ['jshint', 'uglify', 'sass:dev', 'newer:jekyll', 'copy:dist']);
 
 
 	/**

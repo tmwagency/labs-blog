@@ -7,3 +7,20 @@ timezone: Europe/London
 
 paginate: 2
 paginate_path: /:num
+
+
+authors:
+  dragon:
+    display_name: Ashley Nolan
+    avatar: anolan.jpeg
+    email: anolan@tmw.co.uk
+    web: http://www.dragongraphics.co.uk
+    twitter: dragongraphics
+    github: ashleynolan
+  zander:
+    display_name: Zander Martineau
+    avatar: zmartineau.jpeg
+    email: geoff@lostdecadegames.com
+    web: http://www.geoffblair.com/
+    twitter: geoffblair
+    github: geoffb
