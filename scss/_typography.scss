@@ -76,8 +76,6 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: $headings-font-weight;
 	text-rendering: optimizelegibility; // Fix the character spacing for headings
 
-	font-style: italic;
-
 	& small {
 		font-weight: normal;
 	}

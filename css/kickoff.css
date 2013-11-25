@@ -452,17 +452,16 @@ p {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   text-rendering: optimizelegibility;
-  font-style: italic;
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-weight: normal;
 }
 
 h1, .h1, .alpha {
-  font-size: 36px;
-  font-size: 2.25rem;
+  font-size: 60px;
+  font-size: 3.75rem;
   margin-top: 0;
   margin-bottom: 44px;
 }
@@ -1937,7 +1936,7 @@ img, object, embed, video {
 /* ==========================================================================
    Global app/site styles
    ========================================================================== */
-[role=main] {
+.container {
   margin: 0 auto;
   max-width: 700px;
   width: 90%;
@@ -1962,11 +1961,13 @@ img, object, embed, video {
    Credit: http://dev.mattnt.com/retina-results.html
    ========================================================================== */
 .masthead {
-  background-color: #ddd;
-  padding: 56px 0;
+  background-color: #05051f;
+  color: #ff024b;
+  padding: 60px 0 60px;
   margin-bottom: 56px;
 }
-.masthead h1, .masthead p {
+.masthead h1,
+.masthead p {
   margin: 0;
 }
 
@@ -1977,7 +1978,6 @@ img, object, embed, video {
 .entry--title {
   font-size: 50px;
   font-size: 3.125rem;
-  text-align: center;
   margin-bottom: 0;
 }
 

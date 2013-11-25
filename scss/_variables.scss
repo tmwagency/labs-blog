@@ -30,7 +30,7 @@ $support-FF36                 : false;
 // Base sizes
 // Set this in pixels, the font-size mixin will convert to REMS
 $base-font-size                : 16;
-$h1-size                       : 36 !default; // .alpha
+$h1-size                       : 60 !default; // .alpha
 $h2-size                       : 30 !default; // .beta
 $h3-size                       : 24 !default; // .gamma
 $h4-size                       : 20 !default; // .delta
@@ -52,7 +52,7 @@ $base-font-family             : $mono-font-family;
 $alt-font-family              : $serif-font-family;
 
 $headings-font-family         : $sans-font-family; // empty to use Kickoff default $base-font-family
-$headings-font-weight         : 500;    // instead of browser default, bold
+$headings-font-weight         : 600;    // instead of browser default, bold
 
 
 /*

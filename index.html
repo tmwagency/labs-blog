@@ -2,11 +2,11 @@
 layout: default
 title: TMW Labs Blog
 ---
-<div class="entries">
+<div class="entries container">
 {% for post in paginator.posts %}
 	<article class="entry">
 		<h1 class="entry--title"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
-		<time class="entry--date text-centre">{{ post.date | date_to_string }}</time>
+		<time class="entry--date">{{ post.date | date_to_string }}</time>
 
 		{% if post.image %}
 			<figure>

@@ -1,9 +1,15 @@
 .masthead {
-	background-color: #ddd;
-	padding: 56px 0;
+	background-color: #05051f;
+	color: #ff024b;
+
+	padding: 60px 0 60px;
 	margin-bottom: 56px;
 
-	h1,p {
+	h1 {
+		//text-shadow: 0 -1px 0 #151582;
+	}
+	h1,
+	p {
 		margin: 0;
 	}
 }
