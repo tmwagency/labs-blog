@@ -6,4 +6,4 @@ exclude: ['node_modules', 'scss', 'Gruntfile.js', 'package.json', '*.sublime-pro
 timezone: Europe/London
 
 paginate: 2
-paginate_path: /page:num
+paginate_path: /:num
