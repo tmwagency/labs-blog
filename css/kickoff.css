@@ -1948,6 +1948,11 @@ img, object, embed, video {
 /*
    Footer
    ========================================================================== */
+.pagination {
+  border-top: 1px solid #000;
+  padding-top: 10px;
+}
+
 /* ==========================================================================
    Media queries for responsive design
    ========================================================================== */
@@ -2181,4 +2186,4 @@ th.is-visiblePrint, td.is-visiblePrint {
   }
 }
 
-/*# sourceMappingURL=Kickoff.css.map */
+/*# sourceMappingURL=kickoff.css.map */

@@ -65,8 +65,8 @@ module.exports = function (grunt) {
 					sourcemap : true
 				},
 				files: {
-					'css/<%=pkg.name%>.css': 'scss/kickoff.scss',
-					'css/<%=pkg.name%>-old-ie.css': 'scss/kickoff-old-ie.scss'
+					'css/kickoff.css': 'scss/kickoff.scss',
+					'css/kickoff-old-ie.css': 'scss/kickoff-old-ie.scss'
 				}
 			},
 			production: {
@@ -75,8 +75,8 @@ module.exports = function (grunt) {
 					precision : 8
 				},
 				files: {
-					'css/<%=pkg.name%>.css': 'scss/kickoff.scss',
-					'css/<%=pkg.name%>-old-ie.css': 'scss/kickoff-old-ie.scss'
+					'css/kickoff.css': 'scss/kickoff.scss',
+					'css/kickoff-old-ie.css': 'scss/kickoff-old-ie.scss'
 				}
 
 			}
@@ -125,7 +125,7 @@ module.exports = function (grunt) {
 		watch: {
 			scss: {
 				files: ['scss/**/*.scss'],
-				tasks: ['sass:dev', 'jekyll']
+				tasks: ['sass:dev', 'copy:css']
 				// tasks: ['sass:dev', 'autoprefixer:dist', 'csso']
 			},
 
@@ -145,7 +145,19 @@ module.exports = function (grunt) {
 
 			livereload: {
 				options: { livereload: true },
-				files: '_site/css/*.css'
+				files: [
+					'css/*.css'
+				]
+			}
+		},
+
+		copy: {
+			css : {
+				files: {
+					// Copy the sass-generated style file to
+					// the _site/ folder
+					'_site/css/kickoff.css': 'css/kickoff.css'
+				}
 			}
 		},
 

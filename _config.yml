@@ -5,5 +5,5 @@ include: ['.htaccess']
 exclude: ['node_modules', 'scss', 'Gruntfile.js', 'package.json', '*.sublime-project', '*.sublime-workspace', 'LICENSE']
 timezone: Europe/London
 
-paginate: 8
+paginate: 2
 paginate_path: /page:num
