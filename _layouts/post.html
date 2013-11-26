@@ -1,9 +1,9 @@
 ---
 layout: default
 ---
-<article class="entry">
-	<h3 class="entry--title"><a href="{{ page.url }}" title="Read {{ page.title }}">{{ page.title }}</a></h3>
-	<time class="entry--date text-centre">{{ page.date | date_to_string }}</time>
+<article class="container entry">
+	<h3 class="entry--title">{{ page.title }}</h3>
+	<time class="entry--date">{{ page.date | date_to_string }}</time>
 
 	{% if page.image %}
 		<figure>
