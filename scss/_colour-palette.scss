@@ -9,18 +9,18 @@ $green                        : #1abc9c;
 $red                          : #c0392b;
 $yellow                       : #f1c40f;
 $orange                       : #e67e22;
-$pink                         : #c3325f;
+$pink                         : #ff024b;
 $purple                       : #8e44ad;
 $gray                         : #7f8c8d;
 
 // Colour Scheme
-$color-primary                : #34495e;
+$color-primary                : $pink;
 $color-secondary              : $green;
 $color-highlight              : #ff9600;
 
 // Common colours
-$color-text                   : #444;
-$color-background             : #fff;
+$color-text                   : #333;
+$color-background             : #FDFDFD;
 $color-border                 : #ddd;
 
 // Text Selection
