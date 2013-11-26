@@ -1,9 +1,32 @@
+.entry {
+	background-color: #f1f1f1;
+	padding: 3% 5%;
+	@include border-radius(2px);
+}
+
 .entry--title {
 	@include font-size(50);
-	margin-bottom: 0;
+	margin-bottom: 0.4em;
 }
 
 .entry--date {
 	display: block;
 	margin-bottom: 28px;
 }
+
+// === <860px ===
+@include respond-min(860) {
+	.entry {
+		// figure,
+		img,
+		iframe,
+		.gist {
+			max-width: 120%;
+			width: 120%;
+			margin-left: -10%;
+			@include border-radius(2px);
+			// @include box-shadow(5px 5px 0px rgba(0,0,0,.1));
+		}
+	}
+}
+// === end <860px ===

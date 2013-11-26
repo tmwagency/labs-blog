@@ -1,9 +1,10 @@
 .masthead {
 	background-color: #05051f;
-	color: #ff024b;
-
-	padding: 60px 0 60px;
+	color: $color-primary;
+	text-align: center;
+	padding: 8% 0;
 	margin-bottom: 56px;
+	text-shadow: none;
 
 	h1 {
 		//text-shadow: 0 -1px 0 #151582;
@@ -12,4 +13,18 @@
 	p {
 		margin: 0;
 	}
+
+	a:hover {
+		color: #ddd;
+	}
 }
+
+
+// === <860px ===
+@include respond-min(860) {
+	.masthead {
+		text-align: left;
+		padding: 70px 0;
+	}
+}
+// === end <860px ===
