@@ -8,6 +8,10 @@ timezone: Europe/London
 paginate: 2
 paginate_path: /:num
 
+labs:
+  url: http://labs.tmw.co.uk
+  twitter: tmw_labs
+  github: tmwagency
 
 authors:
   dragon:
