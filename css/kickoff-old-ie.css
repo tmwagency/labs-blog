@@ -429,8 +429,9 @@ body {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.4;
-  color: #444444;
-  background-color: white;
+  color: #333333;
+  background-color: #fdfdfd;
+  text-shadow: 0 -1px 0 #fff;
 }
 
 /*
@@ -452,6 +453,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 600;
   text-rendering: optimizelegibility;
+  color: #ff024b;
+  line-height: 1;
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-weight: normal;
@@ -514,18 +517,18 @@ h6, .h6, .zeta {
    Links
    ========================================================================== */
 a {
-  color: #34495e;
+  color: #ff024b;
   text-decoration: none;
 }
 a:visited {
-  color: #34495e;
+  color: #ff024b;
   text-decoration: none;
 }
 a:hover, a:focus {
-  color: #19232d;
+  color: #b40034;
 }
 a:active {
-  color: #19232d;
+  color: #b40034;
 }
 
 /*
@@ -727,12 +730,12 @@ samp {
 
 ::-moz-selection {
   color: white;
-  background: #34495e;
+  background: #ff024b;
 }
 
 ::selection {
   color: white;
-  background: #34495e;
+  background: #ff024b;
 }
 
 /* ==========================================================================
@@ -1383,12 +1386,14 @@ table {
    Code typography styles for the <code> and <pre> elements
    ========================================================================== */
 code,
-pre {
+pre,
+.gist,
+.gist .gist-file .gist-data .line-pre,
+.gist-meta {
   padding: 0 3px 2px;
   font-family: "source-code-pro", Menlo, Monaco, "Courier New", monospace;
   font-size: 13px;
   font-size: 0.8125rem;
-  color: #dd1144;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
@@ -1433,6 +1438,16 @@ pre code {
 .pre--scrollable {
   max-height: 340px;
   overflow-y: scroll;
+}
+
+.gist {
+  padding: 0;
+}
+
+.gist-file {
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0;
 }
 
 .btn, .tabs a {
@@ -1562,7 +1577,7 @@ input[type="button"].btn--block {
 }
 
 .btn--primary {
-  background-color: #34495e;
+  background-color: #ff024b;
   color: #fff !important;
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
 }
@@ -1584,7 +1599,7 @@ input[type="button"].btn--block {
 .btn--link {
   border-color: transparent;
   cursor: pointer;
-  color: #34495e;
+  color: #ff024b;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -o-border-radius: 0;
@@ -1593,7 +1608,7 @@ input[type="button"].btn--block {
 
 .btn--link:hover,
 .btn--link:focus {
-  color: #19232d;
+  color: #b40034;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -1616,7 +1631,7 @@ input[type="button"].btn--block {
   width: 20px;
   line-height: 17px;
   background: #000;
-  color: #34495e;
+  color: #ff024b;
   text-align: center;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1932,10 +1947,16 @@ img, object, embed, video {
 /* ==========================================================================
    Global app/site styles
    ========================================================================== */
+a {
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
 .container {
   margin: 0 auto;
   max-width: 700px;
-  width: 90%;
 }
 
 /*
@@ -1959,27 +1980,58 @@ img, object, embed, video {
 .masthead {
   background-color: #05051f;
   color: #ff024b;
-  padding: 60px 0 60px;
+  text-align: center;
+  padding: 8% 0;
   margin-bottom: 56px;
+  text-shadow: none;
 }
 .masthead h1,
 .masthead p {
   margin: 0;
+}
+.masthead a:hover {
+  color: #ddd;
+}
+
+.masthead {
+  text-align: left;
+  padding: 70px 0;
 }
 
 .entries .entry {
   margin-bottom: 100px;
 }
 
+.entry {
+  background-color: #f1f1f1;
+  padding: 3% 5%;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+
 .entry--title {
   font-size: 50px;
   font-size: 3.125rem;
-  margin-bottom: 0;
+  margin-bottom: 0.4em;
 }
 
 .entry--date {
   display: block;
   margin-bottom: 28px;
+}
+
+.entry img,
+.entry iframe,
+.entry .gist {
+  max-width: 120%;
+  width: 120%;
+  margin-left: -10%;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
 }
 
 /*
