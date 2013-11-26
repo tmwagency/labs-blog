@@ -429,7 +429,7 @@ body {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.4;
-  color: #333333;
+  color: #434343;
   background-color: #fdfdfd;
   text-shadow: 0 -1px 0 #fff;
 }
@@ -731,11 +731,13 @@ samp {
 ::-moz-selection {
   color: white;
   background: #ff024b;
+  text-shadow: none;
 }
 
 ::selection {
   color: white;
   background: #ff024b;
+  text-shadow: none;
 }
 
 /* ==========================================================================
@@ -1959,17 +1961,6 @@ a {
   max-width: 700px;
 }
 
-/*
-   Masthead
-   ========================================================================== */
-/*
-   Footer
-   ========================================================================== */
-.pagination {
-  border-top: 1px solid #7f8c8d;
-  padding-top: 10px;
-}
-
 /* ==========================================================================
    Media queries for responsive design
    ========================================================================== */
@@ -1982,11 +1973,9 @@ a {
   color: #ff024b;
   text-align: center;
   padding: 8% 0;
-  margin-bottom: 56px;
   text-shadow: none;
 }
-.masthead h1,
-.masthead p {
+.masthead h1, .masthead p {
   margin: 0;
 }
 .masthead a:hover {
@@ -1994,8 +1983,16 @@ a {
 }
 
 .masthead {
+  padding: 70px 0 100px;
+  margin-bottom: -50px;
+}
+
+.masthead {
   text-align: left;
-  padding: 70px 0;
+}
+
+.entries .entry {
+  margin-bottom: 10px;
 }
 
 .entries .entry {
@@ -2003,7 +2000,7 @@ a {
 }
 
 .entry {
-  background-color: #f1f1f1;
+  background-color: #F7F6FB;
   padding: 3% 5% 5%;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -2055,6 +2052,10 @@ a {
   text-transform: uppercase;
 }
 
+#disqus_thread {
+  margin-top: 56px;
+}
+
 .entry-content img,
 .entry-content iframe,
 .entry-content .gist {
@@ -2065,6 +2066,24 @@ a {
   -moz-border-radius: 2px;
   -o-border-radius: 2px;
   border-radius: 2px;
+}
+
+.footer {
+  background-color: #444444;
+  padding: 5em 5%;
+}
+.footer, .footer a {
+  color: #f0f0f0;
+  text-shadow: 0 -1px 0 #000;
+}
+
+.pagination {
+  background-color: #303333;
+  padding: 3em 5%;
+}
+.pagination, .pagination a {
+  color: #f0f0f0;
+  text-shadow: 0 -1px 0 #000;
 }
 
 /*
