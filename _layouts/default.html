@@ -1,15 +1,31 @@
 {% include html_start.html %}
-	<body class="section-blog">
+	<!--  === MASTHEAD ===  -->
+	{% include masthead.html %}
 
-		<!--  === MASTHEAD ===  -->
-		{% include masthead.html %}
+	<!--  === MAIN CONTENT ===  -->
+	<section class="container" role="main">
+		{{ content }}
+	</section>
 
-		<!--  === MAIN CONTENT ===  -->
-		<section class="container" role="main">
-			{{ content }}
-		</section>
+	<!-- Pagination links -->
+	<div class="pagination">
+		<div class="container">
+			{% if paginator.next_page %}
+				<a href="{{ paginator.next_page_path }}" class="next">< Older</a>
+			{% endif %}
 
-		<!--  === FOOTER ===  -->
-		{% include footer.html %}
+			{% if paginator.previous_page and paginator.next_page %}
+			|
+			{% endif %}
+
+			{% if paginator.previous_page %}
+				<a href="{{ paginator.previous_page_path }}">Newer ></a>
+			{% endif %}
+
+		</div>
+	</div>
+
+	<!--  === FOOTER ===  -->
+	{% include footer.html %}
 
 {% include html_end.html %}
