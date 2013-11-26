@@ -28,15 +28,3 @@ title: TMW Labs Blog
 {% endfor %}
 </div>
 
-<!-- Pagination links -->
-<div class="pagination">
-	{% if paginator.previous_page == 1 %}
-		<a href="/">Newer</a>
-	{% else %}
-		<a href="{{ paginator.previous_page_path }}">Newer</a>
-	{% endif %}
-	<span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-	{% if paginator.next_page %}
-		<a href="{{ paginator.next_page_path }}" class="next">Older</a>
-	{% endif %}
-</div>
