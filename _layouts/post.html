@@ -1,20 +1,26 @@
 ---
 layout: default
 ---
-<article class="container entry">
-	<h3 class="entry--title">{{ page.title }}</h3>
-	<time class="entry--date">{{ page.date | date_to_string }}</time>
-
+<article class="entry">
 	{% if page.image %}
-		<figure>
+		<figure class="entryImage">
 			<img src="/img/posts/{{ page.image }}" alt="{{ page.title }}">
 		</figure>
 	{% endif %}
 
-	{{ content }}
+	<h1 class="entry--title">{{ page.title }}</h1>
+	<time class="entry--date">{{ page.date | date_to_string }}</time>
+
+	<div class="entry-content">
+		{{ content }}
+	</div>
 
 	{% assign author = site.authors[page.author] %}
-	<a href="http://twitter.com/{{ author.twitter }}"><img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}">{{ author.display_name }}</a>
+	<a href="http://twitter.com/{{ author.twitter }}" class="author">
+		<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
+		<div class="author-by">by</div>
+		<div class="author-name">{{ author.display_name }}</div>
+	</a>
 
 	{% if page.comments %}
 		<div id="disqus_thread"></div>

@@ -2,22 +2,28 @@
 layout: default
 title: TMW Labs Blog
 ---
-<div class="entries container">
+<div class="entries">
 {% for post in paginator.posts %}
 	<article class="entry">
-		<h1 class="entry--title"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
-		<time class="entry--date">{{ post.date | date_to_string }}</time>
-
 		{% if post.image %}
-			<figure>
+			<figure class="entryImage">
 				<img src="/img/posts/{{ post.image }}" alt="{{ post.title }}">
 			</figure>
 		{% endif %}
 
-		{{ post.content }}
+		<h1 class="entry--title"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
+		<time class="entry--date">{{ post.date | date_to_string }}</time>
+
+		<div class="entry-content">
+			{{ post.content }}
+		</div>
 
 		{% assign author = site.authors[post.author] %}
-		<a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a>
+		<a href="http://twitter.com/{{ author.twitter }}" class="author">
+			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
+			<div class="author-by">by</div>
+			<div class="author-name">{{ author.display_name }}</div>
+		</a>
 	</article>
 {% endfor %}
 </div>
