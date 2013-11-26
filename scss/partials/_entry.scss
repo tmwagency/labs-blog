@@ -1,5 +1,5 @@
 .entry {
-	background-color: #f1f1f1;
+	background-color: #F7F6FB;
 	padding: 3% 5% 5%;
 	@include border-radius(2px);
 }
@@ -39,8 +39,12 @@
 }
 
 
-// === <860px ===
-@include respond-min(860) {
+#disqus_thread {
+	margin-top: 56px;
+}
+
+// === <$breakpoint-wide ===
+@include respond-min($breakpoint-wide) {
 	.entry-content {
 		// figure,
 		img,
@@ -54,4 +58,4 @@
 		}
 	}
 }
-// === end <860px ===
+// === end <$breakpoint-wide ===

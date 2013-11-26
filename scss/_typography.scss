@@ -363,8 +363,10 @@ samp {
 ::-moz-selection {
 	color: $color-selection;
 	background: $color-selection-bg;
+	text-shadow: none;
 }
 ::selection {
 	color: $color-selection;
 	background: $color-selection-bg;
+	text-shadow: none;
 }

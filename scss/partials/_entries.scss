@@ -1,5 +1,16 @@
 .entries {
 	.entry {
-		margin-bottom: 100px;
+		margin-bottom: 10px;
 	}
 }
+
+// === <$breakpoint-wide px ===
+@include respond-min($breakpoint-wide) {
+	.entries {
+		.entry {
+			margin-bottom: 100px;
+		}
+	}
+}
+// === end <$breakpoint-wide px ===
+
