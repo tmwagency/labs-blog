@@ -3,14 +3,9 @@
 	color: $color-primary;
 	text-align: center;
 	padding: 8% 0;
-	margin-bottom: 56px;
 	text-shadow: none;
 
-	h1 {
-		//text-shadow: 0 -1px 0 #151582;
-	}
-	h1,
-	p {
+	h1,	p {
 		margin: 0;
 	}
 
@@ -20,11 +15,19 @@
 }
 
 
-// === <860px ===
-@include respond-min(860) {
+// === <700 ===
+@include respond-min(700) {
 	.masthead {
-		text-align: left;
-		padding: 70px 0;
+		padding: 70px 0 100px;
+		margin-bottom: -50px;
 	}
 }
-// === end <860px ===
+// === end <700 ===
+
+// === <$breakpoint-wide ===
+@include respond-min($breakpoint-wide) {
+	.masthead {
+		text-align: left;
+	}
+}
+// === end <$breakpoint-wide ===
