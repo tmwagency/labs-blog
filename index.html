@@ -2,29 +2,49 @@
 layout: default
 title: TMW Labs Blog
 ---
-<div class="entries">
-{% for post in paginator.posts %}
-	<article class="entry">
-		{% if post.image %}
-			<figure class="entryImage">
-				<img src="/img/posts/{{ post.image }}" alt="{{ post.title }}">
-			</figure>
+<div class="container">
+	<div class="entries">
+	{% for post in paginator.posts %}
+		<article class="entry">
+			{% if post.image %}
+				<figure class="entryImage">
+					<img src="/img/posts/{{ post.image }}" alt="{{ post.title }}">
+				</figure>
+			{% endif %}
+
+			<h1 class="entry--title"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
+			<time class="entry--date">{{ post.date | date_to_string }}</time>
+
+			<div class="entry-content">
+				{{ post.content }}
+			</div>
+
+			{% assign author = site.authors[post.author] %}
+			<a href="http://twitter.com/{{ author.twitter }}" class="author">
+				<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
+				<div class="author-by">by</div>
+				<div class="author-name">{{ author.display_name }}</div>
+			</a>
+		</article>
+	{% endfor %}
+	</div>
+</div>
+
+<!-- Pagination links -->
+<div class="pagination">
+	<div class="container">
+		{% if paginator.next_page %}
+			<a href="{{ paginator.next_page_path }}" class="next">< Older</a>
 		{% endif %}
 
-		<h1 class="entry--title"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
-		<time class="entry--date">{{ post.date | date_to_string }}</time>
+		{% if paginator.previous_page and paginator.next_page %}
+		|
+		{% endif %}
 
-		<div class="entry-content">
-			{{ post.content }}
-		</div>
+		{% if paginator.previous_page %}
+			<a href="{{ paginator.previous_page_path }}">Newer ></a>
+		{% endif %}
 
-		{% assign author = site.authors[post.author] %}
-		<a href="http://twitter.com/{{ author.twitter }}" class="author">
-			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
-			<div class="author-by">by</div>
-			<div class="author-name">{{ author.display_name }}</div>
-		</a>
-	</article>
-{% endfor %}
+	</div>
 </div>
 

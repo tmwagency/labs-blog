@@ -1,55 +1,60 @@
 ---
 layout: default
 ---
-<article class="entry">
-	{% if page.image %}
-		<figure class="entryImage">
-			<img src="/img/posts/{{ page.image }}" alt="{{ page.title }}">
-		</figure>
-	{% endif %}
-
-	<h1 class="entry--title">{{ page.title }}</h1>
-	<time class="entry--date">{{ page.date | date_to_string }}</time>
-
-	<div class="entry-content">
-		{{ content }}
-	</div>
-
-	{% assign author = site.authors[page.author] %}
-	<a href="http://twitter.com/{{ author.twitter }}" class="author">
-		<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
-		<div class="author-by">by</div>
-		<div class="author-name">{{ author.display_name }}</div>
-	</a>
-
-	{% if page.comments %}
-		<div id="disqus_thread"></div>
-		<script type="text/javascript">
-		{% if page.comments_old %}
-			var disqus_shortname = 'tmwlabs';
-		{% else %}
-			var disqus_shortname = 'martineau-tv';
+<!--  === MAIN CONTENT ===  -->
+<section class="container" role="main">
+	<article class="entry">
+		{% if page.image %}
+			<figure class="entryImage">
+				<img src="/img/posts/{{ page.image }}" alt="{{ page.title }}">
+			</figure>
 		{% endif %}
-		{% if page.comments_id %}
-			var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
-		{% endif %}
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-	{% endif %}
 
-</article>
+		<h1 class="entry--title">{{ page.title }}</h1>
+		<time class="entry--date">{{ page.date | date_to_string }}</time>
+
+		<div class="entry-content">
+			{{ content }}
+		</div>
+
+		{% assign author = site.authors[page.author] %}
+		<a href="http://twitter.com/{{ author.twitter }}" class="author">
+			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
+			<div class="author-by">by</div>
+			<div class="author-name">{{ author.display_name }}</div>
+		</a>
+
+		{% if page.comments %}
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+			{% if page.comments_old %}
+				var disqus_shortname = 'tmwlabs';
+			{% else %}
+				var disqus_shortname = 'martineau-tv';
+			{% endif %}
+			{% if page.comments_id %}
+				var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
+			{% endif %}
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		{% endif %}
+
+	</article>
+</section>
 
 <!-- Pagination links -->
 <div class="pagination">
-	{% if page.previous %}
-		<a href="{{page.previous.url}}">Previous post</a>
-	{% endif %}
-	{% if page.next %}
-		<a href="{{page.next.url}}">Next post</a>
-	{% endif %}
+	<div class="container">
+		{% if page.previous %}
+			<a href="{{page.previous.url}}" class="pagination-older">Previous post</a>
+		{% endif %}
+		{% if page.next %}
+			<a href="{{page.next.url}}" class="pagination-newer">Next post</a>
+		{% endif %}
+	</div>
 </div>

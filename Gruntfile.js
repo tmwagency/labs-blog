@@ -140,7 +140,6 @@ module.exports = function (grunt) {
 
 			js: {
 				files: [
-					'Gruntfile.js',
 					'js/*.js',
 					'js/libs/**/*.js'
 				],
@@ -151,7 +150,7 @@ module.exports = function (grunt) {
 				files: [
 					'_includes/**/*.html',
 					'_layouts/**/*.html',
-					'**/*.md',
+					'_posts/**/*.md',
 					'*.html'
 				],
 				tasks: 'jekyll'
@@ -161,8 +160,7 @@ module.exports = function (grunt) {
 				options: { livereload: true },
 				files: [
 					'_site/**/*.html',
-					'css/*.css'
-
+					'_site/css/*.css'
 				]
 			}
 		},

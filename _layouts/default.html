@@ -2,28 +2,7 @@
 	<!--  === MASTHEAD ===  -->
 	{% include masthead.html %}
 
-	<!--  === MAIN CONTENT ===  -->
-	<section class="container" role="main">
-		{{ content }}
-	</section>
-
-	<!-- Pagination links -->
-	<div class="pagination">
-		<div class="container">
-			{% if paginator.next_page %}
-				<a href="{{ paginator.next_page_path }}" class="next">< Older</a>
-			{% endif %}
-
-			{% if paginator.previous_page and paginator.next_page %}
-			|
-			{% endif %}
-
-			{% if paginator.previous_page %}
-				<a href="{{ paginator.previous_page_path }}">Newer ></a>
-			{% endif %}
-
-		</div>
-	</div>
+	{{ content }}
 
 	<!--  === FOOTER ===  -->
 	{% include footer.html %}

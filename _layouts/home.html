@@ -2,4 +2,25 @@
 
 	{{ content }}
 
+	<!-- Pagination links -->
+	<div class="pagination">
+		<div class="container">
+			{% if paginator.next_page %}
+				<a href="{{ paginator.next_page_path }}" class="pagination-older">< Older</a>
+			{% endif %}
+
+			{% if paginator.previous_page and paginator.next_page %}
+			|
+			{% endif %}
+
+			{% if paginator.previous_page %}
+				<a href="{{ paginator.previous_page_path }}" class="pagination-newer">Newer ></a>
+			{% endif %}
+
+		</div>
+	</div>
+
+	<!--  === FOOTER ===  -->
+	{% include footer.html %}
+
 {% include html_end.html %}
