@@ -25,6 +25,7 @@ authors:
 
   zander:
     display_name: Zander Martineau
+    short_desc:
     avatar: zmartineau.jpeg
     email: zmartineau@tmw.co.uk
     web: http:martineau.tv
@@ -33,6 +34,7 @@ authors:
 
   ivan:
     display_name: Ivan Hayes
+    short_desc:
     avatar: ihayes.jpeg
     email: ihayes@tmw.co.uk
     web:
@@ -41,6 +43,7 @@ authors:
 
   ashsheridan:
     display_name: Ashley Sheridan
+    short_desc:
     avatar: asheridan.jpeg
     email: asheridan@tmw.co.uk
     web:
@@ -49,6 +52,7 @@ authors:
 
   fabs:
     display_name: Fabian Andrade Valencia
+    short_desc:
     avatar: favalencia.jpeg
     email: favalencia@tmw.co.uk
     web:
@@ -57,6 +61,7 @@ authors:
 
   ciaran:
     display_name: Ciaran Park
+    short_desc:
     avatar: cpark.jpeg
     email: cpark@tmw.co.uk
     web:
@@ -65,6 +70,7 @@ authors:
 
   george:
     display_name: George Bardis
+    short_desc:
     avatar: gbardis.jpeg
     email: gbardis@tmw.co.uk
     web:
