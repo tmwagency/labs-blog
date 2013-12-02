@@ -5,5 +5,12 @@
 	&, a {
 		color: #f0f0f0;
 		text-shadow: 0 -1px 0 #000;
+
+		&:hover {
+			color: $pink;
+		}
 	}
+}
+.pagination-newer {
+	float: right;
 }

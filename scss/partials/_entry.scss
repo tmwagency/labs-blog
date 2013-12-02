@@ -4,43 +4,84 @@
 	@include border-radius(2px);
 }
 
-.entry--title {
-	@include font-size(50);
-	margin-bottom: 0.4em;
-}
+	.entry-title {
+		@include font-size(50);
+		margin-top: 0;
+		margin-bottom: $verticalRhythm + px;
+	}
+	.entry-date {
+		display: block;
+		margin-bottom: $verticalRhythm + px;
+	}
+	.entry-author {
+		float: right;
+		margin-left: 5%;
+	}
 
-.entry--date {
-	display: block;
-	margin-bottom: 28px;
-}
+	.entry-content {
+		//only on the post page
+		.post & {
+			border-bottom: 1px solid #ddd;
+			margin-bottom: $verticalRhythm + px;
+			padding-bottom: $verticalRhythm + px;
+		}
+	}
 
 /*
    Author info
    ========================================================================== */
 .author {
 	display: block;
-	text-align: center;
+	text-align: left;
+
+	.post & {
+		border-top: 1px solid #ddd;
+		padding-top: ($verticalRhythm * 2) + px;
+	}
 }
-.author-img {
-	width: 100px;
-	@include border-radius(100px);
-	display: inline-block;
-	border: 4px solid #fff;
-	@include box-shadow(0px 2px 5px rgba(0,0,0,.25));
-}
-.author-by {
-	font-family: $serif-font-family;
-	font-style: italic;
-}
-.author-name {
-	font-family: $sans-font-family;
-	font-weight: 700;
-	text-transform: uppercase;
-}
+	.author-img {
+		float: right;
+		max-width: 70px;
+		@include border-radius(100px);
+		display: inline-block;
+		border: 4px solid #fff;
+		@include box-shadow(0px 2px 5px rgba(0,0,0,.25));
+
+		.post & {
+			margin-left: 20px;
+			max-width: 90px;
+		}
+	}
+	.author-by {
+		font-family: $serif-font-family;
+		font-style: italic;
+	}
+	.author-name {
+		font-family: $sans-font-family;
+		@include font-size(18);
+		font-weight: 700;
+		text-transform: uppercase;
+
+		margin-top: 0;
+		margin-bottom: ($verticalRhythm /4) + px;
+
+		.entries & {
+			@include font-size(16);
+			margin: 0 0 ($verticalRhythm/4) + px;
+			font-style: italic;
+			color: $color-text;
+		}
+	}
+	.author-desc {
+		color: $color-text;
+		margin-bottom: 0;
+	}
 
 
 #disqus_thread {
-	margin-top: 56px;
+	margin-top: ($verticalRhythm * 2) + px;
+	border-top: 1px solid #ddd;
+	padding-top: ($verticalRhythm * 2) + px;
 }
 
 // === <$breakpoint-wide ===

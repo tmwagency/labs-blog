@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 h1, .h1, .alpha {
 	@include font-size($h1-size);
 	margin-top: 0;
-	margin-bottom: ($base-line-height * 2) + px;
+	margin-bottom: $verticalRhythm + px;
 }
 
 h2, .h2, .beta {
@@ -152,6 +152,16 @@ a {
 	&:active {
 		color: $color-link-active;
 		//text-decoration: underline;
+	}
+
+	.touch & {
+		&:after {
+			font-family: 'icons';
+			content: "\e603";
+			@include font-size(16);
+			position: relative;
+			top: 3px;
+		}
 	}
 }
 

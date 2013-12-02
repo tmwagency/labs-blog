@@ -1,6 +1,8 @@
 .entries {
 	.entry {
 		margin-bottom: 10px;
+		//border-bottom: 1px solid #ddd;
+		@include box-shadow(0px 1px 3px #ddd);
 	}
 }
 
@@ -8,7 +10,7 @@
 @include respond-min($breakpoint-wide) {
 	.entries {
 		.entry {
-			margin-bottom: 100px;
+			margin-bottom: ($verticalRhythm * 3) + px;
 		}
 	}
 }

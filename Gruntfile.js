@@ -133,9 +133,10 @@ module.exports = function (grunt) {
 				files: [
 					'img/*.jpeg',
 					'img/*.gif',
-					'img/*.png'
+					'img/*.png',
+					'fonts/*.*'
 				],
-				tasks : 'copy:img'
+				tasks : 'copy:assets'
 			},
 
 			js: {
@@ -151,7 +152,8 @@ module.exports = function (grunt) {
 					'_includes/**/*.html',
 					'_layouts/**/*.html',
 					'_posts/**/*.md',
-					'*.html'
+					'*.html',
+					'Gruntfile.js'
 				],
 				tasks: 'jekyll'
 			},
@@ -173,9 +175,10 @@ module.exports = function (grunt) {
 					{ expand: true, cwd: './js', src: ['./**/*.*'], dest: '_site/js' }
 				]
 			},
-			img : {
+			assets : {
 				files: [
-					{ expand: true, cwd: './img', src: ['./**/*.*'], dest: 'img' }
+					{ expand: true, cwd: './img', src: ['./**/*.*'], dest: 'img' },
+					{ expand: true, cwd: './fonts', src: ['./**/*.*'], dest: 'fonts' }
 				]
 			},
 			css : {
@@ -271,7 +274,9 @@ module.exports = function (grunt) {
 		jekyll : {
 			options : {
 				server : false,
-				auto : false
+				auto : false,
+				drafts : true,
+				future : false
 			},
 			blog: {
 				src: './',

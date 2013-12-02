@@ -12,8 +12,21 @@ a {
 
 
 .footer-links-item {
+	font-family: $mono-font-family;
 	margin-right: 40px;
+
+	&:hover {
+		color: $pink;
+	}
 }
+	.footer-links-item--right {
+		float: right;
+	}
+
+	.kickoff {
+		text-decoration: underline;
+		font-weight: 700;
+	}
 
 /* ==========================================================================
    Media queries for responsive design

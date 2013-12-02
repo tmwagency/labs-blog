@@ -5,7 +5,7 @@ include: ['.htaccess']
 exclude: ['node_modules', 'scss', 'Gruntfile.js', 'package.json', '*.sublime-project', '*.sublime-workspace', 'LICENSE']
 timezone: Europe/London
 
-paginate: 2
+paginate: 10
 paginate_path: /:num
 
 labs:
@@ -16,11 +16,13 @@ labs:
 authors:
   dragon:
     display_name: Ashley Nolan
+    short_desc: Ashley is a creative technologist at TMW.  After reading about Amazon's new delivery plans, he is currently preparing for the advent of Skynet and welcomes our new drone overlords.
     avatar: anolan.jpeg
     email: anolan@tmw.co.uk
     web: http://www.dragongraphics.co.uk
     twitter: dragongraphics
     github: ashleynolan
+
   zander:
     display_name: Zander Martineau
     avatar: zmartineau.jpeg
@@ -28,3 +30,44 @@ authors:
     web: http:martineau.tv
     twitter: mrmartineau
     github: mrmartineau
+
+  ivan:
+    display_name: Ivan Hayes
+    avatar: ihayes.jpeg
+    email: ihayes@tmw.co.uk
+    web:
+    twitter:
+    github:
+
+  ashsheridan:
+    display_name: Ashley Sheridan
+    avatar: asheridan.jpeg
+    email: asheridan@tmw.co.uk
+    web:
+    twitter:
+    github:
+
+  fabs:
+    display_name: Fabian Andrade Valencia
+    avatar: favalencia.jpeg
+    email: favalencia@tmw.co.uk
+    web:
+    twitter:
+    github:
+
+  ciaran:
+    display_name: Ciaran Park
+    avatar: cpark.jpeg
+    email: cpark@tmw.co.uk
+    web:
+    twitter:
+    github:
+
+  george:
+    display_name: George Bardis
+    avatar: gbardis.jpeg
+    email: gbardis@tmw.co.uk
+    web:
+    twitter:
+    github:
+

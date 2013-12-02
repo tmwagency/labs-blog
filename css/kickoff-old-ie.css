@@ -464,7 +464,7 @@ h1, .h1, .alpha {
   font-size: 60px;
   font-size: 3.75rem;
   margin-top: 0;
-  margin-bottom: 44px;
+  margin-bottom: 20px;
 }
 
 h2, .h2, .beta {
@@ -529,6 +529,14 @@ a:hover, a:focus {
 }
 a:active {
   color: #b40034;
+}
+.touch a:after {
+  font-family: 'icons';
+  content: "\e603";
+  font-size: 16px;
+  font-size: 1rem;
+  position: relative;
+  top: 3px;
 }
 
 /*
@@ -741,15 +749,15 @@ samp {
 }
 
 @font-face {
-  font-family: 'icomoon';
-  src: url("http://i.icomoon.io/public/temp/4b7800cb5d/UntitledProject1/icomoon.eot?m9bp5z");
-  src: url("http://i.icomoon.io/public/temp/4b7800cb5d/UntitledProject1/icomoon.eot?#iefixm9bp5z") format("embedded-opentype"), url("http://i.icomoon.io/public/temp/4b7800cb5d/UntitledProject1/icomoon.ttf?m9bp5z") format("truetype"), url("http://i.icomoon.io/public/temp/4b7800cb5d/UntitledProject1/icomoon.woff?m9bp5z") format("woff"), url("http://i.icomoon.io/public/temp/4b7800cb5d/UntitledProject1/icomoon.svg?m9bp5z#icomoon") format("svg");
+  font-family: 'icons';
+  src: url("/fonts/icons.eot");
+  src: url("/fonts/icons.eot?#iefix") format("embedded-opentype"), url("/fonts/icons.ttf") format("truetype"), url("/fonts/icons.woff") format("woff"), url("/fonts/icons.svg#icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"], .iconFont {
-  font-family: 'icomoon';
+  font-family: 'icons';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -762,7 +770,7 @@ samp {
 }
 
 [data-icon]:before {
-  font-family: 'icomoon';
+  font-family: 'icons';
   content: attr(data-icon);
   speak: none;
   /* Not to be trusted, but hey. */
@@ -777,8 +785,24 @@ samp {
   content: "\e601";
 }
 
-.icon-arrow-right:before {
+.icon-arrow-right:after {
   content: "\e602";
+  vertical-align: middle;
+}
+
+.icon-arrow-right-small:after {
+  content: "\e603";
+  vertical-align: middle;
+}
+
+.icon-arrow-left:before {
+  content: "\e604";
+  vertical-align: middle;
+}
+
+.icon-arrow-left-small:before {
+  content: "\e605";
+  vertical-align: middle;
 }
 
 /* ==========================================================================
@@ -2003,7 +2027,20 @@ a {
 }
 
 .footer-links-item {
+  font-family: "source-code-pro", Menlo, Monaco, "Courier New", monospace;
   margin-right: 40px;
+}
+.footer-links-item:hover {
+  color: #ff024b;
+}
+
+.footer-links-item--right {
+  float: right;
+}
+
+.kickoff {
+  text-decoration: underline;
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -2038,10 +2075,14 @@ a {
 
 .entries .entry {
   margin-bottom: 10px;
+  -webkit-box-shadow: 0px 1px 3px #dddddd;
+  -moz-box-shadow: 0px 1px 3px #dddddd;
+  -o-box-shadow: 0px 1px 3px #dddddd;
+  box-shadow: 0px 1px 3px #dddddd;
 }
 
 .entries .entry {
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 
 .entry {
@@ -2053,15 +2094,27 @@ a {
   border-radius: 2px;
 }
 
-.entry--title {
+.entry-title {
   font-size: 50px;
   font-size: 3.125rem;
-  margin-bottom: 0.4em;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
-.entry--date {
+.entry-date {
   display: block;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
+}
+
+.entry-author {
+  float: right;
+  margin-left: 5%;
+}
+
+.post .entry-content {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 /*
@@ -2069,11 +2122,16 @@ a {
    ========================================================================== */
 .author {
   display: block;
-  text-align: center;
+  text-align: left;
+}
+.post .author {
+  border-top: 1px solid #ddd;
+  padding-top: 40px;
 }
 
 .author-img {
-  width: 100px;
+  float: right;
+  max-width: 70px;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   -o-border-radius: 100px;
@@ -2085,6 +2143,10 @@ a {
   -o-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
 }
+.post .author-img {
+  margin-left: 20px;
+  max-width: 90px;
+}
 
 .author-by {
   font-family: "ff-spinoza-web-pro", Georgia, "Times New Roman", Times, serif;
@@ -2093,12 +2155,30 @@ a {
 
 .author-name {
   font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.entries .author-name {
+  font-size: 16px;
+  font-size: 1rem;
+  margin: 0 0 5px;
+  font-style: italic;
+  color: #434343;
+}
+
+.author-desc {
+  color: #434343;
+  margin-bottom: 0;
 }
 
 #disqus_thread {
-  margin-top: 56px;
+  margin-top: 40px;
+  border-top: 1px solid #ddd;
+  padding-top: 40px;
 }
 
 .entry-content img,
@@ -2129,6 +2209,13 @@ a {
 .pagination, .pagination a {
   color: #f0f0f0;
   text-shadow: 0 -1px 0 #000;
+}
+.pagination:hover, .pagination a:hover {
+  color: #ff024b;
+}
+
+.pagination-newer {
+  float: right;
 }
 
 /*

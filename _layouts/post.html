@@ -2,7 +2,7 @@
 layout: default
 ---
 <!--  === MAIN CONTENT ===  -->
-<section class="container" role="main">
+<section class="container post" role="main">
 	<article class="entry">
 		{% if page.image %}
 			<figure class="entryImage">
@@ -10,19 +10,23 @@ layout: default
 			</figure>
 		{% endif %}
 
-		<h1 class="entry--title">{{ page.title }}</h1>
-		<time class="entry--date">{{ page.date | date_to_string }}</time>
+		<h1 class="entry-title">{{ page.title }}</h1>
 
 		<div class="entry-content">
 			{{ content }}
 		</div>
 
+		<time class="entry-date">Posted on {{ page.date | date_to_string }}</time>
+
 		{% assign author = site.authors[page.author] %}
-		<a href="http://twitter.com/{{ author.twitter }}" class="author">
-			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
-			<div class="author-by">by</div>
-			<div class="author-name">{{ author.display_name }}</div>
-		</a>
+		<div class="author">
+			<a href="http://twitter.com/{{ author.twitter }}">
+				<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
+				<h3 class="author-name">{{ author.display_name }}</h3>
+			</a>
+			<p class="author-desc">{{ author.short_desc }}</p>
+		</div>
+
 
 		{% if page.comments %}
 			<div id="disqus_thread"></div>
@@ -51,10 +55,10 @@ layout: default
 <div class="pagination">
 	<div class="container">
 		{% if page.previous %}
-			<a href="{{page.previous.url}}" class="pagination-older">Previous post</a>
+			<a href="{{page.previous.url}}" class="pagination-older icon-arrow-left-small">Previous post</a>
 		{% endif %}
 		{% if page.next %}
-			<a href="{{page.next.url}}" class="pagination-newer">Next post</a>
+			<a href="{{page.next.url}}" class="pagination-newer icon-arrow-right-small">Next post</a>
 		{% endif %}
 	</div>
 </div>
