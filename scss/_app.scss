@@ -86,6 +86,7 @@ a {
 }
 	.footer-links-item {
 		display: block;
+		margin-bottom: $verticalRhythm + px;
 
 		@include respond-min($breakpoint-mid) {
 			display: inline;
@@ -118,7 +119,7 @@ a {
 		margin-top: $verticalRhythm + px;
 
 		@include respond-min($breakpoint-wide) {
-			padding-right: 30%;
+			padding-right: 20%;
 		}
 	}
 
