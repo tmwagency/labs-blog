@@ -31,11 +31,8 @@ layout: default
 		{% if page.comments %}
 			<div id="disqus_thread"></div>
 			<script type="text/javascript">
-			{% if page.comments_old %}
-				var disqus_shortname = 'tmwlabs';
-			{% else %}
-				var disqus_shortname = 'martineau-tv';
-			{% endif %}
+			var disqus_shortname = 'labstmw';
+
 			{% if page.comments_id %}
 				var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
 			{% endif %}

@@ -3,15 +3,13 @@ layout: default
 title: Authors - TMW Labs Blog
 ---
 <div class="container">
-	<div class="entries">
+	<div class="content">
 		<h1>Authors</h1>
 	{% for author in site.authors %}
 
-		<article class="author">
-
+		<article class="authorBio">
 			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
 			<h2 class="entry-title">{{ author.display_name }}</h2>
-
 			<p class="author-content">{{ author.desc }}</p>
 		</article>
 	{% endfor %}

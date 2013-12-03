@@ -9,6 +9,13 @@ a {
 	margin: 0 auto;
 	max-width: 700px;
 }
+	.content {
+		background: #fff;
+	}
+
+//  ============
+//  === LOGO ===
+//  ============
 	.logo {
 		position: relative;
 		//border: 5px solid $pink;
@@ -67,6 +74,10 @@ a {
 		.logo-tagline {
 			padding: 0 5%;
 		}
+
+//  ==============
+//  === FOOTER ===
+//  ==============
 
 .footer,
 .footer p {
@@ -130,31 +141,3 @@ a {
 	// }
 
 }
-
-// === $breakpoint-narrow> ===
-@include respond-min($breakpoint-narrow) {
-
-}
-// === end $breakpoint-narrow> ===
-
-
-
-// === $breakpoint-mid> ===
-@include respond-min($breakpoint-mid) {
-
-}
-// === end $breakpoint-mid> ===
-
-
-// === $breakpoint-wide> ===
-@include respond-min($breakpoint-wide) {
-
-}
-// === end $breakpoint-wide> ===
-
-
-// === $breakpoint-huge> ===
-@include respond-min($breakpoint-huge) {
-
-}
-// === end $breakpoint-huge> ===

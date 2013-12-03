@@ -2019,6 +2019,10 @@ a {
   max-width: 700px;
 }
 
+.content {
+  background: #fff;
+}
+
 .logo {
   position: relative;
   padding: 2% 5%;
@@ -2331,6 +2335,73 @@ a {
 
 .pagination-newer {
   float: right;
+}
+
+/*
+   Author info
+   ========================================================================== */
+.author {
+  display: block;
+  text-align: left;
+}
+.post .author {
+  border-top: 1px solid #ddd;
+  padding-top: 40px;
+}
+
+.author-img {
+  float: right;
+  max-width: 70px;
+  display: inline-block;
+  border: 4px solid #fff;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -o-border-radius: 100px;
+  border-radius: 100px;
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  -o-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.author-img:hover {
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
+  -o-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.75);
+}
+.post .author-img {
+  margin-left: 20px;
+  max-width: 90px;
+}
+
+.author-by {
+  font-family: "chaparral-pro", Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+}
+
+.author-name {
+  font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.entries .author-name {
+  font-size: 16px;
+  font-size: 1rem;
+  margin: 0 0 20px;
+  color: #777;
+}
+
+.author-desc {
+  color: #434343;
+  margin-bottom: 0;
 }
 
 /*

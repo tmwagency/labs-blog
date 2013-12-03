@@ -152,6 +152,7 @@ module.exports = function (grunt) {
 					'_includes/**/*.html',
 					'_layouts/**/*.html',
 					'_posts/**/*.md',
+					'authors/*.html',
 					'*.html',
 					'Gruntfile.js'
 				],
@@ -161,7 +162,7 @@ module.exports = function (grunt) {
 			livereload: {
 				options: { livereload: true },
 				files: [
-					'_site/**/*.html',
+					//'_site/**/*.html',
 					'_site/css/*.css'
 				]
 			}
