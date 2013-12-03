@@ -41,6 +41,24 @@ authors:
     twitter:
     github:
 
+  roo:
+    display_name: Andrew Williams
+    short_desc:
+    avatar: awilliams.jpeg
+    email: awilliams@tmw.co.uk
+    web:
+    twitter:
+    github:
+
+  ciaran:
+    display_name: Ciaran Park
+    short_desc:
+    avatar: cpark.jpeg
+    email: cpark@tmw.co.uk
+    web:
+    twitter:
+    github:
+
   ashsheridan:
     display_name: Ashley Sheridan
     short_desc:
@@ -55,15 +73,6 @@ authors:
     short_desc:
     avatar: favalencia.jpeg
     email: favalencia@tmw.co.uk
-    web:
-    twitter:
-    github:
-
-  ciaran:
-    display_name: Ciaran Park
-    short_desc:
-    avatar: cpark.jpeg
-    email: cpark@tmw.co.uk
     web:
     twitter:
     github:
