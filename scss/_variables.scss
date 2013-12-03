@@ -45,11 +45,11 @@ $bold-font-weight             : bold;
 
 // Font stacks
 $sans-font-family             : "freight-sans-pro","Helvetica Neue", Helvetica, Arial, sans-serif;
-$serif-font-family            : "ff-spinoza-web-pro",Georgia, "Times New Roman", Times, serif;
+$serif-font-family            : "chaparral-pro", Georgia, "Times New Roman", Times, serif;
 $mono-font-family             : 'source-code-pro', Menlo, Monaco, "Courier New", monospace;
 
-$base-font-family             : $mono-font-family;
-$alt-font-family              : $serif-font-family;
+$base-font-family             : $serif-font-family;
+$alt-font-family              : $mono-font-family;
 
 $headings-font-family         : $sans-font-family; // empty to use Kickoff default $base-font-family
 $headings-font-weight         : 600;    // instead of browser default, bold

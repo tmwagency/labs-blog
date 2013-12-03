@@ -13,13 +13,11 @@ title: TMW Labs Blog
 				<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
 			</a>
 			<h1 class="entry-title"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
-			<h2 class="author-name">By <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></h2>
+			<h2 class="author-name"><time class="entry-date">Posted on {{ post.date | date_to_string }}</time> by <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></h2>
 
-			<time class="entry-date">Posted on {{ post.date | date_to_string }}</time>
 
-			<div class="entry-content">
-				{{ post.excerpt }}
-			</div>
+
+			<p class="entry-content">{{ post.excerpt }}</p>
 		</article>
 	{% endfor %}
 	</div>
@@ -29,7 +27,7 @@ title: TMW Labs Blog
 <div class="pagination">
 	<div class="container">
 		{% if paginator.next_page %}
-			<a href="{{ paginator.next_page_path }}" class="pagination-older icon-arrow-left-small">< Older</a>
+			<a href="{{ paginator.next_page_path }}" class="pagination-older"><span class="icon-arrow-left-small"></span>Older</a>
 		{% endif %}
 
 		{% if paginator.previous_page and paginator.next_page %}
@@ -37,7 +35,7 @@ title: TMW Labs Blog
 		{% endif %}
 
 		{% if paginator.previous_page %}
-			<a href="{{ paginator.previous_page_path }}" class="pagination-newer icon-arrow-right-small">Newer ></a>
+			<a href="{{ paginator.previous_page_path }}" class="pagination-newer icon-arrow-right-small">Newer<span class="icon-arrow-right-small"></span></a>
 		{% endif %}
 
 	</div>

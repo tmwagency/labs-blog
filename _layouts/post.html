@@ -16,7 +16,7 @@ layout: default
 			{{ content }}
 		</div>
 
-		<time class="entry-date">Posted on {{ page.date | date_to_string }}</time>
+		<p class="entry-date"><time>Posted on {{ page.date | date_to_string }}</time></p>
 
 		{% assign author = site.authors[page.author] %}
 		<div class="author">
@@ -52,13 +52,13 @@ layout: default
 </section>
 
 <!-- Pagination links -->
-<div class="pagination">
+<div class="pagination clearfix">
 	<div class="container">
 		{% if page.previous %}
-			<a href="{{page.previous.url}}" class="pagination-older icon-arrow-left-small">Previous post</a>
+			<a href="{{page.previous.url}}" class="pagination-older"><span class="icon-arrow-left-small"></span>Previous post</a>
 		{% endif %}
 		{% if page.next %}
-			<a href="{{page.next.url}}" class="pagination-newer icon-arrow-right-small">Next post</a>
+			<a href="{{page.next.url}}" class="pagination-newer">Next post<span class="icon-arrow-right-small"></span></a>
 		{% endif %}
 	</div>
 </div>

@@ -1,0 +1,38 @@
+---
+layout: default
+title: Authors - TMW Labs Blog
+---
+<div class="container">
+	<div class="entries">
+		<h1>Authors</h1>
+	{% for author in site.authors %}
+
+		<article class="author">
+
+			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
+			<h2 class="entry-title">{{ author.display_name }}</h2>
+
+			<p class="author-content">{{ author.desc }}</p>
+		</article>
+	{% endfor %}
+	</div>
+</div>
+
+<!-- Pagination links -->
+<div class="pagination">
+	<div class="container">
+		{% if paginator.next_page %}
+			<a href="{{ paginator.next_page_path }}" class="pagination-older"><span class="icon-arrow-left-small"></span>Older</a>
+		{% endif %}
+
+		{% if paginator.previous_page and paginator.next_page %}
+		|
+		{% endif %}
+
+		{% if paginator.previous_page %}
+			<a href="{{ paginator.previous_page_path }}" class="pagination-newer icon-arrow-right-small">Newer<span class="icon-arrow-right-small"></span></a>
+		{% endif %}
+
+	</div>
+</div>
+

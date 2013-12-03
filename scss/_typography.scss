@@ -55,9 +55,13 @@ body {
    ========================================================================== */
 p {
 	font-family: $base-font-family;
-	@include font-size($base-font-size);
+	@include font-size(19);
 	margin-top: 0;
 	margin-bottom: $base-line-height + px;
+
+	@include respond-min($breakpoint-narrow) {
+		@include font-size(22);
+	}
 
 	// Measure - ideally about 65 chars per line
 	// =========================================
@@ -76,8 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $headings-font-family;
 	font-weight: $headings-font-weight;
 	text-rendering: optimizelegibility; // Fix the character spacing for headings
-	color: $color-primary;
-	line-height: 1;
+	line-height: 1.2;
 
 	& small {
 		font-weight: normal;
@@ -152,16 +155,6 @@ a {
 	&:active {
 		color: $color-link-active;
 		//text-decoration: underline;
-	}
-
-	.touch & {
-		&:after {
-			font-family: 'icons';
-			content: "\e603";
-			@include font-size(16);
-			position: relative;
-			top: 3px;
-		}
 	}
 }
 
