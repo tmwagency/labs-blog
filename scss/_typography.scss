@@ -36,7 +36,6 @@ body {
 	line-height: $base-leading;
 	color: $color-text;
 	background-color: $color-background;
-	text-shadow: 0 -1px 0 #fff;
 
 	// Two ways to smoothen type, they are disabled by default
 	// Enable only one of them if you need them
@@ -50,18 +49,23 @@ body {
 	// @include opacity(99);
 }
 
+p,
+li {
+	@include font-size(19);
+
+	@include respond-min($breakpoint-narrow) {
+		@include font-size(22);
+	}
+}
+
 /*
    Paragraphs
    ========================================================================== */
 p {
 	font-family: $base-font-family;
-	@include font-size(19);
+
 	margin-top: 0;
 	margin-bottom: $base-line-height + px;
-
-	@include respond-min($breakpoint-narrow) {
-		@include font-size(22);
-	}
 
 	// Measure - ideally about 65 chars per line
 	// =========================================
@@ -98,13 +102,13 @@ h1, .h1, .alpha {
 h2, .h2, .beta {
 	@include font-size($h2-size);
 	margin-top: 0;
-	margin-bottom: $base-line-height + px;
+	margin-bottom: $verticalRhythm + px;
 }
 
 h3, .h3, .gamma {
 	@include font-size($h3-size);
 	margin-top: 0;
-	margin-bottom: 0;
+	margin-bottom: $verticalRhythm + px;
 }
 
 h4, .h4, .delta,
@@ -195,6 +199,10 @@ ul, ol {
 	& ol {
 		margin-bottom: 0;
 	}
+}
+
+li {
+	margin-bottom: ($verticalRhythm/2) + px;
 }
 
 .unstyled,

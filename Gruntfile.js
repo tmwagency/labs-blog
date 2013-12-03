@@ -154,6 +154,7 @@ module.exports = function (grunt) {
 					'_posts/**/*.md',
 					'authors/*.html',
 					'*.html',
+					'*.md',
 					'Gruntfile.js'
 				],
 				tasks: 'jekyll'
@@ -191,7 +192,7 @@ module.exports = function (grunt) {
 			},
 			js: {
 				files: [
-					{ expand: true, cwd: './js', src: ['./**/*.*'], dest: 'dist/assets/js' }
+					{ expand: true, cwd: './js', src: ['./**/*.*'], dest: '_site/js' }
 				]
 			}
 		},
@@ -276,7 +277,7 @@ module.exports = function (grunt) {
 			options : {
 				server : false,
 				auto : false,
-				drafts : true,
+				drafts : false,
 				future : false
 			},
 			blog: {
@@ -324,6 +325,6 @@ module.exports = function (grunt) {
 	 * A task for for a static server with a watch
 	 * run connect and watch
 	 */
-	grunt.registerTask("serve", ["connect", "watch"]);
+	grunt.registerTask("serve", ["jekyll", "connect", "watch"]);
 
 };

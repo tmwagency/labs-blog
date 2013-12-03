@@ -431,7 +431,14 @@ body {
   line-height: 1.4;
   color: #434343;
   background-color: #eeeeee;
-  text-shadow: 0 -1px 0 #fff;
+}
+
+p,
+li {
+  font-size: 19px;
+  font-size: 1.1875rem;
+  font-size: 22px;
+  font-size: 1.375rem;
 }
 
 /*
@@ -439,12 +446,8 @@ body {
    ========================================================================== */
 p {
   font-family: "chaparral-pro", Georgia, "Times New Roman", Times, serif;
-  font-size: 19px;
-  font-size: 1.1875rem;
   margin-top: 0;
   margin-bottom: 22px;
-  font-size: 22px;
-  font-size: 1.375rem;
 }
 
 /*
@@ -472,14 +475,14 @@ h2, .h2, .beta {
   font-size: 30px;
   font-size: 1.875rem;
   margin-top: 0;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 h3, .h3, .gamma {
   font-size: 24px;
   font-size: 1.5rem;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 h4, .h4, .delta,
@@ -564,6 +567,10 @@ ul ol ol, ol ol ol {
 }
 ul ul, ul ol, ol ul, ol ol {
   margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 10px;
 }
 
 .unstyled, form ul, .tabs, .l-tabsContent,
@@ -1462,9 +1469,10 @@ pre,
 }
 
 code {
-  padding: 2px 4px;
-  color: #dd1144;
-  background-color: #fbefc0;
+  padding: 3px 10px;
+  color: white;
+  background-color: #05051f;
+  white-space: nowrap;
 }
 
 pre {
@@ -1493,6 +1501,7 @@ pre code {
   color: #222222;
   background-color: #f7f7f9;
   border: 0;
+  white-space: inherit;
 }
 
 .pre--scrollable {
@@ -2020,7 +2029,17 @@ a {
 }
 
 .content {
-  background: #fff;
+  background-color: #fff;
+  padding: 3% 5% 5%;
+  margin-bottom: 80px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 3px #dddddd;
+  -moz-box-shadow: 0px 1px 3px #dddddd;
+  -o-box-shadow: 0px 1px 3px #dddddd;
+  box-shadow: 0px 1px 3px #dddddd;
 }
 
 .logo {

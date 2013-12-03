@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 title: TMW Labs Blog
 ---
 <div class="container">
@@ -14,8 +14,6 @@ title: TMW Labs Blog
 			</a>
 			<h1 class="entry-title"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
 			<h2 class="author-name"><time class="entry-date">Posted on {{ post.date | date_to_string }}</time> by <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></h2>
-
-
 
 			<p class="entry-content">{{ post.excerpt }}</p>
 		</article>

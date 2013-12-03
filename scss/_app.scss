@@ -10,7 +10,11 @@ a {
 	max-width: 700px;
 }
 	.content {
-		background: #fff;
+		background-color: #fff;
+		padding: 3% 5% 5%;
+		margin-bottom: ($verticalRhythm * 4) + px;
+		@include border-radius(2px);
+		@include box-shadow(0px 1px 3px #ddd);
 	}
 
 //  ============

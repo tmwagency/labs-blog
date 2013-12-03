@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Editing - TMW Labs Blog</title>
+		<meta name="description" content="TMW Labs - where TMW talks Creative Tech">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/qep5gxs.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script>var pageName = '';</script>
+
+		<script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
+
+		<!-- Mobile & Fav Icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/favicons/zm-144.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/favicons/zm-114.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/favicons/zm-72.png">
+		<link rel="apple-touch-icon-precomposed" href="/img/favicons/zm-57.png">
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-title" content="TMW Labs Blog">
+	</head>
+	<body>
+	<!--  === MASTHEAD ===  -->
+	<header class="masthead">
+	<div class="container">
+		
+			<h2 class="logo alpha"><a href="/">labs@tmw</a></h2>
+		
+
+		<p class="logo-tagline">Some chat from those clever creative devs at TMW</p>
+	</div>
+</header>
+
+	<!--  === MAIN CONTENT ===  -->
+<div class="container content">
+	<h1>Editing labs@tmw</h1>
+
+<p>To edit labs@tmw, you must first have a github account and have permissions to edit tmwagency projects.  If you don’t have an account, create one and then let either Zander or Ash know your username so they can add you to the permission set.</p>
+
+<p>From there on, you have two possible options:</p>
+
+<hr />
+
+<h2>1. Editing using prose.io</h2>
+
+<p>If you don’t want to have to build the entire site yourself to see what you article will look like in situ, then there is a simple alternative.</p>
+
+<p><a href="http://prose.io/">prose.io</a> let’s you add and edit markdown files in the browser, so you can write your article, commit it into the repo and then we can move it into the published folder once reviewed.</p>
+
+<hr />
+
+<h2>2. Building the site locally</h2>
+
+<p>If you want to view your article on the site itself, you’ll need to setup the environment locally.</p>
+
+<h3>Before you start</h3>
+
+<p>To build the site, make sure you have installed the latest versions of the following</p>
+
+<ul>
+<li><strong>Ruby</strong> – v2 is needed. Update using <a href="http://rvm.io/">rvm</a></li>
+<li><strong>Jekyll</strong> – install globally by running <code>sudo gem install jekyll</code> from the command line</li>
+<li><strong>rdiscount</strong> – run <code>sudo gem install rdiscount</code></li>
+<li><strong>Sass</strong> – run <code>sudo gem install sass -pre</code></li>
+<li><strong>Node</strong> – follow instructions at <a href="http://nodejs.org/">nodejs.org</a></li>
+<li><strong>Grunt CLI</strong> – run <code>npm install -g grunt-cli</code></li>
+</ul>
+
+
+<hr />
+
+<p>Once you have these dependencies installed, follow the steps below:</p>
+
+<hr />
+
+<h3>Step 1</h3>
+
+<p>In your command line, run <code>git clone https://github.com/tmwagency/labs-blog.git tmw-labs-blog &amp;&amp; cd tmw-labs-blog</code></p>
+
+<hr />
+
+<h3>Step 2</h3>
+
+<p>Run <code>jekyll serve</code></p>
+
+<hr />
+
+<h3>Step 3</h3>
+
+<p>Create (or copy an existing post) a markdown file in the <code>_drafts</code> folder of the site.  The file should be in the format YYYY-MM-DD-post-title-goes-here.md where dashes in the post title get converted into spaces.</p>
+
+<p>Then you can start writing your article using <a href="http://daringfireball.net/projects/markdown">markdown</a>.</p>
+
+<hr />
+
+<h3>Step 4</h3>
+
+<p>When you are ready to preview your post on the site, open the javascript file <code>Gruntfile.js</code> – which is located in the root of the repo – and search for <code>drafts : false</code>.</p>
+
+<p>Changing this to true will automatically rebuild the site <strong>including draft posts</strong>, and so enable you to view your post as it will look on the site when it’s published.</p>
+
+<hr />
+
+<h2>And we’re done!</h2>
+
+<p>That’s it – once you are happy with your article, make sure you let either me or Zander know and we will push it live.</p>
+
+</div>
+
+	<!--  === FOOTER ===  -->
+	<footer class="footer" role="contentinfo">
+	<div class="container footer-links">
+		<a href="http://github.com/tmwagency/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe600;"></span>Github</a>
+		<a href="http://twitter.com/tmw_labs/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe601;"></span>Twitter</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="footer-links-item footer-links-item--right">We also maintain <span class="kickoff">Kickoff</span></a>
+	</div>
+	<p class="container footer-text clearfix">This blog is curated and maintained by the creative technology team at <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank">TMW</a>.
+
+</footer>
+
+	<script src="/js/dist/app.min.js"></script>
+</body>
+</html>
