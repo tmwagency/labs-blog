@@ -29,16 +29,11 @@ a {
 		//display: inline-block;
 		margin: 0 auto;
 
-		> a {
-			position: relative;
-			z-index: 2;
-			background: #05051f;
-
-			&:before {
+		&:before {
 				content: '';
 				border-top: 4px solid $pink;
 				position: absolute;
-				z-index: -1;
+				z-index: 0;
 				top: 55%;
 				left: -300%;
 				width: 1000%;
@@ -48,6 +43,14 @@ a {
 				&:hover:before {
 					border-color: white;
 				}
+
+
+		> a {
+			position: relative;
+			z-index: 2;
+			background: #05051f;
+
+
 
 			&:after {
 				position: relative;
