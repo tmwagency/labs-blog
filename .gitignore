@@ -31,5 +31,5 @@ node_modules/
 *.map
 
 # Jekyll
-_site/
+# _site/
 
