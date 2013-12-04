@@ -52,10 +52,10 @@ layout: default
 <div class="pagination clearfix">
 	<div class="container">
 		{% if page.previous %}
-			<a href="{{page.previous.url}}" class="pagination-older"><span class="icon-arrow-left-small"></span>Previous post</a>
+			<a href="{{page.previous.url}}" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - {{ page.previous.title }}</a>
 		{% endif %}
 		{% if page.next %}
-			<a href="{{page.next.url}}" class="pagination-newer">Next post<span class="icon-arrow-right-small"></span></a>
+			<a href="{{page.next.url}}" class="pagination-item pagination-newer">Next post - {{ page.next.title }}<span class="icon-arrow-right-small"></span></a>
 		{% endif %}
 	</div>
 </div>

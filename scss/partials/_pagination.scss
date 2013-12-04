@@ -2,6 +2,10 @@
 	background-color: #303333;
 	padding: 3em 5%;
 
+	@include respond-max($breakpoint-mid) {
+		@include font-size(12);
+	}
+
 	&, a {
 		font-family: $mono-font-family;
 		color: #f0f0f0;
@@ -14,4 +18,7 @@
 }
 .pagination-newer {
 	float: right;
+}
+.pagination-item {
+	max-width: 48%;
 }

@@ -1,9 +1,7 @@
 ---
 layout: content
-title: Editing - TMW Labs Blog
+title: Editing labs@tmw
 ---
-
-#Editing labs@tmw
 
 To edit labs@tmw, you must first have a github account and have permissions to edit tmwagency projects.  If you don’t have an account, create one and then let either Zander or Ash know your username so they can add you to the permission set.
 
@@ -58,7 +56,7 @@ Run `jekyll serve`
 
 Create (or copy an existing post) a markdown file in the `_drafts` folder of the site.  The file should be in the format YYYY-MM-DD-post-title-goes-here.md where dashes in the post title get converted into spaces.
 
-Then you can start writing your article using [markdown](http://daringfireball.net/projects/markdown).
+Then you can start writing your article using [markdown](http://daringfireball.net/projects/markdown/basics).
 
 - - -
 

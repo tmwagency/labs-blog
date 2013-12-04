@@ -22,12 +22,13 @@ a {
 //  ============
 	.logo {
 		position: relative;
-		//border: 5px solid $pink;
-		//border-bottom: 5px solid $pink;
 		padding: 2% 5%;
 		text-align: left;
-		//display: inline-block;
 		margin: 0 auto;
+
+		@include respond-max($breakpoint-mid) {
+			@include font-size(40);
+		}
 
 		&:before {
 				content: '';
@@ -68,6 +69,12 @@ a {
 				@include opacity(0);
 				@include font-size(40);
 				@include transition(all 200ms ease-in-out);
+
+				@include respond-max($breakpoint-mid) {
+					top: 26%;
+					@include font-size(30);
+					letter-spacing: -39px;
+				}
 			}
 			&:hover {
 				padding-right: 30px;
@@ -82,55 +89,13 @@ a {
 	}
 		.logo-tagline {
 			padding: 0 5%;
-		}
 
-//  ==============
-//  === FOOTER ===
-//  ==============
-
-.footer,
-.footer p {
-	font-family: $mono-font-family;
-	@include font-size(16);
-}
-	.footer-links-item {
-		display: block;
-		margin-bottom: $verticalRhythm + px;
-
-		@include respond-min($breakpoint-mid) {
-			display: inline;
-			margin-right: 40px;
-		}
-
-		&:hover {
-			color: $pink;
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
-	}
-		.footer-links-item--right {
-			@include respond-min($breakpoint-mid) {
-				float: right;
+			@include respond-max($breakpoint-mid) {
+				@include font-size(16);
 			}
 		}
 
-		.footer p > a,
-		.kickoff {
-			text-decoration: underline;
-			font-weight: 700;
-		}
 
-	.footer-text {
-		border-top: 1px solid #666;
-		padding-top: $verticalRhythm + px;
-		margin-top: $verticalRhythm + px;
-
-		@include respond-min($breakpoint-wide) {
-			padding-right: 20%;
-		}
-	}
 
 /* ==========================================================================
    Media queries for responsive design

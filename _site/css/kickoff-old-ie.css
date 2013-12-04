@@ -2107,43 +2107,6 @@ a {
   padding: 0 5%;
 }
 
-.footer,
-.footer p {
-  font-family: "source-code-pro", Menlo, Monaco, "Courier New", monospace;
-  font-size: 16px;
-  font-size: 1rem;
-}
-
-.footer-links-item {
-  display: block;
-  margin-bottom: 20px;
-  display: inline;
-  margin-right: 40px;
-}
-.footer-links-item:hover {
-  color: #ff024b;
-}
-.footer-links-item:last-child {
-  margin-right: 0;
-}
-
-.footer-links-item--right {
-  float: right;
-}
-
-.footer p > a,
-.kickoff {
-  text-decoration: underline;
-  font-weight: 700;
-}
-
-.footer-text {
-  border-top: 1px solid #666;
-  padding-top: 20px;
-  margin-top: 20px;
-  padding-right: 20%;
-}
-
 /* ==========================================================================
    Media queries for responsive design
    ========================================================================== */
@@ -2193,6 +2156,9 @@ a {
   -moz-border-radius: 2px;
   -o-border-radius: 2px;
   border-radius: 2px;
+}
+.post .entry {
+  padding: 5% 10% 5%;
 }
 
 .entry-title {
@@ -2272,11 +2238,51 @@ a {
 
 .footer {
   background-color: #444444;
+  padding: 4em 5%;
   padding: 5em 5%;
 }
 .footer, .footer a {
   color: #f0f0f0;
   text-shadow: 0 -1px 0 #000;
+}
+
+.footer,
+.footer p {
+  font-family: "source-code-pro", Menlo, Monaco, "Courier New", monospace;
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+.footer-links-item {
+  display: block;
+  margin-bottom: 20px;
+  display: inline;
+  margin-right: 40px;
+}
+.footer-links-item:hover {
+  color: #ff024b;
+}
+.footer-links-item:last-child {
+  margin-right: 0;
+}
+
+.footer-links-item--right {
+  float: right;
+}
+
+.footer p > a,
+.kickoff {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.footer-text {
+  border-top: 1px solid #666;
+  padding-top: 20px;
+  margin-top: 20px;
+  padding-right: 20%;
 }
 
 .pagination {
@@ -2294,6 +2300,10 @@ a {
 
 .pagination-newer {
   float: right;
+}
+
+.pagination-item {
+  max-width: 48%;
 }
 
 /*

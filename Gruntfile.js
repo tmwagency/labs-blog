@@ -152,6 +152,7 @@ module.exports = function (grunt) {
 					'_includes/**/*.html',
 					'_layouts/**/*.html',
 					'_posts/**/*.md',
+					'_drafts/**/*.md',
 					'authors/*.html',
 					'*.html',
 					'*.md',
@@ -179,8 +180,8 @@ module.exports = function (grunt) {
 			},
 			assets : {
 				files: [
-					{ expand: true, cwd: './img', src: ['./**/*.*'], dest: 'img' },
-					{ expand: true, cwd: './fonts', src: ['./**/*.*'], dest: 'fonts' }
+					{ expand: true, cwd: './img', src: ['./**/*.*'], dest: '_site/img' },
+					{ expand: true, cwd: './fonts', src: ['./**/*.*'], dest: '_site/fonts' }
 				]
 			},
 			css : {
