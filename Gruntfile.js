@@ -151,6 +151,7 @@ module.exports = function (grunt) {
 				files: [
 					'_includes/**/*.html',
 					'_layouts/**/*.html',
+					'archive/**/*.html',
 					'_posts/**/*.md',
 					'_drafts/**/*.md',
 					'authors/*.html',
