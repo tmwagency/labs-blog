@@ -8,6 +8,10 @@ timezone: Europe/London
 paginate: 10
 paginate_path: /:num
 
+name: labs@tmw
+description: TMW agency's tech blog
+url: http://labs.tmw.co.uk
+
 labs:
   url: http://labs.tmw.co.uk
   twitter: tmw_labs

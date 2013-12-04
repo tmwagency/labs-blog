@@ -10,6 +10,10 @@
 		color: #f0f0f0;
 		text-shadow: 0 -1px 0 #000;
 	}
+
+	a:hover {
+		color: $pink;
+	}
 }
 
 //  ==============
@@ -27,15 +31,11 @@
 }
 	.footer-links-item {
 		display: block;
-		margin-bottom: $verticalRhythm + px;
+		margin-bottom: $verticalRhythm/2 + px;
 
 		@include respond-min($breakpoint-mid) {
 			display: inline;
 			margin-right: 40px;
-		}
-
-		&:hover {
-			color: $pink;
 		}
 
 		&:last-child {
@@ -50,7 +50,7 @@
 
 		.footer p > a,
 		.kickoff {
-			text-decoration: underline;
+			border-bottom: 1px solid;
 			font-weight: 700;
 		}
 
@@ -58,8 +58,17 @@
 		border-top: 1px solid #666;
 		padding-top: $verticalRhythm + px;
 		margin-top: $verticalRhythm + px;
+	}
 
-		@include respond-min($breakpoint-wide) {
-			padding-right: 20%;
+
+	@include respond-min($breakpoint-mid) {
+		.footer-text-about,
+		.footer-text-email {
+			width: 50%;
+			float: left;
+		}
+
+		.footer-text-email {
+			text-align: right;
 		}
 	}

@@ -30,7 +30,7 @@ To build the site, make sure you have installed the latest versions of the follo
 * **Ruby** – v2 is needed. Update using [rvm](http://rvm.io/)
 * **Jekyll** – install globally by running `sudo gem install jekyll` from the command line
 * **rdiscount** – run `sudo gem install rdiscount`
-* **Sass** – run `sudo gem install sass -pre`
+* **Sass** – run `sudo gem install sass --pre`
 * **Node** – follow instructions at [nodejs.org](http://nodejs.org/)
 * **Grunt CLI** – run `npm install -g grunt-cli`
 
