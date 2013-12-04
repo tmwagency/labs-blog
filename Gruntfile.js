@@ -94,17 +94,17 @@ module.exports = function (grunt) {
 
 				mangle: true, // mangle: Turn on or off mangling
 				beautify: false, // beautify: beautify your code for debugging/troubleshooting purposes
-				compress: true,
+				compress: true
 				// report: 'gzip', // report: Show file size report
 
 				// sourceMap: @string. The location of the source map, relative to the project
-				sourceMap: distDir + jsFile + '.map',
+				//sourceMap: distDir + jsFile + '.map',
 
 				// sourceMappingURL: @string. The string that is printed to the final file
-				sourceMappingURL: jsFile +'.map',
+				//sourceMappingURL: jsFile +'.map',
 
 				// sourceMapRoot: @string. The location where your source files can be found. This sets the sourceRoot field in the source map.
-				sourceMapRoot: '../../'
+				//sourceMapRoot: '../../'
 			},
 
 			/**
