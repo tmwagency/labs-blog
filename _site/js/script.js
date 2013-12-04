@@ -80,7 +80,7 @@ $ = (function (document, $) {
 	$ = function (s) {
 		var r = document.querySelectorAll(s || '☺'),
 			length = r.length;
-		return length == 1 ? r[0] : !length ? nodeList : r;
+		return length == 1 ? r[0] : !length ? null : r;
 	};
 
 	$.on = element.on.bind(dummyEl);
@@ -103,7 +103,10 @@ $ = (function (document, $) {
 		externalLinks : function () {
 
 			if (!document.getElementsByTagName) return;
-			var anchors = $('.content').getElementsByTagName("a");
+			var content = $('.content');
+			if (content === null) return
+
+			var anchors = content.getElementsByTagName("a");
 			for (var i=0; i<anchors.length; i++) {
 				var anchor = anchors[i];
 					if (anchor.getAttribute("href")) {
