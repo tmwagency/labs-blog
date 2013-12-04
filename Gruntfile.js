@@ -278,7 +278,7 @@ module.exports = function (grunt) {
 			options : {
 				server : false,
 				auto : false,
-				drafts : true,
+				drafts : false,
 				future : false
 			},
 			blog: {
