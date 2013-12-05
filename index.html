@@ -16,6 +16,7 @@ title: TMW Labs Blog
 			<h2 class="author-name"><time class="entry-date">Posted on {{ post.date | date_to_string }}</time> by <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></h2>
 
 			<p class="entry-content">{{ post.excerpt }}</p>
+			<p class="l-mb0"><a href="{{ post.url }}" title="Read {{ post.title }}">Read full post &raquo;</a></p>
 		</article>
 	{% endfor %}
 	</div>
