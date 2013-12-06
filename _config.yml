@@ -20,7 +20,7 @@ labs:
 authors:
   ashnolan:
     display_name: Ashley Nolan
-    short_desc: Ashley is a creative technologist at TMW.  After reading about Amazon’s new delivery plans, he is currently preparing for the advent of Skynet and welcomes our new drone overlords.
+    short_desc: Ashley is a Creative Technologist at TMW.  After reading about Amazon’s new delivery plans, he is currently preparing for the advent of Skynet and welcomes our new drone overlords.
     avatar: anolan.jpeg
     email: anolan@tmw.co.uk
     web: http://www.dragongraphics.co.uk
@@ -29,10 +29,10 @@ authors:
 
   zander:
     display_name: Zander Martineau
-    short_desc:
+    short_desc: Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.
     avatar: zmartineau.jpeg
     email: zmartineau@tmw.co.uk
-    web: http:martineau.tv
+    web: http://martineau.tv
     twitter: mrmartineau
     github: mrmartineau
 
@@ -86,6 +86,15 @@ authors:
     short_desc:
     avatar: gbardis.jpeg
     email: gbardis@tmw.co.uk
+    web:
+    twitter:
+    github:
+
+  tim:
+    display_name: Tim Coppinger
+    short_desc: Dot Net Dev
+    avatar: timbot.png
+    email: tcoppinger@tmw.co.uk
     web:
     twitter:
     github:
