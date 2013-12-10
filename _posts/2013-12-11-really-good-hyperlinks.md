@@ -9,7 +9,7 @@ categories:
 - links
 
 author: ashnolan
-excerpt: Your weekly dose of really good hyperlinks - Issue #1 (collectors edition)
+excerpt: Your weekly dose of really good hyperlinks - Issue #1
 ---
 
 # Really good hyperlinks - Dec 10th
@@ -22,6 +22,9 @@ So without further ado, let's get started:
 
 ### [PolyMaker](http://aerotwist.com/lab/poly-maker/)
 Hot on the heels of redesigning his website, Paul Lewis has released this great canvas demo in which the user can generate their very own 3D shape by plotting 4 points on the screen.
+
+### [Robo-boogie](http://roboboogie.codeclub.org.uk/)
+Practice your dance moves before hitting the town with this demo from Code Club, in which you can alter the angle and speed of animations performed by a dancing robot.
 
 ### [Waves](http://david.li/waves/)
 A nice calming 3D wave demo to help calm those Tuesday stresses.    Created using WebGL.
