@@ -12,7 +12,7 @@
 
 &lt;p&gt;&lt;strong&gt;Kickoff is a lightweight front-end framework for creating scalable, responsive sites&lt;/strong&gt;; that might sound a bit vague but it is the essence of the framework. Due to the nature of agency work, the projects are hugely varied, but as developers, we always try to cut corners to normalise things as much as possible – basically because we&#39;re lazy and we don&#39;t want to have to repeat things very often! Kickoff aims to mitigate common problems found in web development by providing a strong starting point and a set of helpful defaults for use on almost any project.&lt;/p&gt;
 
-&lt;p&gt;The key difference with Kickoff and other similar frameworks – I&#39;m looking at you &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; and &lt;a href=&quot;foundation.zurb.com&quot;&gt;Foundation&lt;/a&gt; – is that it is not nearly as prescriptive. While those frameworks define almost every aspect of a website with CSS styles and JavaScript plugins that do everything, Kickoff has most of that but does not enable it by default. For example, we have a simple grid system, but if you need something more complex or, heaven forbid, not use one, that is not a problem; just don&#39;t include it.&lt;/p&gt;
+&lt;p&gt;The key difference of Kickoff when compared with other similar frameworks – I&#39;m looking at you &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; and &lt;a href=&quot;foundation.zurb.com&quot;&gt;Foundation&lt;/a&gt; – is that it is not nearly as prescriptive. While those frameworks define almost every aspect of a website with CSS styles and JavaScript plugins that do everything, Kickoff has most of that but does not enable it by default. For example, we have a simple grid system, but if you need something more complex or, heaven forbid, not use one, that is not a problem; just don&#39;t include it.&lt;/p&gt;
 
 &lt;h3&gt;The tech&lt;/h3&gt;
 
@@ -34,7 +34,7 @@
 
 &lt;p&gt;We are very proud of Kickoff, it has helped our team become more efficient, improving workflow throughout the department. Just give it a try on your projects and let us know how you get on.&lt;/p&gt;
 </description>
-				<pubDate>Tue, 10 Dec 2013 00:00:00 +0000</pubDate>
+				<pubDate>Tue, 10 Dec 2013 10:00:00 +0000</pubDate>
 				<link>http://labs.tmw.co.uk/2013/12/introducing-kickoff</link>
 				
 				<username>@mrmartineau</username>
