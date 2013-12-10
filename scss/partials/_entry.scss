@@ -34,17 +34,6 @@
 			@include opacity(0);
 			@include transition(all 200ms ease-in-out);
 		}
-		& > a:hover:after,
-		.touch & > a:after {
-			left: 100%;
-			color: $pinkDark;
-			@include opacity(100);
-			z-index: 1;
-		}
-
-		.touch & > a:after {
-			color: $pink;
-		}
 
 	}
 	.entry-date {
