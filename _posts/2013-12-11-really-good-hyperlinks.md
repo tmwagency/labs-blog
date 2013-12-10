@@ -2,6 +2,7 @@
 comments: true
 layout: post
 title: "Really Good Hyperlinks - #1"
+date: 2013-12-11 09:00:00
 categories:
 - front-end
 - rgh
@@ -17,7 +18,7 @@ Welcome to the first of a regular weekly labs@tmw post, that we've inventively c
 
 So without further ado, let's get started:
 
-## Demos 
+## Demos
 
 ### [PolyMaker](http://aerotwist.com/lab/poly-maker/)
 Hot on the heels of redesigning his website, Paul Lewis has released this great canvas demo in which the user can generate their very own 3D shape by plotting 4 points on the screen.
@@ -25,7 +26,7 @@ Hot on the heels of redesigning his website, Paul Lewis has released this great 
 ### [Waves](http://david.li/waves/)
 A nice calming 3D wave demo to help calm those Tuesday stresses.    Created using WebGL.
 
-## Articles 
+## Articles
 
 ### [Unfolding the Box Model](http://rupl.github.io/unfold/)
 A really awesome interactive guide to CSS 3D transforms, by Chris Ruppel.

@@ -4,6 +4,7 @@ permalink: /:year/:month/:title
 include: ['.htaccess']
 exclude: ['node_modules', 'scss', 'Gruntfile.js', 'package.json', '*.sublime-project', '*.sublime-workspace', 'LICENSE']
 timezone: Europe/London
+future: false
 
 paginate: 10
 paginate_path: /:num

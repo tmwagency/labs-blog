@@ -3,7 +3,7 @@ comments: true
 layout: post
 date: 2013-12-10 10:00:00
 title: Introducing Kickoff
-categories: 
+categories:
   - "front-end"
   - kickoff
 author: zander
