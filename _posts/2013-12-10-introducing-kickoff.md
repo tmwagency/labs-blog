@@ -1,12 +1,13 @@
 ---
 comments: true
 layout: post
+date: 2013-12-10 10:00:00
 title: Introducing Kickoff
 categories: 
   - "front-end"
   - kickoff
 author: zander
-excerpt: "The only front-end framework you'll ever need."
+excerpt: "Zander takes you through the only front-end framework you'll ever need and what we use internally at TMW."
 published: true
 ---
 
