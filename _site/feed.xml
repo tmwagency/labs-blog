@@ -7,6 +7,41 @@
 		<atom:link href="http://labs.tmw.co.uk/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Introducing Kickoff</title>
+				<description>&lt;p&gt;Within a large team, making sure that everyone is on the same page can be difficult; at TMW we have a team of about 20 web developers (6 are front-enders and creative technologists) and this was an issue that we needed to tackle. We create many different types of sites, from single page apps to large-scale builds like &lt;a href=&quot;http://uk.thebar.com&quot;&gt;uk.thebar.com&lt;/a&gt; or &lt;a href=&quot;http://www.bbcgoodfood.com&quot;&gt;BBC Goodfood&lt;/a&gt; and needed a framework that would work for all of them, so &lt;a href=&quot;http://twitter.com/AshNolan_&quot;&gt;Ash Nolan&lt;/a&gt; and I created &lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;Kickoff&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Kickoff is a lightweight front-end framework for creating scalable, responsive sites&lt;/strong&gt;; that might sound a bit vague but it is the essence of the framework. Due to the nature of agency work, the projects are hugely varied, but as developers, we always try to cut corners to normalise things as much as possible – basically because we&#39;re lazy and we don&#39;t want to have to repeat things very often! Kickoff aims to mitigate common problems found in web development by providing a strong starting point and a set of helpful defaults for use on almost any project.&lt;/p&gt;
+
+&lt;p&gt;The key difference with Kickoff and other similar frameworks – I&#39;m looking at you &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; and &lt;a href=&quot;foundation.zurb.com&quot;&gt;Foundation&lt;/a&gt; – is that it is not nearly as prescriptive. While those frameworks define almost every aspect of a website with CSS styles and JavaScript plugins that do everything, Kickoff has most of that but does not enable it by default. For example, we have a simple grid system, but if you need something more complex or, heaven forbid, not use one, that is not a problem; just don&#39;t include it.&lt;/p&gt;
+
+&lt;h3&gt;The tech&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://gruntjs.com&quot;&gt;Grunt&lt;/a&gt; is used extensively in Kickoff. It is the beating heart of the framework, we use it to compile our &lt;a href=&quot;http://sass-lang.com&quot;&gt;Sass&lt;/a&gt;, concatinate and then minify our JavaScript files, or to fire up a simple local server with LiveReload for some testing. Using Grunt has other benefits besides this; it allows any dev to pick up a project, regardless of if they&#39;ve worked on it before, and get up and running in no time at all. We are working on getting Grunt set-up on our Teamcity continuous integration build server but it is not ready yet - this will be a massive step forward once that&#39;s done.&lt;/p&gt;
+
+&lt;h3&gt;How do you get your hands on it?&lt;/h3&gt;
+
+&lt;p&gt;We have built a brochure site at &lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;tmwagency.github.io/kickoff/&lt;/a&gt; where you can find documentation and demos on various parts of the framework. If you want to grab the code, visit our Github &lt;a href=&quot;https://github.com/tmwagency/kickoff/&quot;&gt;project page&lt;/a&gt;. It is being actively maintained and we welcome suggestions and support for improvements. If you use &lt;a href=&quot;http://yeoman.io&quot;&gt;Yeoman&lt;/a&gt;, there is a &lt;a href=&quot;http://tmwagency.github.io/kickoff/docs/yeoman.html&quot;&gt;Kickoff generator&lt;/a&gt; that I created to help speed up the project creation process even more.&lt;/p&gt;
+
+&lt;p&gt;Here are a few sites using Kickoff:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&quot;http://www.bbcgoodfood.com&quot;&gt;BBC Goodfood&lt;/a&gt; cookery site&lt;/li&gt;
+&lt;li&gt;The Western Europe version of &lt;a href=&quot;http://uk.thebar.com&quot;&gt;uk.thebar.com&lt;/a&gt; cocktail site&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://strepsils.co.uk/xfactor&quot;&gt;Strepsils Xfactor&lt;/a&gt; competition site&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://labs.tmw.co.uk&quot;&gt;labs.tmw.co.uk&lt;/a&gt; - Woop Woop!&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;We are very proud of Kickoff, it has helped our team become more efficient, improving workflow throughout the department. Just give it a try on your projects and let us know how you get on.&lt;/p&gt;
+</description>
+				<pubDate>Tue, 10 Dec 2013 00:00:00 +0000</pubDate>
+				<link>http://labs.tmw.co.uk/2013/12/introducing-kickoff</link>
+				
+				<username>@mrmartineau</username>
+				<guid isPermaLink="true">http://labs.tmw.co.uk//2013/12/introducing-kickoff</guid>
+			</item>
+		
+			<item>
 				<title>It’s alive!</title>
 				<description>&lt;p&gt;After far too long thinking about putting together a dedicated TMW labs blog, we’ve finally put up our very own MVP.&lt;/p&gt;
 
@@ -25,7 +60,7 @@
 				<pubDate>Tue, 03 Dec 2013 00:00:00 +0000</pubDate>
 				<link>http://labs.tmw.co.uk/2013/12/its-alive</link>
 				
-				<username>@dragongraphics</username>
+				<username>@AshNolan_</username>
 				<guid isPermaLink="true">http://labs.tmw.co.uk//2013/12/its-alive</guid>
 			</item>
 		
