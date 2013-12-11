@@ -73,11 +73,10 @@
 		img,
 		iframe,
 		.gist {
-			max-width: 120%;
-			width: 120%;
-			margin-left: -10%;
+			max-width: 140%;
+			width: 140%;
+			margin-left: -20%;
 			@include border-radius(2px);
-			// @include box-shadow(5px 5px 0px rgba(0,0,0,.1));
 		}
 	}
 }
