@@ -24,7 +24,7 @@
 			content: "\e603\e603";
 			vertical-align: middle;
 			position: absolute;
-			top: 25%;
+			bottom: 0%;
 			left: 90%;
 
 			letter-spacing: -51px;
@@ -33,6 +33,12 @@
 			@include font-size(40);
 			@include opacity(0);
 			@include transition(all 200ms ease-in-out);
+		}
+		& > a:hover:after {
+			left: 100%;
+			color: $pinkDark;
+			@include opacity(100);
+			z-index: 1;
 		}
 
 	}
