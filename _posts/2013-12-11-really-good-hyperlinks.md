@@ -12,7 +12,7 @@ excerpt: "Your weekly dose of really good hyperlinks - Issue &#35;1"
 published: true
 ---
 
-Welcome to the first of a regular weekly labs@tmw post, that we've inventively called 'Really good hyperlinks', where we attempt to filter out some of the finest links we've seen over the past week on the web.
+Welcome to the first of a regular weekly labs@tmw post, that we've inventively called 'Really Good Hyperlinks', where we attempt to filter out some of the finest links we've seen over the past week on the web.
 
 So without further ado, let's get started:
 
@@ -22,10 +22,10 @@ So without further ado, let's get started:
 Hot on the heels of redesigning his website, [Paul Lewis](https://twitter.com/aerotwist) has released this great canvas demo in which the user can generate their very own 3D shape by plotting 4 points on the screen.
 
 ### [Robo-boogie](http://roboboogie.codeclub.org.uk/)
-Practice your dance moves before hitting the town with this demo from [Code Club](https://www.codeclub.org.uk/), in which you can alter the angle and speed of animations performed by a dancing robot.
+Practice your dance moves before hitting the town with this demo from [Code Club](https://www.codeclub.org.uk/), with which you can alter the angle and speed of animations performed by a dancing robot.
 
 ### [Waves](http://david.li/waves/)
-A nice calming 3D wave demo to help calm those Tuesday stresses.  Created using WebGL.
+A nice calming 3D wave demo to help reduce those Tuesday stresses.  Created using WebGL.
 
 ## Articles
 
@@ -44,7 +44,7 @@ Some essential Grunt.js tips by [Zander Martineau](http://twitter.com/MrMartinea
 ## Sites and services
 
 ### [Import.io](http://import.io/)
-A free service that helps turn any website into an API, allowing streaming or Restful queries.  Could be useful when used combination with technologies like NodeJS.
+A free service that helps turn any website into an API, allowing streaming or RESTful queries. This could be useful when used in combination with technologies like NodeJS.
 
 ### [RobinDavey.co.uk](http://robindavey.co.uk/)
 Ever on the lookout for quirky animations, Robin Davey's site, showing some of his work, has some beautiful examples.  Good creative inspiration.
@@ -53,7 +53,7 @@ Ever on the lookout for quirky animations, Robin Davey's site, showing some of h
 ## TMW links worth mentioning
 
 ### [Free Ride](http://www.free-ride.co.uk/)
-A little hack project we've been running at TMW, in which we track a bike around London by hooking it up with a GPRS tracker, and then leave it on the streets to see where it goes.  We'll be doing a write-up on the tech behind the project shortly.
+A little hack-project we've been running at TMW, in which we track a bike around London by hooking it up with a GPRS tracker, and then leaving it on the streets to see where it goes.  We'll be doing a write-up on the tech behind the project shortly.
 
 ### [Lynx Africa Tumblr](http://lynxafrica18.tumblr.com/)
 To celebrate the 18th birthday for Lynx Africa, we asked 18 artists and musicians to produce work for a responsive Tumblr blog.
