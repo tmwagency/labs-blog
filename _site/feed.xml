@@ -7,6 +7,67 @@
 		<atom:link href="http://labs.tmw.co.uk/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Really Good Hyperlinks #1 - Dec 11th</title>
+				<description>&lt;p&gt;Welcome to the first of a regular weekly labs@tmw post, that we&#39;ve inventively called &#39;Really good hyperlinks&#39;, where we attempt to filter out some of the finest links we&#39;ve seen over the past week on the web.&lt;/p&gt;
+
+&lt;p&gt;So without further ado, let&#39;s get started:&lt;/p&gt;
+
+&lt;h2&gt;Demos&lt;/h2&gt;
+
+&lt;h3&gt;&lt;a href=&quot;http://aerotwist.com/lab/poly-maker/&quot;&gt;PolyMaker&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Hot on the heels of redesigning his website, Paul Lewis has released this great canvas demo in which the user can generate their very own 3D shape by plotting 4 points on the screen.&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href=&quot;http://roboboogie.codeclub.org.uk/&quot;&gt;Robo-boogie&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Practice your dance moves before hitting the town with this demo from Code Club, in which you can alter the angle and speed of animations performed by a dancing robot.&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href=&quot;http://david.li/waves/&quot;&gt;Waves&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;A nice calming 3D wave demo to help calm those Tuesday stresses.    Created using WebGL.&lt;/p&gt;
+
+&lt;h2&gt;Articles&lt;/h2&gt;
+
+&lt;h3&gt;&lt;a href=&quot;http://rupl.github.io/unfold/&quot;&gt;Unfolding the Box Model&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;A really awesome interactive guide to CSS 3D transforms, by Chris Ruppel.&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href=&quot;http://oak.is/thinking/animated-svgs/&quot;&gt;Animated SVGs: custom easing and timing&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Ever wanted to animate a chart without the overhead of adding a large JS library to your site?  Well this post, by Mike Fortress, takes us through exactly how to do so using animated SVGs.&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href=&quot;https://medium.com/design-ux/bea05243fe3&quot;&gt;Understanding Easing&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;An overview of easing in animations by Suresh V. Selvaraj.&lt;/p&gt;
+
+&lt;h2&gt;Sites and services&lt;/h2&gt;
+
+&lt;h3&gt;&lt;a href=&quot;http://import.io/&quot;&gt;Import.io&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;A free service that helps turn any website into an API, allowing streaming or Restful queries.  Could be useful when used combination with technologies like NodeJS.&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href=&quot;http://robindavey.co.uk/&quot;&gt;RobinDavey.co.uk&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Ever on the lookout for quirky animations, Robin Davey&#39;s site, showing some of his work, has some beautiful examples.  Good creative inspiration.&lt;/p&gt;
+
+&lt;h2&gt;TMW links worth mentioning&lt;/h2&gt;
+
+&lt;h3&gt;&lt;a href=&quot;http://www.free-ride.co.uk/&quot;&gt;Free Ride&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;A little hack project we&#39;ve been running at TMW, in which we track a bike around London by hooking it up with a GPRS tracker, and then leave it on the streets to see where it goes.  We&#39;ll be doing a write-up on the tech behind the project shortly.&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href=&quot;http://lynxafrica18.tumblr.com/&quot;&gt;Lynx Africa Tumblr&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;To celebrate the 18th birthday for Lynx Africa, we asked 18 artists and musicians to produce work for a responsive Tumblr blog.&lt;/p&gt;
+</description>
+				<pubDate>Wed, 11 Dec 2013 09:00:00 +0000</pubDate>
+				<link>http://labs.tmw.co.uk/2013/12/really-good-hyperlinks</link>
+				
+				<username>@AshNolan_</username>
+				<guid isPermaLink="true">http://labs.tmw.co.uk//2013/12/really-good-hyperlinks</guid>
+			</item>
+		
+			<item>
 				<title>Introducing Kickoff</title>
 				<description>&lt;p&gt;Within a large team, making sure that everyone is on the same page can be difficult; at TMW we have a team of about 20 web developers (6 are front-enders and creative technologists) and this was an issue that we needed to tackle. We create many different types of sites, from single page apps to large-scale builds like &lt;a href=&quot;http://uk.thebar.com&quot;&gt;uk.thebar.com&lt;/a&gt; or &lt;a href=&quot;http://www.bbcgoodfood.com&quot;&gt;BBC Goodfood&lt;/a&gt; and needed a framework that would work for all of them, so &lt;a href=&quot;http://twitter.com/AshNolan_&quot;&gt;Ash Nolan&lt;/a&gt; and I created &lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;Kickoff&lt;/a&gt;.&lt;/p&gt;
 

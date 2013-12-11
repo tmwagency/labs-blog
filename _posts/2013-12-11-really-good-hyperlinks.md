@@ -1,7 +1,7 @@
 ---
 comments: true
 layout: post
-title: "Really Good Hyperlinks - #1"
+title: "Really Good Hyperlinks #1 - Dec 11th"
 date: 2013-12-11 09:00:00
 categories:
 - front-end
@@ -9,10 +9,8 @@ categories:
 - links
 
 author: ashnolan
-excerpt: Your weekly dose of really good hyperlinks - Issue #1
+excerpt: Your weekly dose of really good hyperlinks - Issue &#35;1
 ---
-
-# Really good hyperlinks - Dec 10th
 
 Welcome to the first of a regular weekly labs@tmw post, that we've inventively called 'Really good hyperlinks', where we attempt to filter out some of the finest links we've seen over the past week on the web.
 
@@ -55,6 +53,7 @@ Ever on the lookout for quirky animations, Robin Davey's site, showing some of h
 A little hack project we've been running at TMW, in which we track a bike around London by hooking it up with a GPRS tracker, and then leave it on the streets to see where it goes.  We'll be doing a write-up on the tech behind the project shortly.
 
 ### [Lynx Africa Tumblr](http://lynxafrica18.tumblr.com/)
+To celebrate the 18th birthday for Lynx Africa, we asked 18 artists and musicians to produce work for a responsive Tumblr blog.
 
 
 
