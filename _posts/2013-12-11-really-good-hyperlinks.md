@@ -2,14 +2,14 @@
 comments: true
 layout: post
 title: "Really Good Hyperlinks #1 - Dec 11th"
-date: 2013-12-11 09:00:00
-categories:
-- front-end
-- rgh
-- links
-
+date: {}
+categories: 
+  - "front-end"
+  - rgh
+  - links
 author: ashnolan
-excerpt: Your weekly dose of really good hyperlinks - Issue &#35;1
+excerpt: "Your weekly dose of really good hyperlinks - Issue &#35;1"
+published: true
 ---
 
 Welcome to the first of a regular weekly labs@tmw post, that we've inventively called 'Really good hyperlinks', where we attempt to filter out some of the finest links we've seen over the past week on the web.
@@ -38,6 +38,9 @@ Ever wanted to animate a chart without the overhead of adding a large JS library
 ### [Understanding Easing](https://medium.com/design-ux/bea05243fe3)
 An overview of easing in animations by [Suresh V. Selvaraj](https://twitter.com/SureshVSelvaraj).
 
+### [More efficient Grunt workflows](http://martineau.tv/blog/2013/12/more-efficient-grunt-workflows/)
+Some essential Grunt.js tips by [Zander Martineau](http://twitter.com/MrMartineau).
+
 ## Sites and services
 
 ### [Import.io](http://import.io/)
@@ -54,7 +57,3 @@ A little hack project we've been running at TMW, in which we track a bike around
 
 ### [Lynx Africa Tumblr](http://lynxafrica18.tumblr.com/)
 To celebrate the 18th birthday for Lynx Africa, we asked 18 artists and musicians to produce work for a responsive Tumblr blog.
-
-
-
-
