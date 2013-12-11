@@ -2,8 +2,8 @@
 comments: true
 layout: post
 title: "Really Good Hyperlinks #1 - Dec 11th"
-date: {}
-categories: 
+date: 2013-12-11 09:00:00
+categories:
   - "front-end"
   - rgh
   - links
@@ -39,7 +39,7 @@ Ever wanted to animate a chart without the overhead of adding a large JS library
 An overview of easing in animations by [Suresh V. Selvaraj](https://twitter.com/SureshVSelvaraj).
 
 ### [More efficient Grunt workflows](http://martineau.tv/blog/2013/12/more-efficient-grunt-workflows/)
-Some essential Grunt.js tips by [Zander Martineau](http://twitter.com/MrMartineau).
+Some essential Grunt.js tips from our very own [Zander Martineau](http://twitter.com/MrMartineau).
 
 ## Sites and services
 
