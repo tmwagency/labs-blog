@@ -19,24 +19,24 @@ So without further ado, let's get started:
 ## Demos
 
 ### [PolyMaker](http://aerotwist.com/lab/poly-maker/)
-Hot on the heels of redesigning his website, Paul Lewis has released this great canvas demo in which the user can generate their very own 3D shape by plotting 4 points on the screen.
+Hot on the heels of redesigning his website, [Paul Lewis](https://twitter.com/aerotwist) has released this great canvas demo in which the user can generate their very own 3D shape by plotting 4 points on the screen.
 
 ### [Robo-boogie](http://roboboogie.codeclub.org.uk/)
-Practice your dance moves before hitting the town with this demo from Code Club, in which you can alter the angle and speed of animations performed by a dancing robot.
+Practice your dance moves before hitting the town with this demo from [Code Club](https://www.codeclub.org.uk/), in which you can alter the angle and speed of animations performed by a dancing robot.
 
 ### [Waves](http://david.li/waves/)
-A nice calming 3D wave demo to help calm those Tuesday stresses.    Created using WebGL.
+A nice calming 3D wave demo to help calm those Tuesday stresses.  Created using WebGL.
 
 ## Articles
 
 ### [Unfolding the Box Model](http://rupl.github.io/unfold/)
-A really awesome interactive guide to CSS 3D transforms, by Chris Ruppel.
+A really awesome interactive guide to CSS 3D transforms, by [Chris Ruppel](https://twitter.com/rupl).
 
 ### [Animated SVGs: custom easing and timing](http://oak.is/thinking/animated-svgs/)
-Ever wanted to animate a chart without the overhead of adding a large JS library to your site?  Well this post, by Mike Fortress, takes us through exactly how to do so using animated SVGs.
+Ever wanted to animate a chart without the overhead of adding a large JS library to your site?  Well this post, by [Mike Fortress](https://twitter.com/mfortress), takes us through exactly how to do so using animated SVGs.
 
 ### [Understanding Easing](https://medium.com/design-ux/bea05243fe3)
-An overview of easing in animations by Suresh V. Selvaraj.
+An overview of easing in animations by [Suresh V. Selvaraj](https://twitter.com/SureshVSelvaraj).
 
 ## Sites and services
 
