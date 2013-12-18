@@ -4,7 +4,7 @@ permalink: /:year/:month/:title
 include: ['.htaccess']
 exclude: ['node_modules', 'scss', 'Gruntfile.js', 'package.json', '*.sublime-project', '*.sublime-workspace', 'LICENSE']
 timezone: Europe/London
-future: false
+future: true
 
 paginate: 10
 paginate_path: /:num
@@ -39,7 +39,7 @@ authors:
 
   simonkinslow:
     display_name: Simon Kinslow
-    short_desc: Designer of teh internets and wannabe developer.
+    short_desc: Simon is a Designer at TMW and a developer wannabe. He is currently learning the ropes with JavaScript and responsive CSS by coding up an old skool bitmap game.
     avatar: kinslow.png
     email: skinslow@tmw.co.uk
     web: http://www.simonkinslow.com/

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>A designers adventures in game development: part 1 - labs@tmw</title>
+		<meta name="description" content="labs@tmw - where TMW talks Tech">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/qep5gxs.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script>var pageName = '';</script>
+
+		<script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
+
+		<!-- Mobile & Fav Icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/favicons/lbtmw-144.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/favicons/lbtmw-114.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/favicons/lbtmw-72.png">
+		<link rel="apple-touch-icon-precomposed" href="/img/favicons/lbtmw-57.png">
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-title" content="labs@tmw">
+
+		<link rel="alternate" type="application/atom+xml" title="labs@tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+	</head>
+	<body>
+	<!--  === MASTHEAD ===  -->
+	<header class="masthead">
+	<div class="container">
+		
+			<h2 class="logo alpha"><a href="/">labs@tmw</a></h2>
+		
+
+		<p class="logo-tagline">Some chat from the tech riff-raff at TMW</p>
+	</div>
+</header>
+
+	<!--  === MAIN CONTENT ===  -->
+<section class="container post" role="main">
+	<article class="entry content">
+		
+
+		<h1 class="entry-title">A designers adventures in game development: part 1</h1>
+
+		<div class="entry-content">
+			<p>Over the years I've had an interest in programming starting with Flash, a few years ago though I made the seemingly <a href="http://www.apple.com/hotnews/thoughts-on-flash/">obvious choice</a> to start moving on from Actionscript to focus on Javascript. I find that the best way to learn is by doing, so since the start of the summer I started creating a little responsive HTML and Javascript game. This and subsequent posts will document my process.</p>
+
+<p>It's working title is <strong>‘Bitmap Adventure’</strong> with the story revolving around a huge villain, in the form of a block-like Monkey, kidnapping a Goat’s child. Rescuing the child and defeating the villain is your main challenge.</p>
+
+<p>The battle system uses Paper, Scissors, Stone (otherwise known as Janken). The visualisation of these battles uses some some basic pixel animation with cute, simple versions of the warriors. To introduce players to the battle system I decided to feature a battle in the intro itself, where you attempt to battle the villain straight away, but with battle inexperience so early on in the game you’ll lose; its all part of the intro. I’m still working on how a levelling / experience feature will work within the game.</p>
+
+<p>Developing the intro helped to get my head around how the game would work on different devices from the start. I started off with a 320px wide photoshop document when I was creating a look and feel for the game, figuring out the mobile look and size first. The reason behind this is the game could get complex so its easier to add than take away from the intended design. There were many cases of developing prototypes and designing at the same time, to ensure it looked great across all devices. With such a simple graphical style, it's a little easier to add filler for wider screen formats. Supporting Retina devices couldn’t be easier with this, as all the original sprites just needed to be resized to 200% with Nearest Neighbour image resampling to preserve the hard pixel edges.</p>
+
+<p><figure><img src="/img/blog/adventures-in-game-dev/post1-b.jpg" alt="Positioning elements"></figure></p>
+
+<p>The game is still in the early stages, with the intro 90% complete, and the game area coming along nicely in both design and development. All the levels, weather parameters and portal positions are all managed through settings in a JSON file, which makes it easier to manage and update when needed. Levels are designed in Photoshop using tiles fitting to a 40px x 40px grid, which are then positioned in the game converting the JSON data into CSS positions.</p>
+
+<p><figure><img src="/img/blog/adventures-in-game-dev/post1-a.jpg" alt="Positioning elements"></figure></p>
+
+<p>The portals have been the biggest Javascript headache so far. There were a number of cases where the character would enter the portal and then not reappear through the next, showing no Javascript errors. Exiting the portal seemed to work differently on Chrome and Safari at times too; the current fix is to give Chrome a slight delay when the level reloads to fix the error.  This seems to be simply due to differences in rendering engines across different browsers.</p>
+
+<p>With Javascript being more strict than Actionscript, I’m finding that I have to change my coding approach to solve certain problems; its all part of learning. Of course I could have built this in Flash, but I wanted the game to work on mobile devices and writing it in JavaScript helps me learn a new language.</p>
+
+<p>You can see a prototype of the intro and entering the game area at <a href="http://simonkinslow.com/_2013/bitmap_prototype/part1/">simonkinslow.com/_2013/bitmap_prototype/part1/</a>.</p>
+
+<p><small>Note: On touch devices use the weird black crab to control the character. On desktop use the arrow keys, and ideally use Chrome or Safari.</small></p>
+
+		</div>
+
+		<p class="entry-date"><time>Posted on 18 Dec 2013</time></p>
+
+		
+		<div class="author">
+			<a href="http://twitter.com/kinslowdian">
+				<img src="/img/authors/kinslow.png" alt="Picture of Simon Kinslow" class="author-img">
+				<h3 class="author-name">Simon Kinslow</h3>
+			</a>
+			<p class="author-desc">Simon is a Designer at TMW and a developer wannabe. He is currently learning the ropes with JavaScript and responsive CSS by coding up an old skool bitmap game.</p>
+		</div>
+
+
+		
+
+	</article>
+</section>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		
+			<a href="/2013/12/really-good-hyperlinks" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - Really Good Hyperlinks #1 - Dec 11th</a>
+		
+		
+	</div>
+</div>
+
+	<!--  === FOOTER ===  -->
+	<footer class="footer" role="contentinfo">
+	<div class="container footer-links">
+		<a href="http://github.com/tmwagency/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe600;"></span>Github</a>
+		<a href="http://twitter.com/tmw_labs/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe601;"></span>Twitter</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="footer-links-item footer-links-item--right">We also maintain <span class="kickoff">Kickoff</span></a>
+	</div>
+	<div class="footer-text container clearfix">
+		<p class="footer-text-about">This blog is curated and maintained by the creative technology team at <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank">TMW</a>.</p>
+		<p class="footer-text-email"><a href="http://eepurl.com/KaKbv">Subscribe by Email</a></p>
+	</div>
+
+</footer>
+
+	<script src="/js/dist/app.min.js"></script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27779119-7', 'tmw.co.uk');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>
