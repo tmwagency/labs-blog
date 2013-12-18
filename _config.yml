@@ -37,6 +37,15 @@ authors:
     twitter: mrmartineau
     github: mrmartineau
 
+  simonkinslow:
+    display_name: Simon Kinslow
+    short_desc: Designer of teh internets and wannabe developer.
+    avatar: kinslow.png
+    email: skinslow@tmw.co.uk
+    web: http://www.simonkinslow.com/
+    twitter: kinslowdian
+    github: kinslowdian
+
   ivan:
     display_name: Ivan Hayes
     short_desc:
