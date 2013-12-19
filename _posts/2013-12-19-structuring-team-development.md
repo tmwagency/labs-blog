@@ -44,7 +44,7 @@ To solve this issue, we built our own framework for use on internal projects cal
 
 We didn't want the bloat of using [Bootstrap](http://getbootstrap.com/), while also wanting a level of control over the evolving structure of our projects without relying on a third party framework. Kickoff is therefore more minimal, made to create consistent structure rather than enforcing coding style.
 
-We actively maintain Kickoff on github, looking at aspects of other frameworks and modifying parts of Kickoff to keep up with the changing facets of front-end development.
+We actively maintain Kickoff, looking at aspects of other frameworks and changing parts of it to keep up with the evolution of front-end development.
 
 Like documentation, not everyone will want to, or have the time to, maintain their own framework. What I would advise is that you choose a consistent framework across your projects. There's little point in using [Bootstrap](http://getbootstrap.com/) on one project and then [Foundation](http://foundation.zurb.com/) on the next.  You'll just end up with lots of projects with inconsistent structures, making maintaining them harder.
 
