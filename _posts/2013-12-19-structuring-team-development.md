@@ -2,7 +2,7 @@
 comments: true
 layout: post
 title: Structuring team development
-date: 2013-12-19 09:00:00
+date: 2013-12-19 12:00:00
 categories:
   - "front-end"
 author: ashnolan
@@ -12,7 +12,7 @@ published: true
 
 Every development team has their own way of working together.  Here at TMW, we are no different (other than perhaps having an unhealthy obsession with cake).
 
-The Creative Tech team at TMW was put together just over 18 months ago, back in April 2012, when [Zander Martineau](https://twitter.com/mrmartineau) and I joined the company.  Before that point, there was no structure in the front-end development work being done; no guidelines, no frameworks.
+The Creative Tech team at TMW was put together just over 18 months ago, back in April 2012, when [Zander](https://twitter.com/mrmartineau) and I joined the company.  Before that point, there was no structure in the front-end development work being done; no guidelines, no frameworks.
 
 I was shocked that such a large agency had none of this in place, but it gave us a massive opportunity and was one of the reasons I relished taking on the role at TMW. We had the opportunity to shape the way our team would work right from the start, which is usually a situation only afforded to start-ups.
 
@@ -31,9 +31,9 @@ No matter what the size of the team, you should know what standards and code con
 
 Writing documentation from scratch can be a barrier for some, so instead take an existing set and adjust it to your needs. Our TMW guidelines took inspiration from Isobar's ['Front-end Code Standards & Best Practices'](http://isobar-idev.github.io/code-standards/) and Harry Roberts ['CSS Guidelines'](https://github.com/csswizardry/CSS-Guidelines), using the bits we agreed with and building on top of them with our own documentation.
 
-Documenting these decisions can have all sorts of benefits. New starters immediately have something that informs them on team development standards.  It also helps to control the output of freelancers, as it acts as a reference for the standard of code you expect from them.
+Documenting these decisions can have all sorts of benefits. New starters immediately have something that informs them on team development standards.  It also helps to control the output of freelancers, as it acts as a reference for the standard of code you expect them to create.
 
-Above all, it acts as an evolving reference point for your team; you can refer anyone to it so that they can find details of the way in which you work. We've found this useful when hiring to show potential team members that we care about the work we produce, as well as the fact that it's an open platform, which allows clients to see the the way in which we work.
+Above all, it acts as an evolving reference point for your team; you can refer anyone to it so that they can find details of the way in which you work. We've found this useful when hiring to show potential team members that we care about the work we produce, as well as the fact that it's an open document, which allows clients to see the the way in which we work.
 
 
 ## Structure your codebase
