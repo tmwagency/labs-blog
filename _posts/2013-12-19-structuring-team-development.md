@@ -13,7 +13,7 @@ published: true
 
 Every development team has their own way of working together.  Here at TMW, we are no different (other than perhaps having an unhealthy obsession with cake).
 
-The creative tech team at TMW was put together just over 18 months ago, back in April 2012, when [Zander Martineau](https://twitter.com/mrmartineau) and I joined the company.  Before that point, there was no structure in the front-end development work being done; no guidelines, no frameworks.
+The creative tech team at TMW was put together just over 18 months ago, back in April 2012, when [Zander](https://twitter.com/mrmartineau) and I joined the company.  Before that point, there was no structure in the front-end development work being done; no guidelines, no frameworks.
 
 I was shocked that such a large agency had none of this in place, but it gave us a massive opportunity and was one of the reasons I relished the opportunity at TMW.  We had the opportunity to shape the way our team would work right from the start, which is usually a situation afforded to start-ups.
 
@@ -41,11 +41,11 @@ Above all, it acts as an evolving reference point for your team; you can refer a
 
 The other issue we had come across in the past is front-end structure.  when editing a project that another team member has done, you should know where things are.  It should never feel like you're having to play a game of 'guess where the CSS and JS files are hiding' – a game I recommend you don't play with your family this Christmas.
 
-To solve this issue, we built our own framework for use on internal project called [Kickoff](http://tmwagency.github.io/kickoff/) which Zander wrote about in more detail last week.
+To solve this issue, we built our own framework for use on internal project called [Kickoff](http://tmwagency.github.io/kickoff/) which Zander wrote about in more detail [last week](/2013/12/introducing-kickoff/).
 
 We didn't want the bloat of using [Bootstrap](http://getbootstrap.com/), while also wanting a level of control over the evolving structure of our projects without relying on a third party framework.  Kickoff is therefore more minimal than those, made to create consistent structure rather than enforcing coding style.
 
-We actively maintain Kickoff on github, looking at aspects of other frameworks and changing aspects of it to keep up with the changing aspects of front-end development.
+We actively maintain Kickoff, looking at aspects of other frameworks and changing parts of it to keep up with the evolution of front-end development.
 
 Like documentation, not everyone will want to, or have the time to, maintain their own framework.  What I would advise is that you choose a consistent framework across your projects.  There's little point in using [Bootstrap](http://getbootstrap.com/) on one project and then [Foundation](http://foundation.zurb.com/) on the next.  You'll just end up with lots of projects with an inconsistent structure, making maintaining them harder.
 
