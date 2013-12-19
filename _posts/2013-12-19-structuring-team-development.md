@@ -18,7 +18,7 @@ I was shocked that such a large agency had none of this in place, but it gave us
 
 Our aim was, and still is, to put just enough in place to ensure the whole team is working on the same page. Both Zander and myself had worked on projects where something as basic as the core structure could become a major stumbling block to anyone else joining the team and we wanted to rectify these types of issues right from the start.
 
-The team has now grown to 6 people – a mix of Creative Technologists and Interactive Developers – and the processes established when there were only 2 of us in the team have only needed minor tweaks during that growth, rather than having to be completely overhauled.
+The team has now grown to 6 people – a mix of Creative Technologists and Interactive Developers – and the processes established when there were only 2 of us in the team have only needed to be tweaked during that growth, rather than completely overhauled.
 
 So I just wanted to share the tools we have used to help our team, which could potentially help any development team of any size. I'll also take you through some of the resources we've started to build up that assist in our development efforts, and that we've been making openly available.
 
