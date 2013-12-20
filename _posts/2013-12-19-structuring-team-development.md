@@ -14,7 +14,7 @@ Every development team has their own way of working together.  Here at TMW, we a
 
 The Creative Tech team at TMW was put together just over 18 months ago, back in April 2012, when [Zander](https://twitter.com/mrmartineau) and I joined the company.  Before that point, there was no structure in the front-end development work being done; no guidelines, no frameworks.
 
-I was shocked that such a large agency had none of this in place, but it gave us a massive opportunity and was one of the reasons I relished taking on the role at TMW. We had the opportunity to shape the way our team would work right from the start, which is usually a situation only afforded to start-ups.
+Not having these development tools in place before, though not ideal, gave us a massive opportunity and was one of the reasons I relished taking on the role at TMW. We had the opportunity to shape the way our team would work right from the start, which is usually a situation only afforded to start-ups.
 
 Our aim was, and still is, to put just enough in place to ensure the whole team is working on the same page. Both Zander and myself had worked on projects where something as basic as the core structure could become a major stumbling block to anyone else joining the team and we wanted to rectify these types of issues right from the start.
 
