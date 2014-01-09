@@ -1,19 +1,30 @@
-#SwiftClick
+---
+comments: true
+layout: post
+title: SwiftClick
+date: 2014-01-09 12:00:00
+categories:
+  - "front-end"
+  - "touch devices"
+author: ivan
+excerpt: "It's important to make sure a team of developers are all on the same page when developing across multiple projects. We look at what helps our front-end team at TMW."
+published: true
+---
 
 As many of you will have experienced when using touch devices such as iPhones, clicking on HTML elements sometimes feels a bit sluggish. This is because there is a 300ms delay before click events are fired. This is simply not an acceptable user experience and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and use a variable for the event name to use in click listeners – the value of which being either 'touchstart' for devices that support touch, or 'click' for those that don't:
 
-		var clickEventType = "ontouchstart" in window ? "touchstart" : "click";
+	var clickEventType = "ontouchstart" in window ? "touchstart" : "click";
 
 The problem with this detection method is that laptops or monitors that support touch would expect a touch event, meaning that if a mouse was being used then click events wouldn't work. Because of this the detection method was refined to also check if the device supports orientation change and only use touch events if both conditions are met:
 
-		var clickEventType = "onorientationchange" in window && "ontouchstart" in window ? "touchstart" : "click";
+	var clickEventType = "onorientationchange" in window && "ontouchstart" in window ? "touchstart" : "click";
 
 This detection method worked well in the majority of situations we needed.
 
-We would then use the 'clickEventType' variable in any event listeners that needed to get a click event:
+We would then use the `'clickEventType'` variable in any event listeners that needed to get a click event:
 
 
-		someEl.addEventListener (clickEventType, fn, false);
+	someEl.addEventListener (clickEventType, fn, false);
 
 
 This worked pretty nicely, with the main drawback being the fact that we would need to ensure the 'clickEventType' variable was used anywhere we needed to add a click listener, which can be problematic when projects are picked up by new developers who may not necessarily realise that this variable is being used at all.
@@ -25,7 +36,6 @@ SwiftClick is heavily based on FastClick, but was designed to be super lightweig
 
 In contrast with FastClick, which does a lot under the hood to fix obscure browser bugs for complex elements like form, select, and textarea, by default SwiftClick focuses on basic element types that are typically used in modern interactive development and so these bugs are not a big concern.
 
-
 ###Usage
 
 Including SwiftClick in your application is very easy, and mirrors the process used by FastClick in that it must be attached to a context element. Click events from all elements within the context element are automatically captured and converted to touch events when necessary.
@@ -34,14 +44,14 @@ if support is required for IE8 and below then a shim must be added for 'addEvent
 
 
 ####Include SwiftClick in your application
-    <script type="application/javascript" src="path/to/swiftclick.min.js"></script>
+	<script type="application/javascript" src="path/to/swiftclick.min.js"></script>
 
 
 ####Approach 1
 Attach SwiftClick to any element you want to use as a context for tracking click events.
 document.body is easiest if you only need a single instance of SwiftClick:
 
-    SwiftClick.attach (document.body);
+	SwiftClick.attach (document.body);
 
 
 ####Approach 2
@@ -49,7 +59,7 @@ document.body is easiest if you only need a single instance of SwiftClick:
 Create a reference to a new instance of SwiftClick using the 'attach' helper method and attach it to a context element.
 This approach allows you to create multiple instances of SwiftClick on, for example, specific container elements such as navigation, and also exposes the public API:
 
-    var swiftclick = SwiftClick.attach (someElement);
+	var swiftclick = SwiftClick.attach (someElement);
 
 
 ####Approach 3
@@ -58,27 +68,26 @@ This approach is the same as approach 2, but just uses the 'new' keyword instead
 
 	var swiftclick = new SwiftClick (someElement);
 
-		
+
 ####Default Elements
 Once attached, by default SwiftClick will track events originating from the following element types:
 
-- a
-- div
-- span
-- button
+- `<a>`
+- `<div>`
+- `<span>`
+- `<button>`
 
 
 ####Adding non-default element types
 If necessary you can make SwiftClick track events originating from additional element types by adding an array of node names. This requires a reference to an instance of SwiftClick:
 
-    var swiftclick = new SwiftClick (someElement);
-    
-    swiftclick.addNodeNamesToTrack (["p", "h1", "nav"]);
+	var swiftclick = new SwiftClick (someElement);
+	swiftclick.addNodeNamesToTrack (["p", "h1", "nav"]);
 
 ####Replacing all stored node names to track
 
-		var swiftclick = new SwiftClick (someElement);
-		swiftclick.replaceNodeNamesToTrack (["a", "div"]);
+	var swiftclick = new SwiftClick (someElement);
+	swiftclick.replaceNodeNamesToTrack (["a", "div"]);
 
 Doing this will remove all default node names, as well as any that have been added, and replace them with the node names within the array that is passed in, resulting in only the new node names being tracked.
 
