@@ -11,7 +11,7 @@ excerpt: "It's important to make sure a team of developers are all on the same p
 published: true
 ---
 
-As many of you will have experienced when using touch devices such as iPhones, clicking on HTML elements sometimes feels a bit sluggish. This is because there is a 300ms delay before click events are fired. This is simply not an acceptable user experience and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and use a variable for the event name to use in click listeners – the value of which being either 'touchstart' for devices that support touch, or 'click' for those that don't:
+As many of you will have experienced when using touch devices such as iPhones, clicking on HTML elements sometimes feels a bit sluggish. This is because there is a [300ms delay](http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away) before click events are fired. This is simply not an acceptable user experience and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and use a variable for the event name to use in click listeners – the value of which being either 'touchstart' for devices that support touch, or 'click' for those that don't:
 
 	var clickEventType = "ontouchstart" in window ? "touchstart" : "click";
 
@@ -40,7 +40,7 @@ In contrast with FastClick, which does a lot under the hood to fix obscure brows
 
 Including SwiftClick in your application is very easy, and mirrors the process used by FastClick in that it must be attached to a context element. Click events from all elements within the context element are automatically captured and converted to touch events when necessary.
 
-if support is required for IE8 and below then a shim must be added for 'addEventListener'.
+If support is required for IE8 and below then a shim must be added for 'addEventListener'.
 
 
 ####Include SwiftClick in your application
