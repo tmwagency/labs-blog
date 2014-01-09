@@ -32,8 +32,6 @@ pre {
 	line-height: $base-leading;
 	color: $color-pre;
 	background-color: $color-pre-background;
-	border: 1px solid #ccc; // fallback for IE7-8
-	border: 1px solid rgba(0,0,0,.15);
 	white-space: pre;
 	white-space: pre-wrap;
 	word-break: break-all;
