@@ -19,7 +19,7 @@ pre,
 
 // Inline code
 code {
-	padding: 3px 10px;
+	padding: 2px 7px;
 	color: $color-code;
 	background-color: $color-code-background;
 	white-space: nowrap;
@@ -28,18 +28,18 @@ code {
 // Blocks of code
 pre {
 	display: block;
-	padding: ($base-line-height - 1) / 2 + px;
-	margin: 0 0 ($base-line-height / 2 + px);
+	padding: 7px 7px;
 	line-height: $base-leading;
 	color: $color-pre;
 	background-color: $color-pre-background;
 	border: 1px solid #ccc; // fallback for IE7-8
 	border: 1px solid rgba(0,0,0,.15);
-	@include border-radius(4px);
 	white-space: pre;
 	white-space: pre-wrap;
 	word-break: break-all;
 	word-wrap: break-word;
+	margin-top: $base-line-height + px;
+	margin-bottom: $base-line-height + px;
 
 	// Make prettyprint styles more spaced out for readability
 	&.prettyprint {
