@@ -57,7 +57,7 @@ Start by creating a reference to a new instance of SwiftClick using the 'attach'
 If necessary, multiple instances of SwiftClick can be created for specific context elements which, although not really necessary in most cases, can sometimes be useful for optimising applications with a large amount of HTML:
 
 	var navigationSwiftClick = SwiftClick.attach (someNavElement);
-    var uiSwiftClick = SwiftClick.attach (someOtherElement);
+	var uiSwiftClick = SwiftClick.attach (someOtherElement);
 
 ####Default Elements
 Once attached, by default SwiftClick will track events originating from the following element types:
