@@ -159,13 +159,15 @@ module.exports = function (grunt) {
 					'*.md',
 					'Gruntfile.js'
 				],
-				tasks: 'jekyll'
+				tasks: 'jekyll',
+				options: {
+					livereload: true
+				}
 			},
 
 			livereload: {
 				options: { livereload: true },
 				files: [
-					//'_site/**/*.html',
 					'_site/css/*.css'
 				]
 			}
