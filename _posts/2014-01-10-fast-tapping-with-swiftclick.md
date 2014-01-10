@@ -2,8 +2,8 @@
 comments: true
 layout: post
 title: SwiftClick
-date: {}
-categories: 
+date: 2014-01-10 11:00:00
+categories:
   - "front-end"
   - touch devices
 author: ivan
@@ -11,7 +11,7 @@ excerpt: "It's important to make sure a team of developers are all on the same p
 published: true
 ---
 
-As many of you will have experienced when using touch devices such as iPhones, tapping on HTML elements sometimes feels a bit sluggish. This is because there is a [300ms delay](http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away) before click events are fired. This is not an acceptable user experience and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and create a variable for the event name to use in click listeners – the value of which being either 'touchstart' for devices that support touch, or 'click' for those that don't:
+As many of you will have experienced when using touch devices such as iPhones, tapping on HTML elements sometimes feels a bit sluggish. This is because there is a [300ms delay](http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away) before click events are fired. As a user experience this is clunky behaviour and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and create a variable for the event name to use in click listeners – the value of which being either 'touchstart' for devices that support touch, or 'click' for those that don't:
 
 	var clickEventType = "ontouchstart" in window ? "touchstart" : "click";
 
@@ -36,17 +36,17 @@ SwiftClick is heavily based on FastClick, but was designed to be super lightweig
 
 In contrast with FastClick, which does a lot under the hood to fix obscure browser bugs for complex elements like form, select, and textarea, by default SwiftClick focuses on basic element types that are typically used in modern interactive development and so these bugs are not a big concern.
 
-###Usage
+##Usage
 
 Firstly, grab either the [minified](https://raw2.github.com/tmwagency/swiftclick/master/js/dist/swiftclick.min.js), or [non-minified](https://raw2.github.com/tmwagency/swiftclick/master/js/libs/swiftclick.js) source from Github, or install via Bower using the following command in your command prompt:
 
 	bower install swiftclick
 
-####Include SwiftClick in your application
+###Include SwiftClick in your application
 	<script type="application/javascript" src="path/to/swiftclick.min.js"></script>
 
 
-####Setup SwiftClick
+###Setup SwiftClick
 
 Setting up SwiftClick is a very easy process, which mirrors that of FastClick in that instances must be attached to a context element. Click events from all elements within the context element are automatically captured and converted to touch events when necessary.
 
@@ -59,7 +59,7 @@ If necessary, multiple instances of SwiftClick can be created for specific conte
 	var navigationSwiftClick = SwiftClick.attach (someNavElement);
 	var uiSwiftClick = SwiftClick.attach (someOtherElement);
 
-####Default Elements
+###Default Elements
 Once attached, by default SwiftClick will track events originating from the following element types:
 
 - `<a>`
@@ -68,13 +68,13 @@ Once attached, by default SwiftClick will track events originating from the foll
 - `<button>`
 
 
-####Adding non-default element types
+###Adding non-default element types
 If necessary you can make SwiftClick track events originating from additional element types by adding an array of node names. This requires a reference to an instance of SwiftClick:
 
 	var swiftclick = SwiftClick.attach (someElement);
 	swiftclick.addNodeNamesToTrack (["p", "h1", "nav"]);
 
-####Replacing all stored node names to track
+###Replacing all stored node names to track
 
 	var swiftclick = SwiftClick.attach (someElement);
 	swiftclick.replaceNodeNamesToTrack (["a", "div"]);
@@ -82,7 +82,7 @@ If necessary you can make SwiftClick track events originating from additional el
 Doing this will remove all default node names, as well as any that have been added, and replace them with the node names within the array that is passed in, resulting in only the new node names being tracked.
 
 
-####Automatically disabled when not needed
+###Automatically disabled when not needed
 SwiftClick only intercepts events for touch devices that support orientation change, otherwise it just sits there looking pretty.
 
 
