@@ -7,7 +7,7 @@ categories:
   - "front-end"
   - touch devices
 author: ivan
-excerpt: "It's important to make sure a team of developers are all on the same page when developing across multiple projects. We look at what helps our front-end team at TMW."
+excerpt: "SwiftClick is a library created to eliminate the 300ms click event delay on touch devices that support orientation change and is designed to be super lightweight — weighing in at a teeny-tiny 417 bytes minified & gzipped!"
 published: true
 ---
 
@@ -23,16 +23,13 @@ This detection method worked well in the majority of situations we needed.
 
 We would then use the `'clickEventType'` variable in any event listeners that needed to get a click event:
 
-
 	someEl.addEventListener (clickEventType, fn, false);
-
 
 This worked pretty nicely, with the main drawback being the fact that we would need to ensure the 'clickEventType' variable was used anywhere we needed to add a click listener, which can be problematic when projects are picked up by new developers who may not necessarily realise that this variable is being used at all.
 
+Other options were explored and we started to use a really nice utility called [FastClick](https://github.com/ftlabs/fastclick), developed by [FT Labs](https://github.com/ftlabs). FastClick hijacks regular click events when necessary, converts them to touch events and then fires a synthesised click event. This allows JavaScript event listeners to be registered using the normal 'click' event type, but has the advantage of these events being fired earlier than normal – effectively removing the 300ms delay. For the most part this worked really well, but we eventually began to find that the util sometimes exhibited strange behaviour, such as events not firing when links were clicked and then firing later on, at the same time as other click events when different elements were clicked. And at 25kb non-minified (1441 bytes minified & gzipped) it is also quite heavy in file size when considering the simple way in which we needed to use it. We therefore felt the time was right to create our own solution – [SwiftClick](https://github.com/tmwagency/swiftclick).
 
-Other options were explored and we started to use a really nice utility called [FastClick](https://github.com/ftlabs/fastclick), developed by [FT Labs](https://github.com/ftlabs). FastClick hijacks regular click events and turns them into touch events when necessary. This allows JavaScript event listeners to be registered using the normal 'click' event type. For the most part this worked really well, but we eventually began to find that the util sometimes exhibited strange behaviour, such as events not firing when links were clicked and then firing later on, at the same time as other click events when different elements were clicked. And at 25kb non-minified (2349 bytes minified & gzipped) it is also quite heavy in file size when considering the simple way in which we needed to use it. We therefore felt the time was right to create our own solution – [SwiftClick](https://github.com/tmwagency/swiftclick).
-
-SwiftClick is heavily based on FastClick, but was designed to be super lightweight — weighing in at a mere 5KB non-minified and a teeny-tiny 374 bytes minified & gzipped!
+SwiftClick is heavily based on FastClick, but was designed to be super lightweight — weighing in at a mere 5KB non-minified and a teeny-tiny 417 bytes minified & gzipped!
 
 In contrast with FastClick, which does a lot under the hood to fix obscure browser bugs for complex elements like form, select, and textarea, by default SwiftClick focuses on basic element types that are typically used in modern interactive development and so these bugs are not a big concern.
 
