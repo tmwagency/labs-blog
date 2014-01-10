@@ -1,7 +1,7 @@
 ---
 comments: true
 layout: post
-title: SwiftClick
+title: Faster tapping with SwiftClick
 date: 2014-01-10 11:00:00
 categories:
   - "front-end"
