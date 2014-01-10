@@ -11,7 +11,7 @@ excerpt: "It's important to make sure a team of developers are all on the same p
 published: true
 ---
 
-As many of you will have experienced when using touch devices such as iPhones, clicking on HTML elements sometimes feels a bit sluggish. This is because there is a [300ms delay](http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away) before click events are fired. This is not an acceptable user experience and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and create a variable for the event name to use in click listeners – the value of which being either 'touchstart' for devices that support touch, or 'click' for those that don't:
+As many of you will have experienced when using touch devices such as iPhones, tapping on HTML elements sometimes feels a bit sluggish. This is because there is a [300ms delay](http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away) before click events are fired. This is not an acceptable user experience and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and create a variable for the event name to use in click listeners – the value of which being either 'touchstart' for devices that support touch, or 'click' for those that don't:
 
 	var clickEventType = "ontouchstart" in window ? "touchstart" : "click";
 
