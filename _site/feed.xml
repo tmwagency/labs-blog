@@ -7,6 +7,43 @@
 		<atom:link href="http://labs.tmw.co.uk/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Running Gulp through it&#39;s paces</title>
+				<description>&lt;p&gt;&lt;a href=&quot;http://gulpjs.com/&quot;&gt;Gulp&lt;/a&gt; is the new hot young thing on the front-end circuit, it is a task runner similar to &lt;a href=&quot;http://gruntjs.com&quot;&gt;Grunt&lt;/a&gt;. There are many anecdotal reports saying that Gulp is far quicker than Grunt at performing similar tasks so naturally I wanted to see this for myself using Kickoff as a Guinea Pig.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;Kickoff&lt;/a&gt; uses Grunt to compile Sass and update the browser view on-the-fly; concatenate and minify Javascripts; and a few other tasks, so it was fairly easy to port the config from one to the other. Travis Maynard has written a great &lt;a href=&quot;http://travismaynard.com/writing/getting-started-with-gulp&quot;&gt;intro to Gulp&lt;/a&gt; which made this switch doubly easy. This post is not about how to use Gulp but rather to compare the two &#39;task runners&#39;.&lt;/p&gt;
+
+&lt;p&gt;The Gulp fork of Kickoff can be found at &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/gulp&quot;&gt;github.com/tmwagency/kickoff/tree/gulp&lt;/a&gt; and the &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js&quot;&gt;gulpfile.js&lt;/a&gt; holds all the config. I found editing the &lt;code&gt;gulpfile&lt;/code&gt; quite easy, more so than a Gruntfile; I followed similar ideas to our Grunt setup to make it more maintainable e.g. using variables to avoid repetition, see lines &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L16-L37&quot;&gt;16-37&lt;/a&gt; of the current gulpfile.&lt;/p&gt;
+
+&lt;h2&gt;Speed comparison tests&lt;/h2&gt;
+
+&lt;h3&gt;Sass compilation&lt;/h3&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&quot;/img/blog/kickoff-gulp-test/compare-sass.gif&quot; alt=&quot;Grunt and Gulp Sass compilation comparison&quot;&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;The difference here is massive, and immediately you can see what all the fuss is about. Grunt uses &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-sass&quot;&gt;grunt-contrib-sass&lt;/a&gt; and Gulp uses &lt;a href=&quot;https://github.com/sindresorhus/gulp-ruby-sass/&quot;&gt;gulp-ruby-sass&lt;/a&gt; (both of which use Ruby) to compile. Gulp-ruby-sass is slower than &lt;a href=&quot;https://github.com/dlmanning/gulp-sass&quot;&gt;gulp-sass&lt;/a&gt;, but more stable and feature-rich.&lt;/p&gt;
+
+&lt;h3&gt;Javascript minification and concatination using Uglify.js&lt;/h3&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&quot;/img/blog/kickoff-gulp-test/compare-js.gif&quot; alt=&quot;Grunt and Gulp Javascript minification and concatination using Uglify.js&quot;&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;The difference here is not that large but it is still impressive.&lt;/p&gt;
+
+&lt;h3&gt;Live Reload&lt;/h3&gt;
+
+&lt;p&gt;Live Reload is an indispensable tool and both Gulp and Grunt have plugins for it (Grunt&#39;s is built into &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-watch&quot;&gt;grunt-contrib-watch&lt;/a&gt;). I was not able to measure the speeds between the two but I would say that Gulp was noticeably quicker overall, but not hugely.&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;As you can see Gulp is insanely fast, but that does not mean we are going to be making the switch any time soon. It doesn&#39;t have some the ecosystem and support that Grunt has, although the one man army of &lt;a href=&quot;https://twitter.com/sindresorhus&quot;&gt;Sindre Sorhus&lt;/a&gt; might be changing that!&lt;/p&gt;
+</description>
+				<pubDate>Thu, 16 Jan 2014 15:30:00 +0000</pubDate>
+				<link>http://labs.tmw.co.uk/2014/01/gulp-grunt-comparison</link>
+				
+				<username>@mrmartineau</username>
+				<guid isPermaLink="true">http://labs.tmw.co.uk//2014/01/gulp-grunt-comparison</guid>
+			</item>
+		
+			<item>
 				<title>Faster tapping with SwiftClick</title>
 				<description>&lt;p&gt;As many of you will have experienced when using touch devices such as iPhones, tapping on HTML elements sometimes feels a bit sluggish. This is because there is a &lt;a href=&quot;http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away&quot;&gt;300ms delay&lt;/a&gt; before click events are fired. As a user experience this is clunky behaviour and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and create a variable for the event name to use in click listeners – the value of which being either &#39;touchstart&#39; for devices that support touch, or &#39;click&#39; for those that don&#39;t:&lt;/p&gt;
 

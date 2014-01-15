@@ -282,7 +282,7 @@ module.exports = function (grunt) {
 				server : false,
 				auto : false,
 				drafts : false,
-				future : false
+				future : true
 			},
 			blog: {
 				src: './',
