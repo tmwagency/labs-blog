@@ -35,6 +35,18 @@
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;As you can see Gulp is insanely fast, but that does not mean we are going to be making the switch any time soon. It doesn&#39;t have some the ecosystem and support that Grunt has, although the one man army of &lt;a href=&quot;https://twitter.com/sindresorhus&quot;&gt;Sindre Sorhus&lt;/a&gt; might be changing that!&lt;/p&gt;
+
+&lt;h2&gt;Find out more&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://gulpjs.com/&quot;&gt;Gulp home page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://gratimax.github.io/search-gulp-plugins/&quot;&gt;Gulp plugins directory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/gulpjs/gulp&quot;&gt;Gulp Github repo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://slid.es/contra/gulp&quot;&gt;Introduction to Gulp&lt;/a&gt; by it&#39;s creator, &lt;a href=&quot;https://twitter.com/eschoff&quot;&gt;Eric Schoffstall&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://travismaynard.com/writing/getting-started-with-gulp&quot;&gt;Getting started with Gulp&lt;/a&gt; by Travis Maynard - great intro to Gulp&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.ponyfoo.com/2014/01/09/gulp-grunt-whatever&quot;&gt;Gulp, Grunt, Whatever&lt;/a&gt; by Nicolas Bevacqua - another good intro&lt;/li&gt;
+&lt;/ul&gt;
+
 </description>
 				<pubDate>Thu, 16 Jan 2014 15:30:00 +0000</pubDate>
 				<link>http://labs.tmw.co.uk/2014/01/gulp-grunt-comparison</link>
