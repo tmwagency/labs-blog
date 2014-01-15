@@ -4,46 +4,46 @@ layout: default
 <!--  === MAIN CONTENT ===  -->
 <section class="container post" role="main">
 	<article class="entry content">
-		{% if page.image %}
-			<figure class="entryImage">
-				<img src="/img/posts/{{ page.image }}" alt="{{ page.title }}">
+		{% if page.featuredImage %}
+			<figure class="featuredImage">
+				<img src="{{ page.featuredImage }}" alt="{{ page.title }}">
 			</figure>
 		{% endif %}
 
-		<h1 class="entry-title">{{ page.title }}</h1>
-
 		<div class="entry-content">
+			<h1 class="entry-title">{{ page.title }}</h1>
 			{{ content }}
 		</div>
 
-		<p class="entry-date"><time>Posted on {{ page.date | date_to_string }}</time></p>
+		<div class="entry-meta">
+			<p class="entry-date"><time>Posted on {{ page.date | date_to_string }}</time></p>
 
-		{% assign author = site.authors[page.author] %}
-		<div class="author">
-			<a href="http://twitter.com/{{ author.twitter }}">
-				<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
-				<h3 class="author-name">{{ author.display_name }}</h3>
-			</a>
-			<p class="author-desc">{{ author.short_desc }}</p>
-		</div>
+			{% assign author = site.authors[page.author] %}
+			<div class="author">
+				<a href="http://twitter.com/{{ author.twitter }}">
+					<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
+					<h3 class="author-name">{{ author.display_name }}</h3>
+				</a>
+				<p class="author-desc">{{ author.short_desc }}</p>
+			</div>
 
+			{% if page.comments %}
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+				var disqus_shortname = 'labstmw';
 
-		{% if page.comments %}
-			<div id="disqus_thread"></div>
-			<script type="text/javascript">
-			var disqus_shortname = 'labstmw';
-
-			{% if page.comments_id %}
-				var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
+				{% if page.comments_id %}
+					var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
+				{% endif %}
+					(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 			{% endif %}
-				(function() {
-					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				})();
-			</script>
-			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		{% endif %}
+		</div>
 
 	</article>
 </section>

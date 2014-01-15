@@ -4,66 +4,85 @@
 	@include border-radius(2px);
 
 	.post & {
-		padding: 5% 10% 5%;
+		padding: 0;
 	}
 }
 
-	.entry-title {
-		@include font-size(50);
-		margin-top: 0;
-		margin-bottom: $verticalRhythm + px;
+.featuredImage {
+	@include border-radius(3px 3px 0 0);
+	overflow: hidden;
 
-		& > a {
-			position: relative;
-		}
+}
 
-		& > a:after {
-			position: relative;
-			z-index: -1;
-			font-family: 'icons';
-			content: "\e603\e603";
-			vertical-align: middle;
-			position: absolute;
-			bottom: 0%;
-			left: 90%;
+.entry-title {
+	@include font-size(50);
+	margin-top: 0;
+	margin-bottom: $verticalRhythm + px;
 
-			letter-spacing: -51px;
-
-			color: $blueDark;
-			@include font-size(40);
-			@include opacity(0);
-			@include transition(all 200ms ease-in-out);
-		}
-		& > a:hover:after {
-			left: 100%;
-			color: $pinkDark;
-			@include opacity(100);
-			z-index: 1;
-		}
-
-	}
-	.entry-date {
-		margin-bottom: $verticalRhythm + px;
-	}
-	.entry-author {
-		float: right;
-		margin-left: 5%;
+	& > a {
+		position: relative;
 	}
 
-	.entry-content {
-		//only on the post page
-		.post & {
-			border-bottom: 1px solid #ddd;
-			margin-bottom: $verticalRhythm + px;
-			padding-bottom: $verticalRhythm + px;
-		}
+	& > a:after {
+		position: relative;
+		z-index: -1;
+		font-family: 'icons';
+		content: "\e603\e603";
+		vertical-align: middle;
+		position: absolute;
+		bottom: 0%;
+		left: 90%;
+
+		letter-spacing: -51px;
+
+		color: $blueDark;
+		@include font-size(40);
+		@include opacity(0);
+		@include transition(all 200ms ease-in-out);
+	}
+	& > a:hover:after {
+		left: 100%;
+		color: $pinkDark;
+		@include opacity(100);
+		z-index: 1;
 	}
 
+}
+
+.post .entry-date {
+	margin: ($verticalRhythm * 2) + px 0;
+	padding: $verticalRhythm + px 0;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	@include font-size(15);
+	text-align: center;
+	color: #888;
+}
+
+.entry-author {
+	float: right;
+	margin-left: 5%;
+}
+
+.entry-content {
+	//only on the post page
+	.post & {
+		padding: 5% 10% 0;
+	}
+
+	.featuredImage + & {
+		padding-top: 0;
+	}
+}
 
 #disqus_thread {
 	margin-top: ($verticalRhythm * 2) + px;
-	border-top: 1px solid #ddd;
 	padding-top: ($verticalRhythm * 2) + px;
+	width: 100%;
+	border-top: 1px solid #ddd;
+}
+.entry-meta {
+	padding: 0 10% 5%;
 }
 
 // === <$breakpoint-wide ===

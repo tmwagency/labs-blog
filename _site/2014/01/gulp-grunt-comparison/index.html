@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Running Gulp through it's paces - labs@tmw</title>
+		<title>Speedtesting Gulp and Grunt - labs@tmw</title>
 		<meta name="description" content="labs@tmw - where TMW talks Tech">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/kickoff.css">
@@ -39,15 +39,18 @@
 <section class="container post" role="main">
 	<article class="entry content">
 		
-
-		<h1 class="entry-title">Running Gulp through it's paces</h1>
+			<figure class="featuredImage">
+				<img src="/img/blog/kickoff-gulp-test/featured.gif" alt="Speedtesting Gulp and Grunt">
+			</figure>
+		
 
 		<div class="entry-content">
-			<p><a href="http://gulpjs.com/">Gulp</a> is the new hot young thing on the front-end circuit, it is a task runner similar to <a href="http://gruntjs.com">Grunt</a>. There are many anecdotal reports saying that Gulp is far quicker than Grunt at performing similar tasks so naturally I wanted to see this for myself using Kickoff as a Guinea Pig.</p>
+			<h1 class="entry-title">Speedtesting Gulp and Grunt</h1>
+			<p><a href="http://gulpjs.com/">Gulp</a> is the new hot young thing on the front-end circuit; it is a task runner similar to <a href="http://gruntjs.com">Grunt</a>. There are many anecdotal reports saying that Gulp is far quicker than Grunt at performing similar tasks so naturally I wanted to see this for myself using <a href="http://tmwagency.github.io/kickoff/">Kickoff</a> – the front-end framework we use at TMW – as a Guinea Pig.</p>
 
-<p><a href="http://tmwagency.github.io/kickoff/">Kickoff</a> uses Grunt to compile Sass and update the browser view on-the-fly; concatenate and minify Javascripts; and a few other tasks, so it was fairly easy to port the config from one to the other. Travis Maynard has written a great <a href="http://travismaynard.com/writing/getting-started-with-gulp">intro to Gulp</a> which made this switch doubly easy. This post is not about how to use Gulp but rather to compare the two 'task runners'.</p>
+<p><a href="http://tmwagency.github.io/kickoff/">Kickoff</a> uses Grunt for a number of tasks; compiling Sass and updating the browser view on-the-fly and concatenating and minifying Javascript for example. Porting this config from Grunt to Gulp was fairly easy. Travis Maynard has written a great <a href="http://travismaynard.com/writing/getting-started-with-gulp">intro to Gulp</a> which made this switch doubly easy.</p>
 
-<p>The Gulp fork of Kickoff can be found at <a href="https://github.com/tmwagency/kickoff/tree/gulp">github.com/tmwagency/kickoff/tree/gulp</a> and the <a href="https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js">gulpfile.js</a> holds all the config. I found editing the <code>gulpfile</code> quite easy, more so than a Gruntfile; I followed similar ideas to our Grunt setup to make it more maintainable e.g. using variables to avoid repetition, see lines <a href="https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L16-L37">16-37</a> of the current gulpfile.</p>
+<p>The Gulp fork of Kickoff can be found at <a href="https://github.com/tmwagency/kickoff/tree/gulp">github.com/tmwagency/kickoff/tree/gulp</a> and the <a href="https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js">gulpfile.js</a> holds all the config. I found editing the <code>gulpfile</code> quite easy; more so than a Gruntfile. I followed similar ideas to our Grunt setup to make it more maintainable e.g. using variables to avoid repetition – see lines <a href="https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L16-L37">16-37</a> of the Kickoff gulpfile.</p>
 
 <h2>Speed comparison tests</h2>
 
@@ -55,21 +58,21 @@
 
 <p><figure><img src="/img/blog/kickoff-gulp-test/compare-sass.gif" alt="Grunt and Gulp Sass compilation comparison"></figure></p>
 
-<p>The difference here is massive, and immediately you can see what all the fuss is about. Grunt uses <a href="https://github.com/gruntjs/grunt-contrib-sass">grunt-contrib-sass</a> and Gulp uses <a href="https://github.com/sindresorhus/gulp-ruby-sass/">gulp-ruby-sass</a> (both of which use Ruby) to compile. Gulp-ruby-sass is slower than <a href="https://github.com/dlmanning/gulp-sass">gulp-sass</a>, but more stable and feature-rich.</p>
+<p>The difference here is massive and immediately you can see what all the fuss is about. Grunt uses <a href="https://github.com/gruntjs/grunt-contrib-sass">grunt-contrib-sass</a> and Gulp uses <a href="https://github.com/sindresorhus/gulp-ruby-sass/">gulp-ruby-sass</a> (both of which use Ruby) to compile. Gulp-ruby-sass is slower than <a href="https://github.com/dlmanning/gulp-sass">gulp-sass</a>, but more stable and feature-rich so I will make the switch when it improves. See the gulpfile settings for this <a href="https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L51-L65">here</a>.</p>
 
 <h3>Javascript minification and concatination using Uglify.js</h3>
 
 <p><figure><img src="/img/blog/kickoff-gulp-test/compare-js.gif" alt="Grunt and Gulp Javascript minification and concatination using Uglify.js"></figure></p>
 
-<p>The difference here is not that large but it is still impressive.</p>
+<p>The difference here is not that large but it is still impressive. See the gulpfile settings for this <a href="https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L67-L83">here</a>.</p>
 
 <h3>Live Reload</h3>
 
-<p>Live Reload is an indispensable tool and both Gulp and Grunt have plugins for it (Grunt's is built into <a href="https://github.com/gruntjs/grunt-contrib-watch">grunt-contrib-watch</a>). I was not able to measure the speeds between the two but I would say that Gulp was noticeably quicker overall, but not hugely.</p>
+<p>Live Reload is an indispensable tool for us, both Gulp and Grunt have plugins for it (Grunt's is built into <a href="https://github.com/gruntjs/grunt-contrib-watch">grunt-contrib-watch</a>). I was not able to measure the speeds between the two but I would say that Gulp was noticeably quicker overall, but not hugely.</p>
 
 <h2>Conclusion</h2>
 
-<p>As you can see Gulp is insanely fast, but that does not mean we are going to be making the switch any time soon. It doesn't have some the ecosystem and support that Grunt has, although the one man army of <a href="https://twitter.com/sindresorhus">Sindre Sorhus</a> might be changing that!</p>
+<p>As you can see Gulp is insanely fast, but that does not mean we are going to be making the switch any time soon. There are two plugins that we regularly use that aren't supported by Gulp, these are <a href="https://github.com/gruntjs/grunt-contrib-connect">grunt-contrib-connect</a> (for starting a static web server) and <a href="https://github.com/dannygarcia/grunt-jekyll">grunt-jekyll</a> (for building our Jekyll sites). Gulp just doesn't have the ecosystem and support that Grunt has; although the one man army of <a href="https://twitter.com/sindresorhus">Sindre Sorhus</a> might be changing that!</p>
 
 <h2>Find out more</h2>
 
@@ -85,32 +88,33 @@
 
 		</div>
 
-		<p class="entry-date"><time>Posted on 16 Jan 2014</time></p>
-
-		
-		<div class="author">
-			<a href="http://twitter.com/mrmartineau">
-				<img src="/img/authors/zmartineau.jpeg" alt="Picture of Zander Martineau" class="author-img">
-				<h3 class="author-name">Zander Martineau</h3>
-			</a>
-			<p class="author-desc">Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.</p>
-		</div>
-
-
-		
-			<div id="disqus_thread"></div>
-			<script type="text/javascript">
-			var disqus_shortname = 'labstmw';
+		<div class="entry-meta">
+			<p class="entry-date"><time>Posted on 16 Jan 2014</time></p>
 
 			
-				(function() {
-					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				})();
-			</script>
-			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		
+			<div class="author">
+				<a href="http://twitter.com/mrmartineau">
+					<img src="/img/authors/zmartineau.jpeg" alt="Picture of Zander Martineau" class="author-img">
+					<h3 class="author-name">Zander Martineau</h3>
+				</a>
+				<p class="author-desc">Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.</p>
+			</div>
+
+			
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+				var disqus_shortname = 'labstmw';
+
+				
+					(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			
+		</div>
 
 	</article>
 </section>

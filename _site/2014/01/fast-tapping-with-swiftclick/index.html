@@ -40,9 +40,8 @@
 	<article class="entry content">
 		
 
-		<h1 class="entry-title">Faster tapping with SwiftClick</h1>
-
 		<div class="entry-content">
+			<h1 class="entry-title">Faster tapping with SwiftClick</h1>
 			<p>As many of you will have experienced when using touch devices such as iPhones, tapping on HTML elements sometimes feels a bit sluggish. This is because there is a <a href="http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away">300ms delay</a> before click events are fired. As a user experience this is clunky behaviour and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and create a variable for the event name to use in click listeners – the value of which being either 'touchstart' for devices that support touch, or 'click' for those that don't:</p>
 
 <pre><code>var clickEventType = "ontouchstart" in window ? "touchstart" : "click";
@@ -135,32 +134,33 @@ swiftclick.replaceNodeNamesToTrack (["a", "div"]);
 
 		</div>
 
-		<p class="entry-date"><time>Posted on 10 Jan 2014</time></p>
-
-		
-		<div class="author">
-			<a href="http://twitter.com/munkychop">
-				<img src="/img/authors/ihayes.jpeg" alt="Picture of Ivan Hayes" class="author-img">
-				<h3 class="author-name">Ivan Hayes</h3>
-			</a>
-			<p class="author-desc">Ivan is a creative Interactive Developer at TMW. He is a professional geek by day, and skateboard dude by night.</p>
-		</div>
-
-
-		
-			<div id="disqus_thread"></div>
-			<script type="text/javascript">
-			var disqus_shortname = 'labstmw';
+		<div class="entry-meta">
+			<p class="entry-date"><time>Posted on 10 Jan 2014</time></p>
 
 			
-				(function() {
-					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				})();
-			</script>
-			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		
+			<div class="author">
+				<a href="http://twitter.com/munkychop">
+					<img src="/img/authors/ihayes.jpeg" alt="Picture of Ivan Hayes" class="author-img">
+					<h3 class="author-name">Ivan Hayes</h3>
+				</a>
+				<p class="author-desc">Ivan is a creative Interactive Developer at TMW. He is a professional geek by day, and skateboard dude by night.</p>
+			</div>
+
+			
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+				var disqus_shortname = 'labstmw';
+
+				
+					(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			
+		</div>
 
 	</article>
 </section>
@@ -172,7 +172,7 @@ swiftclick.replaceNodeNamesToTrack (["a", "div"]);
 			<a href="/2013/12/structuring-team-development" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - Structuring team development</a>
 		
 		
-			<a href="/2014/01/gulp-grunt-comparison" class="pagination-item pagination-newer">Next post - Running Gulp through it's paces<span class="icon-arrow-right-small"></span></a>
+			<a href="/2014/01/gulp-grunt-comparison" class="pagination-item pagination-newer">Next post - Speedtesting Gulp and Grunt<span class="icon-arrow-right-small"></span></a>
 		
 	</div>
 </div>

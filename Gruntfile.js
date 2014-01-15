@@ -131,9 +131,7 @@ module.exports = function (grunt) {
 
 			img: {
 				files: [
-					'img/*.jpeg',
-					'img/*.gif',
-					'img/*.png',
+					'img/**/*.*',
 					'fonts/*.*'
 				],
 				tasks : 'copy:assets'

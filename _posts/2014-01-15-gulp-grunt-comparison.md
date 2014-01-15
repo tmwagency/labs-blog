@@ -1,7 +1,7 @@
 ---
 comments: true
 layout: post
-title: "Running Gulp through it's paces"
+title: "Speedtesting Gulp and Grunt"
 date: 2014-01-16 15:30:00
 categories:
   - "front-end"
@@ -9,8 +9,9 @@ categories:
   - "grunt"
   - "node"
 author: zander
-excerpt: ""
+excerpt: "Using our Kickoff framework, Zander compares two of the most popular client-side task runners."
 published: true
+featuredImage: '/img/blog/kickoff-gulp-test/featured.gif'
 ---
 
 [Gulp](http://gulpjs.com/) is the new hot young thing on the front-end circuit; it is a task runner similar to [Grunt](http://gruntjs.com). There are many anecdotal reports saying that Gulp is far quicker than Grunt at performing similar tasks so naturally I wanted to see this for myself using [Kickoff](http://tmwagency.github.io/kickoff/) – the front-end framework we use at TMW – as a Guinea Pig.
@@ -23,20 +24,19 @@ The Gulp fork of Kickoff can be found at [github.com/tmwagency/kickoff/tree/gulp
 ### Sass compilation
 <figure><img src="/img/blog/kickoff-gulp-test/compare-sass.gif" alt="Grunt and Gulp Sass compilation comparison"></figure>
 
-The difference here is massive and immediately you can see what all the fuss is about. Grunt uses [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) and Gulp uses [gulp-ruby-sass](https://github.com/sindresorhus/gulp-ruby-sass/) (both of which use Ruby) to compile. Gulp-ruby-sass is slower than [gulp-sass](https://github.com/dlmanning/gulp-sass), but more stable and feature-rich.
+The difference here is massive and immediately you can see what all the fuss is about. Grunt uses [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) and Gulp uses [gulp-ruby-sass](https://github.com/sindresorhus/gulp-ruby-sass/) (both of which use Ruby) to compile. Gulp-ruby-sass is slower than [gulp-sass](https://github.com/dlmanning/gulp-sass), but more stable and feature-rich so I will make the switch when it improves. See the gulpfile settings for this [here](https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L51-L65).
 
 
 ### Javascript minification and concatination using Uglify.js
 <figure><img src="/img/blog/kickoff-gulp-test/compare-js.gif" alt="Grunt and Gulp Javascript minification and concatination using Uglify.js"></figure>
 
-The difference here is not that large but it is still impressive.
+The difference here is not that large but it is still impressive. See the gulpfile settings for this [here](https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L67-L83).
 
 ### Live Reload
-Live Reload is an indispensable tool and both Gulp and Grunt have plugins for it (Grunt's is built into [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)). I was not able to measure the speeds between the two but I would say that Gulp was noticeably quicker overall, but not hugely.
+Live Reload is an indispensable tool for us, both Gulp and Grunt have plugins for it (Grunt's is built into [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)). I was not able to measure the speeds between the two but I would say that Gulp was noticeably quicker overall, but not hugely.
 
 ## Conclusion
-
-As you can see Gulp is insanely fast, but that does not mean we are going to be making the switch any time soon. Gulp doesn't have some the ecosystem and support that Grunt has, although the one man army of [Sindre Sorhus](https://twitter.com/sindresorhus) might be changing that!
+As you can see Gulp is insanely fast, but that does not mean we are going to be making the switch any time soon. There are two plugins that we regularly use that aren't supported by Gulp, these are [grunt-contrib-connect](https://github.com/gruntjs/grunt-contrib-connect) (for starting a static web server) and [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll) (for building our Jekyll sites). Gulp just doesn't have the ecosystem and support that Grunt has; although the one man army of [Sindre Sorhus](https://twitter.com/sindresorhus) might be changing that!
 
 ## Find out more
 * [Gulp home page](http://gulpjs.com/)

@@ -4,11 +4,6 @@
 .author {
 	display: block;
 	text-align: left;
-
-	.post & {
-		border-top: 1px solid #ddd;
-		padding-top: ($verticalRhythm * 2) + px;
-	}
 }
 	.author-img {
 		float: right;

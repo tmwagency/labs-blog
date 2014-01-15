@@ -7,12 +7,12 @@
 		<atom:link href="http://labs.tmw.co.uk/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Running Gulp through it&#39;s paces</title>
-				<description>&lt;p&gt;&lt;a href=&quot;http://gulpjs.com/&quot;&gt;Gulp&lt;/a&gt; is the new hot young thing on the front-end circuit, it is a task runner similar to &lt;a href=&quot;http://gruntjs.com&quot;&gt;Grunt&lt;/a&gt;. There are many anecdotal reports saying that Gulp is far quicker than Grunt at performing similar tasks so naturally I wanted to see this for myself using Kickoff as a Guinea Pig.&lt;/p&gt;
+				<title>Speedtesting Gulp and Grunt</title>
+				<description>&lt;p&gt;&lt;a href=&quot;http://gulpjs.com/&quot;&gt;Gulp&lt;/a&gt; is the new hot young thing on the front-end circuit; it is a task runner similar to &lt;a href=&quot;http://gruntjs.com&quot;&gt;Grunt&lt;/a&gt;. There are many anecdotal reports saying that Gulp is far quicker than Grunt at performing similar tasks so naturally I wanted to see this for myself using &lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;Kickoff&lt;/a&gt; – the front-end framework we use at TMW – as a Guinea Pig.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;Kickoff&lt;/a&gt; uses Grunt to compile Sass and update the browser view on-the-fly; concatenate and minify Javascripts; and a few other tasks, so it was fairly easy to port the config from one to the other. Travis Maynard has written a great &lt;a href=&quot;http://travismaynard.com/writing/getting-started-with-gulp&quot;&gt;intro to Gulp&lt;/a&gt; which made this switch doubly easy. This post is not about how to use Gulp but rather to compare the two &#39;task runners&#39;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;Kickoff&lt;/a&gt; uses Grunt for a number of tasks; compiling Sass and updating the browser view on-the-fly and concatenating and minifying Javascript for example. Porting this config from Grunt to Gulp was fairly easy. Travis Maynard has written a great &lt;a href=&quot;http://travismaynard.com/writing/getting-started-with-gulp&quot;&gt;intro to Gulp&lt;/a&gt; which made this switch doubly easy.&lt;/p&gt;
 
-&lt;p&gt;The Gulp fork of Kickoff can be found at &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/gulp&quot;&gt;github.com/tmwagency/kickoff/tree/gulp&lt;/a&gt; and the &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js&quot;&gt;gulpfile.js&lt;/a&gt; holds all the config. I found editing the &lt;code&gt;gulpfile&lt;/code&gt; quite easy, more so than a Gruntfile; I followed similar ideas to our Grunt setup to make it more maintainable e.g. using variables to avoid repetition, see lines &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L16-L37&quot;&gt;16-37&lt;/a&gt; of the current gulpfile.&lt;/p&gt;
+&lt;p&gt;The Gulp fork of Kickoff can be found at &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/gulp&quot;&gt;github.com/tmwagency/kickoff/tree/gulp&lt;/a&gt; and the &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js&quot;&gt;gulpfile.js&lt;/a&gt; holds all the config. I found editing the &lt;code&gt;gulpfile&lt;/code&gt; quite easy; more so than a Gruntfile. I followed similar ideas to our Grunt setup to make it more maintainable e.g. using variables to avoid repetition – see lines &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L16-L37&quot;&gt;16-37&lt;/a&gt; of the Kickoff gulpfile.&lt;/p&gt;
 
 &lt;h2&gt;Speed comparison tests&lt;/h2&gt;
 
@@ -20,21 +20,21 @@
 
 &lt;p&gt;&lt;figure&gt;&lt;img src=&quot;/img/blog/kickoff-gulp-test/compare-sass.gif&quot; alt=&quot;Grunt and Gulp Sass compilation comparison&quot;&gt;&lt;/figure&gt;&lt;/p&gt;
 
-&lt;p&gt;The difference here is massive, and immediately you can see what all the fuss is about. Grunt uses &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-sass&quot;&gt;grunt-contrib-sass&lt;/a&gt; and Gulp uses &lt;a href=&quot;https://github.com/sindresorhus/gulp-ruby-sass/&quot;&gt;gulp-ruby-sass&lt;/a&gt; (both of which use Ruby) to compile. Gulp-ruby-sass is slower than &lt;a href=&quot;https://github.com/dlmanning/gulp-sass&quot;&gt;gulp-sass&lt;/a&gt;, but more stable and feature-rich.&lt;/p&gt;
+&lt;p&gt;The difference here is massive and immediately you can see what all the fuss is about. Grunt uses &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-sass&quot;&gt;grunt-contrib-sass&lt;/a&gt; and Gulp uses &lt;a href=&quot;https://github.com/sindresorhus/gulp-ruby-sass/&quot;&gt;gulp-ruby-sass&lt;/a&gt; (both of which use Ruby) to compile. Gulp-ruby-sass is slower than &lt;a href=&quot;https://github.com/dlmanning/gulp-sass&quot;&gt;gulp-sass&lt;/a&gt;, but more stable and feature-rich so I will make the switch when it improves. See the gulpfile settings for this &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L51-L65&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3&gt;Javascript minification and concatination using Uglify.js&lt;/h3&gt;
 
 &lt;p&gt;&lt;figure&gt;&lt;img src=&quot;/img/blog/kickoff-gulp-test/compare-js.gif&quot; alt=&quot;Grunt and Gulp Javascript minification and concatination using Uglify.js&quot;&gt;&lt;/figure&gt;&lt;/p&gt;
 
-&lt;p&gt;The difference here is not that large but it is still impressive.&lt;/p&gt;
+&lt;p&gt;The difference here is not that large but it is still impressive. See the gulpfile settings for this &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L67-L83&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3&gt;Live Reload&lt;/h3&gt;
 
-&lt;p&gt;Live Reload is an indispensable tool and both Gulp and Grunt have plugins for it (Grunt&#39;s is built into &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-watch&quot;&gt;grunt-contrib-watch&lt;/a&gt;). I was not able to measure the speeds between the two but I would say that Gulp was noticeably quicker overall, but not hugely.&lt;/p&gt;
+&lt;p&gt;Live Reload is an indispensable tool for us, both Gulp and Grunt have plugins for it (Grunt&#39;s is built into &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-watch&quot;&gt;grunt-contrib-watch&lt;/a&gt;). I was not able to measure the speeds between the two but I would say that Gulp was noticeably quicker overall, but not hugely.&lt;/p&gt;
 
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;As you can see Gulp is insanely fast, but that does not mean we are going to be making the switch any time soon. It doesn&#39;t have some the ecosystem and support that Grunt has, although the one man army of &lt;a href=&quot;https://twitter.com/sindresorhus&quot;&gt;Sindre Sorhus&lt;/a&gt; might be changing that!&lt;/p&gt;
+&lt;p&gt;As you can see Gulp is insanely fast, but that does not mean we are going to be making the switch any time soon. There are two plugins that we regularly use that aren&#39;t supported by Gulp, these are &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-connect&quot;&gt;grunt-contrib-connect&lt;/a&gt; (for starting a static web server) and &lt;a href=&quot;https://github.com/dannygarcia/grunt-jekyll&quot;&gt;grunt-jekyll&lt;/a&gt; (for building our Jekyll sites). Gulp just doesn&#39;t have the ecosystem and support that Grunt has; although the one man army of &lt;a href=&quot;https://twitter.com/sindresorhus&quot;&gt;Sindre Sorhus&lt;/a&gt; might be changing that!&lt;/p&gt;
 
 &lt;h2&gt;Find out more&lt;/h2&gt;
 
