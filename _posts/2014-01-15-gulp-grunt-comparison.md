@@ -36,3 +36,11 @@ Live Reload is an indispensable tool and both Gulp and Grunt have plugins for it
 
 ## Conclusion
 As you can see Gulp is insanely fast, but that does not mean we are going to be making the switch any time soon. It doesn't have some the ecosystem and support that Grunt has, although the one man army of [Sindre Sorhus](https://twitter.com/sindresorhus) might be changing that!
+
+## Find out more
+* [Gulp home page](http://gulpjs.com/)
+* [Gulp plugins directory](http://gratimax.github.io/search-gulp-plugins/)
+* [Gulp Github repo](https://github.com/gulpjs/gulp)
+* [Introduction to Gulp](http://slid.es/contra/gulp) by it's creator, [Eric Schoffstall](https://twitter.com/eschoff)
+* [Getting started with Gulp](http://travismaynard.com/writing/getting-started-with-gulp) by Travis Maynard - great intro to Gulp
+* [Gulp, Grunt, Whatever](http://blog.ponyfoo.com/2014/01/09/gulp-grunt-whatever) by Nicolas Bevacqua - another good intro
