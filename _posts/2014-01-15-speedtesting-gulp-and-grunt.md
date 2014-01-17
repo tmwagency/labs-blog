@@ -24,7 +24,7 @@ The gulp.js fork of Kickoff can be found at [github.com/tmwagency/kickoff/tree/g
 ### Sass compilation
 <figure><img src="/img/blog/kickoff-gulp-test/compare-sass.gif" alt="Grunt and gulp.js Sass compilation comparison"></figure>
 
-The difference here is massive and immediately you can see what all the fuss is about. Grunt uses [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) and gulp.js uses [gulp-ruby-sass](https://github.com/sindresorhus/gulp-ruby-sass/) (both of which use Ruby) to compile. gulp.js-ruby-sass is slower than [gulp-sass](https://github.com/dlmanning/gulp-sass), but more stable and feature-rich so I will make the switch when it improves. See the gulpfile settings for this [here](https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L51-L65).
+Gulp here is about twice as fast as Grunt at running the same task and immediately you can see what all the fuss is about. Grunt uses [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) and gulp.js uses [gulp-ruby-sass](https://github.com/sindresorhus/gulp-ruby-sass/) (both of which use Ruby) to compile. gulp-ruby-sass is slower than [gulp-sass](https://github.com/dlmanning/gulp-sass), but more stable and feature-rich so I will make the switch when it improves, so I reckon that the difference will be even greater when this happens. See the gulpfile settings for this [here](https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L51-L65).
 
 
 ### Javascript minification and concatination using Uglify.js
@@ -44,6 +44,9 @@ It has come to my attention that people are misinterpreting this post slightly. 
 It also seems that there was a misunderstanding, on my part, of what gulp.js is compared to Grunt. I did not realise initially that one could [write the code](https://gist.github.com/mollerse/8450954) (thanks [mollerse](https://github.com/mollerse)) for a static server within the gulpfile, negating the need for a specific plugin. The same could also be said of a specific Jekyll plugin.
 
 In any case, it seems to have got the discussion started about this misconception which can only be a good thing.
+
+#### Update 17/01/2014
+[Eric Schoffstall](https://twitter.com/eschoff), creator of gulp.js, actually submitted a [pull request](https://github.com/tmwagency/kickoff/pull/11) on my gulpfile to help improve the accuracy of these timings. As a result, the speed gains are not as significant as I once thought but they are still pretty large. I have updated the screenshots and copy above to reflect these new timings.
 
 ## Find out more
 * [gulp.js home page](http://gulpjs.com/)

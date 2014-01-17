@@ -20,7 +20,7 @@
 
 &lt;p&gt;&lt;figure&gt;&lt;img src=&quot;/img/blog/kickoff-gulp-test/compare-sass.gif&quot; alt=&quot;Grunt and gulp.js Sass compilation comparison&quot;&gt;&lt;/figure&gt;&lt;/p&gt;
 
-&lt;p&gt;The difference here is massive and immediately you can see what all the fuss is about. Grunt uses &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-sass&quot;&gt;grunt-contrib-sass&lt;/a&gt; and gulp.js uses &lt;a href=&quot;https://github.com/sindresorhus/gulp-ruby-sass/&quot;&gt;gulp-ruby-sass&lt;/a&gt; (both of which use Ruby) to compile. gulp.js-ruby-sass is slower than &lt;a href=&quot;https://github.com/dlmanning/gulp-sass&quot;&gt;gulp-sass&lt;/a&gt;, but more stable and feature-rich so I will make the switch when it improves. See the gulpfile settings for this &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L51-L65&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Gulp here is about twice as fast as Grunt at running the same task and immediately you can see what all the fuss is about. Grunt uses &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-sass&quot;&gt;grunt-contrib-sass&lt;/a&gt; and gulp.js uses &lt;a href=&quot;https://github.com/sindresorhus/gulp-ruby-sass/&quot;&gt;gulp-ruby-sass&lt;/a&gt; (both of which use Ruby) to compile. gulp-ruby-sass is slower than &lt;a href=&quot;https://github.com/dlmanning/gulp-sass&quot;&gt;gulp-sass&lt;/a&gt;, but more stable and feature-rich so I will make the switch when it improves, so I reckon that the difference will be even greater when this happens. See the gulpfile settings for this &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L51-L65&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3&gt;Javascript minification and concatination using Uglify.js&lt;/h3&gt;
 
@@ -43,6 +43,10 @@
 &lt;p&gt;It also seems that there was a misunderstanding, on my part, of what gulp.js is compared to Grunt. I did not realise initially that one could &lt;a href=&quot;https://gist.github.com/mollerse/8450954&quot;&gt;write the code&lt;/a&gt; (thanks &lt;a href=&quot;https://github.com/mollerse&quot;&gt;mollerse&lt;/a&gt;) for a static server within the gulpfile, negating the need for a specific plugin. The same could also be said of a specific Jekyll plugin.&lt;/p&gt;
 
 &lt;p&gt;In any case, it seems to have got the discussion started about this misconception which can only be a good thing.&lt;/p&gt;
+
+&lt;h4&gt;Update 17/01/2014&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/eschoff&quot;&gt;Eric Schoffstall&lt;/a&gt;, creator of gulp.js, actually submitted a &lt;a href=&quot;https://github.com/tmwagency/kickoff/pull/11&quot;&gt;pull request&lt;/a&gt; on my gulpfile to help improve the accuracy of these timings. As a result, the speed gains are not as significant as I once thought but they are still pretty large. I have updated the screenshots and copy above to reflect these new timings.&lt;/p&gt;
 
 &lt;h2&gt;Find out more&lt;/h2&gt;
 
