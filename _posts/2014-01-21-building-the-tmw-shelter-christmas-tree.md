@@ -1,16 +1,16 @@
 ---
 comments: true
 layout: post
-title: "TMW Shelter Christmas Tree"
-date: 2014-01-20 13:00:00
+title: "Building the TMW Shelter Christmas Tree"
+date: 2014-01-21 13:00:00
 categories:
   - "arduino"
   - "php"
   - "xmas"
 
 author: asheridan
-excerpt: "Ash takes a look at how TMW put built a Christmas tree with a digital twist"
-published: false
+excerpt: "Ash explains how we built a Christmas tree with a digital twist."
+published: true
 ---
 
 ## The brief
@@ -39,9 +39,11 @@ In total we raised £109 for Shelter, and built something that was a challenging
 
 Here are some breakdowns of the data we collected from the total donations:
 
-->Donations by Hour
+-Donations by Hour
 Some peaks over breakfast and lunch
-<img src="/img/blog/tmw-shelter-christmas-tree/donations_by_hour.png" alt="Donations by Hour"><-
 
-->Donations by Day
-<img src="/img/blog/tmw-shelter-christmas-tree/donations_by_day.png" alt="Donations by Day"><-
+<img src="/img/blog/tmw-shelter-christmas-tree/donations_by_hour.png" alt="Donations by Hour">
+
+-Donations by Day
+
+<img src="/img/blog/tmw-shelter-christmas-tree/donations_by_day.png" alt="Donations by Day">
