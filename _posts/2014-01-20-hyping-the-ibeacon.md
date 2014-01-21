@@ -1,11 +1,10 @@
 ---
 comments: true
 layout: post
-title: "Hyping the iBeacon"
-date: 2014-01-20 13:00:00
-categories:
-  - "technology"
-
+title: Hyping the iBeacon
+date: {}
+categories: 
+  - technology
 author: roo
 excerpt: "We take a look at the much talked about iBeacon, a new technology pioneered by Apple that could revolutionise contextual mobile use."
 published: true
@@ -23,7 +22,7 @@ In other words, the app knows where its user is located at a micro–location le
 
 Imagine a user has spent some time looking at a product on a retail brand’s website, but has never followed through with a purchase.
 
-A week later they walk into the same retail brand’s physical store where iBeacons are installed and see the product in the flesh. On walking into the iBeacon broadcast region a service running on the user's phone fires up an app offering them a discount on the product in an attempt to encourage a sale.  This "monitoring" feature of iBeacons allows contextual content to be delivered even if the relevant app isn't running, or is running in the background.
+A week later they walk into the same retail brand’s physical store where iBeacons are installed and see the product in the flesh. On walking into the iBeacon broadcast region a service running on the user's phone fires up an app offering them a discount on the product in an attempt to encourage a sale.  This "***monitoring***" feature of iBeacons allows contextual content to be delivered even if the relevant app isn't running, or is running in the background.
 
 Another feature of iBeacons is "***ranging***"; the ability for the mobile device to work out its distance from the iBeacon using the received signal strength. Furthermore, if the app is simultaneously connected to multiple beacons then it can triangulate distances and work out where a user is within a space: micro-location. Suddenly an app knows whether the user is looking at jeans or perfume, which could lead to great opportunities for real-life, real-time analytics.
 
@@ -52,7 +51,7 @@ It’ll be interesting to see how users take to installing apps specifically to 
 
 Because iBeacons are small, cheap and can run on a single battery for up to 2 years they can make for ideal integrations into POS displays to augment campaigns and product launches in retail environments.
 
-They don't require an existing infrastructure to be present and can be easily deployed in any environment be it an expo, conference, tradeshow, ourdoor event. They can also be placed on moving objects and aside from marketing, retail and guiding applications, there is massive potential to create [products](http://www.motionloft.com/property_owners.html) or [games](http://thetaplab.com/games/tinytycoons) that take advantage of the tech.
+They don't require an existing infrastructure to be present and can be easily deployed in any environment be it an expo, conference, tradeshow, outdoor event. They can also be placed on moving objects and aside from marketing, retail and guiding applications, there is massive potential to create [products](http://www.motionloft.com/property_owners.html) or [games](http://thetaplab.com/games/tinytycoons) that take advantage of the tech.
 
 It is early days but with the digital world perpetually bleeding outside the confines of a screen it is an ideal territory for an agency such as ourselves to explore for opportunities.
 
