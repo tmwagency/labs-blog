@@ -64,7 +64,7 @@ Some peaks over breakfast and lunch&lt;/p&gt;
 
 &lt;p&gt;Imagine a user has spent some time looking at a product on a retail brand’s website, but has never followed through with a purchase.&lt;/p&gt;
 
-&lt;p&gt;A week later they walk into the same retail brand’s physical store where iBeacons are installed and see the product in the flesh. On walking into the iBeacon broadcast region a service running on the user&#39;s phone fires up an app offering them a discount on the product in an attempt to encourage a sale.  This &quot;monitoring&quot; feature of iBeacons allows contextual content to be delivered even if the relevant app isn&#39;t running, or is running in the background.&lt;/p&gt;
+&lt;p&gt;A week later they walk into the same retail brand’s physical store where iBeacons are installed and see the product in the flesh. On walking into the iBeacon broadcast region a service running on the user&#39;s phone fires up an app offering them a discount on the product in an attempt to encourage a sale.  This &quot;&lt;strong&gt;&lt;em&gt;monitoring&lt;/em&gt;&lt;/strong&gt;&quot; feature of iBeacons allows contextual content to be delivered even if the relevant app isn&#39;t running, or is running in the background.&lt;/p&gt;
 
 &lt;p&gt;Another feature of iBeacons is &quot;&lt;strong&gt;&lt;em&gt;ranging&lt;/em&gt;&lt;/strong&gt;&quot;; the ability for the mobile device to work out its distance from the iBeacon using the received signal strength. Furthermore, if the app is simultaneously connected to multiple beacons then it can triangulate distances and work out where a user is within a space: micro-location. Suddenly an app knows whether the user is looking at jeans or perfume, which could lead to great opportunities for real-life, real-time analytics.&lt;/p&gt;
 
@@ -90,7 +90,7 @@ Some peaks over breakfast and lunch&lt;/p&gt;
 
 &lt;p&gt;Because iBeacons are small, cheap and can run on a single battery for up to 2 years they can make for ideal integrations into POS displays to augment campaigns and product launches in retail environments.&lt;/p&gt;
 
-&lt;p&gt;They don&#39;t require an existing infrastructure to be present and can be easily deployed in any environment be it an expo, conference, tradeshow, ourdoor event. They can also be placed on moving objects and aside from marketing, retail and guiding applications, there is massive potential to create &lt;a href=&quot;http://www.motionloft.com/property_owners.html&quot;&gt;products&lt;/a&gt; or &lt;a href=&quot;http://thetaplab.com/games/tinytycoons&quot;&gt;games&lt;/a&gt; that take advantage of the tech.&lt;/p&gt;
+&lt;p&gt;They don&#39;t require an existing infrastructure to be present and can be easily deployed in any environment be it an expo, conference, tradeshow, outdoor event. They can also be placed on moving objects and aside from marketing, retail and guiding applications, there is massive potential to create &lt;a href=&quot;http://www.motionloft.com/property_owners.html&quot;&gt;products&lt;/a&gt; or &lt;a href=&quot;http://thetaplab.com/games/tinytycoons&quot;&gt;games&lt;/a&gt; that take advantage of the tech.&lt;/p&gt;
 
 &lt;p&gt;It is early days but with the digital world perpetually bleeding outside the confines of a screen it is an ideal territory for an agency such as ourselves to explore for opportunities.&lt;/p&gt;
 
@@ -148,7 +148,7 @@ Some peaks over breakfast and lunch&lt;/p&gt;
 &lt;/ul&gt;
 
 </description>
-				<pubDate>Mon, 20 Jan 2014 13:00:00 +0000</pubDate>
+				<pubDate>Mon, 20 Jan 2014 15:30:00 +0000</pubDate>
 				<link>http://labs.tmw.co.uk/2014/01/hyping-the-ibeacon</link>
 				
 				<username>@roowilliams</username>

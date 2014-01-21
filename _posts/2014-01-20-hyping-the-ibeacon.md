@@ -2,8 +2,8 @@
 comments: true
 layout: post
 title: Hyping the iBeacon
-date: {}
-categories: 
+date: 2014-01-20 15:30:00
+categories:
   - technology
 author: roo
 excerpt: "We take a look at the much talked about iBeacon, a new technology pioneered by Apple that could revolutionise contextual mobile use."
