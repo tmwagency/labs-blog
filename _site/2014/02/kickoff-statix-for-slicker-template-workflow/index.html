@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Kickoff Statix: A slicker template workflow - labs@tmw</title>
+		<meta name="description" content="labs@tmw - where TMW talks Tech">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/qep5gxs.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script>var pageName = '';</script>
+
+		<script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
+
+		<!-- Mobile & Fav Icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/favicons/lbtmw-144.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/favicons/lbtmw-114.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/favicons/lbtmw-72.png">
+		<link rel="apple-touch-icon-precomposed" href="/img/favicons/lbtmw-57.png">
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-title" content="labs@tmw">
+
+		<link rel="alternate" type="application/atom+xml" title="labs@tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+	</head>
+	<body>
+	<!--  === MASTHEAD ===  -->
+	<header class="masthead">
+	<div class="container">
+		
+			<h2 class="logo alpha"><a href="/">labs@tmw</a></h2>
+		
+
+		<p class="logo-tagline">Some chat from the tech riff-raff at TMW</p>
+	</div>
+</header>
+
+	<!--  === MAIN CONTENT ===  -->
+<section class="container post" role="main">
+	<article class="entry content">
+		
+
+		<div class="entry-content">
+			<h1 class="entry-title">Kickoff Statix: A slicker template workflow</h1>
+			<p>Developing static templates has historically been a bit of a pain in the ass.</p>
+
+<p>Most frameworks of choice such as BootStrap use flat HTML to develop templates, which although fine, becomes less flexible the more templates you have.  Sharing markup across static templates can only be achieved by integrating your own templating language, such as handlebars, using server side includes, or worse case, <a href="http://stackoverflow.com/questions/8988855/include-another-html-file-in-a-html-file">by using jQuery</a>.</p>
+
+<p>Having been using static site generators, such as <a href="http://jekyllrb.com/">Jekyll</a>, for a good while now, I recently started using <a href="http://assemble.io/">Assemble</a>.  Both excellent tools, the main difference I have found is that Assemble can generate templates from a wider array of data types, whereas Jekyll focuses on loading data from YAML and Markdown.</p>
+
+<p>Using these tools got me thinking; static site generators could be used in the front-end workflow to help when building static site templates, not just building full static websites.  This would be especially useful when we are required to handover static templates for integration to backend devs, or when we wanted to keep a version of the static pages separate from the integrated build files.  We could then use the power of static site generators when creating templates.</p>
+
+<p>So I built <a href="http://tmwagency.github.io/kickoff/statix/index.html">Kickoff Statix</a>, a simple setup of Assemble, integrated with our front-end framework, <a href="http://tmwagency.github.io/kickoff/">Kickoff</a>.</p>
+
+<p>This means that when templating, you have the power of using handlebars to share markup across multiple pages – such as header files and navigation.  You can also parse Markdown to keep your development code clean from sample content.  Most importantly this is all setup by simply <a href="https://github.com/tmwagency/kickoff-statix">downloading the project repo</a> and running <code>grunt serve</code> from the base of the project in the terminal.</p>
+
+<p>No config to fiddle with (unless you want to), it just attempts to alleviate some of the most basic headaches faced when creating static templates by setting up a structure for you to start from and build upon.</p>
+
+<p>Because the project is built using Assemble and Grunt, it is easily extensible and configurable to anyone who is familiar with these tools.  Think of it as a quick and flexible templating setup, like Bootstrap, just with a bit more oomph.</p>
+
+<p>More details about how to use Kickoff Statix can be found in the <a href="http://tmwagency.github.io/kickoff/statix/index.html">documentation</a> or in the <a href="https://github.com/tmwagency/kickoff-statix">Github Readme</a>.</p>
+
+<p>If you have any questions about using Statix or just general feedback, <a href="http://twitter.com/TMW_Labs">give us a shout on Twitter</a>.</p>
+
+		</div>
+
+		<div class="entry-meta">
+			<p class="entry-date"><time>Posted on 05 Feb 2014</time></p>
+
+			
+			<div class="author">
+				<a href="http://twitter.com/AshNolan_">
+					<img src="/img/authors/anolan.jpeg" alt="Picture of Ashley Nolan" class="author-img">
+					<h3 class="author-name">Ashley Nolan</h3>
+				</a>
+				<p class="author-desc">Ashley is a Creative Technologist at TMW.  After reading about Amazon’s new delivery plans, he is currently preparing for the advent of Skynet and welcomes our new drone overlords.</p>
+			</div>
+
+			
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+				var disqus_shortname = 'labstmw';
+
+				
+					(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			
+		</div>
+
+	</article>
+</section>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		
+			<a href="/2014/01/building-the-tmw-shelter-christmas-tree" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - Building the TMW Shelter Christmas Tree</a>
+		
+		
+	</div>
+</div>
+
+	<!--  === FOOTER ===  -->
+	<footer class="footer" role="contentinfo">
+	<div class="container footer-links">
+		<a href="http://github.com/tmwagency/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe600;"></span>Github</a>
+		<a href="http://twitter.com/tmw_labs/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe601;"></span>Twitter</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="footer-links-item footer-links-item--right">We also maintain <span class="kickoff">Kickoff</span></a>
+	</div>
+	<div class="footer-text container clearfix">
+		<p class="footer-text-about">This blog is curated and maintained by the creative technology team at <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank">TMW</a>.</p>
+		<p class="footer-text-email"><a href="http://eepurl.com/KaKbv">Subscribe by Email</a></p>
+	</div>
+
+</footer>
+
+	<script src="/js/dist/app.min.js"></script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27779119-7', 'tmw.co.uk');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>
