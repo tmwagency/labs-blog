@@ -1,10 +1,10 @@
 ---
 comments: false
 layout: post
-title: "Post title"
+title: "The Future of Umbraco"
 categories:
 - general
-
+---
 #The future of Umbraco
 
 I went to the monthly London Umbraco meet up a few weeks ago and was fortunate enough to get a demo of the next big thing in Umbraco, Umbraco as a service. 
