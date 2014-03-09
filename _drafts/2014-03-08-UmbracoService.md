@@ -2,8 +2,14 @@
 comments: false
 layout: post
 title: "The Future of Umbraco"
+author: tim
 categories:
-- general
+- Back-end
+- CMS
+- Umbraco
+- Dot Net
+- Cloud
+Excerpt: The Umbraco CMS team are adding another string to the bow of their CMS. Tim had a quick look to see what's in store.
 ---
 #The future of Umbraco
 
