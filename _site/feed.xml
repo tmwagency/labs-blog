@@ -7,6 +7,87 @@
 		<atom:link href="http://labs.tmw.co.uk/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Yeoman Generator Development Tips</title>
+				<description>&lt;p&gt;Yeoman generators are a powerful tool for developers, they enable us to get up and running with projects extremely quickly. I created a generator for our Kickoff framework and came across a few things that I thought others would benefit from; hopefully this post will shed some light for others creating their own generators.&lt;/p&gt;
+
+&lt;p&gt;The Kickoff Yeoman generator is a simple way to &#39;kickoff&#39; your project even more quickly than before. It simply asks a few questions, modifies some files, adds the results to the ouputted files and installs some npm and bower dependencies.&lt;/p&gt;
+
+&lt;h3&gt;Escaping Underscore template variables&lt;/h3&gt;
+
+&lt;p&gt;Use double percent signs to escape Underscore template variables, like this: &lt;code&gt;&amp;lt;%%= someVar %&amp;gt;&lt;/code&gt; instead of &lt;code&gt;&amp;lt;%= someVar %&amp;gt;&lt;/code&gt; and you should be sorted. I had this issue in the Gruntfile where there are quite a few of these tags, see &lt;a href=&quot;https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/templates/_Gruntfile.js#L53&quot;&gt;here&lt;/a&gt;. Credit for this goes to a helpful comment on &lt;a href=&quot;https://github.com/yeoman/generator-generator/issues/45#issuecomment-31031268&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Run Grunt (or another command) after Yeoman builds&lt;/h3&gt;
+
+&lt;p&gt;The Kickoff generator runs a Grunt task immediately after it has finished compiling and installing everything, I was able to do this by running the &lt;code&gt;spawnCommand&lt;/code&gt; method in the &lt;code&gt;dependenciesInstalled&lt;/code&gt; callback, like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Now you can bind to the dependencies installed event
+this.on(&#39;dependenciesInstalled&#39;, function () {
+    if (this.jsLibs === &#39;jquery&#39;) { this.spawnCommand(&#39;grunt&#39;, [&#39;jquery&#39;]); }
+    this.spawnCommand(&#39;grunt&#39;, [&#39;serve&#39;]);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See this in our actual &lt;a href=&quot;https://github.com/tmwagency/generator-kickoff/blob/c2aab72ad4a15186b646505817152732a8c9f4b2/app/index.js#L24&quot;&gt;index.js&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;How to log a colored message with Yeoman&lt;/h3&gt;
+
+&lt;p&gt;You can use the same color module Chalk as used by the generator system to colorize your text.&lt;/p&gt;
+
+&lt;p&gt;First install it: &lt;code&gt;npm install --save chalk&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then &lt;a href=&quot;https://github.com/tmwagency/generator-kickoff/blob/master/app/index.js#L5&quot;&gt;require it&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var chalk = require(&#39;chalk&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then &lt;a href=&quot;https://github.com/tmwagency/generator-kickoff/blob/master/app/index.js#L35&quot;&gt;use it&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;console.log(chalk.bold.yellow(&#39;message&#39;));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&quot;/img/blog/yeoman-tips/chalk.png&quot; alt=&quot;Chalk colours in the Kickoff Yeoman generator&quot;&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;If you would like to know more about different prompt/question styles, see the &lt;a href=&quot;https://github.com/SBoudrias/Inquirer.js&quot;&gt;Inquirer.js docs&lt;/a&gt;. Kickoff&#39;s can be found &lt;a href=&quot;https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Conditional statements in your generator&lt;/h3&gt;
+
+&lt;p&gt;As you can see above our generator asks if you&#39;d like to include jQuery in the project, so if the user does, the relevant jQuery Builder Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, oh, and a post generator task is run to build the library.&lt;/p&gt;
+
+&lt;p&gt;Some simple conditionals were needed - who&#39;d a thunk it?? - in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag. Here&#39;s an example from our package.json:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;% if (jsLibs == &quot;jquery&quot;) {%&amp;gt;,&quot;grunt-jquery-builder&quot;: &quot;~0.1.1&quot;&amp;lt;% } %&amp;gt;
+
+/* or */
+
+&amp;lt;% if (jsLibs == &#39;jquery&#39;) {%&amp;gt;,&quot;jquery&quot;: true&amp;lt;% } %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice the preceeding comma before the conditional&#39;s content.&lt;/p&gt;
+
+&lt;p&gt;JSON syntax is very strict, if a comma isn&#39;t there, or is in the wrong place, it will throw an error and npm will not install the dependencies, that is why I included the preceeding comma within the conditional. It might seem obvious but this logic needs to be self-contained and the surrounding code needs to be unaware of it, if it does not exist.&lt;/p&gt;
+
+&lt;h2&gt;Try the Kickoff generator&lt;/h2&gt;
+
+&lt;p&gt;To install &lt;a href=&quot;https://www.npmjs.org/package/generator-kickoff&quot;&gt;our generator&lt;/a&gt;, run: &lt;code&gt;npm install -g generator-kickoff&lt;/code&gt; and then run &lt;code&gt;yo kickoff&lt;/code&gt; to use it.&lt;/p&gt;
+
+&lt;p&gt;Please leave a comment below if you have any other tips, we&#39;re always keen to find out more.&lt;/p&gt;
+
+&lt;h3&gt;Useful links&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://yeoman.io&quot;&gt;The Yeoman project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;To find out about writing your own Yeoman generators, have a look at &lt;a href=&quot;http://yeoman.io/generators.html#writing-your-first-generator&quot;&gt;yeoman.io/generators.html&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Tue, 01 Apr 2014 00:00:00 +0100</pubDate>
+				<link>http://labs.tmw.co.uk/2014/04/yeoman-generator-tips</link>
+				
+				<username>@mrmartineau</username>
+				<guid isPermaLink="true">http://labs.tmw.co.uk//2014/04/yeoman-generator-tips</guid>
+			</item>
+		
+			<item>
 				<title>The Future of Umbraco</title>
 				<description>&lt;p&gt;I went to the monthly London Umbraco meet up a few weeks ago and was fortunate enough to get a demo of the next big thing in Umbraco; Umbraco as a service.&lt;/p&gt;
 
@@ -552,41 +633,6 @@ swiftclick.replaceNodeNamesToTrack ([&quot;a&quot;, &quot;div&quot;]);
 				
 				<username>@AshNolan_</username>
 				<guid isPermaLink="true">http://labs.tmw.co.uk//2013/12/really-good-hyperlinks</guid>
-			</item>
-		
-			<item>
-				<title>Introducing Kickoff</title>
-				<description>&lt;p&gt;Within a large team, making sure that everyone is on the same page can be difficult; at TMW we have a team of about 20 web developers (6 are front-enders and creative technologists) and this was an issue that we needed to tackle. We create many different types of sites, from single page apps to large-scale builds like &lt;a href=&quot;http://uk.thebar.com&quot;&gt;uk.thebar.com&lt;/a&gt; or &lt;a href=&quot;http://www.bbcgoodfood.com&quot;&gt;BBC Goodfood&lt;/a&gt; and needed a framework that would work for all of them, so &lt;a href=&quot;http://twitter.com/AshNolan_&quot;&gt;Ash Nolan&lt;/a&gt; and I created &lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;Kickoff&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Kickoff is a lightweight front-end framework for creating scalable, responsive sites&lt;/strong&gt;; that might sound a bit vague but it is the essence of the framework. Due to the nature of agency work, the projects are hugely varied, but as developers, we always try to cut corners to normalise things as much as possible – basically because we&#39;re lazy and we don&#39;t want to have to repeat things very often! Kickoff aims to mitigate common problems found in web development by providing a strong starting point and a set of helpful defaults for use on almost any project.&lt;/p&gt;
-
-&lt;p&gt;The key difference of Kickoff when compared with other similar frameworks – I&#39;m looking at you &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; and &lt;a href=&quot;foundation.zurb.com&quot;&gt;Foundation&lt;/a&gt; – is that it is not nearly as prescriptive. While those frameworks define almost every aspect of a website with CSS styles and JavaScript plugins that do everything, Kickoff has most of that but does not enable it by default. For example, we have a simple grid system, but if you need something more complex or, heaven forbid, not use one, that is not a problem; just don&#39;t include it.&lt;/p&gt;
-
-&lt;h3&gt;The tech&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://gruntjs.com&quot;&gt;Grunt&lt;/a&gt; is used extensively in Kickoff. It is the beating heart of the framework, we use it to compile our &lt;a href=&quot;http://sass-lang.com&quot;&gt;Sass&lt;/a&gt;, concatinate and then minify our JavaScript files, or to fire up a simple local server with LiveReload for some testing. Using Grunt has other benefits besides this; it allows any dev to pick up a project, regardless of if they&#39;ve worked on it before, and get up and running in no time at all. We are working on getting Grunt set-up on our Teamcity continuous integration build server but it is not ready yet - this will be a massive step forward once that&#39;s done.&lt;/p&gt;
-
-&lt;h3&gt;How do you get your hands on it?&lt;/h3&gt;
-
-&lt;p&gt;We have built a brochure site at &lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;tmwagency.github.io/kickoff/&lt;/a&gt; where you can find documentation and demos on various parts of the framework. If you want to grab the code, visit our Github &lt;a href=&quot;https://github.com/tmwagency/kickoff/&quot;&gt;project page&lt;/a&gt;. It is being actively maintained and we welcome suggestions and support for improvements. If you use &lt;a href=&quot;http://yeoman.io&quot;&gt;Yeoman&lt;/a&gt;, there is a &lt;a href=&quot;http://tmwagency.github.io/kickoff/docs/yeoman.html&quot;&gt;Kickoff generator&lt;/a&gt; that I created to help speed up the project creation process even more.&lt;/p&gt;
-
-&lt;p&gt;Here are a few sites using Kickoff:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The &lt;a href=&quot;http://www.bbcgoodfood.com&quot;&gt;BBC Goodfood&lt;/a&gt; cookery site&lt;/li&gt;
-&lt;li&gt;The Western Europe version of &lt;a href=&quot;http://uk.thebar.com&quot;&gt;uk.thebar.com&lt;/a&gt; cocktail site&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://strepsils.co.uk/xfactor&quot;&gt;Strepsils Xfactor&lt;/a&gt; competition site&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://labs.tmw.co.uk&quot;&gt;labs.tmw.co.uk&lt;/a&gt; - Woop Woop!&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;We are very proud of Kickoff, it has helped our team become more efficient, improving workflow throughout the department. Just give it a try on your projects and let us know how you get on.&lt;/p&gt;
-</description>
-				<pubDate>Tue, 10 Dec 2013 10:00:00 +0000</pubDate>
-				<link>http://labs.tmw.co.uk/2013/12/introducing-kickoff</link>
-				
-				<username>@mrmartineau</username>
-				<guid isPermaLink="true">http://labs.tmw.co.uk//2013/12/introducing-kickoff</guid>
 			</item>
 		
 	</channel>

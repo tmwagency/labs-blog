@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Yeoman Generator Tips - labs@tmw</title>
+		<title>Yeoman Generator Development Tips - labs@tmw</title>
 		<meta name="description" content="labs@tmw - where TMW talks Tech">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/kickoff.css">
@@ -41,14 +41,14 @@
 		
 
 		<div class="entry-content">
-			<h1 class="entry-title">Yeoman Generator Tips</h1>
-			<p>Yeoman generators are powerful tool for developers, they enable us to get up and running with projects extremely quickly. I created a generator for our Kickoff framework and came across a few things that caught me out, were hard to find or just didn't exist in the documentation. Hopefully this post will shed some light for others creating their own generators.</p>
+			<h1 class="entry-title">Yeoman Generator Development Tips</h1>
+			<p>Yeoman generators are a powerful tool for developers, they enable us to get up and running with projects extremely quickly. I created a generator for our Kickoff framework and came across a few things that I thought others would benefit from; hopefully this post will shed some light for others creating their own generators.</p>
 
-<p>The Kickoff Yeoman generator is a simple way to 'kickoff' your project even faster than before. It simply asks a few questions, modifies some files, adds the results to the ouputted files and installs some npm and bower dependencies.</p>
+<p>The Kickoff Yeoman generator is a simple way to 'kickoff' your project even more quickly than before. It simply asks a few questions, modifies some files, adds the results to the ouputted files and installs some npm and bower dependencies.</p>
 
 <h3>Escaping Underscore template variables</h3>
 
-<p>If you are already using underscore template variables in your files, and you are transforming them with Yeoman, then you will need to escape them. Use double <code>&lt;%%= someVar %&gt;</code> instead of <code>&lt;%= someVar %&gt;</code> and you should be sorted. I had this issue in the Gruntfile where there are quite a few of these tags, see <a href="https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/templates/_Gruntfile.js#L53">here</a>. Credit for this goes to a helpful comment on <a href="https://github.com/yeoman/generator-generator/issues/45#issuecomment-31031268">Github</a>.</p>
+<p>Use double percent signs to escape Underscore template variables, like this: <code>&lt;%%= someVar %&gt;</code> instead of <code>&lt;%= someVar %&gt;</code> and you should be sorted. I had this issue in the Gruntfile where there are quite a few of these tags, see <a href="https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/templates/_Gruntfile.js#L53">here</a>. Credit for this goes to a helpful comment on <a href="https://github.com/yeoman/generator-generator/issues/45#issuecomment-31031268">Github</a>.</p>
 
 <h3>Run Grunt (or another command) after Yeoman builds</h3>
 
@@ -63,24 +63,54 @@ this.on('dependenciesInstalled', function () {
 
 <p>See this in our actual <a href="https://github.com/tmwagency/generator-kickoff/blob/c2aab72ad4a15186b646505817152732a8c9f4b2/app/index.js#L24">index.js</a></p>
 
+<h3>How to log a colored message with Yeoman</h3>
+
+<p>You can use the same color module Chalk as used by the generator system to colorize your text.</p>
+
+<p>First install it: <code>npm install --save chalk</code></p>
+
+<p>Then <a href="https://github.com/tmwagency/generator-kickoff/blob/master/app/index.js#L5">require it</a>:</p>
+
+<pre><code>var chalk = require('chalk');
+</code></pre>
+
+<p>Then <a href="https://github.com/tmwagency/generator-kickoff/blob/master/app/index.js#L35">use it</a>:</p>
+
+<pre><code>console.log(chalk.bold.yellow('message'));
+</code></pre>
+
+<p><figure><img src="/img/blog/yeoman-tips/chalk.png" alt="Chalk colours in the Kickoff Yeoman generator"></figure></p>
+
+<p>If you would like to know more about different prompt/question styles, see the <a href="https://github.com/SBoudrias/Inquirer.js">Inquirer.js docs</a>. Kickoff's can be found <a href="https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80">here</a>.</p>
+
 <h3>Conditional statements in your generator</h3>
 
-<p>Our generator asks if you'd like to include jQuery in the project, so if the user does, the jQuery Builder Grunt plugin is added the package.json, some config is added to the Gruntfile before being installed with npm, oh, and a post generator task is run to build the library.</p>
+<p>As you can see above our generator asks if you'd like to include jQuery in the project, so if the user does, the relevant jQuery Builder Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, oh, and a post generator task is run to build the library.</p>
 
-<p>I needed some simple conditionals in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag. Here's an example from our package.json: <code>&lt;% if (jsLibs == "jquery") {%&gt;,"grunt-jquery-builder": "~0.1.1"&lt;% } %&gt;</code>.</p>
+<p>Some simple conditionals were needed - who'd a thunk it?? - in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag. Here's an example from our package.json:</p>
+
+<pre><code>&lt;% if (jsLibs == "jquery") {%&gt;,"grunt-jquery-builder": "~0.1.1"&lt;% } %&gt;
+
+/* or */
+
+&lt;% if (jsLibs == 'jquery') {%&gt;,"jquery": true&lt;% } %&gt;
+</code></pre>
+
+<p>Notice the preceeding comma before the conditional's content.</p>
 
 <p>JSON syntax is very strict, if a comma isn't there, or is in the wrong place, it will throw an error and npm will not install the dependencies, that is why I included the preceeding comma within the conditional. It might seem obvious but this logic needs to be self-contained and the surrounding code needs to be unaware of it, if it does not exist.</p>
 
-<p>I hope these few tips are of some use to people as I don't think the creation of Yeoman templates is made public enough. If anyone has any other tips, please leave a comment as I'd love to find out more.</p>
+<h2>Try the Kickoff generator</h2>
+
+<p>To install <a href="https://www.npmjs.org/package/generator-kickoff">our generator</a>, run: <code>npm install -g generator-kickoff</code> and then run <code>yo kickoff</code> to use it.</p>
+
+<p>Please leave a comment below if you have any other tips, we're always keen to find out more.</p>
 
 <h3>Useful links</h3>
 
 <ul>
 <li><a href="http://yeoman.io">The Yeoman project</a></li>
 <li>To find out about writing your own Yeoman generators, have a look at <a href="http://yeoman.io/generators.html#writing-your-first-generator">yeoman.io/generators.html</a>.</li>
-<li>If you would like to know more about different prompt/question styles, see the <a href="https://github.com/SBoudrias/Inquirer.js">Inquirer.js docs</a>. Kickoff's looks like <a href="https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80">this</a></li>
-<li><a href="http://stackoverflow.com/questions/18354585/how-to-log-a-colored-message-with-yeoman/18369822#18369822">How to log a colored message with Yeoman</a></li>
-<li><a href="http://stackoverflow.com/questions/14617111/yeoman-how-to-set-headers-htaccess/14623169#14623169"></a></li>
 </ul>
 
 
