@@ -1,0 +1,70 @@
+---
+comments: true
+layout: post
+title: "Yeoman Generator Development Tips"
+categories:
+- grunt
+- yeoman
+- kickoff
+
+author: zander
+excerpt: If you're creating a Yeoman generator, these tips may be of use.
+---
+Yeoman generators are a powerful tool for developers, they enable us to get up and running with projects extremely quickly. I created a generator for our Kickoff framework and came across a few things that I thought others would benefit from; hopefully this post will shed some light for others creating their own generators.
+
+The Kickoff Yeoman generator is a simple way to 'kickoff' your project even more quickly than before. It simply asks a few questions, modifies some files, adds the results to the ouputted files and installs some npm and bower dependencies.
+
+### Escaping Underscore template variables
+Use double percent signs to escape Underscore template variables, like this: `<%%= someVar %>` instead of `<%= someVar %>` and you should be sorted. I had this issue in the Gruntfile where there are quite a few of these tags, see [here](https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/templates/_Gruntfile.js#L53). Credit for this goes to a helpful comment on [Github](https://github.com/yeoman/generator-generator/issues/45#issuecomment-31031268).
+
+### Run Grunt (or another command) after Yeoman builds
+The Kickoff generator runs a Grunt task immediately after it has finished compiling and installing everything, I was able to do this by running the `spawnCommand` method in the `dependenciesInstalled` callback, like this:
+
+	// Now you can bind to the dependencies installed event
+	this.on('dependenciesInstalled', function () {
+		if (this.jsLibs === 'jquery') { this.spawnCommand('grunt', ['jquery']); }
+		this.spawnCommand('grunt', ['serve']);
+	});
+
+See this in our actual [index.js](https://github.com/tmwagency/generator-kickoff/blob/c2aab72ad4a15186b646505817152732a8c9f4b2/app/index.js#L24)
+
+### How to log a colored message with Yeoman
+You can use the same color module Chalk as used by the generator system to colorize your text.
+
+First install it: `npm install --save chalk`
+
+Then [require it](https://github.com/tmwagency/generator-kickoff/blob/master/app/index.js#L5):
+
+	var chalk = require('chalk');
+
+Then [use it](https://github.com/tmwagency/generator-kickoff/blob/master/app/index.js#L35):
+
+	console.log(chalk.bold.yellow('message'));
+
+<figure><img src="/img/blog/yeoman-tips/chalk.png" alt="Chalk colours in the Kickoff Yeoman generator"></figure>
+
+If you would like to know more about different prompt/question styles, see the [Inquirer.js docs](https://github.com/SBoudrias/Inquirer.js). Kickoff's can be found [here](https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80).
+
+### Conditional statements in your generator
+As you can see above our generator asks if you'd like to include jQuery in the project, so if the user does, the relevant jQuery Builder Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, oh, and a post generator task is run to build the library.
+
+Some simple conditionals were needed - who'd a thunk it?? - in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag. Here's an example from our package.json:
+
+	{% raw %}<% if (jsLibs == "jquery") {%>,"grunt-jquery-builder": "~0.1.1"<% } %>{% endraw %}
+
+	/* or */
+
+	{% raw %}<% if (jsLibs == 'jquery') {%>,"jquery": true<% } %>{% endraw %}
+
+Notice the preceeding comma before the conditional's content.
+
+JSON syntax is very strict, if a comma isn't there, or is in the wrong place, it will throw an error and npm will not install the dependencies, that is why I included the preceeding comma within the conditional. It might seem obvious but this logic needs to be self-contained and the surrounding code needs to be unaware of it, if it does not exist.
+
+## Try the Kickoff generator
+To install [our generator](https://www.npmjs.org/package/generator-kickoff), run: `npm install -g generator-kickoff` and then run `yo kickoff` to use it.
+
+Please leave a comment below if you have any other tips, we're always keen to find out more.
+
+### Useful links
+* [The Yeoman project](http://yeoman.io)
+* To find out about writing your own Yeoman generators, have a look at [yeoman.io/generators.html](http://yeoman.io/generators.html#writing-your-first-generator).
