@@ -29,9 +29,9 @@ this.on(&#39;dependenciesInstalled&#39;, function () {
 
 &lt;p&gt;See this in our actual &lt;a href=&quot;https://github.com/tmwagency/generator-kickoff/blob/c2aab72ad4a15186b646505817152732a8c9f4b2/app/index.js#L24&quot;&gt;index.js&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3&gt;How to log a colored message with Yeoman&lt;/h3&gt;
+&lt;h3&gt;How to log a coloured message with Yeoman&lt;/h3&gt;
 
-&lt;p&gt;You can use the same color module Chalk as used by the generator system to colorize your text.&lt;/p&gt;
+&lt;p&gt;You can use the same colour module Chalk as used by the generator system to colourise your text.&lt;/p&gt;
 
 &lt;p&gt;First install it: &lt;code&gt;npm install --save chalk&lt;/code&gt;&lt;/p&gt;
 

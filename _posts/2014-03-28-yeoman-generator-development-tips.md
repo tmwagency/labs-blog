@@ -28,8 +28,8 @@ The Kickoff generator runs a Grunt task immediately after it has finished compil
 
 See this in our actual [index.js](https://github.com/tmwagency/generator-kickoff/blob/c2aab72ad4a15186b646505817152732a8c9f4b2/app/index.js#L24)
 
-### How to log a colored message with Yeoman
-You can use the same color module Chalk as used by the generator system to colorize your text.
+### How to log a coloured message with Yeoman
+You can use the same colour module Chalk as used by the generator system to colourise your text.
 
 First install it: `npm install --save chalk`
 
