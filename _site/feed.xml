@@ -31,7 +31,7 @@ this.on(&#39;dependenciesInstalled&#39;, function () {
 
 &lt;h3&gt;How to log a coloured message with Yeoman&lt;/h3&gt;
 
-&lt;p&gt;You can use the same colour module Chalk as used by the generator system to colourise your text.&lt;/p&gt;
+&lt;p&gt;To colourise your text, you can use the same colour module as used by the generator system, called Chalk.&lt;/p&gt;
 
 &lt;p&gt;First install it: &lt;code&gt;npm install --save chalk&lt;/code&gt;&lt;/p&gt;
 
@@ -51,15 +51,15 @@ this.on(&#39;dependenciesInstalled&#39;, function () {
 
 &lt;h3&gt;Conditional statements in your generator&lt;/h3&gt;
 
-&lt;p&gt;As you can see above our generator asks if you&#39;d like to include jQuery in the project, so if the user does, the relevant jQuery Builder Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, oh, and a post generator task is run to build the library.&lt;/p&gt;
+&lt;p&gt;As you can see above, our generator asks if you&#39;d like to include jQuery in the project, if the user does, the relevant &#39;jQuery Builder&#39; Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, then a post generator task is also run to build the library.&lt;/p&gt;
 
-&lt;p&gt;Some simple conditionals were needed - who&#39;d a thunk it?? - in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag. Here&#39;s an example from our package.json:&lt;/p&gt;
+&lt;p&gt;Some simple conditionals were needed in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag but need to be wrapped with raw tags. Here&#39;s an example from our package.json:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;% if (jsLibs == &quot;jquery&quot;) {%&amp;gt;,&quot;grunt-jquery-builder&quot;: &quot;~0.1.1&quot;&amp;lt;% } %&amp;gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;% if (jsLibs == &quot;jquery&quot;) {%&amp;gt;,&quot;grunt-jquery-builder&quot;: &quot;~0.1.1&quot;&amp;lt;% } %&amp;gt;{% endraw %}
 
 /* or */
 
-&amp;lt;% if (jsLibs == &#39;jquery&#39;) {%&amp;gt;,&quot;jquery&quot;: true&amp;lt;% } %&amp;gt;
+{% raw %}&amp;lt;% if (jsLibs == &#39;jquery&#39;) {%&amp;gt;,&quot;jquery&quot;: true&amp;lt;% } %&amp;gt;{% endraw %}
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Notice the preceeding comma before the conditional&#39;s content.&lt;/p&gt;

@@ -29,7 +29,7 @@ The Kickoff generator runs a Grunt task immediately after it has finished compil
 See this in our actual [index.js](https://github.com/tmwagency/generator-kickoff/blob/c2aab72ad4a15186b646505817152732a8c9f4b2/app/index.js#L24)
 
 ### How to log a coloured message with Yeoman
-You can use the same colour module Chalk as used by the generator system to colourise your text.
+To colourise your text, you can use the same colour module as used by the generator system, called Chalk.
 
 First install it: `npm install --save chalk`
 
@@ -46,9 +46,9 @@ Then [use it](https://github.com/tmwagency/generator-kickoff/blob/master/app/ind
 If you would like to know more about different prompt/question styles, see the [Inquirer.js docs](https://github.com/SBoudrias/Inquirer.js). Kickoff's can be found [here](https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80).
 
 ### Conditional statements in your generator
-As you can see above our generator asks if you'd like to include jQuery in the project, so if the user does, the relevant jQuery Builder Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, oh, and a post generator task is run to build the library.
+As you can see above, our generator asks if you'd like to include jQuery in the project, if the user does, the relevant 'jQuery Builder' Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, then a post generator task is also run to build the library.
 
-Some simple conditionals were needed - who'd a thunk it?? - in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag. Here's an example from our package.json:
+Some simple conditionals were needed in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag but need to be wrapped with raw tags. Here's an example from our package.json:
 
 	{% raw %}<% if (jsLibs == "jquery") {%>,"grunt-jquery-builder": "~0.1.1"<% } %>{% endraw %}
 

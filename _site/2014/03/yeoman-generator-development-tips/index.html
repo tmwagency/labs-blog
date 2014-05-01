@@ -65,7 +65,7 @@ this.on('dependenciesInstalled', function () {
 
 <h3>How to log a coloured message with Yeoman</h3>
 
-<p>You can use the same colour module Chalk as used by the generator system to colourise your text.</p>
+<p>To colourise your text, you can use the same colour module as used by the generator system, called Chalk.</p>
 
 <p>First install it: <code>npm install --save chalk</code></p>
 
@@ -85,15 +85,15 @@ this.on('dependenciesInstalled', function () {
 
 <h3>Conditional statements in your generator</h3>
 
-<p>As you can see above our generator asks if you'd like to include jQuery in the project, so if the user does, the relevant jQuery Builder Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, oh, and a post generator task is run to build the library.</p>
+<p>As you can see above, our generator asks if you'd like to include jQuery in the project, if the user does, the relevant 'jQuery Builder' Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, then a post generator task is also run to build the library.</p>
 
-<p>Some simple conditionals were needed - who'd a thunk it?? - in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag. Here's an example from our package.json:</p>
+<p>Some simple conditionals were needed in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag but need to be wrapped with raw tags. Here's an example from our package.json:</p>
 
-<pre><code>&lt;% if (jsLibs == "jquery") {%&gt;,"grunt-jquery-builder": "~0.1.1"&lt;% } %&gt;
+<pre><code>&lt;% if (jsLibs == "jquery") {%&gt;,"grunt-jquery-builder": "~0.1.1"&lt;% } %&gt;{% endraw %}
 
 /* or */
 
-&lt;% if (jsLibs == 'jquery') {%&gt;,"jquery": true&lt;% } %&gt;
+{% raw %}&lt;% if (jsLibs == 'jquery') {%&gt;,"jquery": true&lt;% } %&gt;{% endraw %}
 </code></pre>
 
 <p>Notice the preceeding comma before the conditional's content.</p>
