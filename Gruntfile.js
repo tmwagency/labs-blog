@@ -58,7 +58,29 @@ module.exports = function (grunt) {
 			grunticon : {
 				files: ['img/src/*.svg', 'img/src/*.png'],
 				tasks: ['svgmin', 'grunticon']
-			}
+			},
+
+			jekyll : {
+				files: [
+					'_includes/**/*.html',
+					'_layouts/**/*.html',
+					'archive/**/*.html',
+					'_posts/**/*.md',
+					'_team/**/*.md',
+					'_code/**/*.md',
+					'_drafts/**/*.md',
+					'css/**/*.css',
+					'js/**/*.js',
+					'authors/*.html',
+					'*.html',
+					'*.md',
+					'Gruntfile.js'
+				],
+				tasks: 'jekyll',
+				options: {
+					livereload: true
+				}
+			},
 		},
 
 
@@ -216,7 +238,8 @@ module.exports = function (grunt) {
 					// port: 9001,
 					// hostname: 'mysite.local',
 					open: true,
-					livereload: true
+					livereload: true,
+					base: './_site'
 				}
 			}
 		},
@@ -268,6 +291,19 @@ module.exports = function (grunt) {
 			options: {
 				config: ".jscs.json"
 			}
+		},
+
+		jekyll : {
+			options : {
+				server : false,
+				auto : false,
+				drafts : false,
+				future : true
+			},
+			blog: {
+				src: './',
+				dest: '_site'
+			}
 		}
 	});
 
@@ -283,7 +319,6 @@ module.exports = function (grunt) {
 		* grunt deploy : run jshint, uglify, sass:kickoff and csso
 		* grunt jquery : build custom version of jquery
 		* grunt serve  : watch js & scss and run a local server
-		* grunt availabletasks : view all available tasks
 		 ========================================================================== */
 
 	/**
@@ -327,6 +362,7 @@ module.exports = function (grunt) {
 	 * run connect and watch
 	 */
 	grunt.registerTask("serve", [
+		'jekyll',
 		'uglify',
 		'sass:kickoff',
 		'sass:styleguide',
