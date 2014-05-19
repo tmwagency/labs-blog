@@ -4,10 +4,14 @@
   "description": "Built with Kickoff",
   "version": "3.1.1",
   "homepage": "http://labs.tmw.co.uk",
-  "author": {
+  "authors": [{
     "name": "Zander Martineau",
     "url": "http://martineau.tv"
   },
+  {
+    "name": "Ashley Nolan",
+    "url": "http://ashleynolan.co.uk"
+  }],
   "repository": {
     "type": "git",
     "url": "git://github.com/tmwagency/labs-blog.git"
@@ -21,19 +25,25 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "grunt": "0.4.x",
-    "grunt-contrib-sass": "~0.5.1",
-    "grunt-contrib-jshint": "~0.7.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-autoprefixer": "~0.4.1",
-    "grunt-csso": "~0.5.2",
+    "grunt": "~0.4.5",
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-csso": "~0.6.1",
     "grunt-jquery-builder": "~0.1.1",
-    "load-grunt-tasks": "~0.2.0",
-    "grunt-contrib-connect": "~0.5.0",
-    "grunt-jekyll": "~0.4.1",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-newer": "~0.6.0"
+    "load-grunt-tasks": "~0.4.0",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-jscs-checker": "~0.4.4",
+    "grunt-svgmin": "~0.4.0",
+    "grunt-grunticon": "~1.2.3",
+    "grunt-autoprefixer": "~0.7.3",
+    "grunt-jekyll": "~0.4.2",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-newer": "~0.7.0"
   },
-  "keywords": []
+  "keywords": [],
+	"scripts": {
+		"test": "grunt travis --verbose"
+	}
 }
