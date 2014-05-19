@@ -1,26 +1,26 @@
 ---
-layout: home
+layout: default
 title: TMW Tech Blog
 ---
-<div class="container">
-	<div class="entries">
-	{% for post in paginator.posts %}
-		{% assign author = site.authors[post.author] %}
 
-		<article class="entry clearfix">
+<div class="entries clearfix">
+{% for post in paginator.posts %}
+	{% assign author = site.authors[post.author] %}
 
-			<a href="http://twitter.com/{{ author.twitter }}" class="entry-author author">
-				<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
-			</a>
-			<h1 class="entry-title"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
-			<h2 class="author-name"><time class="entry-date">Posted on {{ post.date | date_to_string }}</time> by <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></h2>
+	<article class="entry entry--multiple clearfix">
 
-			<p class="entry-content">{{ post.excerpt }}</p>
-			<p class="l-mb0"><a href="{{ post.url }}" title="Read {{ post.title }}">Read full post &raquo;</a></p>
-		</article>
-	{% endfor %}
-	</div>
+		<!-- <a href="http://twitter.com/{{ author.twitter }}" class="entry-author author">
+			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
+		</a> -->
+		<h1 class="entry-title entry-title--entries"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
+		<h4 class="entry-authorName"><time class="entry-date">Posted on {{ post.date | date_to_string }}</time> by <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></h4>
+
+		<p class="entry-excerpt">{{ post.excerpt }}</p>
+		<p class="l-mb0"><a href="{{ post.url }}" title="Read {{ post.title }}">Read full post &raquo;</a></p>
+	</article>
+{% endfor %}
 </div>
+
 
 <!-- Pagination links -->
 <div class="pagination">
@@ -38,5 +38,6 @@ title: TMW Tech Blog
 		{% endif %}
 
 	</div>
+</div>
 </div>
 
