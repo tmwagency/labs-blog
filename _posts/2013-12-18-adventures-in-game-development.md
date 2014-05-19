@@ -1,5 +1,5 @@
 ---
-comments: false
+comments: true
 layout: post
 title: "A designers adventures in game development: part 1"
 date: 2013-12-18 09:00:00
