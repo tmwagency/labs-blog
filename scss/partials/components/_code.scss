@@ -5,37 +5,39 @@
 
 // Inline and block code styles
 code,
-pre {
+pre,
+.gist,
+.gist .gist-file .gist-data .line-pre,
+.gist-meta {
 	padding: 0 3px 2px;
 	font-family: $mono-font-family;
 	@include font-size(13);
-	color: $color-code;
+	// color: $color-code;
 	@include border-radius(3px);
 	tab-size: 3;
 }
 
 // Inline code
 code {
-	padding: 2px 4px;
+	padding: 2px 7px;
 	color: $color-code;
 	background-color: $color-code-background;
+	white-space: nowrap;
 }
 
 // Blocks of code
 pre {
 	display: block;
-	padding: ($base-line-height - 1) / 2 + px;
-	margin: 0 0 ($base-line-height / 2 + px);
+	padding: 7px 7px;
 	line-height: $base-leading;
 	color: $color-pre;
 	background-color: $color-pre-background;
-	border: 1px solid #ccc; // fallback for IE7-8
-	border: 1px solid rgba(0,0,0,.15);
-	@include border-radius(4px);
 	white-space: pre;
 	white-space: pre-wrap;
 	word-break: break-all;
 	word-wrap: break-word;
+	margin-top: $base-line-height + px;
+	margin-bottom: $base-line-height + px;
 
 	// Make prettyprint styles more spaced out for readability
 	&.prettyprint {
@@ -48,6 +50,7 @@ pre {
 		color: $color-pre;
 		background-color: $color-pre-background;
 		border: 0;
+		white-space: inherit;
 	}
 }
 
@@ -55,4 +58,13 @@ pre {
 .pre--scrollable {
 	max-height: 340px;
 	overflow-y: scroll;
+}
+
+.gist {
+	padding: 0;
+}
+.gist-file {
+	border-radius: 5px;
+	overflow: hidden;
+	margin-bottom: 0;
 }
