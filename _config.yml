@@ -16,8 +16,10 @@ description: TMW agency's tech blog
 url: http://tech.tmw.co.uk
 
 collections:
-- team
-- code
+  team:
+    output: true
+  code:
+    output: true
 
 labs:
   url: http://tech.tmw.co.uk
