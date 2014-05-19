@@ -1,27 +1,26 @@
 /* ==========================================================================
-   Colour palette (yeah we're from England!)
+   Colour palette (yeah we're British!)
    ========================================================================== */
 
 // Generic colours
 $blue                         : #3498db;
-$blueDark                     : #05051f;
+$blueDark                     : darken($blue, 20%);
 $green                        : #1abc9c;
 $red                          : #c0392b;
 $yellow                       : #f1c40f;
 $orange                       : #e67e22;
-$pink                         : #ff024b;
-$pinkDark                     : darken($pink, 15%);
+$pink                         : #c3325f;
 $purple                       : #8e44ad;
 $gray                         : #7f8c8d;
 
 // Colour Scheme
-$color-primary                : #333;
-$color-secondary              : $pink;
-$color-highlight              : #ff9600;
+$color-primary                : $blue;
+$color-secondary              : $red;
+$color-highlight              : $yellow;
 
 // Common colours
-$color-text                   : #434343;
-$color-background             : #eee;
+$color-text                   : #444;
+$color-background             : #f1f1f1;
 $color-border                 : #ddd;
 
 // Text Selection
@@ -30,10 +29,10 @@ $color-selection-bg           : $color-primary;
 
 
 // Links
-$color-link-default           : $color-secondary;
-$color-link-visited           : $color-secondary;
-$color-link-hover             : darken($color-secondary, 15%);
-$color-link-active            : darken($color-secondary, 15%);
+$color-link-default           : $color-primary;
+$color-link-visited           : $color-primary;
+$color-link-hover             : darken($color-primary, 20%);
+$color-link-active            : darken($color-primary, 20%);
 
 
 // Buttons
@@ -51,8 +50,8 @@ $active-tab                   : $green;
 
 
 // Code
-$color-code                   : #222;
-$color-code-background        : #f7f7f9;
+$color-code                   : #d14;
+$color-code-background        : #fbefc0;
 $color-pre                    : #222;
 $color-pre-background         : #f7f7f9;
 
