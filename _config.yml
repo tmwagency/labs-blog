@@ -1,20 +1,26 @@
-markdown: rdiscount
+markdown: kramdown
 pygments: false
 permalink: /:year/:month/:title
+# permalink: pretty
 include: ['.htaccess']
-exclude: ['node_modules', 'scss', 'Gruntfile.js', 'package.json', '*.sublime-project', '*.sublime-workspace', 'LICENSE']
+exclude: ['node_modules', 'scss', 'Gruntfile.js', 'package.json', '*.sublime-project', '*.sublime-workspace', 'LICENSE', 'teamcity']
 timezone: Europe/London
 future: false
+
 
 paginate: 10
 paginate_path: /:num
 
-name: labs@tmw
+name: tech@tmw
 description: TMW agency's tech blog
-url: http://labs.tmw.co.uk
+url: http://tech.tmw.co.uk
+
+collections:
+- team
+- code
 
 labs:
-  url: http://labs.tmw.co.uk
+  url: http://tech.tmw.co.uk
   twitter: tmw_labs
   github: tmwagency
 
