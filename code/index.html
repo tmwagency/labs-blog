@@ -1,0 +1,29 @@
+---
+layout: default
+title: Open source at TMW
+---
+<div class="entries clearfix">
+{% for work in site.code %}
+	<article class="entry entry--multiple">
+		<!-- <img src="{{ work.img }}" alt="Picture of {{ work.name }}" class="author-img"> -->
+		<h1 class="entry-title entry-title--entries">{{ work.name }}</h1>
+
+		<div>{{ work.content }}</div>
+
+		<div class="links">
+			{% if work.github_url != '' %}
+				<a href="{{ work.github_url }}" class="links-item">Code</a>
+			{% endif %}
+			{% if work.demo != '' %}
+				<a href="{{ work.demo }}" class="links-item">Demo</a>
+			{% endif %}
+			{% if work.issues != '' %}
+				<a href="{{ work.issues }}" class="links-item">Issues</a>
+			{% endif %}
+			{% if work.article != '' %}
+				<a href="{{ work.article }}" class="links-item">Article</a>
+			{% endif %}
+		</div>
+	</article>
+{% endfor %}
+</div>
