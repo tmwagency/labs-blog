@@ -1,0 +1,45 @@
+// .entries {
+
+// 	@include respond-min($breakpoint-single-col) {
+
+// 	}
+
+// 	.entry {
+// 		// @include respond-min($breakpoint-huge) {
+// 		// 	float: left;
+// 		// 	width: 50%;
+// 		// }
+// 		margin-bottom: 50px;
+
+// 	}
+
+
+// }
+.entry--single {
+
+}
+
+.entry--multiple {
+	margin-bottom: 50px;
+
+	@include respond-min($breakpoint-huge) {
+		float: left;
+		width: 50%;
+	}
+}
+
+.entry-title {
+	line-height: 1;
+
+	&.entry-title--entries {
+		margin-bottom: ($base-line-height / 2) + px;
+	}
+}
+
+.entry-authorName {
+	margin-top: 0;
+}
+
+.entry-excerpt {
+	margin-top: ($base-line-height / 2) + px;
+}

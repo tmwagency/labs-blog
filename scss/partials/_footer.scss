@@ -1,0 +1,20 @@
+.footer {
+	font-family: $mono-font-family;
+}
+
+.socialLinks-item {
+
+	@include respond-min($breakpoint-single-col) {
+		display: block;
+		height: 21px;
+		line-height: 23px;
+		margin-bottom: 10px;
+		@include font-size(14);
+
+		span {
+			margin-right: 10px;
+			background-position: center center;
+		}
+	}
+
+}

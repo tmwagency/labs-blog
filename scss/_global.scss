@@ -3,10 +3,60 @@
    ========================================================================== */
 body {
 	background-color: $color-background;
+	overflow-y: scroll;
 }
 
+.sidebar {
+	text-align: center;
+	color: #fff;
+	padding: 30px 5%;
+	background: #181830;
+	// background: #181830 url(http://payload93.cargocollective.com/1/8/282864/4163444/DSC_0888_900.jpg) 0 0 no-repeat;
+	background-size: cover;
 
+	@include respond-min($breakpoint-single-col) {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		// float: left;
+		width: 40%;
+		// height: 100vh;
+		text-align: left;
+		padding: 100px 5%;
+	}
 
+	@include respond-min($breakpoint-huge) {
+		width: 30%;
+	}
+}
+
+.logo {
+	// font-family: "flood-std";
+	font-weight: normal;
+	@include font-size(60);
+}
+
+.content {
+	padding: 7% 5%;
+
+	@include respond-min($breakpoint-single-col) {
+		float: right;
+		width: 60%;
+		padding: 100px 5%;
+	}
+
+	@include respond-min($breakpoint-huge) {
+		width: 70%;
+	}
+
+}
+
+.tmwBrand {
+	&, &:link, &:visited {
+		color: $orange;
+	}
+}
 /* ==========================================================================
    Media queries for responsive design
    ========================================================================== */

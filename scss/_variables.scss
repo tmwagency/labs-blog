@@ -31,9 +31,9 @@ $bold-font-weight             : bold;
 /*
    Font stacks
    ========================================================================== */
-$sans-font-family             : "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-font-family             : "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif-font-family            : Georgia, "Times New Roman", Times, serif;
-$mono-font-family             : Menlo, Monaco, "Courier New", monospace;
+$mono-font-family             : "source-code-pro", Menlo, Monaco, "Courier New", monospace;
 
 $base-font-family             : $sans-font-family;
 $alt-font-family              : $serif-font-family;
@@ -51,7 +51,7 @@ $breakpoint-narrow            : 400;  // Set in px
 $breakpoint-mid               : 768;  // Set in px
 $breakpoint-wide              : 992;  // Set in px
 $breakpoint-huge              : 1600; // Set in px
-$breakpoint-single-col        : $breakpoint-mid; // Break to single column
+$breakpoint-single-col        : 860; // Break to single column
 
 
 /*
