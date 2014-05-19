@@ -11,7 +11,7 @@ body {
 	color: #fff;
 	padding: 30px 5%;
 	background: #181830;
-	// background: #181830 url(http://payload93.cargocollective.com/1/8/282864/4163444/DSC_0888_900.jpg) 0 0 no-repeat;
+	// background: #181830 url(/img/sidebar/simon.jpg) 0 0 no-repeat;
 	background-size: cover;
 
 	@include respond-min($breakpoint-single-col) {
@@ -31,19 +31,14 @@ body {
 	}
 }
 
-.logo {
-	// font-family: "flood-std";
-	font-weight: normal;
-	@include font-size(60);
-}
-
 .content {
-	padding: 7% 5%;
+	// padding: 7% 5%;
+	position: relative;
 
 	@include respond-min($breakpoint-single-col) {
 		float: right;
 		width: 60%;
-		padding: 100px 5%;
+		// padding: 100px 5%;
 	}
 
 	@include respond-min($breakpoint-huge) {
@@ -52,48 +47,18 @@ body {
 
 }
 
+.pagination {
+	background-color: #303333;
+	color: #fff;
+	padding: 3em 7%;
+}
+
 .tmwBrand {
 	&, &:link, &:visited {
 		color: $orange;
 	}
+
+	&:hover {
+		color: darken($orange, 15%)
+	}
 }
-/* ==========================================================================
-   Media queries for responsive design
-   ========================================================================== */
-
-/*
-   Retina media query
-   ========================================================================== */
-@include hidpi() {
-
-}
-
-
-
-// === $breakpoint-narrow> ===
-@include respond-min($breakpoint-narrow) {
-
-}
-// === end $breakpoint-narrow> ===
-
-
-
-// === $breakpoint-mid> ===
-@include respond-min($breakpoint-mid) {
-
-}
-// === end $breakpoint-mid> ===
-
-
-// === $breakpoint-wide> ===
-@include respond-min($breakpoint-wide) {
-
-}
-// === end $breakpoint-wide> ===
-
-
-// === $breakpoint-huge> ===
-@include respond-min($breakpoint-huge) {
-
-}
-// === end $breakpoint-huge> ===

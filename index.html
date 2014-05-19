@@ -8,15 +8,15 @@ title: TMW Tech Blog
 	{% assign author = site.authors[post.author] %}
 
 	<article class="entry entry--multiple clearfix">
+		<div class="col-a">
+			<h1 class="entry-title entry-title--entries"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
+			<h4 class="entry-authorName"><time class="entry-date">Posted on {{ post.date | date_to_string }}</time> by <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></h4>
+		</div>
 
-		<!-- <a href="http://twitter.com/{{ author.twitter }}" class="entry-author author">
-			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
-		</a> -->
-		<h1 class="entry-title entry-title--entries"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
-		<h4 class="entry-authorName"><time class="entry-date">Posted on {{ post.date | date_to_string }}</time> by <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></h4>
-
-		<p class="entry-excerpt">{{ post.excerpt }}</p>
-		<p class="l-mb0"><a href="{{ post.url }}" title="Read {{ post.title }}">Read full post &raquo;</a></p>
+		<div class="col-b">
+			<p class="entry-excerpt">{{ post.excerpt }}</p>
+			<a href="{{ post.url }}" title="Read {{ post.title }}" class="entry-readMore">Read full post</a>
+		</div>
 	</article>
 {% endfor %}
 </div>
