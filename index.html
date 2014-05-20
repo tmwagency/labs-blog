@@ -4,8 +4,12 @@ title: TMW Tech Blog
 ---
 
 <div class="entries clearfix">
+	<h1 class="sectionTitle">News</h1>
+	<p class="sectionDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, tempora, ipsam numquam alias doloribus asperiores nemo. Magnam, et, aliquid, culpa corporis nulla veritatis facere sint sunt atque nesciunt autem aspernatur.</p>
+
 {% for post in paginator.posts %}
-	{% assign author = site.authors[post.author] %}
+	{% assign author = site.data.team[post.author] %}
+	<!-- {% assign author = site.authors[post.author] %} -->
 
 	<article class="entry entry--multiple clearfix">
 		<div class="col-a">

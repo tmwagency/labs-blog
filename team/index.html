@@ -1,12 +1,16 @@
 ---
 layout: default
-title: TMW Tech Blog
+title: team
 ---
 <div class="entries clearfix">
-{% for member in site.team %}
+	<h1 class="sectionTitle">{{ page.title }}</h1>
+	<p class="sectionDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, tempora, ipsam numquam alias doloribus asperiores nemo. Magnam, et, aliquid, culpa corporis nulla veritatis facere sint sunt atque nesciunt autem aspernatur.</p>
+
+{% for member in site.data.team %}
+	<!-- {{ member[0][display_name] }} -->
 	<article class="entry entry--multiple clearfix">
-		<img src="/img/authors/{{ member.avatar }}" alt="Picture of {{ member.name }}" class="author-img">
-		<h1 class="entry-title entry-title--entries">{{ member.name }}</h1>
+		<img src="/img/authors/{{ member.avatar }}" alt="Picture of {{ member['display_name'] }}" class="author-img">
+		<h1 class="entry-title entry-title--entries">{{ member['display_name'] }}</h1>
 		<h4 class="entry-authorName"><a href="http://twitter.com/{{ member.twitter }}">{{ member.twitter }}</a></h4>
 		<h4 class="entry-authorName"><a href="http://github.com/{{ member.github }}">{{ member.github }}</a></h4>
 		<div>{{ member.content }}</div>

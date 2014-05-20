@@ -3,6 +3,9 @@ layout: default
 ---
 
 <article class="entry entry--single" role="main">
+	<h1 class="sectionTitle">news</h1>
+	<p class="sectionDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, tempora, ipsam numquam alias doloribus asperiores nemo. Magnam, et, aliquid, culpa corporis nulla veritatis facere sint sunt atque nesciunt autem aspernatur.</p>
+
 	{% if page.featuredImage %}
 		<figure class="featuredImage">
 			<img src="{{ page.featuredImage }}" alt="{{ page.title }}">
@@ -17,13 +20,13 @@ layout: default
 	<div class="entry-meta">
 		<p class="entry-date"><time>Posted on {{ page.date | date_to_string }}</time></p>
 
-		{% assign author = site.authors[page.author] %}
+		{% assign author = site.team[page.author] %}
 		<div class="author">
 			<a href="http://twitter.com/{{ author.twitter }}">
 				<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
 				<h3 class="author-name">{{ author.display_name }}</h3>
 			</a>
-			<p class="author-desc">{{ author.short_desc }}</p>
+			<p class="author-desc">{{ author.content }}</p>
 		</div>
 
 		{% if page.comments %}
@@ -44,6 +47,9 @@ layout: default
 		{% endif %}
 	</div>
 
+	<!-- {% for post in site.related_posts %}
+	  <a href="{{ post.url }}">{{post.title }}</a><br />
+	{% endfor %} -->
 </article>
 
 <!-- Pagination links -->
