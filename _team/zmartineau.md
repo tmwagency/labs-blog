@@ -1,6 +1,7 @@
 ---
 layout: default
-name: Zander Martineau
+display_name: Zander Martineau
+name: zmartineau
 avatar: zmartineau.jpeg
 email: zmartineau@tmw.co.uk
 web: http://martineau.tv

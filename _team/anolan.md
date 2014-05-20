@@ -1,6 +1,7 @@
 ---
 layout: default
-name: Ashley Nolan
+display_name: Ashley Nolan
+name: ashnolan
 avatar: anolan.jpeg
 email: anolan@tmw.co.uk
 web: http://www.ashleynolan.co.uk
