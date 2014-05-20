@@ -17,9 +17,9 @@ url: http://tech.tmw.co.uk
 
 collections:
   team:
-    output: true
+    output: false
   code:
-    output: true
+    output: false
 
 labs:
   url: http://tech.tmw.co.uk
