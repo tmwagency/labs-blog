@@ -18,6 +18,8 @@
 }
 .entry--multiple {
 	margin-bottom: 50px;
+	border-bottom: 1px solid $blue;
+	padding-bottom: 50px;
 	// @include respond-min($breakpoint-huge) {
 	// 	@include content-columns(2, 10%);
 	// }
@@ -53,6 +55,9 @@
 
 .entry-authorName {
 	margin-top: 0;
+	@include font-size(14);
+	color: #999;
+	text-transform: uppercase;
 }
 
 .entry-excerpt {
@@ -69,8 +74,14 @@
 	// border-top: 2px solid;
 	// text-transform: uppercase;
 	display: block;
-	font-weight: normal;
-	color: #ff5500;
+	font-weight: bold;
+	&, &:link, &:visited {
+		color: #ff5500;
+	}
+
+	&:hover {
+		color: darken(#ff5500, 15%);
+	}
 }
 
 .links {

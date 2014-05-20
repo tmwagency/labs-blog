@@ -11,7 +11,8 @@ body {
 	color: #fff;
 	padding: 30px 5%;
 	background: #181830;
-	// background: #181830 url(/img/sidebar/simon.jpg) 0 0 no-repeat;
+	// background: #181830 url(/img/sidebar/2.jpg) 0 0 no-repeat;
+	// background: #181830 url(/img/sidebar/pete.jpg) 0 0 no-repeat;
 	background-size: cover;
 
 	@include respond-min($breakpoint-single-col) {
@@ -45,6 +46,23 @@ body {
 		width: 70%;
 	}
 
+}
+
+.sectionTitle {
+	text-transform: lowercase;
+	color: #a7a7a7;
+	margin-bottom: ($base-line-height / 2) + px;
+	font-weight: normal;
+
+	&:before {
+		content:'/';
+		// color: #888;
+	}
+}
+
+.sectionDescription {
+	color: #a7a7a7;
+	display: none;
 }
 
 .pagination {
