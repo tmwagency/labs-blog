@@ -1,0 +1,46 @@
+- name: Zander Martineau
+  job_title: Senior Creative Technologist
+  short_name: zander
+  short_desc: Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.
+  avatar: zmartineau.jpg
+  email: zmartineau@tmw.co.uk
+  web: http://martineau.tv
+  twitter: mrmartineau
+  github: mrmartineau
+
+- name: Ashley Nolan
+  job_title: Senior Creative Technologist
+  short_name: ashnolan
+  short_desc: Ashley is a Creative Technologist at TMW.  After reading about Amazon’s new delivery plans, he is currently preparing for the advent of Skynet and welcomes our new drone overlords.
+  avatar: anolan.jpg
+  email: anolan@tmw.co.uk
+  web: http://www.ashleynolan.co.uk
+  twitter: AshNolan_
+  github: ashleynolan
+
+- name: Ciaran Park
+  job_title: Creative Technologist
+  short_name: cpark
+  avatar: cpark.jpg
+  email: cpark@tmw.co.uk
+  web: http://www.ashleynolan.co.uk
+  twitter: ciaranpark
+  github: ciaranpark
+
+- name: Ivan Hayes
+  job_title: Creative Technologist
+  short_name: ihayes
+  short_desc: Ivan is a Creative Technologist at TMW. He is a professional geek by day, and skateboard dude by night.
+  avatar: ihayes.jpeg
+  email: ihayes@tmw.co.uk
+  twitter: munkychop
+  github: munkychop
+
+- name: Simon Kinslow
+  job_title: Senior Designer
+  short_desc: Simon is a Designer at TMW and a developer wannabe. He is currently learning the ropes with JavaScript and responsive CSS by coding up an old skool bitmap game.
+  avatar: kinslow.png
+  email: skinslow@tmw.co.uk
+  web: http://www.simonkinslow.com/
+  twitter: kinslowdian
+  github: kinslowdian
