@@ -45,8 +45,16 @@ body {
 	@include respond-min($breakpoint-huge) {
 		width: 70%;
 	}
-
 }
+
+.content-inner {
+	margin: 7% 5%;
+
+	@include respond-min($breakpoint-single-col) {
+		margin: 114px 7% 50px;
+	}
+}
+
 
 .sectionTitle {
 	text-transform: lowercase;
