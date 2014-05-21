@@ -12,16 +12,16 @@ title: code
 		<div>{{ work.content }}</div>
 
 		<div class="links">
-			{% if work.github_url != '' %}
+			{% if work.github_url != null %}
 				<a href="{{ work.github_url }}" class="links-item">Code</a>
 			{% endif %}
-			{% if work.demo != '' %}
+			{% if work.demo != null %}
 				<a href="{{ work.demo }}" class="links-item">Demo</a>
 			{% endif %}
-			{% if work.issues != '' %}
+			{% if work.issues != null %}
 				<a href="{{ work.issues }}" class="links-item">Issues</a>
 			{% endif %}
-			{% if work.article != '' %}
+			{% if work.article != null %}
 				<a href="{{ work.article }}" class="links-item">Article</a>
 			{% endif %}
 		</div>
