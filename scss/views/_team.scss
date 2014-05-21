@@ -1,0 +1,67 @@
+.teamMember {
+	position: relative;
+	min-height: 100px;
+	overflow: hidden;
+
+	@include respond-min($breakpoint-narrow) {
+		width: 50%;
+		float: left;
+	}
+
+	@include respond-min($breakpoint-huge) {
+		width: 33.333333%;
+	}
+
+	&, * {
+		transition: all 300ms ease-in-out;
+	}
+
+
+	&:hover {
+		.teamMember-avatar {
+			transform: scale(1.2);
+		}
+
+		.teamMember-back {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+}
+
+.teamMember-name {
+	position: absolute;
+	background-color: $color-background;
+	bottom: 0;
+	left: 0;
+	padding: 5px;
+	margin: 0;
+	display: inline;
+	@include font-size(20);
+}
+.teamMember-avatar {
+	width: 100%;
+	display: block;
+}
+
+.teamMember-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(#000,0.8);
+	padding: 5%;
+	transform: scale(1.7);
+	opacity: 0;
+	overflow: hidden;
+	@include font-size(14);
+
+	@include respond-min(1250) {
+		@include font-size($base-font-size);
+	}
+
+	&, &:link, &:visited {
+		color: #fff;
+	}
+}
