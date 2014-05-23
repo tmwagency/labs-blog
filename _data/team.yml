@@ -21,7 +21,7 @@
 - name: Ciaran Park
   job_title: Creative Technologist
   short_name: cpark
-  avatar: cpark.jpg
+  avatar: cpark.png
   email: cpark@tmw.co.uk
   web: http://www.ashleynolan.co.uk
   twitter: ciaranpark
@@ -37,6 +37,7 @@
   github: munkychop
 
 - name: Simon Kinslow
+  short_name: skinslow
   job_title: Senior Designer
   short_desc: Simon is a Designer at TMW and a developer wannabe. He is currently learning the ropes with JavaScript and responsive CSS by coding up an old skool bitmap game.
   avatar: kinslow.png
@@ -44,3 +45,37 @@
   web: http://www.simonkinslow.com/
   twitter: kinslowdian
   github: kinslowdian
+
+- name: Ashley Sheridan
+  short_name: asheridan
+  job_title: PHP developer
+  short_desc: Ash is a PHP developer at TMW.
+  avatar: asheridan.jpg
+  email: asheridan@tmw.co.uk
+  web: http://ashleysheridan.co.uk
+  twitter: ashleyjsheridan
+
+- name: Andrew Williams
+  short_name: awilliams
+  short_desc: Roo is a Product Designer at TMW tasked with exploring the boundaries between the physical and digital world.
+  avatar: awilliams.jpg
+  email: awilliams@tmw.co.uk
+  twitter: roowilliams
+  web: http://roowiliams.com
+  job_title: Product Designer
+
+- name: Fabian Andrade
+  short_name: favalencia
+  display_name: Fabian Andrade Valencia
+  short_desc:
+  avatar: favalencia.jpg
+  email: favalencia@tmw.co.uk
+
+- name: George Bardis
+  short_name: gbardis
+  display_name: George Bardis
+  short_desc: George is a Creative Technologist and is also Greek.
+  avatar: gbardis.jpg
+  email: gbardis@tmw.co.uk
+  web: http://bardis.info
+  github: bardius

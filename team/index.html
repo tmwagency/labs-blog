@@ -8,15 +8,15 @@ title: team
 
 {% for member in site.data.team %}
 	<article class="teamMember clearfix">
-		<img src="/img/authors/{{ member.avatar }}" alt="Picture of {{ member.name }}" class="teamMember-avatar">
+		<img src="{{site.labs.url}}/img/authors/{{ member.avatar }}" alt="Picture of {{ member.name }}" class="teamMember-avatar">
 		<h1 class="teamMember-name h3">{{ member.name }}</h1>
 
 		<div class="teamMember-back">
-			<ul class="unstyled">
-				<li><a href="http://twitter.com/{{ member.twitter }}">{{ member.twitter }}</a></li>
-				<li><a href="http://github.com/{{ member.github }}">{{ member.github }}</a></li>
-			</ul>
 			<div class="teamMember-desc">{{ member.short_desc }}</div>
+			<div class="teamMember-links">
+				<a href="http://twitter.com/{{ member.twitter }}" class="icon-small icon-twitter">{{ member.twitter }}</a>
+				<a href="http://github.com/{{ member.github }}" class="icon-small icon-github">{{ member.github }}</a>
+			</div>
 		</div>
 	</article>
 {% endfor %}
