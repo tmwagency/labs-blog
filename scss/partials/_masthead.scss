@@ -3,21 +3,30 @@
 	// font-weight: normal;
 	margin-bottom: 0.2em;
 	@include font-size(60);
+	font-weight: normal;
+
+	.dot {
+		color: #fff;
+		letter-spacing: -3px;
+	}
 }
 
 .nav {
-	padding: 1em 0;
+	padding: 0.5em 0;
 	margin-bottom: $base-line-height + px;
 	// border-top: 1px solid $blue;
-	border-bottom: 1px solid $blue;
+	// border-bottom: 1px solid $blue;
 	// text-align: center;
 }
 
 .nav-item {
 	display: inline-block;
-	margin: 0 10px;
+	margin-right: 15px;
 
 	// @include respond-min($breakpoint-single-col) {
 	// 	display: block;
 	// }
+	&.is-active {
+		color: #fff;
+	}
 }
