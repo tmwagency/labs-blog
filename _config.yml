@@ -1,5 +1,5 @@
 markdown: kramdown
-pygments: false
+highlighter: false
 permalink: /:year/:month/:title
 # permalink: pretty
 include: ['.htaccess']
@@ -22,7 +22,8 @@ collections:
     output: false
 
 labs:
-  url: http://tech.tmw.co.uk
+  # url: http://mayfly.tmwtest.co.uk/techblog
+  url: http://0.0.0.0:8000
   twitter: tmw_labs
   github: tmwagency
 
