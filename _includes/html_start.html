@@ -6,7 +6,7 @@
 		<title>{{ page.title }} - labs@tmw</title>
 		<meta name="description" content="labs@tmw - where TMW talks Tech">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="/css/kickoff.css">
+		<link rel="stylesheet" href="{{site.labs.url}}/css/kickoff.css">
 		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 		<script>var pageName = '{{ page.pageid }}';</script>
@@ -14,9 +14,9 @@
 		<script>
 			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
 window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
-			grunticon(["/img/icons/icons.data.svg.css", "/img/icons/icons.data.png.css", "/img/icons/icons.fallback.css"]);
+			grunticon(["{{site.labs.url}}/img/icons/icons.data.svg.css", "{{site.labs.url}}/img/icons/icons.data.png.css", "{{site.labs.url}}/img/icons/icons.fallback.css"]);
 		</script>
-		<noscript><link href="/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+		<noscript><link href="{{site.labs.url}}/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
 
 		<!-- <script type="text/javascript" src="/js/libs/modernizr.min.js"></script> -->
 
