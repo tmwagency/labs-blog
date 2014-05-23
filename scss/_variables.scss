@@ -14,7 +14,7 @@
    ========================================================================== */
 // Base sizes
 // Set this in pixels, the font-size mixin will convert to REMS
-$base-font-size                : 20;
+$base-font-size                : 22;
 $h1-size                       : 36 !default; // .alpha
 $h2-size                       : 30 !default; // .beta
 $h3-size                       : 24 !default; // .gamma
@@ -31,14 +31,15 @@ $bold-font-weight             : bold;
 /*
    Font stacks
    ========================================================================== */
-$sans-font-family             : "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$serif-font-family            : Georgia, "Times New Roman", Times, serif;
+$sans-font-family             : "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-font-family1            : "franklin-gothic-urw", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif-font-family            : "chaparral-pro", Georgia, "Times New Roman", Times, serif;
 $mono-font-family             : "source-code-pro", Menlo, Monaco, "Courier New", monospace;
 
-$base-font-family             : $sans-font-family;
+$base-font-family             : $sans-font-family1;
 $alt-font-family              : $serif-font-family;
 
-$headings-font-family         : inherit; // empty to use Kickoff default $base-font-family
+$headings-font-family         : $sans-font-family; // empty to use Kickoff default $base-font-family
 $headings-font-weight         : bold;    // instead of browser default, bold
 
 
