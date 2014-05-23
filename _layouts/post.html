@@ -19,14 +19,17 @@ layout: default
 
 	<div class="entry-meta">
 		<p class="entry-date"><time>Posted on {{ page.date | date_to_string }}</time></p>
+		<!-- {{ page.author }} -->
 
-		{% assign author = site.team[page.author] %}
+		{% assign author = site.authors[page.author] %}
+		<!-- {{ site.data.team.short_name }} -->
+<!-- 	{{author}} -->
 		<div class="author">
 			<a href="http://twitter.com/{{ author.twitter }}">
 				<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
 				<h3 class="author-name">{{ author.display_name }}</h3>
 			</a>
-			<p class="author-desc">{{ author.content }}</p>
+			<p class="author-desc">{{ author.short_desc }}</p>
 		</div>
 
 		{% if page.comments %}
