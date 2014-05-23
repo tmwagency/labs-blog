@@ -3,9 +3,9 @@
 }
 
 .entry--multiple {
-	margin-bottom: 50px;
-	border-bottom: 1px solid $blue;
-	padding-bottom: 50px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #D6D6D6;
+	padding-bottom: 30px;
 
 	@include respond-min($breakpoint-huge) {
 		.col-a, .col-b {
