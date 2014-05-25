@@ -82,7 +82,7 @@ module.exports = function (grunt) {
 				options: {
 					livereload: true
 				}
-			},
+			}
 		},
 
 
