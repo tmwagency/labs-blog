@@ -14,8 +14,8 @@ title: TMW Tech Blog
 		<article class="entry entry--multiple clearfix">
 			<div class="col-a">
 				<h1 class="entry-title entry-title--entries"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
-				<time class="entry-meta entry-date">{{ post.date | date_to_string }}</time>
-				<div class="entry-meta entry-authorName">By <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></div>
+
+				<div class="entry-meta"><time class="entry-date">{{ post.date | date_to_string }}</time> &bull; <span class="entry-authorName">By <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></span></div>
 			</div>
 
 			<div class="col-b">
