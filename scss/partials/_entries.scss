@@ -40,12 +40,16 @@
 .entry-meta {
 	@include font-size(15);
 	color: #999;
-	text-transform: uppercase;
 	// font-weight: bold;
-	font-family: $mono-font-family;
+	font-family: $sans-font-family;
 	line-height: 0.9;
+	// font-style: italic;
+	text-transform: uppercase;
 }
-
+.entry-date {
+}
+.entry-authorName {
+}
 .entry-excerpt {
 	margin-top: ($base-line-height / 2) + px;
 	margin-bottom: ($base-line-height / 2) + px;
