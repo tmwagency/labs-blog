@@ -76,5 +76,9 @@
 		text-indent: 150%;
 		overflow: hidden;
 		display: inline-block;
+
+		&:hover {
+			transform: scale(2);
+		}
 	}
 }
