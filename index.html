@@ -1,6 +1,7 @@
 ---
 layout: default
 title: TMW Tech Blog
+pageid: home
 ---
 
 <div class="content-inner entries clearfix">
@@ -8,19 +9,21 @@ title: TMW Tech Blog
 	<p class="sectionDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, tempora, ipsam numquam alias doloribus asperiores nemo. Magnam, et, aliquid, culpa corporis nulla veritatis facere sint sunt atque nesciunt autem aspernatur.</p>
 
 	{% for post in paginator.posts %}
-		{% assign author = site.data.team[post.author] %}
-		<!-- {% assign author = site.authors[post.author] %} -->
-
+		{% for member in site.data.team %}
+			{% if member.short_name == post.author %}
+				{% assign author = member %}
+			{% endif %}
+		{% endfor %}
 		<article class="entry entry--multiple clearfix">
 			<div class="col-a">
 				<h1 class="entry-title entry-title--entries"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
 
-				<div class="entry-meta"><time class="entry-date">{{ post.date | date_to_string }}</time> &bull; <span class="entry-authorName">By <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></span></div>
+				<div class="entry-meta"><time class="entry-date">{{ post.date | date_to_string }}</time> &bull; <span class="entry-authorName">By <a href="http://twitter.com/{{ author.twitter }}">{{ author.name }}</a></span></div>
 			</div>
 
 			<div class="col-b">
 				<p class="entry-excerpt">{{ post.excerpt }}</p>
-				<a href="{{ post.url }}" title="Read {{ post.title }}" class="entry-readMore">Read full post</a>
+				<!-- <a href="{{ post.url }}" title="Read {{ post.title }}" class="entry-readMore">Read full post</a> -->
 			</div>
 		</article>
 	{% endfor %}
