@@ -1,10 +1,10 @@
 ---
 layout: default
+pageid: news
 ---
 
 <article class="content-inner entry entry--single" role="main">
 	<h1 class="sectionTitle">news</h1>
-	<p class="sectionDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, tempora, ipsam numquam alias doloribus asperiores nemo. Magnam, et, aliquid, culpa corporis nulla veritatis facere sint sunt atque nesciunt autem aspernatur.</p>
 
 	{% if page.featuredImage %}
 		<figure class="featuredImage">
@@ -21,34 +21,36 @@ layout: default
 		<p class="entry-date"><time>Posted on {{ page.date | date_to_string }}</time></p>
 		<!-- {{ page.author }} -->
 
-		{% assign author = site.authors[page.author] %}
-		<!-- {{ site.data.team.short_name }} -->
-<!-- 	{{author}} -->
-		<div class="author">
-			<a href="http://twitter.com/{{ author.twitter }}">
-				<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
-				<h3 class="author-name">{{ author.display_name }}</h3>
-			</a>
-			<p class="author-desc">{{ author.short_desc }}</p>
+	</div>
+		{% for item in site.data.team %}
+			{% if item.short_name == page.author %}
+				{% assign author = item %}
+			{% endif %}
+		{% endfor %}
+		<div class="media entry-author">
+			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.name }}" class="media-img">
+			<div class="media-body">
+				<h3 class="author-name"><a href="http://twitter.com/{{ author.twitter }}">{{ author.name }}</a></h3>
+				<p class="author-desc">{{ author.short_desc }}</p>
+			</div>
 		</div>
 
-		{% if page.comments %}
-			<div id="disqus_thread"></div>
-			<script type="text/javascript">
-			var disqus_shortname = 'labstmw';
+	{% if page.comments %}
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		var disqus_shortname = 'labstmw';
 
-			{% if page.comments_id %}
-				var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
-			{% endif %}
-				(function() {
-					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				})();
-			</script>
-			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		{% if page.comments_id %}
+			var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
 		{% endif %}
-	</div>
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	{% endif %}
 
 	<!-- {% for post in site.related_posts %}
 	  <a href="{{ post.url }}">{{post.title }}</a><br />
