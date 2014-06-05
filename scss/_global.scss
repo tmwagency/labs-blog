@@ -10,10 +10,11 @@ body {
 	text-align: center;
 	color: #fff;
 	padding: 30px 5%;
-	background: #181830;
+	background-color: #181830;
 	// background: #181830 url(/img/sidebar/2.jpg) 0 0 no-repeat;
 	// background: #181830 url(/img/sidebar/pete.jpg) 0 0 no-repeat;
 	background-size: cover;
+	z-index: 100;
 
 	@include respond-min($breakpoint-single-col) {
 		position: fixed;
@@ -25,6 +26,17 @@ body {
 		// height: 100vh;
 		text-align: left;
 		padding: 100px 5%;
+
+		// &:after {
+		// 	content:'';
+		// 	position: absolute;
+		// 	top: -40px;
+		// 	bottom: -40px;
+		// 	right: -20px;
+		// 	width: 40px;
+		// 	background-color: #181830;
+		// 	transform: rotate(-2deg);
+		// }
 	}
 
 	@include respond-min($breakpoint-huge) {
@@ -64,7 +76,12 @@ body {
 
 	&:before {
 		content:'/';
-		// color: #888;
+		margin-right: 3px;
+	}
+
+	small {
+		font-family: $sans-font-family1;
+		font-size: 60%;
 	}
 }
 
