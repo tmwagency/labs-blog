@@ -49,7 +49,7 @@
 - name: Ashley Sheridan
   short_name: asheridan
   job_title: PHP developer
-  short_desc: Ash is a PHP developer at TMW.
+  short_desc: A PHP developer with a penchant for Linux, open-source and general tinkering.
   avatar: asheridan.jpg
   email: asheridan@tmw.co.uk
   web: http://ashleysheridan.co.uk
@@ -79,3 +79,10 @@
   email: gbardis@tmw.co.uk
   web: http://bardis.info
   github: bardius
+
+- name: Tim Coppinger
+  short_name: tim
+  short_desc: Dot Net Developer, avid snowboarder and nerf gun owner.
+  avatar: timbot.png
+  email: tcoppinger@tmw.co.uk
+  twitter: MilitantPenguin
