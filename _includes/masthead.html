@@ -3,9 +3,9 @@
 	<p class="logo-tagline">Latest news and opinion from the creative technology team at <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank" class="tmwBrand"><strong>tmw</strong></a></p>
 
 	<nav class="nav">
-		<a href="{{site.labs.url}}/" class="nav-item">News</a>
-		<a href="{{site.labs.url}}/code" class="nav-item">Code</a>
-		<a href="{{site.labs.url}}/team" class="nav-item">Team</a>
+		<a href="{{site.labs.url}}/" class="nav-item{% if page.pageid == "home" or page.pageid == "news" %} is-active{% endif %}">News</a>
+		<a href="{{site.labs.url}}/code" class="nav-item{% if page.pageid == "code" %} is-active{% endif %}">Code</a>
+		<a href="{{site.labs.url}}/team" class="nav-item{% if page.pageid == "team" %} is-active{% endif %}">Team</a>
 	</nav>
 </header>
 
