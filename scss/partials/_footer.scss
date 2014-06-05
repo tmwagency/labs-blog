@@ -1,5 +1,5 @@
 .footer {
-	font-family: $mono-font-family;
+	font-family: $sans-font-family;
 }
 
 .socialLinks-item {
@@ -7,6 +7,7 @@
 	margin-bottom: 10px;
 	@include font-size(14);
 	display: inline-block;
+	font-style: italic;
 
 	span {
 		margin-right: 10px;
