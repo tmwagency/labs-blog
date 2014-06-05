@@ -1,12 +1,15 @@
 ---
 layout: default
 title: code
+pageid: code
 ---
 <div class="content-inner clearfix">
-	<h1 class="sectionTitle">{{ page.title }}</h1>
+	<h1 class="sectionTitle">{{ page.title }} <small>Our open-source offerings</small></h1>
 {% for work in site.code %}
 	<article class="entry entry--multiple">
-		<!-- <img src="{{ work.img }}" alt="Picture of {{ work.name }}" class="author-img"> -->
+		<!-- {% if work.img != null %}
+			<img src="{{ work.img }}" alt="Picture of {{ work.name }}" class="author-img">
+		{% endif %} -->
 		<h2 class="entry-title entry-title--entries">{{ work.name }}</h2>
 
 		<div>{{ work.content }}</div>
@@ -23,6 +26,12 @@ title: code
 			{% endif %}
 			{% if work.article != null %}
 				<a href="{{ work.article }}" class="links-item">Article</a>
+			{% endif %}
+			{% if work.info != null %}
+				<a href="{{ work.info }}" class="links-item">Info</a>
+			{% endif %}
+			{% if work.npm != null %}
+				<a href="{{ work.npm }}" class="links-item">NPM</a>
 			{% endif %}
 		</div>
 	</article>
