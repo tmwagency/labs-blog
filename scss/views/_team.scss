@@ -1,4 +1,4 @@
-.teamMember {
+.gridItem {
 	position: relative;
 	min-height: 100px;
 	overflow: hidden;
@@ -18,18 +18,18 @@
 
 
 	&:hover {
-		.teamMember-avatar {
+		.gridItem-avatar {
 			transform: scale(1.2);
 		}
 
-		.teamMember-back {
+		.gridItem-back {
 			transform: scale(1);
 			opacity: 1;
 		}
 	}
 }
 
-.teamMember-name {
+.gridItem-name {
 	position: absolute;
 	background-color: rgba(#000, 0.8);
 	color: #fff;
@@ -40,12 +40,12 @@
 	display: inline;
 	@include font-size(20);
 }
-.teamMember-avatar {
+.gridItem-avatar {
 	width: 100%;
 	display: block;
 }
 
-.teamMember-back {
+.gridItem-back {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -67,7 +67,7 @@
 	}
 }
 
-.teamMember-links {
+.gridItem-links {
 	margin-top: 20px;
 	text-align: center;
 
@@ -80,5 +80,22 @@
 		&:hover {
 			transform: scale(2);
 		}
+	}
+}
+
+.teamList {
+	position: relative;
+	padding-left: 40px;
+	margin-left: 0px;
+	list-style-type: none;
+	margin-top: 10px;
+
+	&:before {
+		content:'';
+		position: absolute;
+		width: 30px;
+		height: 20px;
+		left: 0;
+		top: 4px;
 	}
 }

@@ -8,6 +8,9 @@ view:
   text: campaigns.brother.co.uk
   url: http://campaigns.brother.co.uk
 
+team:
+ - zander
+
 credits:
  - title: Designer
    name: Dawn Jenner

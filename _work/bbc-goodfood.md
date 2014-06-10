@@ -2,12 +2,15 @@
 layout: work
 title: "BBC GoodFood"
 meta:
-  name: bbcgoodfood
   date: May 2012 - July 2013
 
 view:
-  text: BBC GoodFood
+  text: bbcgoodfood.com
   url: http://www.bbcgoodfood.com
+
+team:
+ - ashnolan
+ - zander
 
 credits:
  - title: Lead F/E Dev

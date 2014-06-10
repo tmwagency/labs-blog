@@ -2,19 +2,23 @@
 layout: work
 title: "Lynx Peace"
 meta:
-  name: lynxpeace
   date: January - April 2014
 
 view:
-  text: Lynx Peace
+  text: lynxpeace.com
   url: http://www.lynxpeace.com
+
+team:
+ - ashnolan
+ - mbasson
+ - ihayes
 
 credits:
  - title: F/E Dev
    name: Ashley Nolan
-- title: F/E Dev
+ - title: F/E Dev
    name: Ivan Hayes
-- title: B/E Dev
+ - title: B/E Dev
    name: Matt Basson
  - title: Agency
    name: TMW

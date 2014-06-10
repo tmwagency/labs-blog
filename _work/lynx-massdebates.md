@@ -6,8 +6,11 @@ meta:
   date: November 2013
 
 view:
-  text: Lynx Mass Debates
+  text: lynxmassdebates.com
   url: http://www.lynxmassdebates.com
+
+team:
+ - ashnolan
 
 credits:
  - title: F/E Dev

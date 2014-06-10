@@ -8,15 +8,9 @@ view:
   text: goenergyshopping.co.uk
   url: http://goenergyshopping.co.uk
 
-credits:
- - title: Designer
-   name: Dawn Jenner
- - title: Agency
-   name: TMW
-   url: http://tmw.co.uk
- - title: Client
-   name: Brother Industries
-   url: http://brother.co.uk
+team:
+ - zander
+ - skinslow
 
 thumbnail: ofgem-beanenergyshopper.jpg
 ---

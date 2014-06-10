@@ -8,6 +8,10 @@ view:
   text: uk.thebar.com
   url: http://uk.thebar.com
 
+team:
+ - zander
+ - mbasson
+
 credits:
  - title: Dev (F/E)
    name: Zander Martineau

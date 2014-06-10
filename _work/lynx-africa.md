@@ -8,6 +8,9 @@ view:
   text: "lynxafrica18.tumblr.com"
   url: "http://lynxafrica18.tumblr.com"
 
+team:
+ - zander
+
 credits:
  - title: Designer
    name: Andrew Turk
