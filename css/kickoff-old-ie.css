@@ -2337,6 +2337,7 @@ body {
 @-ms-viewport {
   width: device-width;
 }
+
 * {
   -webkit-tap-highlight-color: #3498db !important;
 }
@@ -2349,7 +2350,7 @@ textarea[contenteditable] {
 @media screen and (max-width: 400px) {
   @-ms-viewport {
     width: 320px;
-  }
+}
 }
 /* Print styles */
 /* ==========================================================================
@@ -2406,7 +2407,8 @@ textarea[contenteditable] {
 
   @page {
     margin: 0.5cm;
-  }
+}
+
   p, h2, h3 {
     orphans: 3;
     widows: 3;
@@ -2416,5 +2418,4 @@ textarea[contenteditable] {
     page-break-after: avoid;
   }
 }
-
 /*# sourceMappingURL=kickoff-old-ie.css.map */

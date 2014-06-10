@@ -2132,6 +2132,7 @@ body {
 @-ms-viewport {
   width: device-width;
 }
+
 * {
   -webkit-tap-highlight-color: #3498db !important;
 }
@@ -2144,7 +2145,7 @@ textarea[contenteditable] {
 @media screen and (max-width: 400px) {
   @-ms-viewport {
     width: 320px;
-  }
+}
 }
 /* ==========================================================================
    Print styles
@@ -2200,7 +2201,8 @@ textarea[contenteditable] {
 
   @page {
     margin: 0.5cm;
-  }
+}
+
   p, h2, h3 {
     orphans: 3;
     widows: 3;
@@ -2397,5 +2399,4 @@ h1.typeSpecimen:after {
 p.typeSpecimen:after {
   content: 'Font stack: "franklin-gothic-urw", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif';
 }
-
 /*# sourceMappingURL=styleguide.css.map */

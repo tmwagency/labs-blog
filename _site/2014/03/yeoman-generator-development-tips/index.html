@@ -6,12 +6,19 @@
 		<title>Yeoman Generator Development Tips - labs@tmw</title>
 		<meta name="description" content="labs@tmw - where TMW talks Tech">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="/css/kickoff.css">
-		<script type="text/javascript" src="//use.typekit.net/qep5gxs.js"></script>
+		<link rel="stylesheet" href="http://0.0.0.0:8000/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-		<script>var pageName = '';</script>
+		<script>var pageName = 'news';</script>
 
-		<script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
+		<script>
+			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			grunticon(["http://0.0.0.0:8000/img/icons/icons.data.svg.css", "http://0.0.0.0:8000/img/icons/icons.data.png.css", "http://0.0.0.0:8000/img/icons/icons.fallback.css"]);
+		</script>
+		<noscript><link href="http://0.0.0.0:8000/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+
+		<!-- <script type="text/javascript" src="/js/libs/modernizr.min.js"></script> -->
 
 		<!-- Mobile & Fav Icons -->
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/favicons/lbtmw-144.png">
@@ -24,47 +31,60 @@
 		<link rel="alternate" type="application/atom+xml" title="labs@tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
 	</head>
 	<body>
-	<!--  === MASTHEAD ===  -->
-	<header class="masthead">
-	<div class="container">
-		
-			<h2 class="logo alpha"><a href="/">labs@tmw</a></h2>
-		
 
-		<p class="logo-tagline">Some chat from the tech riff-raff at TMW</p>
-	</div>
+<div class="sidebar">
+	<header class="masthead">
+	<h1 class="logo"><a href="http://0.0.0.0:8000/">tech<span class="dot">.</span><span class="tmwBrand">tmw</span></a></h1>
+	<p class="logo-tagline">Latest news and opinion from the creative technology team at <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank" class="tmwBrand"><strong>tmw</strong></a></p>
+
+	<nav class="nav">
+		<a href="http://0.0.0.0:8000/" class="nav-item is-active">News</a>
+		<a href="http://0.0.0.0:8000/code" class="nav-item">Code</a>
+		<a href="http://0.0.0.0:8000/team" class="nav-item">Team</a>
+		<a href="http://0.0.0.0:8000/work" class="nav-item">Work</a>
+	</nav>
 </header>
 
-	<!--  === MAIN CONTENT ===  -->
-<section class="container post" role="main">
-	<article class="entry content">
-		
 
-		<div class="entry-content">
-			<h1 class="entry-title">Yeoman Generator Development Tips</h1>
-			<p>Yeoman generators are a powerful tool for developers, they enable us to get up and running with projects extremely quickly. I created a generator for our Kickoff framework and came across a few things that I thought others would benefit from; hopefully this post will shed some light for others creating their own generators.</p>
+	<footer class="footer" role="contentinfo">
+	<div class="socialLinks">
+		<a href="http://github.com/tmwagency/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-github"></span>@tmwagency</a>
+		<a href="http://twitter.com/tmw_labs/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-twitter"></span>@tmw_labs</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-kickoff"></span>We also maintain Kickoff</a>
+		<a href="http://eepurl.com/KaKbv" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-subscribe"></span>Subscribe by Email</a>
+	</div>
+</footer>
 
-<p>The Kickoff Yeoman generator is a simple way to 'kickoff' your project even more quickly than before. It simply asks a few questions, modifies some files, adds the results to the ouputted files and installs some npm and bower dependencies.</p>
+</div>
 
-<h3>Escaping Underscore template variables</h3>
+<div class="content">
+	<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">news</h1>
 
+	
+
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">Yeoman Generator Development Tips</h1>
+		<p>Yeoman generators are a powerful tool for developers, they enable us to get up and running with projects extremely quickly. I created a generator for our Kickoff framework and came across a few things that I thought others would benefit from; hopefully this post will shed some light for others creating their own generators.</p>
+
+<p>The Kickoff Yeoman generator is a simple way to ‘kickoff’ your project even more quickly than before. It simply asks a few questions, modifies some files, adds the results to the ouputted files and installs some npm and bower dependencies.</p>
+
+<h3 id="escaping-underscore-template-variables">Escaping Underscore template variables</h3>
 <p>Use double percent signs to escape Underscore template variables, like this: <code>&lt;%%= someVar %&gt;</code> instead of <code>&lt;%= someVar %&gt;</code> and you should be sorted. I had this issue in the Gruntfile where there are quite a few of these tags, see <a href="https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/templates/_Gruntfile.js#L53">here</a>. Credit for this goes to a helpful comment on <a href="https://github.com/yeoman/generator-generator/issues/45#issuecomment-31031268">Github</a>.</p>
 
-<h3>Run Grunt (or another command) after Yeoman builds</h3>
-
+<h3 id="run-grunt-or-another-command-after-yeoman-builds">Run Grunt (or another command) after Yeoman builds</h3>
 <p>The Kickoff generator runs a Grunt task immediately after it has finished compiling and installing everything, I was able to do this by running the <code>spawnCommand</code> method in the <code>dependenciesInstalled</code> callback, like this:</p>
 
 <pre><code>// Now you can bind to the dependencies installed event
 this.on('dependenciesInstalled', function () {
-    if (this.jsLibs === 'jquery') { this.spawnCommand('grunt', ['jquery']); }
-    this.spawnCommand('grunt', ['serve']);
+	if (this.jsLibs === 'jquery') { this.spawnCommand('grunt', ['jquery']); }
+	this.spawnCommand('grunt', ['serve']);
 });
 </code></pre>
 
 <p>See this in our actual <a href="https://github.com/tmwagency/generator-kickoff/blob/c2aab72ad4a15186b646505817152732a8c9f4b2/app/index.js#L24">index.js</a></p>
 
-<h3>How to log a coloured message with Yeoman</h3>
-
+<h3 id="how-to-log-a-coloured-message-with-yeoman">How to log a coloured message with Yeoman</h3>
 <p>To colourise your text, you can use the same colour module as used by the generator system, called Chalk.</p>
 
 <p>First install it: <code>npm install --save chalk</code></p>
@@ -79,15 +99,14 @@ this.on('dependenciesInstalled', function () {
 <pre><code>console.log(chalk.bold.yellow('message'));
 </code></pre>
 
-<p><figure><img src="/img/blog/yeoman-tips/chalk.png" alt="Chalk colours in the Kickoff Yeoman generator"></figure></p>
+<figure><img src="/img/blog/yeoman-tips/chalk.png" alt="Chalk colours in the Kickoff Yeoman generator" /></figure>
 
-<p>If you would like to know more about different prompt/question styles, see the <a href="https://github.com/SBoudrias/Inquirer.js">Inquirer.js docs</a>. Kickoff's can be found <a href="https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80">here</a>.</p>
+<p>If you would like to know more about different prompt/question styles, see the <a href="https://github.com/SBoudrias/Inquirer.js">Inquirer.js docs</a>. Kickoff’s can be found <a href="https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80">here</a>.</p>
 
-<h3>Conditional statements in your generator</h3>
+<h3 id="conditional-statements-in-your-generator">Conditional statements in your generator</h3>
+<p>As you can see above, our generator asks if you’d like to include jQuery in the project, if the user does, the relevant ‘jQuery Builder’ Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, then a post generator task is also run to build the library.</p>
 
-<p>As you can see above, our generator asks if you'd like to include jQuery in the project, if the user does, the relevant 'jQuery Builder' Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, then a post generator task is also run to build the library.</p>
-
-<p>Some simple conditionals were needed in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag but need to be wrapped with raw tags. Here's an example from our package.json:</p>
+<p>Some simple conditionals were needed in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag but need to be wrapped with raw tags. Here’s an example from our package.json:</p>
 
 <pre><code>&lt;% if (jsLibs == "jquery") {%&gt;,"grunt-jquery-builder": "~0.1.1"&lt;% } %&gt;{% endraw %}
 
@@ -96,56 +115,114 @@ this.on('dependenciesInstalled', function () {
 {% raw %}&lt;% if (jsLibs == 'jquery') {%&gt;,"jquery": true&lt;% } %&gt;{% endraw %}
 </code></pre>
 
-<p>Notice the preceeding comma before the conditional's content.</p>
+<p>Notice the preceeding comma before the conditional’s content.</p>
 
-<p>JSON syntax is very strict, if a comma isn't there, or is in the wrong place, it will throw an error and npm will not install the dependencies, that is why I included the preceeding comma within the conditional. It might seem obvious but this logic needs to be self-contained and the surrounding code needs to be unaware of it, if it does not exist.</p>
+<p>JSON syntax is very strict, if a comma isn’t there, or is in the wrong place, it will throw an error and npm will not install the dependencies, that is why I included the preceeding comma within the conditional. It might seem obvious but this logic needs to be self-contained and the surrounding code needs to be unaware of it, if it does not exist.</p>
 
-<h2>Try the Kickoff generator</h2>
-
+<h2 id="try-the-kickoff-generator">Try the Kickoff generator</h2>
 <p>To install <a href="https://www.npmjs.org/package/generator-kickoff">our generator</a>, run: <code>npm install -g generator-kickoff</code> and then run <code>yo kickoff</code> to use it.</p>
 
-<p>Please leave a comment below if you have any other tips, we're always keen to find out more.</p>
+<p>Please leave a comment below if you have any other tips, we’re always keen to find out more.</p>
 
-<h3>Useful links</h3>
-
+<h3 id="useful-links">Useful links</h3>
 <ul>
-<li><a href="http://yeoman.io">The Yeoman project</a></li>
-<li>To find out about writing your own Yeoman generators, have a look at <a href="http://yeoman.io/generators.html#writing-your-first-generator">yeoman.io/generators.html</a>.</li>
+  <li><a href="http://yeoman.io">The Yeoman project</a></li>
+  <li>To find out about writing your own Yeoman generators, have a look at <a href="http://yeoman.io/generators.html#writing-your-first-generator">yeoman.io/generators.html</a>.</li>
 </ul>
 
+	</div>
 
-		</div>
+	<div class="entry-meta">
+		<p class="entry-date"><time>Posted on 28 Mar 2014</time></p>
+		<!-- zander -->
 
-		<div class="entry-meta">
-			<p class="entry-date"><time>Posted on 28 Mar 2014</time></p>
-
+	</div>
+		
 			
-			<div class="author">
-				<a href="http://twitter.com/mrmartineau">
-					<img src="/img/authors/zmartineau.jpeg" alt="Picture of Zander Martineau" class="author-img">
-					<h3 class="author-name">Zander Martineau</h3>
-				</a>
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+		<div class="media entry-author">
+			<img src="/img/authors/zmartineau.jpg" alt="Picture of Zander Martineau" class="media-img">
+			<div class="media-body">
+				<h3 class="author-name"><a href="http://twitter.com/mrmartineau">Zander Martineau</a></h3>
 				<p class="author-desc">Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.</p>
 			</div>
-
-			
-				<div id="disqus_thread"></div>
-				<script type="text/javascript">
-				var disqus_shortname = 'labstmw';
-
-				
-					(function() {
-						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-					})();
-				</script>
-				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-			
 		</div>
 
-	</article>
-</section>
+	
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		var disqus_shortname = 'labstmw';
+
+		
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	
+
+	<!-- 
+	  <a href="/2014/03/the-future-of-umbraco">The Future of Umbraco</a><br />
+	
+	  <a href="/2014/02/kickoff-statix-for-slicker-template-workflow">Kickoff Statix: A slicker template workflow</a><br />
+	
+	  <a href="/2014/01/building-the-tmw-shelter-christmas-tree">Building the TMW Shelter Christmas Tree</a><br />
+	
+	  <a href="/2014/01/hyping-the-ibeacon">Hyping the iBeacon</a><br />
+	
+	  <a href="/2014/01/speedtesting-gulp-and-grunt">Speedtesting gulp.js and Grunt</a><br />
+	
+	  <a href="/2014/01/fast-tapping-with-swiftclick">Faster tapping with SwiftClick</a><br />
+	
+	  <a href="/2013/12/structuring-team-development">Structuring team development</a><br />
+	
+	  <a href="/2013/12/adventures-in-game-development">A designers adventures in game development: part 1</a><br />
+	
+	  <a href="/2013/12/really-good-hyperlinks">Really Good Hyperlinks #1 - Dec 11th</a><br />
+	
+	  <a href="/2013/12/introducing-kickoff">Introducing Kickoff</a><br />
+	 -->
+</article>
 
 <!-- Pagination links -->
 <div class="pagination clearfix">
@@ -156,23 +233,10 @@ this.on('dependenciesInstalled', function () {
 		
 	</div>
 </div>
+</div>
 
-	<!--  === FOOTER ===  -->
-	<footer class="footer" role="contentinfo">
-	<div class="container footer-links">
-		<a href="http://github.com/tmwagency/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe600;"></span>Github</a>
-		<a href="http://twitter.com/tmw_labs/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe601;"></span>Twitter</a>
-		<a href="http://tmwagency.github.io/kickoff/" class="footer-links-item footer-links-item--right">We also maintain <span class="kickoff">Kickoff</span></a>
-	</div>
-	<div class="footer-text container clearfix">
-		<p class="footer-text-about">This blog is curated and maintained by the creative technology team at <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank">TMW</a>.</p>
-		<p class="footer-text-email"><a href="http://eepurl.com/KaKbv">Subscribe by Email</a></p>
-	</div>
-
-</footer>
-
-	<script src="/js/dist/app.min.js"></script>
-
+	<!-- <script src="/js/dist/app.min.js"></script> -->
+<!--
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -182,5 +246,5 @@ this.on('dependenciesInstalled', function () {
 		ga('create', 'UA-27779119-7', 'tmw.co.uk');
 		ga('send', 'pageview');
 	</script>
-</body>
+</body> -->
 </html>

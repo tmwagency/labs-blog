@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>labs@tmw</title>
+		<title>tech.tmw</title>
 		<description>TMW agency&#39;s tech blog</description>
-		<link>http://labs.tmw.co.uk</link>
-		<atom:link href="http://labs.tmw.co.uk/feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://tech.tmw.co.uk</link>
+		<atom:link href="http://tech.tmw.co.uk/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Yeoman Generator Development Tips</title>
 				<description>&lt;p&gt;Yeoman generators are a powerful tool for developers, they enable us to get up and running with projects extremely quickly. I created a generator for our Kickoff framework and came across a few things that I thought others would benefit from; hopefully this post will shed some light for others creating their own generators.&lt;/p&gt;
 
-&lt;p&gt;The Kickoff Yeoman generator is a simple way to &#39;kickoff&#39; your project even more quickly than before. It simply asks a few questions, modifies some files, adds the results to the ouputted files and installs some npm and bower dependencies.&lt;/p&gt;
+&lt;p&gt;The Kickoff Yeoman generator is a simple way to ‘kickoff’ your project even more quickly than before. It simply asks a few questions, modifies some files, adds the results to the ouputted files and installs some npm and bower dependencies.&lt;/p&gt;
 
-&lt;h3&gt;Escaping Underscore template variables&lt;/h3&gt;
-
+&lt;h3 id=&quot;escaping-underscore-template-variables&quot;&gt;Escaping Underscore template variables&lt;/h3&gt;
 &lt;p&gt;Use double percent signs to escape Underscore template variables, like this: &lt;code&gt;&amp;lt;%%= someVar %&amp;gt;&lt;/code&gt; instead of &lt;code&gt;&amp;lt;%= someVar %&amp;gt;&lt;/code&gt; and you should be sorted. I had this issue in the Gruntfile where there are quite a few of these tags, see &lt;a href=&quot;https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/templates/_Gruntfile.js#L53&quot;&gt;here&lt;/a&gt;. Credit for this goes to a helpful comment on &lt;a href=&quot;https://github.com/yeoman/generator-generator/issues/45#issuecomment-31031268&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3&gt;Run Grunt (or another command) after Yeoman builds&lt;/h3&gt;
-
+&lt;h3 id=&quot;run-grunt-or-another-command-after-yeoman-builds&quot;&gt;Run Grunt (or another command) after Yeoman builds&lt;/h3&gt;
 &lt;p&gt;The Kickoff generator runs a Grunt task immediately after it has finished compiling and installing everything, I was able to do this by running the &lt;code&gt;spawnCommand&lt;/code&gt; method in the &lt;code&gt;dependenciesInstalled&lt;/code&gt; callback, like this:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;// Now you can bind to the dependencies installed event
 this.on(&#39;dependenciesInstalled&#39;, function () {
-    if (this.jsLibs === &#39;jquery&#39;) { this.spawnCommand(&#39;grunt&#39;, [&#39;jquery&#39;]); }
-    this.spawnCommand(&#39;grunt&#39;, [&#39;serve&#39;]);
+	if (this.jsLibs === &#39;jquery&#39;) { this.spawnCommand(&#39;grunt&#39;, [&#39;jquery&#39;]); }
+	this.spawnCommand(&#39;grunt&#39;, [&#39;serve&#39;]);
 });
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;See this in our actual &lt;a href=&quot;https://github.com/tmwagency/generator-kickoff/blob/c2aab72ad4a15186b646505817152732a8c9f4b2/app/index.js#L24&quot;&gt;index.js&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3&gt;How to log a coloured message with Yeoman&lt;/h3&gt;
-
+&lt;h3 id=&quot;how-to-log-a-coloured-message-with-yeoman&quot;&gt;How to log a coloured message with Yeoman&lt;/h3&gt;
 &lt;p&gt;To colourise your text, you can use the same colour module as used by the generator system, called Chalk.&lt;/p&gt;
 
 &lt;p&gt;First install it: &lt;code&gt;npm install --save chalk&lt;/code&gt;&lt;/p&gt;
@@ -45,15 +42,14 @@ this.on(&#39;dependenciesInstalled&#39;, function () {
 &lt;pre&gt;&lt;code&gt;console.log(chalk.bold.yellow(&#39;message&#39;));
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;figure&gt;&lt;img src=&quot;/img/blog/yeoman-tips/chalk.png&quot; alt=&quot;Chalk colours in the Kickoff Yeoman generator&quot;&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&quot;/img/blog/yeoman-tips/chalk.png&quot; alt=&quot;Chalk colours in the Kickoff Yeoman generator&quot; /&gt;&lt;/figure&gt;
 
-&lt;p&gt;If you would like to know more about different prompt/question styles, see the &lt;a href=&quot;https://github.com/SBoudrias/Inquirer.js&quot;&gt;Inquirer.js docs&lt;/a&gt;. Kickoff&#39;s can be found &lt;a href=&quot;https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you would like to know more about different prompt/question styles, see the &lt;a href=&quot;https://github.com/SBoudrias/Inquirer.js&quot;&gt;Inquirer.js docs&lt;/a&gt;. Kickoff’s can be found &lt;a href=&quot;https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3&gt;Conditional statements in your generator&lt;/h3&gt;
+&lt;h3 id=&quot;conditional-statements-in-your-generator&quot;&gt;Conditional statements in your generator&lt;/h3&gt;
+&lt;p&gt;As you can see above, our generator asks if you’d like to include jQuery in the project, if the user does, the relevant ‘jQuery Builder’ Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, then a post generator task is also run to build the library.&lt;/p&gt;
 
-&lt;p&gt;As you can see above, our generator asks if you&#39;d like to include jQuery in the project, if the user does, the relevant &#39;jQuery Builder&#39; Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, then a post generator task is also run to build the library.&lt;/p&gt;
-
-&lt;p&gt;Some simple conditionals were needed in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag but need to be wrapped with raw tags. Here&#39;s an example from our package.json:&lt;/p&gt;
+&lt;p&gt;Some simple conditionals were needed in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag but need to be wrapped with raw tags. Here’s an example from our package.json:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;% if (jsLibs == &quot;jquery&quot;) {%&amp;gt;,&quot;grunt-jquery-builder&quot;: &quot;~0.1.1&quot;&amp;lt;% } %&amp;gt;{% endraw %}
 
@@ -62,29 +58,26 @@ this.on(&#39;dependenciesInstalled&#39;, function () {
 {% raw %}&amp;lt;% if (jsLibs == &#39;jquery&#39;) {%&amp;gt;,&quot;jquery&quot;: true&amp;lt;% } %&amp;gt;{% endraw %}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Notice the preceeding comma before the conditional&#39;s content.&lt;/p&gt;
+&lt;p&gt;Notice the preceeding comma before the conditional’s content.&lt;/p&gt;
 
-&lt;p&gt;JSON syntax is very strict, if a comma isn&#39;t there, or is in the wrong place, it will throw an error and npm will not install the dependencies, that is why I included the preceeding comma within the conditional. It might seem obvious but this logic needs to be self-contained and the surrounding code needs to be unaware of it, if it does not exist.&lt;/p&gt;
+&lt;p&gt;JSON syntax is very strict, if a comma isn’t there, or is in the wrong place, it will throw an error and npm will not install the dependencies, that is why I included the preceeding comma within the conditional. It might seem obvious but this logic needs to be self-contained and the surrounding code needs to be unaware of it, if it does not exist.&lt;/p&gt;
 
-&lt;h2&gt;Try the Kickoff generator&lt;/h2&gt;
-
+&lt;h2 id=&quot;try-the-kickoff-generator&quot;&gt;Try the Kickoff generator&lt;/h2&gt;
 &lt;p&gt;To install &lt;a href=&quot;https://www.npmjs.org/package/generator-kickoff&quot;&gt;our generator&lt;/a&gt;, run: &lt;code&gt;npm install -g generator-kickoff&lt;/code&gt; and then run &lt;code&gt;yo kickoff&lt;/code&gt; to use it.&lt;/p&gt;
 
-&lt;p&gt;Please leave a comment below if you have any other tips, we&#39;re always keen to find out more.&lt;/p&gt;
+&lt;p&gt;Please leave a comment below if you have any other tips, we’re always keen to find out more.&lt;/p&gt;
 
-&lt;h3&gt;Useful links&lt;/h3&gt;
-
+&lt;h3 id=&quot;useful-links&quot;&gt;Useful links&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://yeoman.io&quot;&gt;The Yeoman project&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;To find out about writing your own Yeoman generators, have a look at &lt;a href=&quot;http://yeoman.io/generators.html#writing-your-first-generator&quot;&gt;yeoman.io/generators.html&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://yeoman.io&quot;&gt;The Yeoman project&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;To find out about writing your own Yeoman generators, have a look at &lt;a href=&quot;http://yeoman.io/generators.html#writing-your-first-generator&quot;&gt;yeoman.io/generators.html&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-
 </description>
 				<pubDate>Fri, 28 Mar 2014 00:00:00 +0000</pubDate>
-				<link>http://labs.tmw.co.uk/2014/03/yeoman-generator-development-tips</link>
+				<link>http://tech.tmw.co.uk/2014/03/yeoman-generator-development-tips</link>
 				
-				<username>@mrmartineau</username>
-				<guid isPermaLink="true">http://labs.tmw.co.uk//2014/03/yeoman-generator-development-tips</guid>
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2014/03/yeoman-generator-development-tips</guid>
 			</item>
 		
 			<item>
@@ -93,31 +86,29 @@ this.on(&#39;dependenciesInstalled&#39;, function () {
 
 &lt;p&gt;Currently in closed beta – due out mid may this year – UaaS (no sniggering at the back)  allows you to “spool up” an instance of Umbraco in the cloud in under a minute. Despite the demo being run over a 3g tethered connection the online set up was very easy.&lt;/p&gt;
 
-&lt;h2&gt;UaaS in a nutshell&lt;/h2&gt;
-
+&lt;h2 id=&quot;uaas-in-a-nutshell&quot;&gt;UaaS in a nutshell&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Hosted on top of azure (actually in partnership with MS)&lt;/li&gt;
-&lt;li&gt;Can choose between v6 or v7
-
-&lt;ul&gt;
-&lt;li&gt;Automated upgrade to new versions will be available (3rd party package compatibility dependent)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Has 4 subscription types &lt;sup&gt;1&lt;/sup&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Dev / test – one Developer, one environment (free) (SQL CE)&lt;/li&gt;
-&lt;li&gt;Freelancer – one Developer, Two environments:  Stage and live (free) (SQL CE)&lt;/li&gt;
-&lt;li&gt;Studio  – 3  Developers, 3 environments: Dev, Stage, Live ($50/m) (SQL Azure)&lt;/li&gt;
-&lt;li&gt;Agency – unlimited  Developers, 3 environments: Dev, Stage, Live ($99/m) (SQL Azure)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Uses git as the file system. All file changes = a commit.&lt;/li&gt;
-&lt;li&gt;Allows for one click deployment. Uses an implementation of courier.&lt;/li&gt;
+  &lt;li&gt;Hosted on top of azure (actually in partnership with MS)&lt;/li&gt;
+  &lt;li&gt;Can choose between v6 or v7
+    &lt;ul&gt;
+      &lt;li&gt;Automated upgrade to new versions will be available (3rd party package compatibility dependent)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Has 4 subscription types &lt;sup&gt;1&lt;/sup&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Dev / test – one Developer, one environment (free) (SQL CE)&lt;/li&gt;
+      &lt;li&gt;Freelancer – one Developer, Two environments:  Stage and live (free) (SQL CE)&lt;/li&gt;
+      &lt;li&gt;Studio  – 3  Developers, 3 environments: Dev, Stage, Live ($50/m) (SQL Azure)&lt;/li&gt;
+      &lt;li&gt;Agency – unlimited  Developers, 3 environments: Dev, Stage, Live ($99/m) (SQL Azure)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Uses git as the file system. All file changes = a commit.&lt;/li&gt;
+  &lt;li&gt;Allows for one click deployment. Uses an implementation of courier.&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;blockquote&gt;&lt;p&gt;[1] Developer/environment numbers are “per site” (i.e. a freelancer could have 5 sites each with two environments) and the paid for subscriptions might increase in the future.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;[1] Developer/environment numbers are “per site” (i.e. a freelancer could have 5 sites each with two environments) and the paid for subscriptions might increase in the future.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;The biggest advantage is most definitely the speed in which you can deploy code and content changes from your staging instance through to live. It’s as simple as one click, which is a massive bonus as content replication can often be an ardous task. For any simple small sites we plan to run it could potentialy solve the time/cost of setting up a site under our usual Continous Integration / Automated deployment system.&lt;/p&gt;
 
@@ -126,10 +117,10 @@ this.on(&#39;dependenciesInstalled&#39;, function () {
 &lt;p&gt;The future is almost here. Find out more about UaaS over on &lt;a href=&quot;http://umbraco.com/future.aspx&quot;&gt;Umbraco.com&lt;/a&gt;.&lt;/p&gt;
 </description>
 				<pubDate>Tue, 11 Mar 2014 11:00:00 +0000</pubDate>
-				<link>http://labs.tmw.co.uk/2014/03/the-future-of-umbraco</link>
+				<link>http://tech.tmw.co.uk/2014/03/the-future-of-umbraco</link>
 				
-				<username>@MilitantPenguin</username>
-				<guid isPermaLink="true">http://labs.tmw.co.uk//2014/03/the-future-of-umbraco</guid>
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2014/03/the-future-of-umbraco</guid>
 			</item>
 		
 			<item>
@@ -155,35 +146,35 @@ this.on(&#39;dependenciesInstalled&#39;, function () {
 &lt;p&gt;If you have any questions about using Statix or just general feedback, &lt;a href=&quot;http://twitter.com/TMW_Labs&quot;&gt;give us a shout on Twitter&lt;/a&gt;.&lt;/p&gt;
 </description>
 				<pubDate>Wed, 05 Feb 2014 10:00:00 +0000</pubDate>
-				<link>http://labs.tmw.co.uk/2014/02/kickoff-statix-for-slicker-template-workflow</link>
+				<link>http://tech.tmw.co.uk/2014/02/kickoff-statix-for-slicker-template-workflow</link>
 				
-				<username>@AshNolan_</username>
-				<guid isPermaLink="true">http://labs.tmw.co.uk//2014/02/kickoff-statix-for-slicker-template-workflow</guid>
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2014/02/kickoff-statix-for-slicker-template-workflow</guid>
 			</item>
 		
 			<item>
 				<title>Building the TMW Shelter Christmas Tree</title>
-				<description>&lt;h2&gt;The brief&lt;/h2&gt;
+				<description>&lt;h2 id=&quot;the-brief&quot;&gt;The brief&lt;/h2&gt;
 
 &lt;p&gt;Christmas is about many things; overindulgences, family arguments, and thoughtless gifts, but among the better aspects are the general gestures of goodwill and decorations to put even Santas grotto to shame. So, what project could be better than a digital Christmas tree that raised money for the charity Shelter?&lt;/p&gt;
 
-&lt;p&gt;The initial concept, thought up by Marlen Lutter, was simple; decorate a tree and raise money for Shelter. The key to this was to incentivise people to donate money, and we wanted to reward them for donating. Now the heart of any good tree is the set of lights it bears (and not, I&#39;m told, tinsel) so naturally a tree that is slowly lit by donations was the obvious choice, and a great starting point. Of course, we couldn&#39;t just stop there, we wanted the tree to be more impressive and give feedback to the lovely people donating, so we threw in an LED matrix display, of the kind you see on trains and buses.&lt;/p&gt;
+&lt;p&gt;The initial concept, thought up by Marlen Lutter, was simple; decorate a tree and raise money for Shelter. The key to this was to incentivise people to donate money, and we wanted to reward them for donating. Now the heart of any good tree is the set of lights it bears (and not, I’m told, tinsel) so naturally a tree that is slowly lit by donations was the obvious choice, and a great starting point. Of course, we couldn’t just stop there, we wanted the tree to be more impressive and give feedback to the lovely people donating, so we threw in an LED matrix display, of the kind you see on trains and buses.&lt;/p&gt;
 
-&lt;h2&gt;The build&lt;/h2&gt;
+&lt;h2 id=&quot;the-build&quot;&gt;The build&lt;/h2&gt;
 
 &lt;p&gt;Working through the general ideas we realised there was one issue that needed addressing: what donation should trigger a single light on the tree, and how would we keep track of the total donations?&lt;/p&gt;
 
 &lt;p&gt;For the first, we decided that a donation of £1 should be the trigger, and Andrew Williams did some very clever work with that. First, he modelled a bespoke coin chute and pivot trigger that could depress a small switch used later in the circuitry, and then fine-tuned that with weights on the trigger so that only the weight of a £1 coin would set it off. This was especially important, as there are other coins that will fit into a slot that size, and we wanted an automated way to calculate the donations.&lt;/p&gt;
 
-&lt;p&gt;My part in the build was to get the lights working in conjunction with the matrix display and the trigger switch, using an Arduino. I first built code around the LED display, making a simple loop that allowed for varying messages to be triggered from either a donation, or as a random message to show when the tree wasn&#39;t being interacted with.&lt;/p&gt;
+&lt;p&gt;My part in the build was to get the lights working in conjunction with the matrix display and the trigger switch, using an Arduino. I first built code around the LED display, making a simple loop that allowed for varying messages to be triggered from either a donation, or as a random message to show when the tree wasn’t being interacted with.&lt;/p&gt;
 
 &lt;p&gt;Getting this far highlighted another problem: what if the Arduino lost power or had to be cycled during the time the tree was up? It would need to have a way to save and read the current total of donations it had taken, so we thought the best way for that was via an ethernet shield connected to the network. A couple of PHP scripts and a database later, and it was capable of saving and reading the totals, and it also allowed me to be remotely appraised of the trees progress.&lt;/p&gt;
 
-&lt;p&gt;Once that was completed, I had to integrate the lights (quite an important part of a Christmas tree!), and Andrew again helped out with some code for this using a sample he&#39;d written to interact with them. The lights themselves were a strip of 150 RGB LEDs that could be individually coloured and switched on, perfect for the job at hand as it let us light the tree exactly the colour we wanted. I even added a little flashing light effect to the LED that was lit as a result of the donation which flashed only as long as the Arduino was awaiting a response back from the network after recording a new donation.&lt;/p&gt;
+&lt;p&gt;Once that was completed, I had to integrate the lights (quite an important part of a Christmas tree!), and Andrew again helped out with some code for this using a sample he’d written to interact with them. The lights themselves were a strip of 150 RGB LEDs that could be individually coloured and switched on, perfect for the job at hand as it let us light the tree exactly the colour we wanted. I even added a little flashing light effect to the LED that was lit as a result of the donation which flashed only as long as the Arduino was awaiting a response back from the network after recording a new donation.&lt;/p&gt;
 
-&lt;h2&gt;The final result&lt;/h2&gt;
+&lt;h2 id=&quot;the-final-result&quot;&gt;The final result&lt;/h2&gt;
 
-&lt;p&gt;Once the pieces were finally assembled the tree was turned on and everything was working. We made one final amendment to the flashing LED effect to make it stand out more by having the entire set flash, which was much more visually appealing. A little Christmas tune wouldn&#39;t have gone amiss here as a wonderful accompaniment to the light show, and this is certainly on somebody’s list next year. The project was developed with the future in mind, and we hope to turn this into a TMW tradition for every year.&lt;/p&gt;
+&lt;p&gt;Once the pieces were finally assembled the tree was turned on and everything was working. We made one final amendment to the flashing LED effect to make it stand out more by having the entire set flash, which was much more visually appealing. A little Christmas tune wouldn’t have gone amiss here as a wonderful accompaniment to the light show, and this is certainly on somebody’s list next year. The project was developed with the future in mind, and we hope to turn this into a TMW tradition for every year.&lt;/p&gt;
 
 &lt;p&gt;In total we raised £109 for Shelter, and built something that was a challenging but brilliant union of physical and digital. I learnt a lot in the process, not least of which about how to correctly decorate a Christmas tree (with all that technical component integration being a close second!), and feel we definitely embraced the spirit of Christmas, showing that we really do give a damn.&lt;/p&gt;
 
@@ -192,46 +183,46 @@ this.on(&#39;dependenciesInstalled&#39;, function () {
 &lt;p&gt;-Donations by Hour
 Some peaks over breakfast and lunch&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/blog/tmw-shelter-christmas-tree/donations_by_hour.png&quot; alt=&quot;Donations by Hour&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/blog/tmw-shelter-christmas-tree/donations_by_hour.png&quot; alt=&quot;Donations by Hour&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;-Donations by Day&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/blog/tmw-shelter-christmas-tree/donations_by_day.png&quot; alt=&quot;Donations by Day&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/blog/tmw-shelter-christmas-tree/donations_by_day.png&quot; alt=&quot;Donations by Day&quot; /&gt;&lt;/p&gt;
 </description>
 				<pubDate>Tue, 21 Jan 2014 13:00:00 +0000</pubDate>
-				<link>http://labs.tmw.co.uk/2014/01/building-the-tmw-shelter-christmas-tree</link>
+				<link>http://tech.tmw.co.uk/2014/01/building-the-tmw-shelter-christmas-tree</link>
 				
-				<username>@ashleyjsheridan</username>
-				<guid isPermaLink="true">http://labs.tmw.co.uk//2014/01/building-the-tmw-shelter-christmas-tree</guid>
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2014/01/building-the-tmw-shelter-christmas-tree</guid>
 			</item>
 		
 			<item>
 				<title>Hyping the iBeacon</title>
-				<description>&lt;h2&gt;What are iBeacons?&lt;/h2&gt;
+				<description>&lt;h2 id=&quot;what-are-ibeacons&quot;&gt;What are iBeacons?&lt;/h2&gt;
 
 &lt;p&gt;Lately there has been much talk about iBeacons. A technology pioneered by Apple, they allow small hardware modules, called beacons, to broadcast their location to nearby BLE (Bluetooth Low Energy) equipped mobile devices. The result? Mobile apps that interact with iBeacons become contextually aware.&lt;/p&gt;
 
 &lt;p&gt;In other words, the app knows where its user is located at a micro–location level, providing a vast array of opportunities to create personalised experiences that transcend the physical and digital worlds.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/blog/hyping-the-ibeacon/ibeacons-in-context.jpg&quot; alt=&quot;iBeacon ranging for proximity and position&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/blog/hyping-the-ibeacon/ibeacons-in-context.jpg&quot; alt=&quot;iBeacon ranging for proximity and position&quot; /&gt;&lt;/p&gt;
 
-&lt;h2&gt;Features&lt;/h2&gt;
+&lt;h2 id=&quot;features&quot;&gt;Features&lt;/h2&gt;
 
 &lt;p&gt;Imagine a user has spent some time looking at a product on a retail brand’s website, but has never followed through with a purchase.&lt;/p&gt;
 
-&lt;p&gt;A week later they walk into the same retail brand’s physical store where iBeacons are installed and see the product in the flesh. On walking into the iBeacon broadcast region a service running on the user&#39;s phone fires up an app offering them a discount on the product in an attempt to encourage a sale.  This &quot;&lt;strong&gt;&lt;em&gt;monitoring&lt;/em&gt;&lt;/strong&gt;&quot; feature of iBeacons allows contextual content to be delivered even if the relevant app isn&#39;t running, or is running in the background.&lt;/p&gt;
+&lt;p&gt;A week later they walk into the same retail brand’s physical store where iBeacons are installed and see the product in the flesh. On walking into the iBeacon broadcast region a service running on the user’s phone fires up an app offering them a discount on the product in an attempt to encourage a sale.  This “&lt;strong&gt;&lt;em&gt;monitoring&lt;/em&gt;&lt;/strong&gt;” feature of iBeacons allows contextual content to be delivered even if the relevant app isn’t running, or is running in the background.&lt;/p&gt;
 
-&lt;p&gt;Another feature of iBeacons is &quot;&lt;strong&gt;&lt;em&gt;ranging&lt;/em&gt;&lt;/strong&gt;&quot;; the ability for the mobile device to work out its distance from the iBeacon using the received signal strength. Furthermore, if the app is simultaneously connected to multiple beacons then it can triangulate distances and work out where a user is within a space: micro-location. Suddenly an app knows whether the user is looking at jeans or perfume, which could lead to great opportunities for real-life, real-time analytics.&lt;/p&gt;
+&lt;p&gt;Another feature of iBeacons is “&lt;strong&gt;&lt;em&gt;ranging&lt;/em&gt;&lt;/strong&gt;”; the ability for the mobile device to work out its distance from the iBeacon using the received signal strength. Furthermore, if the app is simultaneously connected to multiple beacons then it can triangulate distances and work out where a user is within a space: micro-location. Suddenly an app knows whether the user is looking at jeans or perfume, which could lead to great opportunities for real-life, real-time analytics.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/blog/hyping-the-ibeacon/ibeacons-proximity-ranging.jpg&quot; alt=&quot;iBeacon ranging for proximity and position&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/blog/hyping-the-ibeacon/ibeacons-proximity-ranging.jpg&quot; alt=&quot;iBeacon ranging for proximity and position&quot; /&gt;&lt;/p&gt;
 
-&lt;h2&gt;Limitations&lt;/h2&gt;
+&lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
 
 &lt;p&gt;iBeacons broadcast nothing more than three identifiers. They cannot push custom content to the users phone, so for any value to come from the presence of an iBeacon a user must have an app installed that is listening for that particular iBeacon.&lt;/p&gt;
 
 &lt;p&gt;There are also currently some &lt;a href=&quot;http://blogs.computerworld.com/mobile-security/23256/what-apples-ibeacon-rollout-doesnt-say&quot;&gt;security concerns&lt;/a&gt; that rogue apps could potentially be used to track users.&lt;/p&gt;
 
-&lt;h2&gt;Adoption&lt;/h2&gt;
+&lt;h2 id=&quot;adoption&quot;&gt;Adoption&lt;/h2&gt;
 
 &lt;p&gt;We imagine that the initial uptake of iBeacons will probably happen with brands that already have customers using their apps. In this case, the brand can just roll out an update that enables contextually sensitive features and equip relevant spaces with iBeacon hardware.&lt;/p&gt;
 
@@ -241,11 +232,11 @@ Some peaks over breakfast and lunch&lt;/p&gt;
 
 &lt;p&gt;It’ll be interesting to see how users take to installing apps specifically to use iBeacon features as the technology becomes more ubiquitous.&lt;/p&gt;
 
-&lt;h2&gt;Our Interest&lt;/h2&gt;
+&lt;h2 id=&quot;our-interest&quot;&gt;Our Interest&lt;/h2&gt;
 
 &lt;p&gt;Because iBeacons are small, cheap and can run on a single battery for up to 2 years they can make for ideal integrations into POS displays to augment campaigns and product launches in retail environments.&lt;/p&gt;
 
-&lt;p&gt;They don&#39;t require an existing infrastructure to be present and can be easily deployed in any environment be it an expo, conference, tradeshow, outdoor event. They can also be placed on moving objects and aside from marketing, retail and guiding applications, there is massive potential to create &lt;a href=&quot;http://www.motionloft.com/property_owners.html&quot;&gt;products&lt;/a&gt; or &lt;a href=&quot;http://thetaplab.com/games/tinytycoons&quot;&gt;games&lt;/a&gt; that take advantage of the tech.&lt;/p&gt;
+&lt;p&gt;They don’t require an existing infrastructure to be present and can be easily deployed in any environment be it an expo, conference, tradeshow, outdoor event. They can also be placed on moving objects and aside from marketing, retail and guiding applications, there is massive potential to create &lt;a href=&quot;http://www.motionloft.com/property_owners.html&quot;&gt;products&lt;/a&gt; or &lt;a href=&quot;http://thetaplab.com/games/tinytycoons&quot;&gt;games&lt;/a&gt; that take advantage of the tech.&lt;/p&gt;
 
 &lt;p&gt;It is early days but with the digital world perpetually bleeding outside the confines of a screen it is an ideal territory for an agency such as ourselves to explore for opportunities.&lt;/p&gt;
 
@@ -253,61 +244,56 @@ Some peaks over breakfast and lunch&lt;/p&gt;
 
 &lt;p&gt;Once we get our teeth stuck into these, I’ll be back with a more technically focused post, but for now, here’s a list of resources and interesting articles on iBeacons to get you as excited as we are.&lt;/p&gt;
 
-&lt;h2&gt;Further Reading&lt;/h2&gt;
+&lt;h2 id=&quot;further-reading&quot;&gt;Further Reading&lt;/h2&gt;
 
-&lt;h3&gt;General Information&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.beekn.net/&quot;&gt;Beekn: Beacons, brands and culture on the IoT&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.wired.com/design/2013/12/4-use-cases-for-ibeacon-the-most-exciting-tech-you-havent-heard-of/&quot;&gt;WIRED on iBeacons&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://meetingofideas.wordpress.com/2013/12/12/download-ibeacons-bible-1-0/&quot;&gt;iBeacons Bible&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3&gt;Hardware Vendors&lt;/h3&gt;
+&lt;h3 id=&quot;general-information&quot;&gt;General Information&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://estimote.com/api/index.html&quot;&gt;Estimote&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.redbear.net/&quot;&gt;Redbear&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://roximity.com/&quot;&gt;Roximity&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://kontakt.io/&quot;&gt;Kontact&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.radiusnetworks.com/&quot;&gt;Radius Networks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.beaconic.nl/en/&quot;&gt;Beaconic&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.beekn.net/&quot;&gt;Beekn: Beacons, brands and culture on the IoT&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.wired.com/design/2013/12/4-use-cases-for-ibeacon-the-most-exciting-tech-you-havent-heard-of/&quot;&gt;WIRED on iBeacons&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://meetingofideas.wordpress.com/2013/12/12/download-ibeacons-bible-1-0/&quot;&gt;iBeacons Bible&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;h3&gt;Retail &amp;amp; Analytics Products&lt;/h3&gt;
+&lt;h3 id=&quot;hardware-vendors&quot;&gt;Hardware Vendors&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://nomi.com/&quot;&gt;Nomi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.shopkick.com/shopbeacon/&quot;&gt;Shopkick&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://estimote.com/api/index.html&quot;&gt;Estimote&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.redbear.net/&quot;&gt;Redbear&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://roximity.com/&quot;&gt;Roximity&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://kontakt.io/&quot;&gt;Kontact&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.radiusnetworks.com/&quot;&gt;Radius Networks&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.beaconic.nl/en/&quot;&gt;Beaconic&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;h3&gt;Adoption&lt;/h3&gt;
+&lt;h3 id=&quot;retail--analytics-products&quot;&gt;Retail &amp;amp; Analytics Products&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://recode.net/2014/01/09/so-youve-installed-an-ibeacon-system-now-comes-the-hard-part-no-one-is-talking-about/&quot;&gt;iBeacons require an app&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://venturebeat.com/2013/11/29/is-ibeacon-ready-for-prime-time-retail-three-key-considerations/&quot;&gt;Interesting security concerns&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nomi.com/&quot;&gt;Nomi&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.shopkick.com/shopbeacon/&quot;&gt;Shopkick&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;h3&gt;Development &amp;amp; Hacks&lt;/h3&gt;
+&lt;h3 id=&quot;adoption-1&quot;&gt;Adoption&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://daveaddey.com/?p=1252&quot;&gt;iBeacons: use cases and implementation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://learn.adafruit.com/pibeacon-ibeacon-with-a-raspberry-pi/overview&quot;&gt;PiBeacon: turn a Raspberry Pi into an iBeacon&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jamiepinkham/bled112_ibeacon_firmware&quot;&gt;Turn a BLED112 USB Dongle into an iBeacon&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.innoquant.com/2013/12/discovering-estimote-ibeacons/&quot;&gt;Discovering Estimote Beacons&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://developer.radiusnetworks.com/2013/11/13/ibeacon-monitoring-in-the-background-and-foreground.html&quot;&gt;iBeacon Monitoring in the Background&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://recode.net/2014/01/09/so-youve-installed-an-ibeacon-system-now-comes-the-hard-part-no-one-is-talking-about/&quot;&gt;iBeacons require an app&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://venturebeat.com/2013/11/29/is-ibeacon-ready-for-prime-time-retail-three-key-considerations/&quot;&gt;Interesting security concerns&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h3 id=&quot;development--hacks&quot;&gt;Development &amp;amp; Hacks&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://daveaddey.com/?p=1252&quot;&gt;iBeacons: use cases and implementation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://learn.adafruit.com/pibeacon-ibeacon-with-a-raspberry-pi/overview&quot;&gt;PiBeacon: turn a Raspberry Pi into an iBeacon&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jamiepinkham/bled112_ibeacon_firmware&quot;&gt;Turn a BLED112 USB Dongle into an iBeacon&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.innoquant.com/2013/12/discovering-estimote-ibeacons/&quot;&gt;Discovering Estimote Beacons&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://developer.radiusnetworks.com/2013/11/13/ibeacon-monitoring-in-the-background-and-foreground.html&quot;&gt;iBeacon Monitoring in the Background&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
 				<pubDate>Mon, 20 Jan 2014 15:30:00 +0000</pubDate>
-				<link>http://labs.tmw.co.uk/2014/01/hyping-the-ibeacon</link>
+				<link>http://tech.tmw.co.uk/2014/01/hyping-the-ibeacon</link>
 				
-				<username>@roowilliams</username>
-				<guid isPermaLink="true">http://labs.tmw.co.uk//2014/01/hyping-the-ibeacon</guid>
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2014/01/hyping-the-ibeacon</guid>
 			</item>
 		
 			<item>
@@ -318,67 +304,59 @@ Some peaks over breakfast and lunch&lt;/p&gt;
 
 &lt;p&gt;The gulp.js fork of Kickoff can be found at &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/gulp&quot;&gt;github.com/tmwagency/kickoff/tree/gulp&lt;/a&gt; and the &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js&quot;&gt;gulpfile.js&lt;/a&gt; holds all the config. I found editing the &lt;code&gt;gulpfile&lt;/code&gt; quite easy; more so than a Gruntfile. I followed similar ideas to our Grunt setup to make it more maintainable e.g. using variables to avoid repetition – see lines &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L16-L37&quot;&gt;16-37&lt;/a&gt; of the Kickoff gulpfile.&lt;/p&gt;
 
-&lt;h2&gt;Speed comparison tests&lt;/h2&gt;
+&lt;h2 id=&quot;speed-comparison-tests&quot;&gt;Speed comparison tests&lt;/h2&gt;
 
-&lt;h3&gt;Sass compilation&lt;/h3&gt;
-
-&lt;p&gt;&lt;figure&gt;&lt;img src=&quot;/img/blog/kickoff-gulp-test/compare-sass.gif&quot; alt=&quot;Grunt and gulp.js Sass compilation comparison&quot;&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;sass-compilation&quot;&gt;Sass compilation&lt;/h3&gt;
+&lt;figure&gt;&lt;img src=&quot;/img/blog/kickoff-gulp-test/compare-sass.gif&quot; alt=&quot;Grunt and gulp.js Sass compilation comparison&quot; /&gt;&lt;/figure&gt;
 
 &lt;p&gt;Gulp here is about twice as fast as Grunt at running the same task and immediately you can see what all the fuss is about. Grunt uses &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-sass&quot;&gt;grunt-contrib-sass&lt;/a&gt; and gulp.js uses &lt;a href=&quot;https://github.com/sindresorhus/gulp-ruby-sass/&quot;&gt;gulp-ruby-sass&lt;/a&gt; (both of which use Ruby) to compile. gulp-ruby-sass is slower than &lt;a href=&quot;https://github.com/dlmanning/gulp-sass&quot;&gt;gulp-sass&lt;/a&gt;, but more stable and feature-rich so I will make the switch when it improves, so I reckon that the difference will be even greater when this happens. See the gulpfile settings for this &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L51-L65&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3&gt;Javascript minification and concatination using Uglify.js&lt;/h3&gt;
-
-&lt;p&gt;&lt;figure&gt;&lt;img src=&quot;/img/blog/kickoff-gulp-test/compare-js.gif&quot; alt=&quot;Grunt and gulp.js Javascript minification and concatination using Uglify.js&quot;&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;javascript-minification-and-concatination-using-uglifyjs&quot;&gt;Javascript minification and concatination using Uglify.js&lt;/h3&gt;
+&lt;figure&gt;&lt;img src=&quot;/img/blog/kickoff-gulp-test/compare-js.gif&quot; alt=&quot;Grunt and gulp.js Javascript minification and concatination using Uglify.js&quot; /&gt;&lt;/figure&gt;
 
 &lt;p&gt;The difference here is not that large but it is still impressive. See the gulpfile settings for this &lt;a href=&quot;https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L67-L83&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3&gt;Live Reload&lt;/h3&gt;
+&lt;h3 id=&quot;live-reload&quot;&gt;Live Reload&lt;/h3&gt;
+&lt;p&gt;Live Reload is an indispensable tool for us, both gulp.js and Grunt have plugins for it (Grunt’s is built into &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-watch&quot;&gt;grunt-contrib-watch&lt;/a&gt;). I was not able to measure the speeds between the two but I would say that gulp.js was noticeably quicker overall, but not hugely.&lt;/p&gt;
 
-&lt;p&gt;Live Reload is an indispensable tool for us, both gulp.js and Grunt have plugins for it (Grunt&#39;s is built into &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-watch&quot;&gt;grunt-contrib-watch&lt;/a&gt;). I was not able to measure the speeds between the two but I would say that gulp.js was noticeably quicker overall, but not hugely.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;As you can see gulp.js is insanely fast, but that does not mean we are going to be making the switch any time soon. There are two plugins that we regularly use that aren’t supported by gulp.js, these are &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-connect&quot;&gt;grunt-contrib-connect&lt;/a&gt; (for starting a static web server) and &lt;a href=&quot;https://github.com/dannygarcia/grunt-jekyll&quot;&gt;grunt-jekyll&lt;/a&gt; (for building our Jekyll sites). gulp.js just doesn’t have the ecosystem and support that Grunt has; although the one man army of &lt;a href=&quot;https://twitter.com/sindresorhus&quot;&gt;Sindre Sorhus&lt;/a&gt; might be changing that!&lt;/p&gt;
 
-&lt;h2&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;As you can see gulp.js is insanely fast, but that does not mean we are going to be making the switch any time soon. There are two plugins that we regularly use that aren&#39;t supported by gulp.js, these are &lt;a href=&quot;https://github.com/gruntjs/grunt-contrib-connect&quot;&gt;grunt-contrib-connect&lt;/a&gt; (for starting a static web server) and &lt;a href=&quot;https://github.com/dannygarcia/grunt-jekyll&quot;&gt;grunt-jekyll&lt;/a&gt; (for building our Jekyll sites). gulp.js just doesn&#39;t have the ecosystem and support that Grunt has; although the one man army of &lt;a href=&quot;https://twitter.com/sindresorhus&quot;&gt;Sindre Sorhus&lt;/a&gt; might be changing that!&lt;/p&gt;
-
-&lt;h4&gt;Update 16/01/2014&lt;/h4&gt;
-
+&lt;h4 id=&quot;update-16012014&quot;&gt;Update 16/01/2014&lt;/h4&gt;
 &lt;p&gt;It has come to my attention that people are misinterpreting this post slightly. My purpose was not to provide a scientific comparison of the two but more of a real world, anecdotal comparison, as &lt;a href=&quot;http://labs.tmw.co.uk/2014/01/speedtesting-gulp-and-grunt/#comment-1202435929&quot;&gt;Luis Martins&lt;/a&gt; states below, there seem to be significant speed gains using gulp.js.&lt;/p&gt;
 
 &lt;p&gt;It also seems that there was a misunderstanding, on my part, of what gulp.js is compared to Grunt. I did not realise initially that one could &lt;a href=&quot;https://gist.github.com/mollerse/8450954&quot;&gt;write the code&lt;/a&gt; (thanks &lt;a href=&quot;https://github.com/mollerse&quot;&gt;mollerse&lt;/a&gt;) for a static server within the gulpfile, negating the need for a specific plugin. The same could also be said of a specific Jekyll plugin.&lt;/p&gt;
 
 &lt;p&gt;In any case, it seems to have got the discussion started about this misconception which can only be a good thing.&lt;/p&gt;
 
-&lt;h4&gt;Update 17/01/2014&lt;/h4&gt;
-
+&lt;h4 id=&quot;update-17012014&quot;&gt;Update 17/01/2014&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&quot;https://twitter.com/eschoff&quot;&gt;Eric Schoffstall&lt;/a&gt;, creator of gulp.js, actually submitted a &lt;a href=&quot;https://github.com/tmwagency/kickoff/pull/11&quot;&gt;pull request&lt;/a&gt; on my gulpfile to help improve the accuracy of these timings. As a result, the speed gains are not as significant as I once thought but they are still pretty large. I have updated the screenshots and copy above to reflect these new timings.&lt;/p&gt;
 
-&lt;h2&gt;Find out more&lt;/h2&gt;
-
+&lt;h2 id=&quot;find-out-more&quot;&gt;Find out more&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://gulpjs.com/&quot;&gt;gulp.js home page&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://gratimax.github.io/search-gulp-plugins/&quot;&gt;gulp.js plugins directory&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/gulpjs/gulp&quot;&gt;gulp.js Github repo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://slid.es/contra/gulp&quot;&gt;Introduction to Gulp&lt;/a&gt; by it&#39;s creator, &lt;a href=&quot;https://twitter.com/eschoff&quot;&gt;Eric Schoffstall&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://travismaynard.com/writing/getting-started-with-gulp&quot;&gt;Getting started with Gulp&lt;/a&gt; by Travis Maynard - great intro to gulp.js&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.ponyfoo.com/2014/01/09/gulp-grunt-whatever&quot;&gt;Gulp, Grunt, Whatever&lt;/a&gt; by Nicolas Bevacqua - another good intro&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gulpjs.com/&quot;&gt;gulp.js home page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gratimax.github.io/search-gulp-plugins/&quot;&gt;gulp.js plugins directory&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/gulpjs/gulp&quot;&gt;gulp.js Github repo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://slid.es/contra/gulp&quot;&gt;Introduction to Gulp&lt;/a&gt; by it’s creator, &lt;a href=&quot;https://twitter.com/eschoff&quot;&gt;Eric Schoffstall&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://travismaynard.com/writing/getting-started-with-gulp&quot;&gt;Getting started with Gulp&lt;/a&gt; by Travis Maynard - great intro to gulp.js&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.ponyfoo.com/2014/01/09/gulp-grunt-whatever&quot;&gt;Gulp, Grunt, Whatever&lt;/a&gt; by Nicolas Bevacqua - another good intro&lt;/li&gt;
 &lt;/ul&gt;
-
 </description>
 				<pubDate>Wed, 15 Jan 2014 15:30:00 +0000</pubDate>
-				<link>http://labs.tmw.co.uk/2014/01/speedtesting-gulp-and-grunt</link>
+				<link>http://tech.tmw.co.uk/2014/01/speedtesting-gulp-and-grunt</link>
 				
-				<username>@mrmartineau</username>
-				<guid isPermaLink="true">http://labs.tmw.co.uk//2014/01/speedtesting-gulp-and-grunt</guid>
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2014/01/speedtesting-gulp-and-grunt</guid>
 			</item>
 		
 			<item>
 				<title>Faster tapping with SwiftClick</title>
-				<description>&lt;p&gt;As many of you will have experienced when using touch devices such as iPhones, tapping on HTML elements sometimes feels a bit sluggish. This is because there is a &lt;a href=&quot;http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away&quot;&gt;300ms delay&lt;/a&gt; before click events are fired. As a user experience this is clunky behaviour and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and create a variable for the event name to use in click listeners – the value of which being either &#39;touchstart&#39; for devices that support touch, or &#39;click&#39; for those that don&#39;t:&lt;/p&gt;
+				<description>&lt;p&gt;As many of you will have experienced when using touch devices such as iPhones, tapping on HTML elements sometimes feels a bit sluggish. This is because there is a &lt;a href=&quot;http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away&quot;&gt;300ms delay&lt;/a&gt; before click events are fired. As a user experience this is clunky behaviour and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and create a variable for the event name to use in click listeners – the value of which being either ‘touchstart’ for devices that support touch, or ‘click’ for those that don’t:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;var clickEventType = &quot;ontouchstart&quot; in window ? &quot;touchstart&quot; : &quot;click&quot;;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The problem with this detection method is that laptops or monitors that support touch would expect a touch event, meaning that if a mouse was being used then click events wouldn&#39;t work. Because of this the detection method was refined to check if the device supports both touch and orientation change and only use touch events if both conditions are met:&lt;/p&gt;
+&lt;p&gt;The problem with this detection method is that laptops or monitors that support touch would expect a touch event, meaning that if a mouse was being used then click events wouldn’t work. Because of this the detection method was refined to check if the device supports both touch and orientation change and only use touch events if both conditions are met:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;var clickEventType = &quot;onorientationchange&quot; in window &amp;amp;&amp;amp; &quot;ontouchstart&quot; in window ? &quot;touchstart&quot; : &quot;click&quot;;
 &lt;/code&gt;&lt;/pre&gt;
@@ -390,31 +368,30 @@ Some peaks over breakfast and lunch&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;someEl.addEventListener (clickEventType, fn, false);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This worked pretty nicely, with the main drawback being the fact that we would need to ensure the &#39;clickEventType&#39; variable was used anywhere we needed to add a click listener, which can be problematic when projects are picked up by new developers who may not necessarily realise that this variable is being used at all.&lt;/p&gt;
+&lt;p&gt;This worked pretty nicely, with the main drawback being the fact that we would need to ensure the ‘clickEventType’ variable was used anywhere we needed to add a click listener, which can be problematic when projects are picked up by new developers who may not necessarily realise that this variable is being used at all.&lt;/p&gt;
 
-&lt;p&gt;Other options were explored and we started to use a really nice utility called &lt;a href=&quot;https://github.com/ftlabs/fastclick&quot;&gt;FastClick&lt;/a&gt;, developed by &lt;a href=&quot;https://github.com/ftlabs&quot;&gt;FT Labs&lt;/a&gt;. FastClick hijacks regular click events when necessary, converts them to touch events and then fires a synthesised click event. This allows JavaScript event listeners to be registered using the normal &#39;click&#39; event type, but has the advantage of these events being fired earlier than normal – effectively removing the 300ms delay. For the most part this worked really well, but we eventually began to find that the util sometimes exhibited strange behaviour, such as events not firing when links were clicked and then firing later on, at the same time as other click events when different elements were clicked. And at 25kb non-minified (1441 bytes minified &amp;amp; gzipped) it is also quite heavy in file size when considering the simple way in which we needed to use it. We therefore felt the time was right to create our own solution – &lt;a href=&quot;https://github.com/tmwagency/swiftclick&quot;&gt;SwiftClick&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Other options were explored and we started to use a really nice utility called &lt;a href=&quot;https://github.com/ftlabs/fastclick&quot;&gt;FastClick&lt;/a&gt;, developed by &lt;a href=&quot;https://github.com/ftlabs&quot;&gt;FT Labs&lt;/a&gt;. FastClick hijacks regular click events when necessary, converts them to touch events and then fires a synthesised click event. This allows JavaScript event listeners to be registered using the normal ‘click’ event type, but has the advantage of these events being fired earlier than normal – effectively removing the 300ms delay. For the most part this worked really well, but we eventually began to find that the util sometimes exhibited strange behaviour, such as events not firing when links were clicked and then firing later on, at the same time as other click events when different elements were clicked. And at 25kb non-minified (1441 bytes minified &amp;amp; gzipped) it is also quite heavy in file size when considering the simple way in which we needed to use it. We therefore felt the time was right to create our own solution – &lt;a href=&quot;https://github.com/tmwagency/swiftclick&quot;&gt;SwiftClick&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;SwiftClick is heavily based on FastClick, but was designed to be super lightweight — weighing in at a mere 5KB non-minified and a teeny-tiny 417 bytes minified &amp;amp; gzipped!&lt;/p&gt;
 
 &lt;p&gt;In contrast with FastClick, which does a lot under the hood to fix obscure browser bugs for complex elements like form, select, and textarea, by default SwiftClick focuses on basic element types that are typically used in modern interactive development and so these bugs are not a big concern.&lt;/p&gt;
 
-&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
 
 &lt;p&gt;Firstly, grab either the &lt;a href=&quot;https://raw2.github.com/tmwagency/swiftclick/master/js/dist/swiftclick.min.js&quot;&gt;minified&lt;/a&gt;, or &lt;a href=&quot;https://raw2.github.com/tmwagency/swiftclick/master/js/libs/swiftclick.js&quot;&gt;non-minified&lt;/a&gt; source from Github, or install via Bower using the following command in your command prompt:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;bower install swiftclick
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3&gt;Include SwiftClick in your application&lt;/h3&gt;
-
+&lt;h3 id=&quot;include-swiftclick-in-your-application&quot;&gt;Include SwiftClick in your application&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;script type=&quot;application/javascript&quot; src=&quot;path/to/swiftclick.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3&gt;Setup SwiftClick&lt;/h3&gt;
+&lt;h3 id=&quot;setup-swiftclick&quot;&gt;Setup SwiftClick&lt;/h3&gt;
 
 &lt;p&gt;Setting up SwiftClick is a very easy process, which mirrors that of FastClick in that instances must be attached to a context element. Click events from all elements within the context element are automatically captured and converted to touch events when necessary.&lt;/p&gt;
 
-&lt;p&gt;Start by creating a reference to a new instance of SwiftClick using the &#39;attach&#39; helper method and attach it to a context element. Attaching to document.body is easiest if you only need a single instance of SwiftClick:&lt;/p&gt;
+&lt;p&gt;Start by creating a reference to a new instance of SwiftClick using the ‘attach’ helper method and attach it to a context element. Attaching to document.body is easiest if you only need a single instance of SwiftClick:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;var swiftclick = SwiftClick.attach (document.body);
 &lt;/code&gt;&lt;/pre&gt;
@@ -425,27 +402,24 @@ Some peaks over breakfast and lunch&lt;/p&gt;
 var uiSwiftClick = SwiftClick.attach (someOtherElement);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3&gt;Default Elements&lt;/h3&gt;
-
+&lt;h3 id=&quot;default-elements&quot;&gt;Default Elements&lt;/h3&gt;
 &lt;p&gt;Once attached, by default SwiftClick will track events originating from the following element types:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;h3&gt;Adding non-default element types&lt;/h3&gt;
-
+&lt;h3 id=&quot;adding-non-default-element-types&quot;&gt;Adding non-default element types&lt;/h3&gt;
 &lt;p&gt;If necessary you can make SwiftClick track events originating from additional element types by adding an array of node names. This requires a reference to an instance of SwiftClick:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;var swiftclick = SwiftClick.attach (someElement);
 swiftclick.addNodeNamesToTrack ([&quot;p&quot;, &quot;h1&quot;, &quot;nav&quot;]);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3&gt;Replacing all stored node names to track&lt;/h3&gt;
+&lt;h3 id=&quot;replacing-all-stored-node-names-to-track&quot;&gt;Replacing all stored node names to track&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;var swiftclick = SwiftClick.attach (someElement);
 swiftclick.replaceNodeNamesToTrack ([&quot;a&quot;, &quot;div&quot;]);
@@ -453,21 +427,20 @@ swiftclick.replaceNodeNamesToTrack ([&quot;a&quot;, &quot;div&quot;]);
 
 &lt;p&gt;Doing this will remove all default node names, as well as any that have been added, and replace them with the node names within the array that is passed in, resulting in only the new node names being tracked.&lt;/p&gt;
 
-&lt;h3&gt;Automatically disabled when not needed&lt;/h3&gt;
-
+&lt;h3 id=&quot;automatically-disabled-when-not-needed&quot;&gt;Automatically disabled when not needed&lt;/h3&gt;
 &lt;p&gt;SwiftClick only intercepts events for touch devices that support orientation change, otherwise it just sits there looking pretty.&lt;/p&gt;
 
-&lt;h2&gt;About the Project&lt;/h2&gt;
-
+&lt;h2 id=&quot;about-the-project&quot;&gt;About the Project&lt;/h2&gt;
 &lt;p&gt;SwiftClick was developed and is currently maintained by &lt;a href=&quot;https://twitter.com/munkychop&quot;&gt;Ivan Hayes&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Head over to the Github &lt;a href=&quot;https://github.com/tmwagency/swiftclick&quot;&gt;project page&lt;/a&gt; to find out more. Go ahead and star the project to keep up with its latest developments :-)&lt;/p&gt;
+
 </description>
 				<pubDate>Fri, 10 Jan 2014 11:00:00 +0000</pubDate>
-				<link>http://labs.tmw.co.uk/2014/01/fast-tapping-with-swiftclick</link>
+				<link>http://tech.tmw.co.uk/2014/01/fast-tapping-with-swiftclick</link>
 				
-				<username>@munkychop</username>
-				<guid isPermaLink="true">http://labs.tmw.co.uk//2014/01/fast-tapping-with-swiftclick</guid>
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2014/01/fast-tapping-with-swiftclick</guid>
 			</item>
 		
 			<item>
@@ -482,78 +455,78 @@ swiftclick.replaceNodeNamesToTrack ([&quot;a&quot;, &quot;div&quot;]);
 
 &lt;p&gt;The team has now grown to 6 people – a mix of Creative Technologists and Interactive Developers – and the processes established when there were only 2 of us in the team have only needed to be tweaked during that growth, rather than completely overhauled.&lt;/p&gt;
 
-&lt;p&gt;So I just wanted to share the tools we have used to help our team, which could potentially help any development team of any size. I&#39;ll also take you through some of the resources we&#39;ve started to build up that assist in our development efforts, and that we&#39;ve been making openly available.&lt;/p&gt;
+&lt;p&gt;So I just wanted to share the tools we have used to help our team, which could potentially help any development team of any size. I’ll also take you through some of the resources we’ve started to build up that assist in our development efforts, and that we’ve been making openly available.&lt;/p&gt;
 
-&lt;h2&gt;Define your way of working&lt;/h2&gt;
+&lt;h2 id=&quot;define-your-way-of-working&quot;&gt;Define your way of working&lt;/h2&gt;
 
 &lt;p&gt;One of the first things we did was to draw up a set of &lt;a href=&quot;http://tmwagency.github.io/TMW-frontend-guidelines/&quot;&gt;guidelines and standards&lt;/a&gt; for how we develop.&lt;/p&gt;
 
-&lt;p&gt;No matter what the size of the team, you should know what standards and code conventions you are all developing to, ensuring that they&#39;re consistent. This means that whatever the project, consistency is key; it should look like code that a member of your team has written, instead of requiring complex deciphering.  As a team, decide how you want to standardise this and document it.&lt;/p&gt;
+&lt;p&gt;No matter what the size of the team, you should know what standards and code conventions you are all developing to, ensuring that they’re consistent. This means that whatever the project, consistency is key; it should look like code that a member of your team has written, instead of requiring complex deciphering.  As a team, decide how you want to standardise this and document it.&lt;/p&gt;
 
-&lt;p&gt;Writing documentation from scratch can be a barrier for some, so instead take an existing set and adjust it to your needs. Our TMW guidelines took inspiration from Isobar&#39;s &lt;a href=&quot;http://isobar-idev.github.io/code-standards/&quot;&gt;&#39;Front-end Code Standards &amp;amp; Best Practices&#39;&lt;/a&gt; and Harry Roberts &lt;a href=&quot;https://github.com/csswizardry/CSS-Guidelines&quot;&gt;&#39;CSS Guidelines&#39;&lt;/a&gt;, using the bits we agreed with and building on top of them with our own documentation.&lt;/p&gt;
+&lt;p&gt;Writing documentation from scratch can be a barrier for some, so instead take an existing set and adjust it to your needs. Our TMW guidelines took inspiration from Isobar’s &lt;a href=&quot;http://isobar-idev.github.io/code-standards/&quot;&gt;‘Front-end Code Standards &amp;amp; Best Practices’&lt;/a&gt; and Harry Roberts &lt;a href=&quot;https://github.com/csswizardry/CSS-Guidelines&quot;&gt;‘CSS Guidelines’&lt;/a&gt;, using the bits we agreed with and building on top of them with our own documentation.&lt;/p&gt;
 
 &lt;p&gt;Documenting these decisions can have all sorts of benefits. New starters immediately have something that informs them on team development standards.  It also helps to control the output of freelancers, as it acts as a reference for the standard of code you expect them to create.&lt;/p&gt;
 
-&lt;p&gt;Above all, it acts as an evolving reference point for your team; you can refer anyone to it so that they can find details of the way in which you work. We&#39;ve found this useful when hiring to show potential team members that we care about the work we produce, as well as the fact that it&#39;s an open document, which allows clients to see the the way in which we work.&lt;/p&gt;
+&lt;p&gt;Above all, it acts as an evolving reference point for your team; you can refer anyone to it so that they can find details of the way in which you work. We’ve found this useful when hiring to show potential team members that we care about the work we produce, as well as the fact that it’s an open document, which allows clients to see the the way in which we work.&lt;/p&gt;
 
-&lt;h2&gt;Structure your codebase&lt;/h2&gt;
+&lt;h2 id=&quot;structure-your-codebase&quot;&gt;Structure your codebase&lt;/h2&gt;
 
-&lt;p&gt;Another issue we have come across in the past is front-end structure. When editing a project that another team member has created, you should know where things are. It should never feel like you&#39;re having to play a game of &#39;guess where the CSS and JS files are hiding&#39; – a game I recommend you avoid playing with your family this Christmas.&lt;/p&gt;
+&lt;p&gt;Another issue we have come across in the past is front-end structure. When editing a project that another team member has created, you should know where things are. It should never feel like you’re having to play a game of ‘guess where the CSS and JS files are hiding’ – a game I recommend you avoid playing with your family this Christmas.&lt;/p&gt;
 
 &lt;p&gt;To solve this issue, we built our own framework for use on internal projects called &lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;Kickoff&lt;/a&gt; which Zander &lt;a href=&quot;labs.tmw.co.uk/2013/12/introducing-kickoff/&quot;&gt;wrote about in more detail&lt;/a&gt; last week.&lt;/p&gt;
 
-&lt;p&gt;We didn&#39;t want the bloat of using &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt;, while also wanting a level of control over the evolving structure of our projects without relying on a third party framework. Kickoff is therefore more minimal, made to create consistent structure rather than enforcing coding style.&lt;/p&gt;
+&lt;p&gt;We didn’t want the bloat of using &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt;, while also wanting a level of control over the evolving structure of our projects without relying on a third party framework. Kickoff is therefore more minimal, made to create consistent structure rather than enforcing coding style.&lt;/p&gt;
 
 &lt;p&gt;We actively maintain Kickoff, looking at aspects of other frameworks and changing parts of it to keep up with the evolution of front-end development.&lt;/p&gt;
 
-&lt;p&gt;Like documentation, not everyone will want to, or have the time to, maintain their own framework. What I would advise is that you choose a consistent framework across your projects. There&#39;s little point in using &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; on one project and then &lt;a href=&quot;http://foundation.zurb.com/&quot;&gt;Foundation&lt;/a&gt; on the next.  You&#39;ll just end up with lots of projects with inconsistent structures, making maintaining them harder.&lt;/p&gt;
+&lt;p&gt;Like documentation, not everyone will want to, or have the time to, maintain their own framework. What I would advise is that you choose a consistent framework across your projects. There’s little point in using &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; on one project and then &lt;a href=&quot;http://foundation.zurb.com/&quot;&gt;Foundation&lt;/a&gt; on the next.  You’ll just end up with lots of projects with inconsistent structures, making maintaining them harder.&lt;/p&gt;
 
-&lt;p&gt;If you don&#39;t use a framework and want to use one, checkout &lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;Kickoff&lt;/a&gt;, or take a look at the &lt;a href=&quot;http://usablica.github.io/front-end-frameworks/compare.html&quot;&gt;vast array of frameworks&lt;/a&gt; already out there.&lt;/p&gt;
+&lt;p&gt;If you don’t use a framework and want to use one, checkout &lt;a href=&quot;http://tmwagency.github.io/kickoff/&quot;&gt;Kickoff&lt;/a&gt;, or take a look at the &lt;a href=&quot;http://usablica.github.io/front-end-frameworks/compare.html&quot;&gt;vast array of frameworks&lt;/a&gt; already out there.&lt;/p&gt;
 
-&lt;h2&gt;Re-use what you&#39;ve built&lt;/h2&gt;
+&lt;h2 id=&quot;re-use-what-youve-built&quot;&gt;Re-use what you’ve built&lt;/h2&gt;
 
-&lt;p&gt;Something we&#39;ve started to do more as the team has grown is to make our code more portable across projects and between team members, so we can reuse code snippets more readily in the future.&lt;/p&gt;
+&lt;p&gt;Something we’ve started to do more as the team has grown is to make our code more portable across projects and between team members, so we can reuse code snippets more readily in the future.&lt;/p&gt;
 
-&lt;p&gt;We maintain a few useful &lt;a href=&quot;https://github.com/tmwagency/js-classes-and-plugins&quot;&gt;JavaScript classes and plugins&lt;/a&gt; on Github, for things like image preloading and adaptive images. Slightly bigger libraries are typically split into separate repos, like &lt;a href=&quot;https://github.com/tmwagency/swiftclick&quot;&gt;SwiftClick&lt;/a&gt;. And we also try to white-label projects so that the majority of the codebase doesn&#39;t become client-specific, for example we&#39;ve recently been working on some generic node applications which will save a great deal of development time when reused.&lt;/p&gt;
+&lt;p&gt;We maintain a few useful &lt;a href=&quot;https://github.com/tmwagency/js-classes-and-plugins&quot;&gt;JavaScript classes and plugins&lt;/a&gt; on Github, for things like image preloading and adaptive images. Slightly bigger libraries are typically split into separate repos, like &lt;a href=&quot;https://github.com/tmwagency/swiftclick&quot;&gt;SwiftClick&lt;/a&gt;. And we also try to white-label projects so that the majority of the codebase doesn’t become client-specific, for example we’ve recently been working on some generic node applications which will save a great deal of development time when reused.&lt;/p&gt;
 
-&lt;p&gt;We also maintain frequently used snippets within our framework, whether that&#39;s &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/master/js/helpers&quot;&gt;maintaining useful JavaScript helpers&lt;/a&gt; or &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/master/scss/mixins&quot;&gt;useful SASS mixins&lt;/a&gt; that can be reused on any project.&lt;/p&gt;
+&lt;p&gt;We also maintain frequently used snippets within our framework, whether that’s &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/master/js/helpers&quot;&gt;maintaining useful JavaScript helpers&lt;/a&gt; or &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/master/scss/mixins&quot;&gt;useful SASS mixins&lt;/a&gt; that can be reused on any project.&lt;/p&gt;
 
-&lt;p&gt;We&#39;ll be writing about some of these in more detail in future posts, but what I want to emphasise is the importance of making the effort to make your code portable between projects and team members. Even if you work mostly on your own, spending the time to make a useful piece of code portable and putting it somewhere you can easily access it can save hours down the line.&lt;/p&gt;
+&lt;p&gt;We’ll be writing about some of these in more detail in future posts, but what I want to emphasise is the importance of making the effort to make your code portable between projects and team members. Even if you work mostly on your own, spending the time to make a useful piece of code portable and putting it somewhere you can easily access it can save hours down the line.&lt;/p&gt;
 
 &lt;p&gt;Within a team, the hardest part of this is actually knowing what has been built previously that you can then use yourself. Github helps us manage this, as it allows us to commit code we think could be of use on any project and all of the members of our team will get a notification and know where to find it.&lt;/p&gt;
 
-&lt;p&gt;Building this culture into your team will reap dividends, and is something we&#39;re working hard on within our team here at TMW.&lt;/p&gt;
+&lt;p&gt;Building this culture into your team will reap dividends, and is something we’re working hard on within our team here at TMW.&lt;/p&gt;
 
-&lt;h2&gt;Build for the future&lt;/h2&gt;
+&lt;h2 id=&quot;build-for-the-future&quot;&gt;Build for the future&lt;/h2&gt;
 
 &lt;p&gt;The main goal is always to build with the future in mind. What would I care about if I got pulled onto a project half-way through? The aim is to help deal with the common frustrations we all feel when in this situation.&lt;/p&gt;
 
 &lt;p&gt;Keeping things consistent means that people are better oriented with the project style and structure at whatever point they start working with the codebase. I always know where the Grunt file lives, where the responsive mixins are located and where typography related CSS styles go in our SASS structure.&lt;/p&gt;
 
-&lt;p&gt;Some of these may seem like small things, but they can all add up to save a lot of time down the line. They may take time to put in place, but I can assure you it&#39;ll be worth the effort.&lt;/p&gt;
+&lt;p&gt;Some of these may seem like small things, but they can all add up to save a lot of time down the line. They may take time to put in place, but I can assure you it’ll be worth the effort.&lt;/p&gt;
 </description>
 				<pubDate>Thu, 19 Dec 2013 12:00:00 +0000</pubDate>
-				<link>http://labs.tmw.co.uk/2013/12/structuring-team-development</link>
+				<link>http://tech.tmw.co.uk/2013/12/structuring-team-development</link>
 				
-				<username>@AshNolan_</username>
-				<guid isPermaLink="true">http://labs.tmw.co.uk//2013/12/structuring-team-development</guid>
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2013/12/structuring-team-development</guid>
 			</item>
 		
 			<item>
 				<title>A designers adventures in game development: part 1</title>
-				<description>&lt;p&gt;Over the years I&#39;ve had an interest in programming starting with Flash, a few years ago though I made the seemingly &lt;a href=&quot;http://www.apple.com/hotnews/thoughts-on-flash/&quot;&gt;obvious choice&lt;/a&gt; to start moving on from Actionscript to focus on Javascript. I find that the best way to learn is by doing, so since the start of the summer I started creating a little responsive HTML and Javascript game. This and subsequent posts will document my process.&lt;/p&gt;
+				<description>&lt;p&gt;Over the years I’ve had an interest in programming starting with Flash, a few years ago though I made the seemingly &lt;a href=&quot;http://www.apple.com/hotnews/thoughts-on-flash/&quot;&gt;obvious choice&lt;/a&gt; to start moving on from Actionscript to focus on Javascript. I find that the best way to learn is by doing, so since the start of the summer I started creating a little responsive HTML and Javascript game. This and subsequent posts will document my process.&lt;/p&gt;
 
-&lt;p&gt;It&#39;s working title is &lt;strong&gt;‘Bitmap Adventure’&lt;/strong&gt; with the story revolving around a huge villain, in the form of a block-like Monkey, kidnapping a Goat’s child. Rescuing the child and defeating the villain is your main challenge.&lt;/p&gt;
+&lt;p&gt;It’s working title is &lt;strong&gt;‘Bitmap Adventure’&lt;/strong&gt; with the story revolving around a huge villain, in the form of a block-like Monkey, kidnapping a Goat’s child. Rescuing the child and defeating the villain is your main challenge.&lt;/p&gt;
 
 &lt;p&gt;The battle system uses Paper, Scissors, Stone (otherwise known as Janken). The visualisation of these battles uses some some basic pixel animation with cute, simple versions of the warriors. To introduce players to the battle system I decided to feature a battle in the intro itself, where you attempt to battle the villain straight away, but with battle inexperience so early on in the game you’ll lose; its all part of the intro. I’m still working on how a levelling / experience feature will work within the game.&lt;/p&gt;
 
-&lt;p&gt;Developing the intro helped to get my head around how the game would work on different devices from the start. I started off with a 320px wide photoshop document when I was creating a look and feel for the game, figuring out the mobile look and size first. The reason behind this is the game could get complex so its easier to add than take away from the intended design. There were many cases of developing prototypes and designing at the same time, to ensure it looked great across all devices. With such a simple graphical style, it&#39;s a little easier to add filler for wider screen formats. Supporting Retina devices couldn’t be easier with this, as all the original sprites just needed to be resized to 200% with Nearest Neighbour image resampling to preserve the hard pixel edges.&lt;/p&gt;
+&lt;p&gt;Developing the intro helped to get my head around how the game would work on different devices from the start. I started off with a 320px wide photoshop document when I was creating a look and feel for the game, figuring out the mobile look and size first. The reason behind this is the game could get complex so its easier to add than take away from the intended design. There were many cases of developing prototypes and designing at the same time, to ensure it looked great across all devices. With such a simple graphical style, it’s a little easier to add filler for wider screen formats. Supporting Retina devices couldn’t be easier with this, as all the original sprites just needed to be resized to 200% with Nearest Neighbour image resampling to preserve the hard pixel edges.&lt;/p&gt;
 
-&lt;p&gt;&lt;figure&gt;&lt;img src=&quot;/img/blog/adventures-in-game-dev/post1-b.jpg&quot; alt=&quot;Positioning elements&quot;&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&quot;/img/blog/adventures-in-game-dev/post1-b.jpg&quot; alt=&quot;Positioning elements&quot; /&gt;&lt;/figure&gt;
 
 &lt;p&gt;The game is still in the early stages, with the intro 90% complete, and the game area coming along nicely in both design and development. All the levels, weather parameters and portal positions are all managed through settings in a JSON file, which makes it easier to manage and update when needed. Levels are designed in Photoshop using tiles fitting to a 40px x 40px grid, which are then positioned in the game converting the JSON data into CSS positions.&lt;/p&gt;
 
-&lt;p&gt;&lt;figure&gt;&lt;img src=&quot;/img/blog/adventures-in-game-dev/post1-a.jpg&quot; alt=&quot;Positioning elements&quot;&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&quot;/img/blog/adventures-in-game-dev/post1-a.jpg&quot; alt=&quot;Positioning elements&quot; /&gt;&lt;/figure&gt;
 
 &lt;p&gt;The portals have been the biggest Javascript headache so far. There were a number of cases where the character would enter the portal and then not reappear through the next, showing no Javascript errors. Exiting the portal seemed to work differently on Chrome and Safari at times too; the current fix is to give Chrome a slight delay when the level reloads to fix the error.  This seems to be simply due to differences in rendering engines across different browsers.&lt;/p&gt;
 
@@ -564,75 +537,64 @@ swiftclick.replaceNodeNamesToTrack ([&quot;a&quot;, &quot;div&quot;]);
 &lt;p&gt;&lt;small&gt;Note: On touch devices use the weird black crab to control the character. On desktop use the arrow keys, and ideally use Chrome or Safari.&lt;/small&gt;&lt;/p&gt;
 </description>
 				<pubDate>Wed, 18 Dec 2013 09:00:00 +0000</pubDate>
-				<link>http://labs.tmw.co.uk/2013/12/adventures-in-game-development</link>
+				<link>http://tech.tmw.co.uk/2013/12/adventures-in-game-development</link>
 				
-				<username>@kinslowdian</username>
-				<guid isPermaLink="true">http://labs.tmw.co.uk//2013/12/adventures-in-game-development</guid>
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2013/12/adventures-in-game-development</guid>
 			</item>
 		
 			<item>
 				<title>Really Good Hyperlinks #1 - Dec 11th</title>
-				<description>&lt;p&gt;Welcome to the first of a regular weekly labs@tmw post, that we&#39;ve inventively called &#39;Really Good Hyperlinks&#39;, where we attempt to filter out some of the finest links we&#39;ve seen over the past week on the web.&lt;/p&gt;
+				<description>&lt;p&gt;Welcome to the first of a regular weekly labs@tmw post, that we’ve inventively called ‘Really Good Hyperlinks’, where we attempt to filter out some of the finest links we’ve seen over the past week on the web.&lt;/p&gt;
 
-&lt;p&gt;So without further ado, let&#39;s get started:&lt;/p&gt;
+&lt;p&gt;So without further ado, let’s get started:&lt;/p&gt;
 
-&lt;h2&gt;Demos&lt;/h2&gt;
+&lt;h2 id=&quot;demos&quot;&gt;Demos&lt;/h2&gt;
 
-&lt;h3&gt;&lt;a href=&quot;http://aerotwist.com/lab/poly-maker/&quot;&gt;PolyMaker&lt;/a&gt;&lt;/h3&gt;
-
+&lt;h3 id=&quot;polymakerhttpaerotwistcomlabpoly-maker&quot;&gt;&lt;a href=&quot;http://aerotwist.com/lab/poly-maker/&quot;&gt;PolyMaker&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Hot on the heels of redesigning his website, &lt;a href=&quot;https://twitter.com/aerotwist&quot;&gt;Paul Lewis&lt;/a&gt; has released this great canvas demo in which the user can generate their very own 3D shape by plotting 4 points on the screen.&lt;/p&gt;
 
-&lt;h3&gt;&lt;a href=&quot;http://roboboogie.codeclub.org.uk/&quot;&gt;Robo-boogie&lt;/a&gt;&lt;/h3&gt;
-
+&lt;h3 id=&quot;robo-boogiehttproboboogiecodecluborguk&quot;&gt;&lt;a href=&quot;http://roboboogie.codeclub.org.uk/&quot;&gt;Robo-boogie&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Practice your dance moves before hitting the town with this demo from &lt;a href=&quot;https://www.codeclub.org.uk/&quot;&gt;Code Club&lt;/a&gt;, with which you can alter the angle and speed of animations performed by a dancing robot.&lt;/p&gt;
 
-&lt;h3&gt;&lt;a href=&quot;http://david.li/waves/&quot;&gt;Waves&lt;/a&gt;&lt;/h3&gt;
-
+&lt;h3 id=&quot;waveshttpdavidliwaves&quot;&gt;&lt;a href=&quot;http://david.li/waves/&quot;&gt;Waves&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;A nice calming 3D wave demo to help reduce those Tuesday stresses.  Created using WebGL.&lt;/p&gt;
 
-&lt;h2&gt;Articles&lt;/h2&gt;
+&lt;h2 id=&quot;articles&quot;&gt;Articles&lt;/h2&gt;
 
-&lt;h3&gt;&lt;a href=&quot;http://rupl.github.io/unfold/&quot;&gt;Unfolding the Box Model&lt;/a&gt;&lt;/h3&gt;
-
+&lt;h3 id=&quot;unfolding-the-box-modelhttpruplgithubiounfold&quot;&gt;&lt;a href=&quot;http://rupl.github.io/unfold/&quot;&gt;Unfolding the Box Model&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;A really awesome interactive guide to CSS 3D transforms, by &lt;a href=&quot;https://twitter.com/rupl&quot;&gt;Chris Ruppel&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3&gt;&lt;a href=&quot;http://oak.is/thinking/animated-svgs/&quot;&gt;Animated SVGs: custom easing and timing&lt;/a&gt;&lt;/h3&gt;
-
+&lt;h3 id=&quot;animated-svgs-custom-easing-and-timinghttpoakisthinkinganimated-svgs&quot;&gt;&lt;a href=&quot;http://oak.is/thinking/animated-svgs/&quot;&gt;Animated SVGs: custom easing and timing&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Ever wanted to animate a chart without the overhead of adding a large JS library to your site?  Well this post, by &lt;a href=&quot;https://twitter.com/mfortress&quot;&gt;Mike Fortress&lt;/a&gt;, takes us through exactly how to do so using animated SVGs.&lt;/p&gt;
 
-&lt;h3&gt;&lt;a href=&quot;https://medium.com/design-ux/bea05243fe3&quot;&gt;Understanding Easing&lt;/a&gt;&lt;/h3&gt;
-
+&lt;h3 id=&quot;understanding-easinghttpsmediumcomdesign-uxbea05243fe3&quot;&gt;&lt;a href=&quot;https://medium.com/design-ux/bea05243fe3&quot;&gt;Understanding Easing&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;An overview of easing in animations by &lt;a href=&quot;https://twitter.com/SureshVSelvaraj&quot;&gt;Suresh V. Selvaraj&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3&gt;&lt;a href=&quot;http://martineau.tv/blog/2013/12/more-efficient-grunt-workflows/&quot;&gt;More efficient Grunt workflows&lt;/a&gt;&lt;/h3&gt;
-
+&lt;h3 id=&quot;more-efficient-grunt-workflowshttpmartineautvblog201312more-efficient-grunt-workflows&quot;&gt;&lt;a href=&quot;http://martineau.tv/blog/2013/12/more-efficient-grunt-workflows/&quot;&gt;More efficient Grunt workflows&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Some essential Grunt.js tips from our very own &lt;a href=&quot;http://twitter.com/MrMartineau&quot;&gt;Zander Martineau&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2&gt;Sites and services&lt;/h2&gt;
+&lt;h2 id=&quot;sites-and-services&quot;&gt;Sites and services&lt;/h2&gt;
 
-&lt;h3&gt;&lt;a href=&quot;http://import.io/&quot;&gt;Import.io&lt;/a&gt;&lt;/h3&gt;
-
+&lt;h3 id=&quot;importiohttpimportio&quot;&gt;&lt;a href=&quot;http://import.io/&quot;&gt;Import.io&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;A free service that helps turn any website into an API, allowing streaming or RESTful queries. This could be useful when used in combination with technologies like NodeJS.&lt;/p&gt;
 
-&lt;h3&gt;&lt;a href=&quot;http://robindavey.co.uk/&quot;&gt;RobinDavey.co.uk&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;robindaveycoukhttprobindaveycouk&quot;&gt;&lt;a href=&quot;http://robindavey.co.uk/&quot;&gt;RobinDavey.co.uk&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Ever on the lookout for quirky animations, Robin Davey’s site, showing some of his work, has some beautiful examples.  Good creative inspiration.&lt;/p&gt;
 
-&lt;p&gt;Ever on the lookout for quirky animations, Robin Davey&#39;s site, showing some of his work, has some beautiful examples.  Good creative inspiration.&lt;/p&gt;
+&lt;h2 id=&quot;tmw-links-worth-mentioning&quot;&gt;TMW links worth mentioning&lt;/h2&gt;
 
-&lt;h2&gt;TMW links worth mentioning&lt;/h2&gt;
+&lt;h3 id=&quot;free-ridehttpwwwfree-ridecouk&quot;&gt;&lt;a href=&quot;http://www.free-ride.co.uk/&quot;&gt;Free Ride&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A little hack-project we’ve been running at TMW, in which we track a bike around London by hooking it up with a GPRS tracker, and then leaving it on the streets to see where it goes.  We’ll be doing a write-up on the tech behind the project shortly.&lt;/p&gt;
 
-&lt;h3&gt;&lt;a href=&quot;http://www.free-ride.co.uk/&quot;&gt;Free Ride&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;A little hack-project we&#39;ve been running at TMW, in which we track a bike around London by hooking it up with a GPRS tracker, and then leaving it on the streets to see where it goes.  We&#39;ll be doing a write-up on the tech behind the project shortly.&lt;/p&gt;
-
-&lt;h3&gt;&lt;a href=&quot;http://lynxafrica18.tumblr.com/&quot;&gt;Lynx Africa Tumblr&lt;/a&gt;&lt;/h3&gt;
-
+&lt;h3 id=&quot;lynx-africa-tumblrhttplynxafrica18tumblrcom&quot;&gt;&lt;a href=&quot;http://lynxafrica18.tumblr.com/&quot;&gt;Lynx Africa Tumblr&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;To celebrate the 18th birthday for Lynx Africa, we asked 18 artists and musicians to produce work for a responsive Tumblr blog.&lt;/p&gt;
 </description>
 				<pubDate>Wed, 11 Dec 2013 09:00:00 +0000</pubDate>
-				<link>http://labs.tmw.co.uk/2013/12/really-good-hyperlinks</link>
+				<link>http://tech.tmw.co.uk/2013/12/really-good-hyperlinks</link>
 				
-				<username>@AshNolan_</username>
-				<guid isPermaLink="true">http://labs.tmw.co.uk//2013/12/really-good-hyperlinks</guid>
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2013/12/really-good-hyperlinks</guid>
 			</item>
 		
 	</channel>
