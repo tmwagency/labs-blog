@@ -347,7 +347,9 @@ module.exports = function (grunt) {
 	grunt.registerTask('dev', [
 		'uglify',
 		'sass:kickoff',
-		'autoprefixer:dist'
+		'autoprefixer:dist',
+		'svgmin',
+		'grunticon'
 	]);
 
 
@@ -369,10 +371,7 @@ module.exports = function (grunt) {
 	 */
 	grunt.registerTask("serve", [
 		'jekyll',
-		'uglify',
-		'sass:kickoff',
-		'sass:styleguide',
-		'autoprefixer:dist',
+		'dev',
 		'connect',
 		'watch'
 	]);
