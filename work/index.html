@@ -1,0 +1,21 @@
+---
+layout: default
+title: work
+pageid: work
+---
+<div class="content-inner clearfix">
+	<h1 class="sectionTitle">{{ page.title }} <small>selected work from the tmw team</small></h1>
+	<p class="sectionDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, tempora, ipsam numquam alias doloribus asperiores nemo. Magnam, et, aliquid, culpa corporis nulla veritatis facere sint sunt atque nesciunt autem aspernatur.</p>
+
+	{% for item in site.work reversed %}
+		<article class="teamMember clearfix">
+			<img src="{{site.info.url}}/img/work/{{ item.thumbnail }}" alt="{{ item.name }}" class="teamMember-avatar">
+			<h1 class="teamMember-name h3">{{ item.title }}</h1>
+			<div class="teamMember-back">
+				<div class="teamMember-desc">{{ item.content }}</div>
+				<div><a href="{{ item.view.url }}">{{ item.view.text }}</a></div>
+				<div>{{ item.meta.date }}</div>
+			</div>
+		</article>
+	{% endfor %}
+</div>

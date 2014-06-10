@@ -7,6 +7,7 @@
   web: http://martineau.tv
   twitter: mrmartineau
   github: mrmartineau
+  postcount: 4
 
 - name: Ashley Nolan
   job_title: Senior Creative Technologist
@@ -17,6 +18,7 @@
   web: http://www.ashleynolan.co.uk
   twitter: AshNolan_
   github: ashleynolan
+  postcount: 5
 
 - name: Ciaran Park
   job_title: Creative Technologist
@@ -26,6 +28,7 @@
   web: http://www.ashleynolan.co.uk
   twitter: ciaranpark
   github: ciaranpark
+  postcount: 0
 
 - name: Ivan Hayes
   job_title: Creative Technologist
@@ -35,6 +38,7 @@
   email: ihayes@tmw.co.uk
   twitter: munkychop
   github: munkychop
+  postcount: 0
 
 - name: Simon Kinslow
   short_name: skinslow
@@ -45,6 +49,7 @@
   web: http://www.simonkinslow.com/
   twitter: kinslowdian
   github: kinslowdian
+  postcount: 1
 
 - name: Ashley Sheridan
   short_name: asheridan
@@ -54,6 +59,8 @@
   email: asheridan@tmw.co.uk
   web: http://ashleysheridan.co.uk
   twitter: ashleyjsheridan
+  github: AshleyJSheridan
+  postcount: 1
 
 - name: Andrew Williams
   short_name: awilliams
@@ -61,8 +68,10 @@
   avatar: awilliams.jpg
   email: awilliams@tmw.co.uk
   twitter: roowilliams
+  github: roowilliams
   web: http://roowiliams.com
   job_title: Product Designer
+  postcount: 1
 
 - name: Fabian Andrade
   short_name: favalencia
@@ -70,6 +79,28 @@
   short_desc:
   avatar: favalencia.jpg
   email: favalencia@tmw.co.uk
+  postcount: 0
+  github: fabzl
+
+- name: Tim Coppinger
+  short_name: tim
+  short_desc: .Net Developer, avid snowboarder and nerf gun owner.
+  avatar: timbot.png
+  email: tcoppinger@tmw.co.uk
+  twitter: MilitantPenguin
+  postcount: 1
+  github: TimC-TMW
+
+- name: Guillaume Baut-Menaud
+  short_name: gbm
+  short_desc: CTO
+  postcount: 0
+
+- name: Rolff Kruger
+  short_name: rkruger
+  short_desc: Tech Lead
+  postcount: 0
+  github: rkruger
 
 - name: George Bardis
   short_name: gbardis
@@ -79,10 +110,44 @@
   email: gbardis@tmw.co.uk
   web: http://bardis.info
   github: bardius
+  postcount: 0
 
-- name: Tim Coppinger
-  short_name: tim
-  short_desc: Dot Net Developer, avid snowboarder and nerf gun owner.
-  avatar: timbot.png
-  email: tcoppinger@tmw.co.uk
-  twitter: MilitantPenguin
+- name: Matt Basson
+  short_name: mbasson
+  short_desc: .Net Developer
+  postcount: 0
+  github: MattBasson
+
+- name: Iqbal Kahn
+  short_name: ikhan
+  short_desc: .Net Developer
+  postcount: 0
+  github: MedievalCoder
+
+- name: Olayemi Akinola-Kehinde
+  short_name: yemi
+  short_desc: Junior Front-end developer
+  postcount: 0
+
+- name: Petrica Bratu
+  short_name: pbratu
+  short_desc: Systems Release Engineer
+  postcount: 0
+  github: peterbratu
+
+- name: Rento Mucenieks
+  short_name: rmucenieks
+  short_desc: Wordpress developer
+  postcount: 0
+  github: rentodesign
+
+- name: Edward Acheampong
+  short_name: eacheampong
+  short_desc: The highest
+  postcount: 0
+
+- name: Vijay Kumar Rajagopolan
+  short_name: vijay
+  short_desc: Senior .Net Developer
+  postcount: 0
+  github: vijaykumar-r

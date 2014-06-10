@@ -5,20 +5,24 @@ pageid: team
 ---
 <div class="content-inner clearfix">
 	<h1 class="sectionTitle">{{ page.title }} <small>tech.tmw team and authors</small></h1>
-	<p class="sectionDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, tempora, ipsam numquam alias doloribus asperiores nemo. Magnam, et, aliquid, culpa corporis nulla veritatis facere sint sunt atque nesciunt autem aspernatur.</p>
+	{% assign teamList = site.data.team | sort: 'postcount' %}
+	{% for member in teamList reversed %}
 
-{% for member in site.data.team %}
-	<article class="teamMember clearfix">
-		<img src="{{site.labs.url}}/img/authors/{{ member.avatar }}" alt="Picture of {{ member.name }}" class="teamMember-avatar">
-		<h1 class="teamMember-name h3">{{ member.name }}</h1>
+		<article class="teamMember clearfix">
+			{% if member.avatar == null %}
+				<img src="{{site.info.url}}/img/authors/default{% random 1-6 %}.gif" alt="" class="teamMember-avatar">
+			{% else %}
+				<img src="{{site.info.url}}/img/authors/{{ member.avatar }}" alt="Picture of {{ member.name }}" class="teamMember-avatar">
+			{% endif %}
+			<h1 class="teamMember-name h3">{{ member.name }}</h1>
 
-		<div class="teamMember-back">
-			<div class="teamMember-desc">{{ member.short_desc }}</div>
-			<div class="teamMember-links">
-				<a href="http://twitter.com/{{ member.twitter }}" class="icon-small icon-twitter">{{ member.twitter }}</a>
-				<a href="http://github.com/{{ member.github }}" class="icon-small icon-github">{{ member.github }}</a>
+			<div class="teamMember-back">
+				<div class="teamMember-desc">{{ member.short_desc }}</div>
+				<div class="teamMember-links">
+					<a href="http://twitter.com/{{ member.twitter }}" class="icon-small icon-twitter">{{ member.twitter }}</a>
+					<a href="http://github.com/{{ member.github }}" class="icon-small icon-github">{{ member.github }}</a>
+				</div>
 			</div>
-		</div>
-	</article>
-{% endfor %}
+		</article>
+	{% endfor %}
 </div>
