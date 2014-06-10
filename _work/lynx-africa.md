@@ -10,6 +10,8 @@ view:
 
 team:
  - zander
+otherteam:
+ - Andrew Turk
 
 credits:
  - title: Designer

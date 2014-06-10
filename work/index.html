@@ -24,6 +24,9 @@ pageid: selected work from the tmw team
 						{% endfor %}
 						<li>{{ author.name }}</li>
 					{% endfor %}
+					{% for teammate in item.otherteam %}
+						<li>{{ teammate }}</li>
+					{% endfor %}
 				</ul class="l-centered">
 			</div>
 		</article>

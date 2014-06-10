@@ -11,6 +11,11 @@ view:
 team:
  - zander
  - mbasson
+ - skinslow
+ - eacheampong
+otherteam:
+ - Nic Bell
+ - Martin Georgiev
 
 credits:
  - title: Dev (F/E)

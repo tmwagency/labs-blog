@@ -11,6 +11,8 @@ view:
 team :
  - ihayes
  - asheridan
+otherteam:
+ - Beth Hockley
 
 thumbnail: persil-storybook.jpg
 ---

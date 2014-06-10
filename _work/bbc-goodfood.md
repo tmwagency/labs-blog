@@ -11,6 +11,8 @@ view:
 team:
  - ashnolan
  - zander
+otherteam:
+ - Luke Clark
 
 credits:
  - title: Lead F/E Dev

@@ -11,6 +11,8 @@ view:
 team:
  - zander
  - skinslow
+ - tim
+ - vijay
 
 thumbnail: ofgem-beanenergyshopper.jpg
 ---

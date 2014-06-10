@@ -10,6 +10,8 @@ view:
 
 team:
  - zander
+otherteam:
+ - Dawn Jenner
 
 credits:
  - title: Designer

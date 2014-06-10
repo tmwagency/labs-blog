@@ -11,6 +11,9 @@ view:
 
 team:
  - ashnolan
+otherteam:
+ - Dawn Jenner
+ - Andrew Jordan
 
 credits:
  - title: F/E Dev
