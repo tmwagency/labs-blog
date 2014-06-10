@@ -2,7 +2,6 @@
 layout: work
 title: "Brother Printers"
 meta:
-  name: brother-campaigns
   date: September 2012 - Jan 2013
 
 view:
@@ -26,5 +25,3 @@ images:
 
 ---
 Brother Printers asked TMW to create a microsite for the various printer ranges. Each page of this site is devoted to one range and uses campaign assets to give a more consistent look and feel across media.
-
-I worked closely with the designer, Dawn Jenner, to create an engaging and appealing experience that promoted each product's features and enabled customers to make a more informed decision.

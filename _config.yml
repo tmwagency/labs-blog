@@ -11,7 +11,7 @@ future: false
 paginate: 10
 paginate_path: /:num
 
-name: tech@tmw
+name: tech.tmw
 description: TMW agency's tech blog
 url: http://tech.tmw.co.uk
 
@@ -20,8 +20,10 @@ collections:
     output: false
   code:
     output: false
+  work:
+    output: true
 
-labs:
+info:
   # url: http://mayfly.tmwtest.co.uk/techblog
   url: http://0.0.0.0:8000
   twitter: tmw_labs
