@@ -185,9 +185,9 @@ module.exports = function (grunt) {
 					dest  : 'img/icons'
 				}],
 				options: {
-					// customselectors: {
-					// 	"*": [".icon-$1:before"]
-					// }
+					customselectors: {
+						"team": [".teamList:before"]
+					}
 				}
 			}
 		},
