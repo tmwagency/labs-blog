@@ -2,7 +2,6 @@
 layout: work
 title: "Lynx Africa 18th Anniversary"
 meta:
-  name: lynxafrica
   date: October 2013
 
 view:
