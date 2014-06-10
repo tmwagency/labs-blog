@@ -74,6 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $headings-font-family;
 	font-weight: $headings-font-weight;
 	text-rendering: optimizelegibility; // Fix the character spacing for headings
+	color: #181830;
 
 	& small {
 		font-weight: normal;
