@@ -44,7 +44,7 @@
   short_name: skinslow
   job_title: Senior Designer
   short_desc: Simon is a Designer at TMW and a developer wannabe. He is currently learning the ropes with JavaScript and responsive CSS by coding up an old skool bitmap game.
-  avatar: kinslow.png
+  avatar: skinslow.jpg
   email: skinslow@tmw.co.uk
   web: http://www.simonkinslow.com/
   twitter: kinslowdian
@@ -59,7 +59,6 @@
   email: asheridan@tmw.co.uk
   web: http://ashleysheridan.co.uk
   twitter: ashleyjsheridan
-  github: AshleyJSheridan
   postcount: 1
 
 - name: Andrew Williams
@@ -112,6 +111,7 @@
   short_desc: .Net Developer
   postcount: 0
   github: MattBasson
+  avatar: mbasson.jpg
 
 - name: Iqbal Kahn
   short_name: ikhan
@@ -119,16 +119,11 @@
   postcount: 0
   github: MedievalCoder
 
-- name: Olayemi Akinola-Kehinde
+- name: Yemi Akinola-Kehinde
   short_name: yemi
   short_desc: Junior Front-end developer
   postcount: 0
-
-- name: Petrica Bratu
-  short_name: pbratu
-  short_desc: Systems Release Engineer
-  postcount: 0
-  github: peterbratu
+  avatar: yemi.jpg
 
 - name: Rento Mucenieks
   short_name: rmucenieks
