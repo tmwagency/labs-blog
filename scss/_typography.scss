@@ -54,8 +54,9 @@ body {
 p {
 	font-family: $base-font-family;
 	@include font-size($base-font-size);
-	margin-top: 0;
-	margin-bottom: $base-line-height + px;
+	// margin-top: 0;
+	// margin-bottom: $base-line-height + px;
+	margin-bottom: 0;
 
 	// Measure - ideally about 65 chars per line
 	// =========================================
@@ -74,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $headings-font-family;
 	font-weight: $headings-font-weight;
 	text-rendering: optimizelegibility; // Fix the character spacing for headings
-	color: #181830;
+	color: #666677;
 
 	& small {
 		font-weight: normal;
@@ -126,7 +127,8 @@ h6, .h6, .zeta {
 * + h3, * + .h3, * + .gamma,
 * + h4, * + .h4, * + .delta,
 * + h5, * + .h5, * + .epsilon,
-* + h6, * + .h6, * + .zeta {
+* + h6, * + .h6, * + .zeta,
+* + p {
 	margin-top: $base-line-height + px;
 }
 

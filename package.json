@@ -42,8 +42,5 @@
     "grunt-contrib-copy": "~0.5.0",
     "grunt-newer": "~0.7.0"
   },
-  "keywords": [],
-	"scripts": {
-		"test": "grunt travis --verbose"
-	}
+  "keywords": []
 }

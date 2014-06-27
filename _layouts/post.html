@@ -17,23 +17,23 @@ pageid: news
 		{{ content }}
 	</div>
 
-	<div class="entry-meta">
-		<p class="entry-date"><time>Posted on {{ page.date | date_to_string }}</time></p>
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date"><time>Posted on {{ page.date | date_to_string }}</time></div>
 		<!-- {{ page.author }} -->
-
-	</div>
 		{% for item in site.data.team %}
 			{% if item.short_name == page.author %}
 				{% assign author = item %}
 			{% endif %}
 		{% endfor %}
 		<div class="media entry-author">
-			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.name }}" class="media-img">
+			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.name }}" class="media-img entry-author-img">
 			<div class="media-body">
 				<h3 class="author-name"><a href="http://twitter.com/{{ author.twitter }}">{{ author.name }}</a></h3>
 				<p class="author-desc">{{ author.short_desc }}</p>
 			</div>
 		</div>
+
+	</div>
 
 	{% if page.comments %}
 		<div id="disqus_thread"></div>

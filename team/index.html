@@ -18,8 +18,12 @@ pageid: team
 			<div class="gridItem-back">
 				<div class="gridItem-desc">{{ member.short_desc }}</div>
 				<div class="gridItem-links">
+					{% if member.twitter != null %}
 					<a href="http://twitter.com/{{ member.twitter }}" class="icon-small icon-twitter">{{ member.twitter }}</a>
+					{% endif %}
+					{% if member.github != null %}
 					<a href="http://github.com/{{ member.github }}" class="icon-small icon-github">{{ member.github }}</a>
+					{% endif %}
 				</div>
 			</div>
 		</article>

@@ -38,14 +38,33 @@
 }
 
 .entry-meta {
+	// padding: 0 10% 5%;
 	@include font-size(15);
 	color: #999;
 	// font-weight: bold;
 	font-family: $sans-font-family;
 	line-height: 0.9;
 	// font-style: italic;
+}
+.entry-meta--listing {
 	text-transform: uppercase;
 }
+
+.entry-meta--post .entry-date {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	padding: 1em;
+	text-align: center;
+	text-transform: uppercase;
+}
+.entry-author {
+
+}
+
+.entry-author-img {
+	max-width: 100px;
+}
+
 .entry-date {
 }
 .entry-authorName {
