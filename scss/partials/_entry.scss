@@ -58,9 +58,8 @@
 	color: #888;
 }
 
-.entry-author {
-	float: right;
-	margin-left: 5%;
+.entry-author-img {
+	max-width: 100px;
 }
 
 .entry-content {
@@ -72,6 +71,10 @@
 	.featuredImage + & {
 		padding-top: 0;
 	}
+
+	.entry--code & p {
+		margin-bottom: 0;
+	}
 }
 
 #disqus_thread {
@@ -80,9 +83,8 @@
 	width: 100%;
 	border-top: 1px solid #ddd;
 }
-.entry-meta {
-	padding: 0 10% 5%;
-}
+
+
 
 // === <$breakpoint-wide ===
 @include respond-min($breakpoint-wide) {

@@ -15,7 +15,7 @@ layout: default
 			{{ content }}
 		</div>
 
-		<div class="entry-meta">
+		<div class="entry-meta entry-meta--post">
 			<p class="entry-date"><time>Posted on {{ page.date | date_to_string }}</time></p>
 
 			{% assign author = site.authors[page.author] %}
@@ -26,24 +26,24 @@ layout: default
 				</a>
 				<p class="author-desc">{{ author.short_desc }}</p>
 			</div>
-
-			{% if page.comments %}
-				<div id="disqus_thread"></div>
-				<script type="text/javascript">
-				var disqus_shortname = 'labstmw';
-
-				{% if page.comments_id %}
-					var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
-				{% endif %}
-					(function() {
-						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-					})();
-				</script>
-				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-			{% endif %}
 		</div>
+
+		{% if page.comments %}
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+			var disqus_shortname = 'labstmw';
+
+			{% if page.comments_id %}
+				var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
+			{% endif %}
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		{% endif %}
 
 	</article>
 </section>
