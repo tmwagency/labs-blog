@@ -7,7 +7,7 @@ categories:
 - general
 - games
 
-author: simonkinslow
+author: skinslow
 excerpt: Wanting to learn more about responsive design and JavaScript, Simon decided to foray into game development and start creating an old skool bitmap game.
 ---
 

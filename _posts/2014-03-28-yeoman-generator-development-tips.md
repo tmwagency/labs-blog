@@ -20,11 +20,13 @@ Use double percent signs to escape Underscore template variables, like this: `<%
 ### Run Grunt (or another command) after Yeoman builds
 The Kickoff generator runs a Grunt task immediately after it has finished compiling and installing everything, I was able to do this by running the `spawnCommand` method in the `dependenciesInstalled` callback, like this:
 
-	// Now you can bind to the dependencies installed event
-	this.on('dependenciesInstalled', function () {
-		if (this.jsLibs === 'jquery') { this.spawnCommand('grunt', ['jquery']); }
-		this.spawnCommand('grunt', ['serve']);
-	});
+```js
+// Now you can bind to the dependencies installed event
+this.on('dependenciesInstalled', function () {
+	if (this.jsLibs === 'jquery') { this.spawnCommand('grunt', ['jquery']); }
+	this.spawnCommand('grunt', ['serve']);
+});
+```
 
 See this in our actual [index.js](https://github.com/tmwagency/generator-kickoff/blob/c2aab72ad4a15186b646505817152732a8c9f4b2/app/index.js#L24)
 
@@ -35,12 +37,15 @@ First install it: `npm install --save chalk`
 
 Then [require it](https://github.com/tmwagency/generator-kickoff/blob/master/app/index.js#L5):
 
-	var chalk = require('chalk');
+```js
+var chalk = require('chalk');
+```
 
 Then [use it](https://github.com/tmwagency/generator-kickoff/blob/master/app/index.js#L35):
 
-	console.log(chalk.bold.yellow('message'));
-
+```js
+console.log(chalk.bold.yellow('message'));
+```
 <figure><img src="/img/blog/yeoman-tips/chalk.png" alt="Chalk colours in the Kickoff Yeoman generator"></figure>
 
 If you would like to know more about different prompt/question styles, see the [Inquirer.js docs](https://github.com/SBoudrias/Inquirer.js). Kickoff's can be found [here](https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80).
@@ -50,11 +55,13 @@ As you can see above, our generator asks if you'd like to include jQuery in the 
 
 Some simple conditionals were needed in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag but need to be wrapped with raw tags. Here's an example from our package.json:
 
-	{% raw %}<% if (jsLibs == "jquery") {%>,"grunt-jquery-builder": "~0.1.1"<% } %>{% endraw %}
+```js
+<% if (jsLibs == "jquery") { %>,"grunt-jquery-builder": "~0.1.1"<% } %>
 
-	/* or */
+/* or */
 
-	{% raw %}<% if (jsLibs == 'jquery') {%>,"jquery": true<% } %>{% endraw %}
+<% if (jsLibs == 'jquery') { %>,"jquery": true<% } %>
+```
 
 Notice the preceeding comma before the conditional's content.
 
