@@ -67,8 +67,14 @@
 
 .entry-date {
 }
-.entry-authorName {
+.entry-maintainers {
+	margin-top: ($base-line-height / 2) + px;
+
+	li {
+		margin-right: 1em;
+	}
 }
+
 .entry-excerpt {
 	margin-top: ($base-line-height / 2) + px;
 	margin-bottom: ($base-line-height / 2) + px;
