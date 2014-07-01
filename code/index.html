@@ -40,6 +40,24 @@ pageid: code
 					<a href="{{ work.npm }}" class="links-item">NPM</a>
 				{% endif %}
 			</div>
+
+			<p class="entry-maintainers l-list--floated unstyled">
+				Maintained by:
+				{% for teammate in work.team %}
+					{% for member in site.data.team %}
+						{% if member.short_name == teammate %}
+							{% assign author = member %}
+						{% endif %}
+					{% endfor %}
+					{% if forloop.first %}
+					 <a href="http://github.com/{{ author.github }}">{{ author.name }}</a>
+					{% else if forloop.last %}
+					&amp; <a href="http://github.com/{{ author.github }}">{{ author.name }}</a>
+					{% else %}
+					 <a href="http://github.com/{{ author.github }}">{{ author.name }}</a>
+					{% endif %}
+				{% endfor %}
+			</p>
 		</article>
 	{% endfor %}
 
