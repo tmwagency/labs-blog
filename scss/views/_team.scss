@@ -2,10 +2,26 @@
 	position: relative;
 	min-height: 100px;
 	overflow: hidden;
+	margin-bottom: 1.5em;
 
 	@include respond-min($breakpoint-narrow) {
 		width: 50%;
 		float: left;
+	}
+
+	@include respond-min($breakpoint-single-col) {
+		margin-bottom: 0;
+
+		&:hover {
+			.gridItem-avatar {
+				transform: scale(1.2);
+			}
+
+			.gridItem-back {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
 	}
 
 	@include respond-min($breakpoint-huge) {
@@ -17,28 +33,22 @@
 	}
 
 
-	&:hover {
-		.gridItem-avatar {
-			transform: scale(1.2);
-		}
-
-		.gridItem-back {
-			transform: scale(1);
-			opacity: 1;
-		}
-	}
 }
 
 .gridItem-name {
-	position: absolute;
-	background-color: rgba(#000, 0.8);
-	color: #fff;
-	bottom: 5%;
-	left: 5%;
-	padding: 5px 10px 10px;
-	margin: 0;
-	display: inline;
-	@include font-size(20);
+	margin-top: 0.2em;
+	@include respond-min($breakpoint-single-col) {
+		position: absolute;
+		background-color: rgba(#000, 0.8);
+		color: #fff;
+		bottom: 5%;
+		left: 5%;
+		padding: 5px 10px 10px;
+		margin: 0;
+		display: inline;
+		@include font-size(20);
+	}
+
 }
 .gridItem-avatar {
 	width: 100%;
@@ -46,25 +56,29 @@
 }
 
 .gridItem-back {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(#000,0.8);
-	padding: 5%;
-	transform: scale(1.7);
-	opacity: 0;
-	overflow: hidden;
-	@include font-size(14);
+
+	@include respond-min($breakpoint-single-col) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(#000,0.8);
+		padding: 5%;
+		transform: scale(1.7);
+		opacity: 0;
+		overflow: hidden;
+		@include font-size(14);
+
+		&, &:link, &:visited {
+			color: #fff;
+		}
+	}
 
 	@include respond-min(1250) {
 		@include font-size($base-font-size);
 	}
 
-	&, &:link, &:visited {
-		color: #fff;
-	}
 }
 
 .gridItem-links {
@@ -84,18 +98,22 @@
 }
 
 .teamList {
-	position: relative;
-	padding-left: 40px;
-	margin-left: 0px;
-	list-style-type: none;
-	margin-top: 10px;
+	display: none;
+	@include respond-min($breakpoint-single-col) {
+		display: block;
+		position: relative;
+		padding-left: 40px;
+		margin-left: 0px;
+		list-style-type: none;
+		margin-top: 10px;
 
-	&:before {
-		content:'';
-		position: absolute;
-		width: 30px;
-		height: 20px;
-		left: 0;
-		top: 4px;
+		&:before {
+			content:'';
+			position: absolute;
+			width: 30px;
+			height: 20px;
+			left: 0;
+			top: 4px;
+		}
 	}
 }
