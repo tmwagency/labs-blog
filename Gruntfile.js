@@ -80,7 +80,8 @@ module.exports = function (grunt) {
 					'*.html',
 					'*.md',
 					'_plugins/*.rb',
-					'Gruntfile.js'
+					'Gruntfile.js',
+					'**/*.yml'
 				],
 				tasks: 'jekyll',
 				options: {
