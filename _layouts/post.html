@@ -26,7 +26,7 @@ pageid: news
 			{% endif %}
 		{% endfor %}
 		<div class="media entry-author">
-			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.name }}" class="media-img entry-author-img">
+			<img src="{{site.info.url}}/img/authors/{{ author.avatar }}" alt="Picture of {{ author.name }}" class="media-img entry-author-img">
 			<div class="media-body">
 				<h3 class="author-name"><a href="http://twitter.com/{{ author.twitter }}">{{ author.name }}</a></h3>
 				<p class="author-desc">{{ author.short_desc }}</p>
@@ -61,10 +61,10 @@ pageid: news
 <div class="pagination clearfix">
 	<div class="container">
 		{% if page.previous %}
-			<a href="{{page.previous.url}}" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - {{ page.previous.title }}</a>
+			<a href="{{site.info.url}}{{page.previous.url}}" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - {{ page.previous.title }}</a>
 		{% endif %}
 		{% if page.next %}
-			<a href="{{page.next.url}}" class="pagination-item pagination-newer">Next post - {{ page.next.title }}<span class="icon-arrow-right-small"></span></a>
+			<a href="{{site.info.url}}{{page.next.url}}" class="pagination-item pagination-newer">Next post - {{ page.next.title }}<span class="icon-arrow-right-small"></span></a>
 		{% endif %}
 	</div>
 </div>

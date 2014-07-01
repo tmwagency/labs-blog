@@ -15,7 +15,7 @@ pageid: home
 		{% endfor %}
 		<article class="entry entry--multiple clearfix">
 			<div class="col-a">
-				<h1 class="entry-title entry-title--entries"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
+				<h1 class="entry-title entry-title--entries"><a href="{{site.info.url}}{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
 
 				<div class="entry-meta entry-meta--listing">
 					<time class="entry-date">{{ post.date | date_to_string }}</time> &bull; <span class="entry-authorName">By <a href="http://twitter.com/{{ author.twitter }}">{{ author.name }}</a></span></div>
@@ -23,7 +23,6 @@ pageid: home
 
 			<div class="col-b">
 				<p class="entry-excerpt">{{ post.excerpt }}</p>
-				<!-- <a href="{{ post.url }}" title="Read {{ post.title }}" class="entry-readMore">Read full post</a> -->
 			</div>
 		</article>
 	{% endfor %}
