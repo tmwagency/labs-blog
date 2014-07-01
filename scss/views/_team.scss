@@ -97,6 +97,14 @@
 	}
 }
 
+.gridItem-desc {
+	display: none;
+
+	@include respond-min($breakpoint-single-col) {
+		display: block;
+	}
+
+}
 .teamList {
 	display: none;
 	@include respond-min($breakpoint-single-col) {
