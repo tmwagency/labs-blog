@@ -2381,7 +2381,27 @@ body {
 .pagination {
   background-color: #303333;
   color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.pagination-item {
+  width: 50%;
+  display: block;
+  float: left;
   padding: 3em 50px;
+  font-family: "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+.pagination-item, .pagination-item:link, .pagination-item:visited {
+  color: #f1f1f1;
+}
+.pagination-item:hover, .pagination-item:active {
+  color: #b1b1b1;
+}
+
+.pagination-item--newer {
+  border-left: 2px solid #f1f1f1;
 }
 
 .tmwBrand, .tmwBrand:link, .tmwBrand:visited {
@@ -2480,7 +2500,6 @@ body {
   font-size: 0.68181818rem;
   color: #999;
   font-family: "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 0.9;
 }
 
 .entry-meta--listing {
@@ -2497,6 +2516,16 @@ body {
 
 .entry-author-img {
   max-width: 100px;
+}
+
+.entry-author-name {
+  text-transform: uppercase;
+}
+
+.entry-author-desc {
+  font-size: 18px;
+  font-size: 0.81818182rem;
+  margin-top: 0;
 }
 
 .entry-maintainers {

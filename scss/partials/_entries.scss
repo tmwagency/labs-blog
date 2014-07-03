@@ -43,7 +43,7 @@
 	color: #999;
 	// font-weight: bold;
 	font-family: $sans-font-family;
-	line-height: 0.9;
+	// line-height: 0.9;
 	// font-style: italic;
 }
 .entry-meta--listing {
@@ -60,9 +60,15 @@
 .entry-author {
 
 }
-
 .entry-author-img {
 	max-width: 100px;
+}
+.entry-author-name {
+	text-transform: uppercase;
+}
+.entry-author-desc {
+	@include font-size(18);
+	margin-top: 0;
 }
 
 .entry-date {

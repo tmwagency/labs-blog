@@ -2293,7 +2293,27 @@ body {
 .pagination {
   background-color: #303333;
   color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.pagination-item {
+  width: 50%;
+  display: block;
+  float: left;
   padding: 3em 50px;
+  font-family: "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+.pagination-item, .pagination-item:link, .pagination-item:visited {
+  color: #f1f1f1;
+}
+.pagination-item:hover, .pagination-item:active {
+  color: #b1b1b1;
+}
+
+.pagination-item--newer {
+  border-left: 2px solid #f1f1f1;
 }
 
 .tmwBrand, .tmwBrand:link, .tmwBrand:visited {
@@ -2708,4 +2728,5 @@ h1.typeSpecimen:after {
 p.typeSpecimen:after {
   content: 'Font stack: "franklin-gothic-urw", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif';
 }
+
 /*# sourceMappingURL=styleguide.css.map */
