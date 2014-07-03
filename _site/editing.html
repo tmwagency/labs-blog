@@ -3,15 +3,22 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Editing labs@tmw - labs@tmw</title>
+		<title>Editing the tech.tmw blog - labs@tmw</title>
 		<meta name="description" content="labs@tmw - where TMW talks Tech">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="/css/kickoff.css">
-		<script type="text/javascript" src="//use.typekit.net/qep5gxs.js"></script>
+		<link rel="stylesheet" href="http://0.0.0.0:8000/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-		<script>var pageName = '';</script>
+		<script>var pageName = 'news';</script>
 
-		<script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
+		<script>
+			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			grunticon(["http://0.0.0.0:8000/img/icons/icons.data.svg.css", "http://0.0.0.0:8000/img/icons/icons.data.png.css", "http://0.0.0.0:8000/img/icons/icons.fallback.css"]);
+		</script>
+		<noscript><link href="http://0.0.0.0:8000/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+
+		<!-- <script type="text/javascript" src="/js/libs/modernizr.min.js"></script> -->
 
 		<!-- Mobile & Fav Icons -->
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/favicons/lbtmw-144.png">
@@ -24,26 +31,45 @@
 		<link rel="alternate" type="application/atom+xml" title="labs@tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
 	</head>
 	<body>
-	<!--  === MASTHEAD ===  -->
-	<header class="masthead">
-	<div class="container">
-		
-			<h2 class="logo alpha"><a href="/">labs@tmw</a></h2>
-		
 
-		<p class="logo-tagline">Some chat from the tech riff-raff at TMW</p>
-	</div>
+<div class="sidebar">
+	<header class="masthead">
+	<h1 class="logo"><a href="http://0.0.0.0:8000/">tech<span class="dot">.</span><span class="tmwBrand">tmw</span></a></h1>
+	<p class="logo-tagline">Latest news and opinion from the creative technology team at <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank" class="tmwBrand"><strong>tmw</strong></a></p>
+
+	<nav class="nav">
+		<a href="http://0.0.0.0:8000/" class="nav-item is-active">News</a>
+		<a href="http://0.0.0.0:8000/code" class="nav-item">Code</a>
+		<a href="http://0.0.0.0:8000/team" class="nav-item">Team</a>
+		<a href="http://0.0.0.0:8000/work" class="nav-item">Work</a>
+	</nav>
 </header>
 
-	<!--  === MAIN CONTENT ===  -->
-<div class="container content">
-	<h1>Editing labs@tmw</h1>
 
-	<p>To edit labs@tmw, you must first have a github account and have permissions to edit tmwagency projects.  If you don’t have an account, create one and then let either Zander or Ash know your username so they can add you to the permission set.</p>
+	<footer class="footer" role="contentinfo">
+	<div class="socialLinks">
+		<a href="http://github.com/tmwagency/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-github"></span>@tmwagency</a>
+		<a href="http://twitter.com/tmw_labs/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-twitter"></span>@tmw_labs</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-kickoff"></span>We also maintain Kickoff</a>
+		<a href="http://eepurl.com/KaKbv" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-subscribe"></span>Subscribe by Email</a>
+	</div>
+</footer>
+
+</div>
+
+<div class="content">
+	<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">news</h1>
+
+	
+
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">Editing the tech.tmw blog</h1>
+		<p>To edit tech.tmw, you must first have a github account and have permissions to edit tmwagency projects.  If you don’t have an account, create one and then let either Zander or Ash know your username so they can add you to the permission set.</p>
 
 <p>From there on, you have two possible options:</p>
 
-<hr />
+<hr>
 
 <h2>1. Editing using prose.io</h2>
 
@@ -51,7 +77,7 @@
 
 <p><a href="http://prose.io/">prose.io</a> let’s you add and edit markdown files in the browser, so you can write your article, commit it into the repo and then we can move it into the published folder once reviewed.</p>
 
-<hr />
+<hr>
 
 <h2>2. Building the site locally</h2>
 
@@ -62,32 +88,43 @@
 <p>To build the site, make sure you have installed the latest versions of the following</p>
 
 <ul>
-<li><strong>Ruby</strong> – v2 is needed. Update using <a href="http://rvm.io/">rvm</a></li>
-<li><strong>Jekyll</strong> – install globally by running <code>sudo gem install jekyll</code> from the command line</li>
-<li><strong>rdiscount</strong> – run <code>sudo gem install rdiscount</code></li>
-<li><strong>Sass</strong> – run <code>sudo gem install sass --pre</code></li>
-<li><strong>Node</strong> – follow instructions at <a href="http://nodejs.org/">nodejs.org</a></li>
+<li><strong>Ruby</strong> – v2 is needed.</li>
+<li><strong>Node</strong> – Install with Homebrew or follow instructions at <a href="http://nodejs.org/">nodejs.org</a></li>
+<li><strong>Jekyll</strong> – install globally by running <code>gem install jekyll</code> from the command line
+
+<ul>
+<li><strong>redcarpet</strong> – for better Markdown parsing. run <code>gem install redcarpet</code></li>
+<li><strong>rouge</strong> – for code highlighting. run <code>gem install rouge</code></li>
+<li><strong>Sass</strong> – run <code>gem install sass</code></li>
+</ul></li>
 <li><strong>Grunt CLI</strong> – run <code>npm install -g grunt-cli</code></li>
 </ul>
 
-
-<hr />
+<h3>Install all at once after Node and Ruby are installed:</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">gem install jekyll
+gem install redcarpet
+gem install rouge
+gem install sass
+npm install -g grunt-cli
+</code></pre></div>
+<hr>
 
 <p>Once you have these dependencies installed, follow the steps below:</p>
 
-<hr />
+<hr>
 
 <h3>Step 1</h3>
 
-<p>In your command line, run <code>git clone https://github.com/tmwagency/labs-blog.git tmw-labs-blog &amp;&amp; cd tmw-labs-blog</code></p>
-
-<hr />
+<p>In your command line, run </p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git clone https://github.com/tmwagency/labs-blog.git tmw-labs-blog <span class="o">&amp;&amp;</span> <span class="nb">cd </span>tmw-labs-blog
+</code></pre></div>
+<hr>
 
 <h3>Step 2</h3>
 
 <p>Run <code>jekyll serve</code></p>
 
-<hr />
+<hr>
 
 <h3>Step 3</h3>
 
@@ -95,7 +132,7 @@
 
 <p>Then you can start writing your article using <a href="http://daringfireball.net/projects/markdown/basics">markdown</a>.</p>
 
-<hr />
+<hr>
 
 <h3>Step 4</h3>
 
@@ -103,30 +140,80 @@
 
 <p>Changing this to true will automatically rebuild the site <strong>including draft posts</strong>, and so enable you to view your post as it will look on the site when it’s published.</p>
 
-<hr />
+<hr>
 
 <h2>And we’re done!</h2>
 
 <p>That’s it – once you are happy with your article, make sure you let either me or Zander know and we will push it live.</p>
 
+	</div>
+
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date"><time>Posted on anything</time></div>
+		<!-- zander -->
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+		<div class="media entry-author">
+			<img src="http://0.0.0.0:8000/img/authors/zmartineau.jpg" alt="Picture of Zander Martineau" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="author-name"><a href="http://twitter.com/mrmartineau">Zander Martineau</a></h3>
+				<p class="author-desc">Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.</p>
+			</div>
+		</div>
+
+	</div>
+
+	
+
+	<!--  -->
+</article>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		
+		
+	</div>
+</div>
 </div>
 
-	<!--  === FOOTER ===  -->
-	<footer class="footer" role="contentinfo">
-	<div class="container footer-links">
-		<a href="http://github.com/tmwagency/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe600;"></span>Github</a>
-		<a href="http://twitter.com/tmw_labs/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe601;"></span>Twitter</a>
-		<a href="http://tmwagency.github.io/kickoff/" class="footer-links-item footer-links-item--right">We also maintain <span class="kickoff">Kickoff</span></a>
-	</div>
-	<div class="footer-text container clearfix">
-		<p class="footer-text-about">This blog is curated and maintained by the creative technology team at <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank">TMW</a>.</p>
-		<p class="footer-text-email"><a href="http://eepurl.com/KaKbv">Subscribe by Email</a></p>
-	</div>
-
-</footer>
-
-	<script src="/js/dist/app.min.js"></script>
-
+	<!-- <script src="/js/dist/app.min.js"></script> -->
+<!--
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -136,5 +223,5 @@
 		ga('create', 'UA-27779119-7', 'tmw.co.uk');
 		ga('send', 'pageview');
 	</script>
-</body>
+</body> -->
 </html>

@@ -1,26 +1,33 @@
 ---
-layout: home
-title: TMW Labs Blog
+layout: default
+title: tech.tmw - Latest news and opinion from the creative technology team at tmw
+pageid: home
 ---
-<div class="container">
-	<div class="entries">
+
+<div class="content-inner entries clearfix">
+	<h1 class="sectionTitle">News</h1>
+
 	{% for post in paginator.posts %}
-		{% assign author = site.authors[post.author] %}
+		{% for member in site.data.team %}
+			{% if member.short_name == post.author %}
+				{% assign author = member %}
+			{% endif %}
+		{% endfor %}
+		<article class="entry entry--multiple clearfix">
+			<div class="col-a">
+				<h1 class="entry-title entry-title--entries"><a href="{{site.info.url}}{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
 
-		<article class="entry clearfix">
+				<div class="entry-meta entry-meta--listing">
+					<time class="entry-date">{{ post.date | date_to_string }}</time> &bull; <span class="entry-authorName">By <a href="http://twitter.com/{{ author.twitter }}">{{ author.name }}</a></span></div>
+			</div>
 
-			<a href="http://twitter.com/{{ author.twitter }}" class="entry-author author">
-				<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
-			</a>
-			<h1 class="entry-title"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
-			<h2 class="author-name"><time class="entry-date">Posted on {{ post.date | date_to_string }}</time> by <a href="http://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a></h2>
-
-			<p class="entry-content">{{ post.excerpt }}</p>
-			<p class="l-mb0"><a href="{{ post.url }}" title="Read {{ post.title }}">Read full post &raquo;</a></p>
+			<div class="col-b">
+				<p class="entry-excerpt">{{ post.excerpt }}</p>
+			</div>
 		</article>
 	{% endfor %}
-	</div>
 </div>
+
 
 <!-- Pagination links -->
 <div class="pagination">
@@ -38,5 +45,6 @@ title: TMW Labs Blog
 		{% endif %}
 
 	</div>
+</div>
 </div>
 

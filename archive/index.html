@@ -4,8 +4,15 @@ title: Blog index - Zander Martineau
 ---
 <div class="container">
 {% for post in site.posts %}
+
+	{% for member in site.data.team %}
+		{% if member.short_name == post.author %}
+			{% assign author = member %}
+		{% endif %}
+	{% endfor %}
 	<article class="entry">
-		<h1 class="entry--title"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>
+		<h3 class="entry--title"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h3>
+		<h5>{{ author.name }}</h5>
 		<time class="entry--date text-centre">{{ post.date | date_to_string }}</time>
 	</article>
 {% endfor %}

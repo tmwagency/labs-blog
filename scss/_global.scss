@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Global app/site styles
+   ========================================================================== */
+body {
+	background-color: $color-background;
+	overflow-y: scroll;
+}
+
+.sidebar {
+	text-align: center;
+	color: #fff;
+	padding: 30px 5%;
+	background-color: #181830;
+	// background: #181830 url(/img/sidebar/2.jpg) 0 0 no-repeat;
+	// background: #181830 url(/img/sidebar/pete.jpg) 0 0 no-repeat;
+	background-size: cover;
+	z-index: 100;
+
+	@include respond-min($breakpoint-single-col) {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		// float: left;
+		width: 40%;
+		// height: 100vh;
+		text-align: left;
+		padding: 100px 5%;
+
+		// &:after {
+		// 	content:'';
+		// 	position: absolute;
+		// 	top: -40px;
+		// 	bottom: -40px;
+		// 	right: -20px;
+		// 	width: 40px;
+		// 	background-color: #181830;
+		// 	transform: rotate(-2deg);
+		// }
+	}
+
+	@include respond-min($breakpoint-huge) {
+		width: 30%;
+	}
+}
+
+.content {
+	// padding: 7% 5%;
+	position: relative;
+
+	@include respond-min($breakpoint-single-col) {
+		float: right;
+		width: 60%;
+		// padding: 100px 5%;
+	}
+
+	@include respond-min($breakpoint-huge) {
+		width: 70%;
+	}
+}
+
+.content-inner {
+	margin: 7% 30px;
+
+	@include respond-min($breakpoint-single-col) {
+		margin: 114px 50px 50px;
+	}
+}
+
+
+.sectionTitle {
+	text-transform: lowercase;
+	color: #a7a7a7;
+	margin-bottom: ($base-line-height / 2) + px;
+	font-weight: normal;
+
+	&:before {
+		content:'/';
+		margin-right: 3px;
+	}
+
+	small {
+		font-family: $sans-font-family1;
+		font-size: 60%;
+	}
+}
+
+.sectionDescription {
+	color: #a7a7a7;
+	display: none;
+}
+
+.pagination {
+	background-color: #303333;
+	color: #fff;
+	padding: 3em 50px;
+}
+
+.tmwBrand {
+	&, &:link, &:visited {
+		color: $orange;
+	}
+
+	&:hover {
+		color: darken($orange, 15%)
+	}
+}

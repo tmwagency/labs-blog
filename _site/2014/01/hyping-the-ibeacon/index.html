@@ -6,12 +6,19 @@
 		<title>Hyping the iBeacon - labs@tmw</title>
 		<meta name="description" content="labs@tmw - where TMW talks Tech">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="/css/kickoff.css">
-		<script type="text/javascript" src="//use.typekit.net/qep5gxs.js"></script>
+		<link rel="stylesheet" href="http://0.0.0.0:8000/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-		<script>var pageName = '';</script>
+		<script>var pageName = 'news';</script>
 
-		<script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
+		<script>
+			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			grunticon(["http://0.0.0.0:8000/img/icons/icons.data.svg.css", "http://0.0.0.0:8000/img/icons/icons.data.png.css", "http://0.0.0.0:8000/img/icons/icons.fallback.css"]);
+		</script>
+		<noscript><link href="http://0.0.0.0:8000/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+
+		<!-- <script type="text/javascript" src="/js/libs/modernizr.min.js"></script> -->
 
 		<!-- Mobile & Fav Icons -->
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/favicons/lbtmw-144.png">
@@ -24,25 +31,41 @@
 		<link rel="alternate" type="application/atom+xml" title="labs@tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
 	</head>
 	<body>
-	<!--  === MASTHEAD ===  -->
-	<header class="masthead">
-	<div class="container">
-		
-			<h2 class="logo alpha"><a href="/">labs@tmw</a></h2>
-		
 
-		<p class="logo-tagline">Some chat from the tech riff-raff at TMW</p>
-	</div>
+<div class="sidebar">
+	<header class="masthead">
+	<h1 class="logo"><a href="http://0.0.0.0:8000/">tech<span class="dot">.</span><span class="tmwBrand">tmw</span></a></h1>
+	<p class="logo-tagline">Latest news and opinion from the creative technology team at <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank" class="tmwBrand"><strong>tmw</strong></a></p>
+
+	<nav class="nav">
+		<a href="http://0.0.0.0:8000/" class="nav-item is-active">News</a>
+		<a href="http://0.0.0.0:8000/code" class="nav-item">Code</a>
+		<a href="http://0.0.0.0:8000/team" class="nav-item">Team</a>
+		<a href="http://0.0.0.0:8000/work" class="nav-item">Work</a>
+	</nav>
 </header>
 
-	<!--  === MAIN CONTENT ===  -->
-<section class="container post" role="main">
-	<article class="entry content">
-		
 
-		<div class="entry-content">
-			<h1 class="entry-title">Hyping the iBeacon</h1>
-			<h2>What are iBeacons?</h2>
+	<footer class="footer" role="contentinfo">
+	<div class="socialLinks">
+		<a href="http://github.com/tmwagency/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-github"></span>@tmwagency</a>
+		<a href="http://twitter.com/tmw_labs/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-twitter"></span>@tmw_labs</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-kickoff"></span>We also maintain Kickoff</a>
+		<a href="http://eepurl.com/KaKbv" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-subscribe"></span>Subscribe by Email</a>
+	</div>
+</footer>
+
+</div>
+
+<div class="content">
+	<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">news</h1>
+
+	
+
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">Hyping the iBeacon</h1>
+		<h2>What are iBeacons?</h2>
 
 <p>Lately there has been much talk about iBeacons. A technology pioneered by Apple, they allow small hardware modules, called beacons, to broadcast their location to nearby BLE (Bluetooth Low Energy) equipped mobile devices. The result? Mobile apps that interact with iBeacons become contextually aware.</p>
 
@@ -54,9 +77,9 @@
 
 <p>Imagine a user has spent some time looking at a product on a retail brand’s website, but has never followed through with a purchase.</p>
 
-<p>A week later they walk into the same retail brand’s physical store where iBeacons are installed and see the product in the flesh. On walking into the iBeacon broadcast region a service running on the user's phone fires up an app offering them a discount on the product in an attempt to encourage a sale.  This "<strong><em>monitoring</em></strong>" feature of iBeacons allows contextual content to be delivered even if the relevant app isn't running, or is running in the background.</p>
+<p>A week later they walk into the same retail brand’s physical store where iBeacons are installed and see the product in the flesh. On walking into the iBeacon broadcast region a service running on the user&#39;s phone fires up an app offering them a discount on the product in an attempt to encourage a sale.  This &quot;<strong><em>monitoring</em></strong>&quot; feature of iBeacons allows contextual content to be delivered even if the relevant app isn&#39;t running, or is running in the background.</p>
 
-<p>Another feature of iBeacons is "<strong><em>ranging</em></strong>"; the ability for the mobile device to work out its distance from the iBeacon using the received signal strength. Furthermore, if the app is simultaneously connected to multiple beacons then it can triangulate distances and work out where a user is within a space: micro-location. Suddenly an app knows whether the user is looking at jeans or perfume, which could lead to great opportunities for real-life, real-time analytics.</p>
+<p>Another feature of iBeacons is &quot;<strong><em>ranging</em></strong>&quot;; the ability for the mobile device to work out its distance from the iBeacon using the received signal strength. Furthermore, if the app is simultaneously connected to multiple beacons then it can triangulate distances and work out where a user is within a space: micro-location. Suddenly an app knows whether the user is looking at jeans or perfume, which could lead to great opportunities for real-life, real-time analytics.</p>
 
 <p><img src="/img/blog/hyping-the-ibeacon/ibeacons-proximity-ranging.jpg" alt="iBeacon ranging for proximity and position"></p>
 
@@ -80,7 +103,7 @@
 
 <p>Because iBeacons are small, cheap and can run on a single battery for up to 2 years they can make for ideal integrations into POS displays to augment campaigns and product launches in retail environments.</p>
 
-<p>They don't require an existing infrastructure to be present and can be easily deployed in any environment be it an expo, conference, tradeshow, outdoor event. They can also be placed on moving objects and aside from marketing, retail and guiding applications, there is massive potential to create <a href="http://www.motionloft.com/property_owners.html">products</a> or <a href="http://thetaplab.com/games/tinytycoons">games</a> that take advantage of the tech.</p>
+<p>They don&#39;t require an existing infrastructure to be present and can be easily deployed in any environment be it an expo, conference, tradeshow, outdoor event. They can also be placed on moving objects and aside from marketing, retail and guiding applications, there is massive potential to create <a href="http://www.motionloft.com/property_owners.html">products</a> or <a href="http://thetaplab.com/games/tinytycoons">games</a> that take advantage of the tech.</p>
 
 <p>It is early days but with the digital world perpetually bleeding outside the confines of a screen it is an ideal territory for an agency such as ourselves to explore for opportunities.</p>
 
@@ -98,7 +121,6 @@
 <li><a href="http://meetingofideas.wordpress.com/2013/12/12/download-ibeacons-bible-1-0/">iBeacons Bible</a></li>
 </ul>
 
-
 <h3>Hardware Vendors</h3>
 
 <ul>
@@ -110,7 +132,6 @@
 <li><a href="http://www.beaconic.nl/en/">Beaconic</a></li>
 </ul>
 
-
 <h3>Retail &amp; Analytics Products</h3>
 
 <ul>
@@ -118,14 +139,12 @@
 <li><a href="http://www.shopkick.com/shopbeacon/">Shopkick</a></li>
 </ul>
 
-
 <h3>Adoption</h3>
 
 <ul>
 <li><a href="http://recode.net/2014/01/09/so-youve-installed-an-ibeacon-system-now-comes-the-hard-part-no-one-is-talking-about/">iBeacons require an app</a></li>
 <li><a href="http://venturebeat.com/2013/11/29/is-ibeacon-ready-for-prime-time-retail-three-key-considerations/">Interesting security concerns</a></li>
 </ul>
-
 
 <h3>Development &amp; Hacks</h3>
 
@@ -137,68 +156,111 @@
 <li><a href="http://developer.radiusnetworks.com/2013/11/13/ibeacon-monitoring-in-the-background-and-foreground.html">iBeacon Monitoring in the Background</a></li>
 </ul>
 
+	</div>
 
-		</div>
-
-		<div class="entry-meta">
-			<p class="entry-date"><time>Posted on 20 Jan 2014</time></p>
-
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date"><time>Posted on 20 Jan 2014</time></div>
+		<!-- awilliams -->
+		
 			
-			<div class="author">
-				<a href="http://twitter.com/roowilliams">
-					<img src="/img/authors/awilliams.jpeg" alt="Picture of Andrew Williams" class="author-img">
-					<h3 class="author-name">Andrew Williams</h3>
-				</a>
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+		<div class="media entry-author">
+			<img src="http://0.0.0.0:8000/img/authors/awilliams.jpg" alt="Picture of Andrew Williams" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="author-name"><a href="http://twitter.com/roowilliams">Andrew Williams</a></h3>
 				<p class="author-desc">Roo is a Product Designer at TMW tasked with exploring the boundaries between the physical and digital world.</p>
 			</div>
-
-			
-				<div id="disqus_thread"></div>
-				<script type="text/javascript">
-				var disqus_shortname = 'labstmw';
-
-				
-					(function() {
-						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-					})();
-				</script>
-				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-			
 		</div>
 
-	</article>
-</section>
+	</div>
+
+	
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		var disqus_shortname = 'labstmw';
+
+		
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	
+
+	<!-- 
+	  <a href="/2014/03/yeoman-generator-development-tips">Yeoman Generator Development Tips</a><br />
+	
+	  <a href="/2014/03/the-future-of-umbraco">The Future of Umbraco</a><br />
+	
+	  <a href="/2014/02/kickoff-statix-for-slicker-template-workflow">Kickoff Statix: A slicker template workflow</a><br />
+	
+	  <a href="/2014/01/building-the-tmw-shelter-christmas-tree">Building the TMW Shelter Christmas Tree</a><br />
+	
+	  <a href="/2014/01/speedtesting-gulp-and-grunt">Speedtesting gulp.js and Grunt</a><br />
+	
+	  <a href="/2014/01/fast-tapping-with-swiftclick">Faster tapping with SwiftClick</a><br />
+	
+	  <a href="/2013/12/structuring-team-development">Structuring team development</a><br />
+	
+	  <a href="/2013/12/adventures-in-game-development">A designers adventures in game development: part 1</a><br />
+	
+	  <a href="/2013/12/really-good-hyperlinks">Really Good Hyperlinks #1 - Dec 11th</a><br />
+	
+	  <a href="/2013/12/introducing-kickoff">Introducing Kickoff</a><br />
+	 -->
+</article>
 
 <!-- Pagination links -->
 <div class="pagination clearfix">
 	<div class="container">
 		
-			<a href="/2014/01/speedtesting-gulp-and-grunt" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - Speedtesting gulp.js and Grunt</a>
+			<a href="http://0.0.0.0:8000/2014/01/speedtesting-gulp-and-grunt" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - Speedtesting gulp.js and Grunt</a>
 		
 		
-			<a href="/2014/01/building-the-tmw-shelter-christmas-tree" class="pagination-item pagination-newer">Next post - Building the TMW Shelter Christmas Tree<span class="icon-arrow-right-small"></span></a>
+			<a href="http://0.0.0.0:8000/2014/01/building-the-tmw-shelter-christmas-tree" class="pagination-item pagination-newer">Next post - Building the TMW Shelter Christmas Tree<span class="icon-arrow-right-small"></span></a>
 		
 	</div>
 </div>
+</div>
 
-	<!--  === FOOTER ===  -->
-	<footer class="footer" role="contentinfo">
-	<div class="container footer-links">
-		<a href="http://github.com/tmwagency/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe600;"></span>Github</a>
-		<a href="http://twitter.com/tmw_labs/" class="footer-links-item"><span aria-hidden="true" data-icon="&#xe601;"></span>Twitter</a>
-		<a href="http://tmwagency.github.io/kickoff/" class="footer-links-item footer-links-item--right">We also maintain <span class="kickoff">Kickoff</span></a>
-	</div>
-	<div class="footer-text container clearfix">
-		<p class="footer-text-about">This blog is curated and maintained by the creative technology team at <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank">TMW</a>.</p>
-		<p class="footer-text-email"><a href="http://eepurl.com/KaKbv">Subscribe by Email</a></p>
-	</div>
-
-</footer>
-
-	<script src="/js/dist/app.min.js"></script>
-
+	<!-- <script src="/js/dist/app.min.js"></script> -->
+<!--
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -208,5 +270,5 @@
 		ga('create', 'UA-27779119-7', 'tmw.co.uk');
 		ga('send', 'pageview');
 	</script>
-</body>
+</body> -->
 </html>

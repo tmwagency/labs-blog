@@ -1,0 +1,51 @@
+- name: Kickoff
+  img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
+  github_url: https://github.com/tmwagency/kickoff
+  demo: http://tmwagency.github.io/kickoff/
+  issues: https://github.com/tmwagency/kickoff/issues
+  description: "Kickoff is a lightweight front-end framework for creating scalable, responsive sites."
+  team:
+   - ashnolan
+   - zander
+
+- name: Kickoff Statix
+  img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
+  github_url: https://github.com/tmwagency/kickoff-statix
+  demo: http://tmwagency.github.io/kickoff/statix/index.html
+  issues: https://github.com/tmwagency/kickoff-statix/issues
+  description: "Kickoff Statix is a simple setup of [Assemble](http://assemble.io/), a static site generator, integrated with our minimal front-end framework, Kickoff, along with a few handy Grunt setup tasks."
+  team:
+   - ashnolan
+   - zander
+
+- name: Swiftclick
+  github_url: https://github.com/tmwagency/swiftclick
+  issues: https://github.com/tmwagency/swiftclick/issues
+  description: "SwiftClick is a library created to eliminate the 300ms click event delay on touch devices that support orientation change."
+  team:
+   - ihayes
+
+- name: Adaptive Images
+  github_url: https://github.com/tmwagency/adaptive-image
+  issues: https://github.com/tmwagency/adaptive-image/issues
+  description: "Responsive Image Method that allows you to specify different images for different breakpoints (and resolutions)."
+  team:
+   - ashnolan
+
+- name: trak.js (beta)
+  github_url: https://github.com/tmwagency/trak.js
+  issues: https://github.com/tmwagency/trak.js/issues
+  demo: http://tmwagency.github.io/trak.js/demo/
+  description: "Universal event tracking API."
+  team:
+   - zander
+
+- name: Kickoff Yeoman Generator
+  img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
+  github_url: https://github.com/tmwagency/generator-kickoff
+  npm: http://tmwagency.github.io/generator-kickoff/
+  issues: https://github.com/tmwagency/generator-kickoff/issues
+  info: http://tmwagency.github.io/kickoff/docs/yeoman.html
+  description: "Yeoman generator for our Kickoff framework"
+  team:
+   - zander

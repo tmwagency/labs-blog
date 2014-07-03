@@ -35,7 +35,6 @@ body {
 	@include font-size($base-font-size);
 	line-height: $base-leading;
 	color: $color-text;
-	background-color: $color-background;
 
 	// Two ways to smoothen type, they are disabled by default
 	// Enable only one of them if you need them
@@ -49,23 +48,15 @@ body {
 	// @include opacity(99);
 }
 
-p,
-li {
-	@include font-size(19);
-
-	@include respond-min($breakpoint-narrow) {
-		@include font-size(22);
-	}
-}
-
 /*
    Paragraphs
    ========================================================================== */
 p {
 	font-family: $base-font-family;
-
-	margin-top: 0;
-	margin-bottom: $base-line-height + px;
+	@include font-size($base-font-size);
+	// margin-top: 0;
+	// margin-bottom: $base-line-height + px;
+	margin-bottom: 0;
 
 	// Measure - ideally about 65 chars per line
 	// =========================================
@@ -84,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $headings-font-family;
 	font-weight: $headings-font-weight;
 	text-rendering: optimizelegibility; // Fix the character spacing for headings
-	line-height: 1.2;
+	color: #666677;
 
 	& small {
 		font-weight: normal;
@@ -96,19 +87,19 @@ h1, h2, h3, h4, h5, h6 {
 h1, .h1, .alpha {
 	@include font-size($h1-size);
 	margin-top: 0;
-	margin-bottom: $verticalRhythm + px;
+	margin-bottom: ($base-line-height * 2) + px;
 }
 
 h2, .h2, .beta {
 	@include font-size($h2-size);
 	margin-top: 0;
-	margin-bottom: $verticalRhythm + px;
+	margin-bottom: $base-line-height + px;
 }
 
 h3, .h3, .gamma {
 	@include font-size($h3-size);
 	margin-top: 0;
-	margin-bottom: $verticalRhythm + px;
+	margin-bottom: 0;
 }
 
 h4, .h4, .delta,
@@ -136,8 +127,9 @@ h6, .h6, .zeta {
 * + h3, * + .h3, * + .gamma,
 * + h4, * + .h4, * + .delta,
 * + h5, * + .h5, * + .epsilon,
-* + h6, * + .h6, * + .zeta {
-	margin-top: ($base-line-height * 2) + px;
+* + h6, * + .h6, * + .zeta,
+* + p {
+	margin-top: $base-line-height + px;
 }
 
 /*
@@ -155,7 +147,6 @@ a {
 		color: $color-link-hover;
 		//text-decoration: underline;
 	}
-
 	&:active {
 		color: $color-link-active;
 		//text-decoration: underline;
@@ -201,10 +192,6 @@ ul, ol {
 	}
 }
 
-li {
-	margin-bottom: ($verticalRhythm/2) + px;
-}
-
 .unstyled,
 nav ul, nav ol {
 	margin: 0;
@@ -226,7 +213,7 @@ dt {
 
 	// Horizontal layout (like forms)
 	.dl-horizontal & {
-		@extend %text-overflow;
+		@include text-overflow();
 		float: left;
 		clear: left;
 		width: 220px;
@@ -375,10 +362,8 @@ samp {
 ::-moz-selection {
 	color: $color-selection;
 	background: $color-selection-bg;
-	text-shadow: none;
 }
 ::selection {
 	color: $color-selection;
 	background: $color-selection-bg;
-	text-shadow: none;
 }

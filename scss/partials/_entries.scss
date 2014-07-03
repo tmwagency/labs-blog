@@ -1,18 +1,123 @@
-.entries {
-	.entry {
-		margin-bottom: 60px;
-		//border-bottom: 1px solid #ddd;
-		@include box-shadow(0px 1px 3px #ddd);
-	}
+.entry--single {
+	max-width: 700px;
 }
 
-// === <$breakpoint-wide px ===
-@include respond-min($breakpoint-wide) {
-	.entries {
-		.entry {
-			margin-bottom: ($verticalRhythm * 3) + px;
+.entry--multiple {
+	margin-bottom: 30px;
+	border-bottom: 1px solid #D6D6D6;
+	padding-bottom: 30px;
+
+	@include respond-min($breakpoint-huge) {
+		.col-a, .col-b {
+			float: left;
+		}
+		.col-a {
+			width: 50%;
+			margin-right: 5%;
+		}
+		.col-b {
+			width: 45%;
 		}
 	}
 }
-// === end <$breakpoint-wide px ===
 
+.entry-title {
+	line-height: 1.1;
+	margin-top: 0;
+	font-weight: normal;
+
+	&.entry-title--entries {
+		margin-bottom: ($base-line-height / 2) + px;
+	}
+
+	&.entry-title--single {
+		@include respond-min($breakpoint-single-col) {
+			@include font-size(60);
+		}
+	}
+}
+
+.entry-meta {
+	// padding: 0 10% 5%;
+	@include font-size(15);
+	color: #999;
+	// font-weight: bold;
+	font-family: $sans-font-family;
+	line-height: 0.9;
+	// font-style: italic;
+}
+.entry-meta--listing {
+	text-transform: uppercase;
+}
+
+.entry-meta--post .entry-date {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	padding: 1em;
+	text-align: center;
+	text-transform: uppercase;
+}
+.entry-author {
+
+}
+
+.entry-author-img {
+	max-width: 100px;
+}
+
+.entry-date {
+}
+.entry-maintainers {
+	margin-top: ($base-line-height / 2) + px;
+
+	li {
+		margin-right: 1em;
+	}
+}
+
+.entry-excerpt {
+	margin-top: ($base-line-height / 2) + px;
+	margin-bottom: ($base-line-height / 2) + px;
+
+	@include respond-min($breakpoint-huge) {
+		margin-top: 0;
+	}
+}
+
+.entry-readMore {
+	font-weight: bold;
+	// border-top: 2px solid;
+	// text-transform: uppercase;
+	display: block;
+	font-weight: bold;
+	// &, &:link, &:visited {
+	// 	color: #ff5500;
+	// }
+
+	// &:hover {
+	// 	color: darken(#ff5500, 15%);
+	// }
+}
+
+.entry-content img,
+.entry-content iframe,
+.entry-content .gist,
+.entry-content pre {
+	// max-width: 123%;
+	// width: 123%;
+
+	margin-bottom: $base-line-height + px;
+	background-color: $color-code-background;
+	margin-left: -50px;
+	padding-left: 50px;
+}
+.entry-content pre {
+	overflow-x: auto;
+}
+
+.links {
+	margin-top: 10px;
+}
+.links-item {
+	margin-right: 10px;
+}

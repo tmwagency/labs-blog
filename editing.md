@@ -1,9 +1,11 @@
 ---
-layout: content
-title: Editing labs@tmw
+layout: post
+title: "Editing the tech.tmw blog"
+author: zander
+date: anything
 ---
 
-To edit labs@tmw, you must first have a github account and have permissions to edit tmwagency projects.  If you don’t have an account, create one and then let either Zander or Ash know your username so they can add you to the permission set.
+To edit tech.tmw, you must first have a github account and have permissions to edit tmwagency projects.  If you don’t have an account, create one and then let either Zander or Ash know your username so they can add you to the permission set.
 
 From there on, you have two possible options:
 
@@ -27,13 +29,22 @@ If you want to view your article on the site itself, you’ll need to setup the 
 
 To build the site, make sure you have installed the latest versions of the following
 
-* **Ruby** – v2 is needed. Update using [rvm](http://rvm.io/)
-* **Jekyll** – install globally by running `sudo gem install jekyll` from the command line
-* **rdiscount** – run `sudo gem install rdiscount`
-* **Sass** – run `sudo gem install sass --pre`
-* **Node** – follow instructions at [nodejs.org](http://nodejs.org/)
+* **Ruby** – v2 is needed.
+* **Node** – Install with Homebrew or follow instructions at [nodejs.org](http://nodejs.org/)
+* **Jekyll** – install globally by running `gem install jekyll` from the command line
+ * **redcarpet** – for better Markdown parsing. run `gem install redcarpet`
+ * **rouge** – for code highlighting. run `gem install rouge`
+ * **Sass** – run `gem install sass`
 * **Grunt CLI** – run `npm install -g grunt-cli`
 
+### Install all at once after Node and Ruby are installed:
+```sh
+gem install jekyll
+gem install redcarpet
+gem install rouge
+gem install sass
+npm install -g grunt-cli
+```
 - - -
 
 Once you have these dependencies installed, follow the steps below:
@@ -42,7 +53,11 @@ Once you have these dependencies installed, follow the steps below:
 
 ### Step 1
 
-In your command line, run `git clone https://github.com/tmwagency/labs-blog.git tmw-labs-blog && cd tmw-labs-blog`
+In your command line, run 
+
+```sh
+git clone https://github.com/tmwagency/labs-blog.git tmw-labs-blog && cd tmw-labs-blog
+```
 
 - - -
 

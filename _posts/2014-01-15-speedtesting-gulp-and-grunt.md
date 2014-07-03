@@ -21,6 +21,7 @@ Kickoff uses Grunt for a number of tasks; compiling Sass and updating the browse
 The gulp.js fork of Kickoff can be found at [github.com/tmwagency/kickoff/tree/gulp](https://github.com/tmwagency/kickoff/tree/gulp) and the [gulpfile.js](https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js) holds all the config. I found editing the `gulpfile` quite easy; more so than a Gruntfile. I followed similar ideas to our Grunt setup to make it more maintainable e.g. using variables to avoid repetition – see lines [16-37](https://github.com/tmwagency/kickoff/blob/gulp/gulpfile.js#L16-L37) of the Kickoff gulpfile.
 
 ## Speed comparison tests
+
 ### Sass compilation
 <figure><img src="/img/blog/kickoff-gulp-test/compare-sass.gif" alt="Grunt and gulp.js Sass compilation comparison"></figure>
 

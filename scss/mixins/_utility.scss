@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Utlity Mixins
+   Utility Mixins
    ========================================================================== */
 // Clearfix
 // Other clearfix options: https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss
@@ -50,12 +50,12 @@
 @mixin font-face( $family-name, $font-path, $font-weight:normal, $font-style:normal, $include-svg:false ) {
 	@font-face {
 		font-family: $family-name;
-		src: url('${font-path}.eot');
-		src: url('${font-path}.eot?#iefix')				format('embedded-opentype'),
-			 url('${font-path}.woff')					format('woff'),
-			 url('${font-path}.ttf')					format('truetype')
+		src: url('#{$font-path}.eot');
+		src: url('#{$font-path}.eot?#iefix') format('embedded-opentype'),
+			 url('#{$font-path}.woff') format('woff'),
+			 url('#{$font-path}.ttf') format('truetype')
 			 // @if $include-svg == true {
-				,url('${font-path}.svg#{$family-name}') format('svg');
+				,url('#{$font-path}.svg##{$family-name}') format('svg');
 			 // }
 		font-weight: $font-weight;
 		font-style: $font-style;
@@ -106,13 +106,13 @@
 // @include truncate(100%);
 @mixin truncate($truncation-boundary) {
 	max-width: $truncation-boundary;
-	@extend %text-overflow;
+	@include text-overflow();
 }
 
 // Text overflow
-// @extend %text-overflow;
+// @include text-overflow();
 // Requires inline-block or block for proper styling
-%text-overflow {
+@mixin text-overflow {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -125,8 +125,9 @@
 	overflow: auto; // Safari fix
 }
 
-// @extend %tab-focus;
-%tab-focus {
+
+// @include tab-focus();
+@mixin tab-focus {
 	// Default
 	outline: thin dotted #333;
 	// Webkit

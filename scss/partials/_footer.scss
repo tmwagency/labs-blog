@@ -1,74 +1,21 @@
 .footer {
-	background-color: #444444;
-	padding: 4em 5%;
-
-	@include respond-min($breakpoint-mid) {
-		padding: 5em 5%;
-	}
-
-	&, a {
-		color: #f0f0f0;
-		text-shadow: 0 -1px 0 #000;
-	}
-
-	a:hover {
-		color: $pink;
-	}
+	font-family: $sans-font-family;
 }
 
-//  ==============
-//  === FOOTER ===
-//  ==============
+.socialLinks-item {
+	line-height: 23px;
+	margin-bottom: 10px;
+	@include font-size(14);
+	display: inline-block;
+	font-style: italic;
 
-.footer,
-.footer p {
-	font-family: $mono-font-family;
-	@include font-size(12);
-
-	@include respond-min($breakpoint-mid) {
-		@include font-size(16);
+	span {
+		margin-right: 10px;
+		background-position: center center;
 	}
-}
-	.footer-links-item {
+
+	@include respond-min($breakpoint-single-col) {
 		display: block;
-		margin-bottom: $verticalRhythm/2 + px;
-
-		@include respond-min($breakpoint-mid) {
-			display: inline;
-			margin-right: 40px;
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
+		height: 21px;
 	}
-		.footer-links-item--right {
-			@include respond-min($breakpoint-mid) {
-				float: right;
-			}
-		}
-
-		.footer p > a,
-		.kickoff {
-			border-bottom: 1px solid;
-			font-weight: 700;
-		}
-
-	.footer-text {
-		border-top: 1px solid #666;
-		padding-top: $verticalRhythm + px;
-		margin-top: $verticalRhythm + px;
-	}
-
-
-	@include respond-min($breakpoint-mid) {
-		.footer-text-about,
-		.footer-text-email {
-			width: 50%;
-			float: left;
-		}
-
-		.footer-text-email {
-			text-align: right;
-		}
-	}
+}

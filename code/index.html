@@ -1,0 +1,65 @@
+---
+layout: default
+title: Code @ TMW
+pageid: code
+---
+<div class="content-inner clearfix">
+	<h1 class="sectionTitle">{{ page.title }} <small>Our open-source offerings</small></h1>
+	{% for work in site.data.code %}
+		<article class="entry entry--multiple entry--code">
+			<!-- {% if work.img != null %}
+				<img src="{{ work.img }}" alt="Picture of {{ work.name }}" class="author-img">
+			{% endif %} -->
+			<h2 class="entry-title entry-title--entries">
+				{% if work.github_url != null %}
+					<a href="{{ work.github_url }}">{{ work.name }}</a>
+				{% else %}
+					{{ work.name }}
+				{% endif %}
+			</h2>
+
+			<div class="entry-content">{{ work.description | markdownify }}</div>
+
+			<div class="links">
+				{% if work.github_url != null %}
+					<a href="{{ work.github_url }}" class="links-item">Code</a>
+				{% endif %}
+				{% if work.demo != null %}
+					<a href="{{ work.demo }}" class="links-item">Demo</a>
+				{% endif %}
+				{% if work.issues != null %}
+					<a href="{{ work.issues }}" class="links-item">Issues</a>
+				{% endif %}
+				{% if work.article != null %}
+					<a href="{{ work.article }}" class="links-item">Article</a>
+				{% endif %}
+				{% if work.info != null %}
+					<a href="{{ work.info }}" class="links-item">Info</a>
+				{% endif %}
+				{% if work.npm != null %}
+					<a href="{{ work.npm }}" class="links-item">NPM</a>
+				{% endif %}
+			</div>
+
+			<p class="entry-maintainers l-list--floated unstyled">
+				Maintained by:
+				{% for teammate in work.team %}
+					{% for member in site.data.team %}
+						{% if member.short_name == teammate %}
+							{% assign author = member %}
+						{% endif %}
+					{% endfor %}
+					{% if forloop.first %}
+					 <a href="http://github.com/{{ author.github }}">{{ author.name }}</a>
+					{% else if forloop.last %}
+					&amp; <a href="http://github.com/{{ author.github }}">{{ author.name }}</a>
+					{% else %}
+					 <a href="http://github.com/{{ author.github }}">{{ author.name }}</a>
+					{% endif %}
+				{% endfor %}
+			</p>
+		</article>
+	{% endfor %}
+
+	<p>View the rest of our projects on <a href="http://github.com/{{site.info.github}}">Github</a></p>
+</div>

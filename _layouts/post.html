@@ -1,61 +1,70 @@
 ---
 layout: default
+pageid: news
 ---
-<!--  === MAIN CONTENT ===  -->
-<section class="container post" role="main">
-	<article class="entry content">
-		{% if page.featuredImage %}
-			<figure class="featuredImage">
-				<img src="{{ page.featuredImage }}" alt="{{ page.title }}">
-			</figure>
-		{% endif %}
 
-		<div class="entry-content">
-			<h1 class="entry-title">{{ page.title }}</h1>
-			{{ content }}
-		</div>
+<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">news</h1>
 
-		<div class="entry-meta entry-meta--post">
-			<p class="entry-date"><time>Posted on {{ page.date | date_to_string }}</time></p>
+	{% if page.featuredImage %}
+		<figure class="featuredImage">
+			<img src="{{ page.featuredImage }}" alt="{{ page.title }}">
+		</figure>
+	{% endif %}
 
-			{% assign author = site.authors[page.author] %}
-			<div class="author">
-				<a href="http://twitter.com/{{ author.twitter }}">
-					<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.display_name }}" class="author-img">
-					<h3 class="author-name">{{ author.display_name }}</h3>
-				</a>
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">{{ page.title }}</h1>
+		{{ content }}
+	</div>
+
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date"><time>Posted on {{ page.date | date: "%d %h %Y" }}</time></div>
+		<!-- {{ page.author }} -->
+		{% for item in site.data.team %}
+			{% if item.short_name == page.author %}
+				{% assign author = item %}
+			{% endif %}
+		{% endfor %}
+		<div class="media entry-author">
+			<img src="{{site.info.url}}/img/authors/{{ author.avatar }}" alt="Picture of {{ author.name }}" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="author-name"><a href="http://twitter.com/{{ author.twitter }}">{{ author.name }}</a></h3>
 				<p class="author-desc">{{ author.short_desc }}</p>
 			</div>
 		</div>
 
-		{% if page.comments %}
-			<div id="disqus_thread"></div>
-			<script type="text/javascript">
-			var disqus_shortname = 'labstmw';
+	</div>
 
-			{% if page.comments_id %}
-				var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
-			{% endif %}
-				(function() {
-					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				})();
-			</script>
-			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	{% if page.comments %}
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		var disqus_shortname = 'labstmw';
+
+		{% if page.comments_id %}
+			var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
 		{% endif %}
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	{% endif %}
 
-	</article>
-</section>
+	<!-- {% for post in site.related_posts %}
+	  <a href="{{ post.url }}">{{post.title }}</a><br />
+	{% endfor %} -->
+</article>
 
 <!-- Pagination links -->
 <div class="pagination clearfix">
 	<div class="container">
 		{% if page.previous %}
-			<a href="{{page.previous.url}}" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - {{ page.previous.title }}</a>
+			<a href="{{site.info.url}}{{page.previous.url}}" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - {{ page.previous.title }}</a>
 		{% endif %}
 		{% if page.next %}
-			<a href="{{page.next.url}}" class="pagination-item pagination-newer">Next post - {{ page.next.title }}<span class="icon-arrow-right-small"></span></a>
+			<a href="{{site.info.url}}{{page.next.url}}" class="pagination-item pagination-newer">Next post - {{ page.next.title }}<span class="icon-arrow-right-small"></span></a>
 		{% endif %}
 	</div>
 </div>

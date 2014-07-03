@@ -1,5 +1,5 @@
 ---
-comments: false
+comments: true
 layout: post
 title: "A designers adventures in game development: part 1"
 date: 2013-12-18 09:00:00
@@ -7,7 +7,7 @@ categories:
 - general
 - games
 
-author: simonkinslow
+author: skinslow
 excerpt: Wanting to learn more about responsive design and JavaScript, Simon decided to foray into game development and start creating an old skool bitmap game.
 ---
 
