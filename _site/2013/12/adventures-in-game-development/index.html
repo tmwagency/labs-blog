@@ -65,19 +65,19 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 
 	<div class="entry-content">
 		<h1 class="entry-title entry-title--single">A designers adventures in game development: part 1</h1>
-		<p>Over the years I’ve had an interest in programming starting with Flash, a few years ago though I made the seemingly <a href="http://www.apple.com/hotnews/thoughts-on-flash/">obvious choice</a> to start moving on from Actionscript to focus on Javascript. I find that the best way to learn is by doing, so since the start of the summer I started creating a little responsive HTML and Javascript game. This and subsequent posts will document my process.</p>
+		<p>Over the years I&#39;ve had an interest in programming starting with Flash, a few years ago though I made the seemingly <a href="http://www.apple.com/hotnews/thoughts-on-flash/">obvious choice</a> to start moving on from Actionscript to focus on Javascript. I find that the best way to learn is by doing, so since the start of the summer I started creating a little responsive HTML and Javascript game. This and subsequent posts will document my process.</p>
 
-<p>It’s working title is <strong>‘Bitmap Adventure’</strong> with the story revolving around a huge villain, in the form of a block-like Monkey, kidnapping a Goat’s child. Rescuing the child and defeating the villain is your main challenge.</p>
+<p>It&#39;s working title is <strong>‘Bitmap Adventure’</strong> with the story revolving around a huge villain, in the form of a block-like Monkey, kidnapping a Goat’s child. Rescuing the child and defeating the villain is your main challenge.</p>
 
 <p>The battle system uses Paper, Scissors, Stone (otherwise known as Janken). The visualisation of these battles uses some some basic pixel animation with cute, simple versions of the warriors. To introduce players to the battle system I decided to feature a battle in the intro itself, where you attempt to battle the villain straight away, but with battle inexperience so early on in the game you’ll lose; its all part of the intro. I’m still working on how a levelling / experience feature will work within the game.</p>
 
-<p>Developing the intro helped to get my head around how the game would work on different devices from the start. I started off with a 320px wide photoshop document when I was creating a look and feel for the game, figuring out the mobile look and size first. The reason behind this is the game could get complex so its easier to add than take away from the intended design. There were many cases of developing prototypes and designing at the same time, to ensure it looked great across all devices. With such a simple graphical style, it’s a little easier to add filler for wider screen formats. Supporting Retina devices couldn’t be easier with this, as all the original sprites just needed to be resized to 200% with Nearest Neighbour image resampling to preserve the hard pixel edges.</p>
+<p>Developing the intro helped to get my head around how the game would work on different devices from the start. I started off with a 320px wide photoshop document when I was creating a look and feel for the game, figuring out the mobile look and size first. The reason behind this is the game could get complex so its easier to add than take away from the intended design. There were many cases of developing prototypes and designing at the same time, to ensure it looked great across all devices. With such a simple graphical style, it&#39;s a little easier to add filler for wider screen formats. Supporting Retina devices couldn’t be easier with this, as all the original sprites just needed to be resized to 200% with Nearest Neighbour image resampling to preserve the hard pixel edges.</p>
 
-<figure><img src="/img/blog/adventures-in-game-dev/post1-b.jpg" alt="Positioning elements" /></figure>
+<figure><img src="/img/blog/adventures-in-game-dev/post1-b.jpg" alt="Positioning elements"></figure>
 
 <p>The game is still in the early stages, with the intro 90% complete, and the game area coming along nicely in both design and development. All the levels, weather parameters and portal positions are all managed through settings in a JSON file, which makes it easier to manage and update when needed. Levels are designed in Photoshop using tiles fitting to a 40px x 40px grid, which are then positioned in the game converting the JSON data into CSS positions.</p>
 
-<figure><img src="/img/blog/adventures-in-game-dev/post1-a.jpg" alt="Positioning elements" /></figure>
+<figure><img src="/img/blog/adventures-in-game-dev/post1-a.jpg" alt="Positioning elements"></figure>
 
 <p>The portals have been the biggest Javascript headache so far. There were a number of cases where the character would enter the portal and then not reappear through the next, showing no Javascript errors. Exiting the portal seemed to work differently on Chrome and Safari at times too; the current fix is to give Chrome a slight delay when the level reloads to fix the error.  This seems to be simply due to differences in rendering engines across different browsers.</p>
 
@@ -89,11 +89,9 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 
 	</div>
 
-	<div class="entry-meta">
-		<p class="entry-date"><time>Posted on 18 Dec 2013</time></p>
-		<!-- simonkinslow -->
-
-	</div>
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date"><time>Posted on 18 Dec 2013</time></div>
+		<!-- skinslow -->
 		
 			
 		
@@ -103,6 +101,8 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 		
 			
 		
+			
+				
 			
 		
 			
@@ -130,12 +130,14 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 			
 		
 		<div class="media entry-author">
-			<img src="/img/authors/" alt="Picture of " class="media-img">
+			<img src="http://0.0.0.0:8000/img/authors/skinslow.jpg" alt="Picture of Simon Kinslow" class="media-img entry-author-img">
 			<div class="media-body">
-				<h3 class="author-name"><a href="http://twitter.com/"></a></h3>
-				<p class="author-desc"></p>
+				<h3 class="author-name"><a href="http://twitter.com/kinslowdian">Simon Kinslow</a></h3>
+				<p class="author-desc">Simon is a Designer at TMW and a developer wannabe. He is currently learning the ropes with JavaScript and responsive CSS by coding up an old skool bitmap game.</p>
 			</div>
 		</div>
+
+	</div>
 
 	
 		<div id="disqus_thread"></div>
@@ -179,10 +181,10 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 <div class="pagination clearfix">
 	<div class="container">
 		
-			<a href="/2013/12/really-good-hyperlinks" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - Really Good Hyperlinks #1 - Dec 11th</a>
+			<a href="http://0.0.0.0:8000/2013/12/really-good-hyperlinks" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - Really Good Hyperlinks #1 - Dec 11th</a>
 		
 		
-			<a href="/2013/12/structuring-team-development" class="pagination-item pagination-newer">Next post - Structuring team development<span class="icon-arrow-right-small"></span></a>
+			<a href="http://0.0.0.0:8000/2013/12/structuring-team-development" class="pagination-item pagination-newer">Next post - Structuring team development<span class="icon-arrow-right-small"></span></a>
 		
 	</div>
 </div>

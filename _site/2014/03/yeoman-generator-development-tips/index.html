@@ -67,76 +67,72 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 		<h1 class="entry-title entry-title--single">Yeoman Generator Development Tips</h1>
 		<p>Yeoman generators are a powerful tool for developers, they enable us to get up and running with projects extremely quickly. I created a generator for our Kickoff framework and came across a few things that I thought others would benefit from; hopefully this post will shed some light for others creating their own generators.</p>
 
-<p>The Kickoff Yeoman generator is a simple way to ‘kickoff’ your project even more quickly than before. It simply asks a few questions, modifies some files, adds the results to the ouputted files and installs some npm and bower dependencies.</p>
+<p>The Kickoff Yeoman generator is a simple way to &#39;kickoff&#39; your project even more quickly than before. It simply asks a few questions, modifies some files, adds the results to the ouputted files and installs some npm and bower dependencies.</p>
 
-<h3 id="escaping-underscore-template-variables">Escaping Underscore template variables</h3>
+<h3>Escaping Underscore template variables</h3>
+
 <p>Use double percent signs to escape Underscore template variables, like this: <code>&lt;%%= someVar %&gt;</code> instead of <code>&lt;%= someVar %&gt;</code> and you should be sorted. I had this issue in the Gruntfile where there are quite a few of these tags, see <a href="https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/templates/_Gruntfile.js#L53">here</a>. Credit for this goes to a helpful comment on <a href="https://github.com/yeoman/generator-generator/issues/45#issuecomment-31031268">Github</a>.</p>
 
-<h3 id="run-grunt-or-another-command-after-yeoman-builds">Run Grunt (or another command) after Yeoman builds</h3>
+<h3>Run Grunt (or another command) after Yeoman builds</h3>
+
 <p>The Kickoff generator runs a Grunt task immediately after it has finished compiling and installing everything, I was able to do this by running the <code>spawnCommand</code> method in the <code>dependenciesInstalled</code> callback, like this:</p>
-
-<pre><code>// Now you can bind to the dependencies installed event
-this.on('dependenciesInstalled', function () {
-	if (this.jsLibs === 'jquery') { this.spawnCommand('grunt', ['jquery']); }
-	this.spawnCommand('grunt', ['serve']);
-});
-</code></pre>
-
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Now you can bind to the dependencies installed event
+</span><span class="k">this</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'dependenciesInstalled'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">jsLibs</span> <span class="o">===</span> <span class="s1">'jquery'</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">spawnCommand</span><span class="p">(</span><span class="s1">'grunt'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'jquery'</span><span class="p">]);</span> <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">spawnCommand</span><span class="p">(</span><span class="s1">'grunt'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'serve'</span><span class="p">]);</span>
+<span class="p">});</span>
+</code></pre></div>
 <p>See this in our actual <a href="https://github.com/tmwagency/generator-kickoff/blob/c2aab72ad4a15186b646505817152732a8c9f4b2/app/index.js#L24">index.js</a></p>
 
-<h3 id="how-to-log-a-coloured-message-with-yeoman">How to log a coloured message with Yeoman</h3>
+<h3>How to log a coloured message with Yeoman</h3>
+
 <p>To colourise your text, you can use the same colour module as used by the generator system, called Chalk.</p>
 
 <p>First install it: <code>npm install --save chalk</code></p>
 
 <p>Then <a href="https://github.com/tmwagency/generator-kickoff/blob/master/app/index.js#L5">require it</a>:</p>
-
-<pre><code>var chalk = require('chalk');
-</code></pre>
-
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">chalk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'chalk'</span><span class="p">);</span>
+</code></pre></div>
 <p>Then <a href="https://github.com/tmwagency/generator-kickoff/blob/master/app/index.js#L35">use it</a>:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">chalk</span><span class="p">.</span><span class="nx">bold</span><span class="p">.</span><span class="nx">yellow</span><span class="p">(</span><span class="s1">'message'</span><span class="p">));</span>
+</code></pre></div>
+<figure><img src="/img/blog/yeoman-tips/chalk.png" alt="Chalk colours in the Kickoff Yeoman generator"></figure>
 
-<pre><code>console.log(chalk.bold.yellow('message'));
-</code></pre>
+<p>If you would like to know more about different prompt/question styles, see the <a href="https://github.com/SBoudrias/Inquirer.js">Inquirer.js docs</a>. Kickoff&#39;s can be found <a href="https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80">here</a>.</p>
 
-<figure><img src="/img/blog/yeoman-tips/chalk.png" alt="Chalk colours in the Kickoff Yeoman generator" /></figure>
+<h3>Conditional statements in your generator</h3>
 
-<p>If you would like to know more about different prompt/question styles, see the <a href="https://github.com/SBoudrias/Inquirer.js">Inquirer.js docs</a>. Kickoff’s can be found <a href="https://github.com/tmwagency/generator-kickoff/blob/3982752d18f4b83870ed9e7b38c4d9c39e41efa6/app/index.js#L38-L80">here</a>.</p>
+<p>As you can see above, our generator asks if you&#39;d like to include jQuery in the project, if the user does, the relevant &#39;jQuery Builder&#39; Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, then a post generator task is also run to build the library.</p>
 
-<h3 id="conditional-statements-in-your-generator">Conditional statements in your generator</h3>
-<p>As you can see above, our generator asks if you’d like to include jQuery in the project, if the user does, the relevant ‘jQuery Builder’ Grunt plugin configs are added to the package.json and the Gruntfile before being installed with npm, then a post generator task is also run to build the library.</p>
+<p>Some simple conditionals were needed in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag but need to be wrapped with raw tags. Here&#39;s an example from our package.json:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="o">&lt;%</span> <span class="k">if</span> <span class="p">(</span><span class="nx">jsLibs</span> <span class="o">==</span> <span class="s2">"jquery"</span><span class="p">)</span> <span class="p">{</span> <span class="o">%&gt;</span><span class="p">,</span><span class="s2">"grunt-jquery-builder"</span><span class="err">:</span> <span class="s2">"~0.1.1"</span><span class="o">&lt;%</span> <span class="p">}</span> <span class="o">%&gt;</span>
 
-<p>Some simple conditionals were needed in the Gruntfile, package.json and the index.js, but I found setting up these conditionals a little tricky. They are basically standard javascript if statements wrapped in an underscore template tag but need to be wrapped with raw tags. Here’s an example from our package.json:</p>
+<span class="cm">/* or */</span>
 
-<pre><code>&lt;% if (jsLibs == "jquery") {%&gt;,"grunt-jquery-builder": "~0.1.1"&lt;% } %&gt;{% endraw %}
+<span class="o">&lt;%</span> <span class="k">if</span> <span class="p">(</span><span class="nx">jsLibs</span> <span class="o">==</span> <span class="s1">'jquery'</span><span class="p">)</span> <span class="p">{</span> <span class="o">%&gt;</span><span class="p">,</span><span class="s2">"jquery"</span><span class="err">:</span> <span class="kc">true</span><span class="o">&lt;%</span> <span class="p">}</span> <span class="o">%&gt;</span>
+</code></pre></div>
+<p>Notice the preceeding comma before the conditional&#39;s content.</p>
 
-/* or */
+<p>JSON syntax is very strict, if a comma isn&#39;t there, or is in the wrong place, it will throw an error and npm will not install the dependencies, that is why I included the preceeding comma within the conditional. It might seem obvious but this logic needs to be self-contained and the surrounding code needs to be unaware of it, if it does not exist.</p>
 
-{% raw %}&lt;% if (jsLibs == 'jquery') {%&gt;,"jquery": true&lt;% } %&gt;{% endraw %}
-</code></pre>
+<h2>Try the Kickoff generator</h2>
 
-<p>Notice the preceeding comma before the conditional’s content.</p>
-
-<p>JSON syntax is very strict, if a comma isn’t there, or is in the wrong place, it will throw an error and npm will not install the dependencies, that is why I included the preceeding comma within the conditional. It might seem obvious but this logic needs to be self-contained and the surrounding code needs to be unaware of it, if it does not exist.</p>
-
-<h2 id="try-the-kickoff-generator">Try the Kickoff generator</h2>
 <p>To install <a href="https://www.npmjs.org/package/generator-kickoff">our generator</a>, run: <code>npm install -g generator-kickoff</code> and then run <code>yo kickoff</code> to use it.</p>
 
-<p>Please leave a comment below if you have any other tips, we’re always keen to find out more.</p>
+<p>Please leave a comment below if you have any other tips, we&#39;re always keen to find out more.</p>
 
-<h3 id="useful-links">Useful links</h3>
+<h3>Useful links</h3>
+
 <ul>
-  <li><a href="http://yeoman.io">The Yeoman project</a></li>
-  <li>To find out about writing your own Yeoman generators, have a look at <a href="http://yeoman.io/generators.html#writing-your-first-generator">yeoman.io/generators.html</a>.</li>
+<li><a href="http://yeoman.io">The Yeoman project</a></li>
+<li>To find out about writing your own Yeoman generators, have a look at <a href="http://yeoman.io/generators.html#writing-your-first-generator">yeoman.io/generators.html</a>.</li>
 </ul>
 
 	</div>
 
-	<div class="entry-meta">
-		<p class="entry-date"><time>Posted on 28 Mar 2014</time></p>
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date"><time>Posted on 28 Mar 2014</time></div>
 		<!-- zander -->
-
-	</div>
 		
 			
 				
@@ -175,12 +171,14 @@ this.on('dependenciesInstalled', function () {
 			
 		
 		<div class="media entry-author">
-			<img src="/img/authors/zmartineau.jpg" alt="Picture of Zander Martineau" class="media-img">
+			<img src="http://0.0.0.0:8000/img/authors/zmartineau.jpg" alt="Picture of Zander Martineau" class="media-img entry-author-img">
 			<div class="media-body">
 				<h3 class="author-name"><a href="http://twitter.com/mrmartineau">Zander Martineau</a></h3>
 				<p class="author-desc">Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.</p>
 			</div>
 		</div>
+
+	</div>
 
 	
 		<div id="disqus_thread"></div>
@@ -224,7 +222,7 @@ this.on('dependenciesInstalled', function () {
 <div class="pagination clearfix">
 	<div class="container">
 		
-			<a href="/2014/03/the-future-of-umbraco" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - The Future of Umbraco</a>
+			<a href="http://0.0.0.0:8000/2014/03/the-future-of-umbraco" class="pagination-item pagination-older"><span class="icon-arrow-left-small"></span>Previous post - The Future of Umbraco</a>
 		
 		
 	</div>
