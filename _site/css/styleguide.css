@@ -227,7 +227,7 @@ body {
   font-size: 22px;
   font-size: 1rem;
   line-height: 1.4;
-  color: #777777;
+  color: #555555;
 }
 
 /*
@@ -248,7 +248,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-rendering: optimizelegibility;
-  color: #666677;
+  color: #52525F;
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-weight: normal;
@@ -1138,8 +1138,8 @@ pre,
 .gist-meta {
   padding: 0 3px 2px;
   font-family: "source-code-pro", Menlo, Monaco, "Courier New", monospace;
-  font-size: 13px;
-  font-size: 0.59090909rem;
+  font-size: 18px;
+  font-size: 0.81818182rem;
   -moz-tab-size: 3;
   tab-size: 3;
 }
@@ -1159,9 +1159,6 @@ pre {
   background-color: white;
   white-space: pre;
   margin-top: 31px;
-  margin-bottom: 31px;
-}
-pre.prettyprint {
   margin-bottom: 31px;
 }
 pre code {
@@ -2631,14 +2628,14 @@ body {
 }
 
 .color-text {
-  color: #777777;
+  color: #555555;
 }
 .color-text.bg {
-  background-color: #777777;
+  background-color: #555555;
   color: #fff;
 }
 .color-text.bg:after {
-  content: "#777777";
+  content: "#555555";
 }
 
 .color-background {
@@ -2728,5 +2725,4 @@ h1.typeSpecimen:after {
 p.typeSpecimen:after {
   content: 'Font stack: "franklin-gothic-urw", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif';
 }
-
 /*# sourceMappingURL=styleguide.css.map */

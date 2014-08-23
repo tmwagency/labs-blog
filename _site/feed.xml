@@ -7,6 +7,92 @@
 		<atom:link href="http://tech.tmw.co.uk/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>trak.js - Tracking event nirvana</title>
+				<description></description>
+				<pubDate>Wed, 27 Aug 2014 00:00:00 +0100</pubDate>
+				<link>http://tech.tmw.co.uk/2014/08/trakjs-universal-analytics-api</link>
+				
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2014/08/trakjs-universal-analytics-api</guid>
+			</item>
+		
+			<item>
+				<title>The road to Kickoff version 4</title>
+				<description>&lt;p&gt;The upcoming release of Kickoff, version 4, has been in development for the past few months. As well as fixing a number of bugs, we have improved both the Sass and the JavaScript structure of the framework, removing a fair bit of old and unnecessary code.&lt;/p&gt;
+
+&lt;p&gt;Our focus with this release was to help make the framework more intuitive and more powerful. While we realise that Kickoff is probably not meant for beginners, it should still be easy to navigate and get to grips with.&lt;/p&gt;
+
+&lt;p&gt;As with all previous releases, we see this version of Kickoff as a starting point; designed to be easily modified dependant on the use-case.  It is built to help you start projects quickly.  If a framework gets in the way of your development, then it ceases to be useful.&lt;/p&gt;
+
+&lt;h2&gt;Getting started with Kickoff&lt;/h2&gt;
+
+&lt;p&gt;We know that it isn’t always obvious where to start when beginning to use a new framework.  That is why we have created the getting started page.&lt;/p&gt;
+
+&lt;p&gt;Once you have cloned/downloaded Kickoff &amp;amp; installed the npm dependencies, running &lt;code&gt;grunt start&lt;/code&gt; from your terminal will open a new page in your browser explaining where to start when developing with Kickoff.&lt;/p&gt;
+
+&lt;p&gt;It shows how one should edit the Sass variables &amp;amp; update the colour palette. To see an example of it, head to &lt;a href=&quot;http://tmwagency.github.io/kickoff/docs/index.html&quot;&gt;http://tmwagency.github.io/kickoff/docs/index.html&lt;/a&gt; (FIXME: get correct link).&lt;/p&gt;
+
+&lt;h2&gt;CSS overview&lt;/h2&gt;
+
+&lt;p&gt;One of the main areas we wanted to simplify in version 4 of Kickoff was the grids.We realised that the splits and shunts were not being used, so they have been removed. They will still be a part of the &lt;a href=&quot;https://github.com/mrmartineau/Choreographic-Grid&quot;&gt;Choreographic Grid&lt;/a&gt;, which is still being maintained by me, and can be easily dropped-in to replace the new grid system should you still want to use those features.&lt;/p&gt;
+
+&lt;p&gt;As &lt;a href=&quot;https://github.com/nDmitry/grunt-autoprefixer&quot;&gt;Autoprefixer&lt;/a&gt; is now the standard in Kickoff (which means we no longer have to have mixins for vendor prefixes), we have added a Sass warning when you use a mixin that could be handled by Autoprefixer.&lt;/p&gt;
+
+&lt;p&gt;Sass variables have changed quite a lot as well. For example &lt;code&gt;$base-font-size&lt;/code&gt; is now &lt;code&gt;$font-size-base&lt;/code&gt; and &lt;code&gt;$base-font-family&lt;/code&gt; is now &lt;code&gt;$font-family-base&lt;/code&gt;. This then matches the CSS property needed when using the variable, e.g. &lt;code&gt;font-family: $font-family-base&lt;/code&gt;. It might seem like a small or needless change but we feel it is important when using the framework, day-in &amp;amp; day-out, that the naming conventions become more intuitive. It is now easier to remember the order of the words in the variable name as it reflects the native CSS property name.&lt;/p&gt;
+
+&lt;h2&gt;Javascript&lt;/h2&gt;
+
+&lt;p&gt;We have simplified the JavaScript base files and made it easier than ever to modify its structure. We have removed most of the helpers, instead opting to use &lt;a href=&quot;https://github.com/nicbell/Shimly&quot;&gt;Shimly&lt;/a&gt; or &lt;a href=&quot;http://bower.io&quot;&gt;Bower&lt;/a&gt; to pull in dependencies.&lt;/p&gt;
+
+&lt;p&gt;We have also created a &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/browserify&quot;&gt;new branch&lt;/a&gt; to be maintained with support for Browserify – more details on that below.&lt;/p&gt;
+
+&lt;h3&gt;Bower&lt;/h3&gt;
+
+&lt;p&gt;We have started using Bower more and more and feel that this is the best way to manage javascript dependencies. It means that these separate items can be updated independently of the main Kickoff framework. Three libraries have been included by default, these are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tmwagency/swiftclick&quot;&gt;Swiftclick&lt;/a&gt; - Developed by our own Ivan Hayes, SwiftClick is a library created to eliminate the 300ms click event delay on touch devices.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tmwagency/trak.js&quot;&gt;Trak.js&lt;/a&gt; - Developed by our own Zander Martineau, trak.js is a universal analytics event tracking API&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ScottHamper/Cookies/&quot;&gt;Cookies&lt;/a&gt; - Developed by Scott Hamper, Cookies is a great Cookie manipulation library&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Browserify&lt;/h3&gt;
+
+&lt;p&gt;We thought hard about converting the framework over to use Browserify as default in Kickoff.  It is something we use on the majority of our projects at TMW and we feel it adds a lot of value to the way we structure our JavaScript.&lt;/p&gt;
+
+&lt;p&gt;However, after playing around with integrating it, we felt that using Browserify should be kept as an optional addition to Kickoff – especially inkeeping with our design direction of keeping Kickoff as dependency–free and minimal as we can.&lt;/p&gt;
+
+&lt;p&gt;Instead, we will be maintaining a separate branch of Kickoff which includes a base setup of Browserify.  This will be documented on the Kickoff docs site and be otherwise identical to the master branch of Kickoff.&lt;/p&gt;
+
+&lt;p&gt;If you’d like to find out more, the branch can be found at &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/browserify&quot;&gt;github.com/tmwagency/kickoff/tree/browserify&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Grunt&lt;/h2&gt;
+
+&lt;p&gt;The grunt build tasks have changed quite dramatically, but again to make it more intuitive when editing them.&lt;/p&gt;
+
+&lt;p&gt;Each group of tasks have been extracted into their own separate file. For example, &lt;code&gt;config/css.js&lt;/code&gt; contains all the grunt tasks relating to CSS: Sass, Autoprefixer &amp;amp; CSSO. The &lt;code&gt;config/javascript.js&lt;/code&gt; file contains the uglify (for concatenating and minfying js), shimly (for generating a javascript shims file), jshint, jscs and jQuery (for generating a custom jQuery build).&lt;/p&gt;
+
+&lt;p&gt;We feel having these tasks now separate makes it far easier to maintain your Grunt setup than having all of the configuration stored in one mammoth Gruntfile.&lt;/p&gt;
+
+&lt;h2&gt;Yeoman generator&lt;/h2&gt;
+
+&lt;p&gt;The Yeoman generator will be updated to reflect all these changes, plus there will be an option to use Browserify as well. Ideally, this generator should be the only way to install Kickoff in the future.&lt;/p&gt;
+
+&lt;h3&gt;Take it for a spin now&lt;/h3&gt;
+
+&lt;p&gt;What are you waiting for?! Grab a copy of Kickoff v4 and let us what you think or browse the codebase in the &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/next&quot;&gt;next&lt;/a&gt; branch.&lt;/p&gt;
+
+&lt;p&gt;We would love any and all feedback you have, so please leave a comment here or &lt;a href=&quot;https://github.com/tmwagency/kickoff/issues/new&quot;&gt;file an issue&lt;/a&gt; on Github.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;git clone https://github.com/tmwagency/kickoff.git -b next ‘kickoff-next’
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+				<pubDate>Mon, 25 Aug 2014 00:00:00 +0100</pubDate>
+				<link>http://tech.tmw.co.uk/2014/08/the-road-to-kickoff-version-4</link>
+				
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2014/08/the-road-to-kickoff-version-4</guid>
+			</item>
+		
+			<item>
 				<title>Yeoman Generator Development Tips</title>
 				<description>&lt;p&gt;Yeoman generators are a powerful tool for developers, they enable us to get up and running with projects extremely quickly. I created a generator for our Kickoff framework and came across a few things that I thought others would benefit from; hopefully this post will shed some light for others creating their own generators.&lt;/p&gt;
 
@@ -502,102 +588,6 @@ Some peaks over breakfast and lunch&lt;/p&gt;
 				
 				<username>@</username>
 				<guid isPermaLink="true">http://tech.tmw.co.uk//2013/12/structuring-team-development</guid>
-			</item>
-		
-			<item>
-				<title>A designers adventures in game development: part 1</title>
-				<description>&lt;p&gt;Over the years I&amp;#39;ve had an interest in programming starting with Flash, a few years ago though I made the seemingly &lt;a href=&quot;http://www.apple.com/hotnews/thoughts-on-flash/&quot;&gt;obvious choice&lt;/a&gt; to start moving on from Actionscript to focus on Javascript. I find that the best way to learn is by doing, so since the start of the summer I started creating a little responsive HTML and Javascript game. This and subsequent posts will document my process.&lt;/p&gt;
-
-&lt;p&gt;It&amp;#39;s working title is &lt;strong&gt;‘Bitmap Adventure’&lt;/strong&gt; with the story revolving around a huge villain, in the form of a block-like Monkey, kidnapping a Goat’s child. Rescuing the child and defeating the villain is your main challenge.&lt;/p&gt;
-
-&lt;p&gt;The battle system uses Paper, Scissors, Stone (otherwise known as Janken). The visualisation of these battles uses some some basic pixel animation with cute, simple versions of the warriors. To introduce players to the battle system I decided to feature a battle in the intro itself, where you attempt to battle the villain straight away, but with battle inexperience so early on in the game you’ll lose; its all part of the intro. I’m still working on how a levelling / experience feature will work within the game.&lt;/p&gt;
-
-&lt;p&gt;Developing the intro helped to get my head around how the game would work on different devices from the start. I started off with a 320px wide photoshop document when I was creating a look and feel for the game, figuring out the mobile look and size first. The reason behind this is the game could get complex so its easier to add than take away from the intended design. There were many cases of developing prototypes and designing at the same time, to ensure it looked great across all devices. With such a simple graphical style, it&amp;#39;s a little easier to add filler for wider screen formats. Supporting Retina devices couldn’t be easier with this, as all the original sprites just needed to be resized to 200% with Nearest Neighbour image resampling to preserve the hard pixel edges.&lt;/p&gt;
-
-&lt;figure&gt;&lt;img src=&quot;/img/blog/adventures-in-game-dev/post1-b.jpg&quot; alt=&quot;Positioning elements&quot;&gt;&lt;/figure&gt;
-
-&lt;p&gt;The game is still in the early stages, with the intro 90% complete, and the game area coming along nicely in both design and development. All the levels, weather parameters and portal positions are all managed through settings in a JSON file, which makes it easier to manage and update when needed. Levels are designed in Photoshop using tiles fitting to a 40px x 40px grid, which are then positioned in the game converting the JSON data into CSS positions.&lt;/p&gt;
-
-&lt;figure&gt;&lt;img src=&quot;/img/blog/adventures-in-game-dev/post1-a.jpg&quot; alt=&quot;Positioning elements&quot;&gt;&lt;/figure&gt;
-
-&lt;p&gt;The portals have been the biggest Javascript headache so far. There were a number of cases where the character would enter the portal and then not reappear through the next, showing no Javascript errors. Exiting the portal seemed to work differently on Chrome and Safari at times too; the current fix is to give Chrome a slight delay when the level reloads to fix the error.  This seems to be simply due to differences in rendering engines across different browsers.&lt;/p&gt;
-
-&lt;p&gt;With Javascript being more strict than Actionscript, I’m finding that I have to change my coding approach to solve certain problems; its all part of learning. Of course I could have built this in Flash, but I wanted the game to work on mobile devices and writing it in JavaScript helps me learn a new language.&lt;/p&gt;
-
-&lt;p&gt;You can see a prototype of the intro and entering the game area at &lt;a href=&quot;http://simonkinslow.com/_2013/bitmap_prototype/part1/&quot;&gt;simonkinslow.com/_2013/bitmap_prototype/part1/&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;small&gt;Note: On touch devices use the weird black crab to control the character. On desktop use the arrow keys, and ideally use Chrome or Safari.&lt;/small&gt;&lt;/p&gt;
-</description>
-				<pubDate>Wed, 18 Dec 2013 09:00:00 +0000</pubDate>
-				<link>http://tech.tmw.co.uk/2013/12/adventures-in-game-development</link>
-				
-				<username>@</username>
-				<guid isPermaLink="true">http://tech.tmw.co.uk//2013/12/adventures-in-game-development</guid>
-			</item>
-		
-			<item>
-				<title>Really Good Hyperlinks #1 - Dec 11th</title>
-				<description>&lt;p&gt;Welcome to the first of a regular weekly labs@tmw post, that we&amp;#39;ve inventively called &amp;#39;Really Good Hyperlinks&amp;#39;, where we attempt to filter out some of the finest links we&amp;#39;ve seen over the past week on the web.&lt;/p&gt;
-
-&lt;p&gt;So without further ado, let&amp;#39;s get started:&lt;/p&gt;
-
-&lt;h2&gt;Demos&lt;/h2&gt;
-
-&lt;h3&gt;&lt;a href=&quot;http://aerotwist.com/lab/poly-maker/&quot;&gt;PolyMaker&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Hot on the heels of redesigning his website, &lt;a href=&quot;https://twitter.com/aerotwist&quot;&gt;Paul Lewis&lt;/a&gt; has released this great canvas demo in which the user can generate their very own 3D shape by plotting 4 points on the screen.&lt;/p&gt;
-
-&lt;h3&gt;&lt;a href=&quot;http://roboboogie.codeclub.org.uk/&quot;&gt;Robo-boogie&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Practice your dance moves before hitting the town with this demo from &lt;a href=&quot;https://www.codeclub.org.uk/&quot;&gt;Code Club&lt;/a&gt;, with which you can alter the angle and speed of animations performed by a dancing robot.&lt;/p&gt;
-
-&lt;h3&gt;&lt;a href=&quot;http://david.li/waves/&quot;&gt;Waves&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;A nice calming 3D wave demo to help reduce those Tuesday stresses.  Created using WebGL.&lt;/p&gt;
-
-&lt;h2&gt;Articles&lt;/h2&gt;
-
-&lt;h3&gt;&lt;a href=&quot;http://rupl.github.io/unfold/&quot;&gt;Unfolding the Box Model&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;A really awesome interactive guide to CSS 3D transforms, by &lt;a href=&quot;https://twitter.com/rupl&quot;&gt;Chris Ruppel&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3&gt;&lt;a href=&quot;http://oak.is/thinking/animated-svgs/&quot;&gt;Animated SVGs: custom easing and timing&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Ever wanted to animate a chart without the overhead of adding a large JS library to your site?  Well this post, by &lt;a href=&quot;https://twitter.com/mfortress&quot;&gt;Mike Fortress&lt;/a&gt;, takes us through exactly how to do so using animated SVGs.&lt;/p&gt;
-
-&lt;h3&gt;&lt;a href=&quot;https://medium.com/design-ux/bea05243fe3&quot;&gt;Understanding Easing&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;An overview of easing in animations by &lt;a href=&quot;https://twitter.com/SureshVSelvaraj&quot;&gt;Suresh V. Selvaraj&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3&gt;&lt;a href=&quot;http://martineau.tv/blog/2013/12/more-efficient-grunt-workflows/&quot;&gt;More efficient Grunt workflows&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Some essential Grunt.js tips from our very own &lt;a href=&quot;http://twitter.com/MrMartineau&quot;&gt;Zander Martineau&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2&gt;Sites and services&lt;/h2&gt;
-
-&lt;h3&gt;&lt;a href=&quot;http://import.io/&quot;&gt;Import.io&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;A free service that helps turn any website into an API, allowing streaming or RESTful queries. This could be useful when used in combination with technologies like NodeJS.&lt;/p&gt;
-
-&lt;h3&gt;&lt;a href=&quot;http://robindavey.co.uk/&quot;&gt;RobinDavey.co.uk&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Ever on the lookout for quirky animations, Robin Davey&amp;#39;s site, showing some of his work, has some beautiful examples.  Good creative inspiration.&lt;/p&gt;
-
-&lt;h2&gt;TMW links worth mentioning&lt;/h2&gt;
-
-&lt;h3&gt;&lt;a href=&quot;http://www.free-ride.co.uk/&quot;&gt;Free Ride&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;A little hack-project we&amp;#39;ve been running at TMW, in which we track a bike around London by hooking it up with a GPRS tracker, and then leaving it on the streets to see where it goes.  We&amp;#39;ll be doing a write-up on the tech behind the project shortly.&lt;/p&gt;
-
-&lt;h3&gt;&lt;a href=&quot;http://lynxafrica18.tumblr.com/&quot;&gt;Lynx Africa Tumblr&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;To celebrate the 18th birthday for Lynx Africa, we asked 18 artists and musicians to produce work for a responsive Tumblr blog.&lt;/p&gt;
-</description>
-				<pubDate>Wed, 11 Dec 2013 09:00:00 +0000</pubDate>
-				<link>http://tech.tmw.co.uk/2013/12/really-good-hyperlinks</link>
-				
-				<username>@</username>
-				<guid isPermaLink="true">http://tech.tmw.co.uk//2013/12/really-good-hyperlinks</guid>
 			</item>
 		
 	</channel>
