@@ -7,7 +7,7 @@ categories:
 - kickoff
 
 author: zander
-excerpt: If you're creating a Yeoman generator, these tips may be of use.
+excerpt: What's in store for the next release of Kickoff
 ---
 The upcoming release of Kickoff, version 4, has been in development for the past few months. As well as fixing a number of bugs, we have improved both the Sass and the JavaScript structure of the framework, removing a fair bit of old and unnecessary code.
 
@@ -26,14 +26,12 @@ It shows how one should edit the Sass variables & update the colour palette. To 
 
 One of the main areas we wanted to simplify in version 4 of Kickoff was the grids.We realised that the splits and shunts were not being used, so they have been removed. They will still be a part of the [Choreographic Grid](https://github.com/mrmartineau/Choreographic-Grid), which is still being maintained by me, and can be easily dropped-in to replace the new grid system should you still want to use those features.
 
-As **Autoprefixer** is now the standard in Kickoff, we have added a Sass warning when you use a mixin that could be handled by Autoprefixer.
+As [Autoprefixer](https://github.com/nDmitry/grunt-autoprefixer) is now the standard in Kickoff (which means we no longer have to have mixins for vendor prefixes), we have added a Sass warning when you use a mixin that could be handled by Autoprefixer.
 
 Sass variables have changed quite a lot as well. For example `$base-font-size` is now `$font-size-base` and `$base-font-family` is now `$font-family-base`. This then matches the CSS property needed when using the variable, e.g. `font-family: $font-family-base`. It might seem like a small or needless change but we feel it is important when using the framework, day-in & day-out, that the naming conventions become more intuitive. It is now easier to remember the order of the words in the variable name as it reflects the native CSS property name.
 
 ## Javascript
-We have simplified the JavaScript base files and made it easier than ever to modify its structure.
-
-We have removed most of the helpers, instead opting to use [Shimly](https://github.com/nicbell/Shimly) or bower to pull in dependencies.
+We have simplified the JavaScript base files and made it easier than ever to modify its structure. We have removed most of the helpers, instead opting to use [Shimly](https://github.com/nicbell/Shimly) or [Bower](http://bower.io) to pull in dependencies.
 
 We have also created a [new branch](https://github.com/tmwagency/kickoff/tree/browserify) to be maintained with support for Browserify – more details on that below.
 
