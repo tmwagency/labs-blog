@@ -95,16 +95,6 @@
   postcount: 0
   github: rkruger
 
-- name: George Bardis
-  short_name: gbardis
-  display_name: George Bardis
-  short_desc: George is a Creative Technologist and is also Greek.
-  avatar: gbardis.jpg
-  email: gbardis@tmw.co.uk
-  web: http://bardis.info
-  github: bardius
-  postcount: 0
-
 - name: Matt Basson
   short_name: mbasson
   short_desc: .Net Developer
