@@ -66,4 +66,4 @@ Wildcards can be used to specify certain options like the page title or url.
 
 
 ## More information
-More information and the full documentation can be found at our repository on [Github](https://github.com/tmwagency/trak.js). Options can be overridden; debugging can be toggled; and most importantly, other analytics APIs can be included.
+More information and the full documentation can be found at our repository on [Github](https://github.com/tmwagency/trak.js). Also, options can be overridden; there's a debug mode; and most importantly, almost any other analytics APIs can be used.
