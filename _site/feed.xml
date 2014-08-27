@@ -7,16 +7,6 @@
 		<atom:link href="http://tech.tmw.co.uk/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>trak.js - Tracking event nirvana</title>
-				<description></description>
-				<pubDate>Wed, 27 Aug 2014 00:00:00 +0100</pubDate>
-				<link>http://tech.tmw.co.uk/2014/08/trakjs-universal-analytics-api</link>
-				
-				<username>@</username>
-				<guid isPermaLink="true">http://tech.tmw.co.uk//2014/08/trakjs-universal-analytics-api</guid>
-			</item>
-		
-			<item>
 				<title>The road to Kickoff version 4</title>
 				<description>&lt;p&gt;The upcoming release of Kickoff, version 4, has been in development for the past few months. As well as fixing a number of bugs, we have improved both the Sass and the JavaScript structure of the framework, removing a fair bit of old and unnecessary code.&lt;/p&gt;
 
@@ -588,6 +578,37 @@ Some peaks over breakfast and lunch&lt;/p&gt;
 				
 				<username>@</username>
 				<guid isPermaLink="true">http://tech.tmw.co.uk//2013/12/structuring-team-development</guid>
+			</item>
+		
+			<item>
+				<title>A designers adventures in game development: part 1</title>
+				<description>&lt;p&gt;Over the years I&amp;#39;ve had an interest in programming starting with Flash, a few years ago though I made the seemingly &lt;a href=&quot;http://www.apple.com/hotnews/thoughts-on-flash/&quot;&gt;obvious choice&lt;/a&gt; to start moving on from Actionscript to focus on Javascript. I find that the best way to learn is by doing, so since the start of the summer I started creating a little responsive HTML and Javascript game. This and subsequent posts will document my process.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s working title is &lt;strong&gt;‘Bitmap Adventure’&lt;/strong&gt; with the story revolving around a huge villain, in the form of a block-like Monkey, kidnapping a Goat’s child. Rescuing the child and defeating the villain is your main challenge.&lt;/p&gt;
+
+&lt;p&gt;The battle system uses Paper, Scissors, Stone (otherwise known as Janken). The visualisation of these battles uses some some basic pixel animation with cute, simple versions of the warriors. To introduce players to the battle system I decided to feature a battle in the intro itself, where you attempt to battle the villain straight away, but with battle inexperience so early on in the game you’ll lose; its all part of the intro. I’m still working on how a levelling / experience feature will work within the game.&lt;/p&gt;
+
+&lt;p&gt;Developing the intro helped to get my head around how the game would work on different devices from the start. I started off with a 320px wide photoshop document when I was creating a look and feel for the game, figuring out the mobile look and size first. The reason behind this is the game could get complex so its easier to add than take away from the intended design. There were many cases of developing prototypes and designing at the same time, to ensure it looked great across all devices. With such a simple graphical style, it&amp;#39;s a little easier to add filler for wider screen formats. Supporting Retina devices couldn’t be easier with this, as all the original sprites just needed to be resized to 200% with Nearest Neighbour image resampling to preserve the hard pixel edges.&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src=&quot;/img/blog/adventures-in-game-dev/post1-b.jpg&quot; alt=&quot;Positioning elements&quot;&gt;&lt;/figure&gt;
+
+&lt;p&gt;The game is still in the early stages, with the intro 90% complete, and the game area coming along nicely in both design and development. All the levels, weather parameters and portal positions are all managed through settings in a JSON file, which makes it easier to manage and update when needed. Levels are designed in Photoshop using tiles fitting to a 40px x 40px grid, which are then positioned in the game converting the JSON data into CSS positions.&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src=&quot;/img/blog/adventures-in-game-dev/post1-a.jpg&quot; alt=&quot;Positioning elements&quot;&gt;&lt;/figure&gt;
+
+&lt;p&gt;The portals have been the biggest Javascript headache so far. There were a number of cases where the character would enter the portal and then not reappear through the next, showing no Javascript errors. Exiting the portal seemed to work differently on Chrome and Safari at times too; the current fix is to give Chrome a slight delay when the level reloads to fix the error.  This seems to be simply due to differences in rendering engines across different browsers.&lt;/p&gt;
+
+&lt;p&gt;With Javascript being more strict than Actionscript, I’m finding that I have to change my coding approach to solve certain problems; its all part of learning. Of course I could have built this in Flash, but I wanted the game to work on mobile devices and writing it in JavaScript helps me learn a new language.&lt;/p&gt;
+
+&lt;p&gt;You can see a prototype of the intro and entering the game area at &lt;a href=&quot;http://simonkinslow.com/_2013/bitmap_prototype/part1/&quot;&gt;simonkinslow.com/_2013/bitmap_prototype/part1/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;Note: On touch devices use the weird black crab to control the character. On desktop use the arrow keys, and ideally use Chrome or Safari.&lt;/small&gt;&lt;/p&gt;
+</description>
+				<pubDate>Wed, 18 Dec 2013 09:00:00 +0000</pubDate>
+				<link>http://tech.tmw.co.uk/2013/12/adventures-in-game-development</link>
+				
+				<username>@</username>
+				<guid isPermaLink="true">http://tech.tmw.co.uk//2013/12/adventures-in-game-development</guid>
 			</item>
 		
 	</channel>
