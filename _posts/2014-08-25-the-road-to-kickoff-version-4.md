@@ -18,22 +18,18 @@ As with all previous releases, we see this version of Kickoff as a starting poin
 ## Getting started with Kickoff
 We know that it isn’t always obvious where to start when beginning to use a new framework.  That is why we have created the getting started page.
 
-Once you have cloned/downloaded Kickoff & installed the npm dependencies, running `grunt start` from your terminal will open a new page in your browser explaining where to start when developing with Kickoff.
-
-It shows how one should edit the Sass variables & update the colour palette. To see an example of it, head to http://tmwagency.github.io/kickoff/docs/index.html (FIXME: get correct link).
+Once you have cloned/downloaded Kickoff & installed the npm dependencies, running `grunt start` from your terminal will open a new page in your browser explaining where to start when developing with Kickoff. It shows how one should edit the Sass variables & update the colour palette.
 
 ## CSS overview
 
 One of the main areas we wanted to simplify in version 4 of Kickoff was the grids.We realised that the splits and shunts were not being used, so they have been removed. They will still be a part of the [Choreographic Grid](https://github.com/mrmartineau/Choreographic-Grid), which is still being maintained by me, and can be easily dropped-in to replace the new grid system should you still want to use those features.
 
-As [Autoprefixer](https://github.com/nDmitry/grunt-autoprefixer) is now the standard in Kickoff (which means we no longer have to have mixins for vendor prefixes), we have added a Sass warning when you use a mixin that could be handled by Autoprefixer.
+As [Autoprefixer](https://github.com/nDmitry/grunt-autoprefixer) is now the standard in Kickoff (which means we no longer have to worry about writing vendor-prefixed code), we have added a Sass warning when you use a mixin that could be handled by Autoprefixer.
 
 Sass variables have changed quite a lot as well. For example `$base-font-size` is now `$font-size-base` and `$base-font-family` is now `$font-family-base`. This then matches the CSS property needed when using the variable, e.g. `font-family: $font-family-base`. It might seem like a small or needless change but we feel it is important when using the framework, day-in & day-out, that the naming conventions become more intuitive. It is now easier to remember the order of the words in the variable name as it reflects the native CSS property name.
 
 ## Javascript
 We have simplified the JavaScript base files and made it easier than ever to modify its structure. We have removed most of the helpers, instead opting to use [Shimly](https://github.com/nicbell/Shimly) or [Bower](http://bower.io) to pull in dependencies.
-
-We have also created a [new branch](https://github.com/tmwagency/kickoff/tree/browserify) to be maintained with support for Browserify – more details on that below.
 
 ### Bower
 We have started using Bower more and more and feel that this is the best way to manage javascript dependencies. It means that these separate items can be updated independently of the main Kickoff framework. Three libraries have been included by default, these are:
@@ -54,7 +50,7 @@ If you’d like to find out more, the branch can be found at [github.com/tmwagen
 ## Grunt
 The grunt build tasks have changed quite dramatically, but again to make it more intuitive when editing them.
 
-Each group of tasks have been extracted into their own separate file. For example, `config/css.js` contains all the grunt tasks relating to CSS: Sass, Autoprefixer & CSSO. The `config/javascript.js` file contains the uglify (for concatenating and minfying js), shimly (for generating a javascript shims file), jshint, jscs and jQuery (for generating a custom jQuery build).
+Each group of tasks have been extracted into their own separate file. For example, `config/css.js` contains all the grunt tasks relating to CSS: Sass, Autoprefixer & CSSO. The `config/javascript.js` file contains the uglify (for concatenating and minfying js), shimly (for generating a javascript shims file), jshint and jQuery (for generating a custom jQuery build).
 
 We feel having these tasks now separate makes it far easier to maintain your Grunt setup than having all of the configuration stored in one mammoth Gruntfile.
 

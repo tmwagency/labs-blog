@@ -75,23 +75,19 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 
 <p>We know that it isn’t always obvious where to start when beginning to use a new framework.  That is why we have created the getting started page.</p>
 
-<p>Once you have cloned/downloaded Kickoff &amp; installed the npm dependencies, running <code>grunt start</code> from your terminal will open a new page in your browser explaining where to start when developing with Kickoff.</p>
-
-<p>It shows how one should edit the Sass variables &amp; update the colour palette. To see an example of it, head to <a href="http://tmwagency.github.io/kickoff/docs/index.html">http://tmwagency.github.io/kickoff/docs/index.html</a> (FIXME: get correct link).</p>
+<p>Once you have cloned/downloaded Kickoff &amp; installed the npm dependencies, running <code>grunt start</code> from your terminal will open a new page in your browser explaining where to start when developing with Kickoff. It shows how one should edit the Sass variables &amp; update the colour palette.</p>
 
 <h2>CSS overview</h2>
 
 <p>One of the main areas we wanted to simplify in version 4 of Kickoff was the grids.We realised that the splits and shunts were not being used, so they have been removed. They will still be a part of the <a href="https://github.com/mrmartineau/Choreographic-Grid">Choreographic Grid</a>, which is still being maintained by me, and can be easily dropped-in to replace the new grid system should you still want to use those features.</p>
 
-<p>As <a href="https://github.com/nDmitry/grunt-autoprefixer">Autoprefixer</a> is now the standard in Kickoff (which means we no longer have to have mixins for vendor prefixes), we have added a Sass warning when you use a mixin that could be handled by Autoprefixer.</p>
+<p>As <a href="https://github.com/nDmitry/grunt-autoprefixer">Autoprefixer</a> is now the standard in Kickoff (which means we no longer have to worry about writing vendor-prefixed code), we have added a Sass warning when you use a mixin that could be handled by Autoprefixer.</p>
 
 <p>Sass variables have changed quite a lot as well. For example <code>$base-font-size</code> is now <code>$font-size-base</code> and <code>$base-font-family</code> is now <code>$font-family-base</code>. This then matches the CSS property needed when using the variable, e.g. <code>font-family: $font-family-base</code>. It might seem like a small or needless change but we feel it is important when using the framework, day-in &amp; day-out, that the naming conventions become more intuitive. It is now easier to remember the order of the words in the variable name as it reflects the native CSS property name.</p>
 
 <h2>Javascript</h2>
 
 <p>We have simplified the JavaScript base files and made it easier than ever to modify its structure. We have removed most of the helpers, instead opting to use <a href="https://github.com/nicbell/Shimly">Shimly</a> or <a href="http://bower.io">Bower</a> to pull in dependencies.</p>
-
-<p>We have also created a <a href="https://github.com/tmwagency/kickoff/tree/browserify">new branch</a> to be maintained with support for Browserify – more details on that below.</p>
 
 <h3>Bower</h3>
 
@@ -117,7 +113,7 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 
 <p>The grunt build tasks have changed quite dramatically, but again to make it more intuitive when editing them.</p>
 
-<p>Each group of tasks have been extracted into their own separate file. For example, <code>config/css.js</code> contains all the grunt tasks relating to CSS: Sass, Autoprefixer &amp; CSSO. The <code>config/javascript.js</code> file contains the uglify (for concatenating and minfying js), shimly (for generating a javascript shims file), jshint, jscs and jQuery (for generating a custom jQuery build).</p>
+<p>Each group of tasks have been extracted into their own separate file. For example, <code>config/css.js</code> contains all the grunt tasks relating to CSS: Sass, Autoprefixer &amp; CSSO. The <code>config/javascript.js</code> file contains the uglify (for concatenating and minfying js), shimly (for generating a javascript shims file), jshint and jQuery (for generating a custom jQuery build).</p>
 
 <p>We feel having these tasks now separate makes it far easier to maintain your Grunt setup than having all of the configuration stored in one mammoth Gruntfile.</p>
 

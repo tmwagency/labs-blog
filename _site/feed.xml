@@ -18,23 +18,19 @@
 
 &lt;p&gt;We know that it isn’t always obvious where to start when beginning to use a new framework.  That is why we have created the getting started page.&lt;/p&gt;
 
-&lt;p&gt;Once you have cloned/downloaded Kickoff &amp;amp; installed the npm dependencies, running &lt;code&gt;grunt start&lt;/code&gt; from your terminal will open a new page in your browser explaining where to start when developing with Kickoff.&lt;/p&gt;
-
-&lt;p&gt;It shows how one should edit the Sass variables &amp;amp; update the colour palette. To see an example of it, head to &lt;a href=&quot;http://tmwagency.github.io/kickoff/docs/index.html&quot;&gt;http://tmwagency.github.io/kickoff/docs/index.html&lt;/a&gt; (FIXME: get correct link).&lt;/p&gt;
+&lt;p&gt;Once you have cloned/downloaded Kickoff &amp;amp; installed the npm dependencies, running &lt;code&gt;grunt start&lt;/code&gt; from your terminal will open a new page in your browser explaining where to start when developing with Kickoff. It shows how one should edit the Sass variables &amp;amp; update the colour palette.&lt;/p&gt;
 
 &lt;h2&gt;CSS overview&lt;/h2&gt;
 
 &lt;p&gt;One of the main areas we wanted to simplify in version 4 of Kickoff was the grids.We realised that the splits and shunts were not being used, so they have been removed. They will still be a part of the &lt;a href=&quot;https://github.com/mrmartineau/Choreographic-Grid&quot;&gt;Choreographic Grid&lt;/a&gt;, which is still being maintained by me, and can be easily dropped-in to replace the new grid system should you still want to use those features.&lt;/p&gt;
 
-&lt;p&gt;As &lt;a href=&quot;https://github.com/nDmitry/grunt-autoprefixer&quot;&gt;Autoprefixer&lt;/a&gt; is now the standard in Kickoff (which means we no longer have to have mixins for vendor prefixes), we have added a Sass warning when you use a mixin that could be handled by Autoprefixer.&lt;/p&gt;
+&lt;p&gt;As &lt;a href=&quot;https://github.com/nDmitry/grunt-autoprefixer&quot;&gt;Autoprefixer&lt;/a&gt; is now the standard in Kickoff (which means we no longer have to worry about writing vendor-prefixed code), we have added a Sass warning when you use a mixin that could be handled by Autoprefixer.&lt;/p&gt;
 
 &lt;p&gt;Sass variables have changed quite a lot as well. For example &lt;code&gt;$base-font-size&lt;/code&gt; is now &lt;code&gt;$font-size-base&lt;/code&gt; and &lt;code&gt;$base-font-family&lt;/code&gt; is now &lt;code&gt;$font-family-base&lt;/code&gt;. This then matches the CSS property needed when using the variable, e.g. &lt;code&gt;font-family: $font-family-base&lt;/code&gt;. It might seem like a small or needless change but we feel it is important when using the framework, day-in &amp;amp; day-out, that the naming conventions become more intuitive. It is now easier to remember the order of the words in the variable name as it reflects the native CSS property name.&lt;/p&gt;
 
 &lt;h2&gt;Javascript&lt;/h2&gt;
 
 &lt;p&gt;We have simplified the JavaScript base files and made it easier than ever to modify its structure. We have removed most of the helpers, instead opting to use &lt;a href=&quot;https://github.com/nicbell/Shimly&quot;&gt;Shimly&lt;/a&gt; or &lt;a href=&quot;http://bower.io&quot;&gt;Bower&lt;/a&gt; to pull in dependencies.&lt;/p&gt;
-
-&lt;p&gt;We have also created a &lt;a href=&quot;https://github.com/tmwagency/kickoff/tree/browserify&quot;&gt;new branch&lt;/a&gt; to be maintained with support for Browserify – more details on that below.&lt;/p&gt;
 
 &lt;h3&gt;Bower&lt;/h3&gt;
 
@@ -60,7 +56,7 @@
 
 &lt;p&gt;The grunt build tasks have changed quite dramatically, but again to make it more intuitive when editing them.&lt;/p&gt;
 
-&lt;p&gt;Each group of tasks have been extracted into their own separate file. For example, &lt;code&gt;config/css.js&lt;/code&gt; contains all the grunt tasks relating to CSS: Sass, Autoprefixer &amp;amp; CSSO. The &lt;code&gt;config/javascript.js&lt;/code&gt; file contains the uglify (for concatenating and minfying js), shimly (for generating a javascript shims file), jshint, jscs and jQuery (for generating a custom jQuery build).&lt;/p&gt;
+&lt;p&gt;Each group of tasks have been extracted into their own separate file. For example, &lt;code&gt;config/css.js&lt;/code&gt; contains all the grunt tasks relating to CSS: Sass, Autoprefixer &amp;amp; CSSO. The &lt;code&gt;config/javascript.js&lt;/code&gt; file contains the uglify (for concatenating and minfying js), shimly (for generating a javascript shims file), jshint and jQuery (for generating a custom jQuery build).&lt;/p&gt;
 
 &lt;p&gt;We feel having these tasks now separate makes it far easier to maintain your Grunt setup than having all of the configuration stored in one mammoth Gruntfile.&lt;/p&gt;
 
