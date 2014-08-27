@@ -19,7 +19,6 @@ pageid: news
 
 	<div class="entry-meta entry-meta--post">
 		<div class="entry-date"><time>Posted on {{ page.date | date: "%d %h %Y" }}</time></div>
-		<!-- {{ page.author }} -->
 		{% for item in site.data.team %}
 			{% if item.short_name == page.author %}
 				{% assign author = item %}
