@@ -5,7 +5,7 @@ highlighter: rouge
 permalink: /:year/:month/:title
 # permalink: pretty
 include: ['.htaccess']
-exclude: ['node_modules', 'scss', 'Gruntfile.js', 'package.json', '*.sublime-project', '*.sublime-workspace', 'LICENSE', 'teamcity']
+exclude: ['node_modules', 'scss', 'Gruntfile.js', 'package.json', '*.sublime-project', '*.sublime-workspace', 'LICENSE', 'teamcity', '*.psd']
 timezone: Europe/London
 future: false
 
