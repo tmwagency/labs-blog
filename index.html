@@ -33,7 +33,7 @@ pageid: home
 <div class="pagination">
 	<div class="container">
 		{% if paginator.next_page %}
-			<a href="{{ paginator.next_page_path }}" class="pagination-older"><span class="icon-arrow-left-small"></span>Older</a>
+			<a href="{{ paginator.next_page_path }}" class="pagination-item pagination-item--older"><span class="icon-arrow-left-small"></span>Older</a>
 		{% endif %}
 
 		{% if paginator.previous_page and paginator.next_page %}
@@ -41,7 +41,7 @@ pageid: home
 		{% endif %}
 
 		{% if paginator.previous_page %}
-			<a href="{{ paginator.previous_page_path }}" class="pagination-newer icon-arrow-right-small">Newer<span class="icon-arrow-right-small"></span></a>
+			<a href="{{ paginator.previous_page_path }}" class="pagination-item pagination-item--newer icon-arrow-right-small">Newer<span class="icon-arrow-right-small"></span></a>
 		{% endif %}
 
 	</div>

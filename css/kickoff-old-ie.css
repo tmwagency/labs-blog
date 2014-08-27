@@ -2349,14 +2349,14 @@ body {
 }
 
 .pagination {
-  background-color: #303333;
   color: #fff;
   position: relative;
   overflow: hidden;
+  background-color: #303333;
 }
 
 .pagination-item {
-  width: 50%;
+  width: 49%;
   display: block;
   float: left;
   padding: 3em 50px;
@@ -2371,7 +2371,7 @@ body {
 }
 
 .pagination-item--newer {
-  border-left: 2px solid #f1f1f1;
+  float: right;
 }
 
 .tmwBrand, .tmwBrand:link, .tmwBrand:visited {
