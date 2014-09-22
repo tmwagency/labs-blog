@@ -1,15 +1,12 @@
 ---
 comments: true
 layout: post
-title: "Yeoman Generator Development Tips"
-categories:
-- grunt
-- yeoman
-- kickoff
+title: Yeoman Generator Development Tips
+excerpt: "If you're creating a Yeoman generator, these tips may be of use."
 
 author: zander
-excerpt: If you're creating a Yeoman generator, these tips may be of use.
 ---
+
 Yeoman generators are a powerful tool for developers, they enable us to get up and running with projects extremely quickly. I created a generator for our Kickoff framework and came across a few things that I thought others would benefit from; hopefully this post will shed some light for others creating their own generators.
 
 The Kickoff Yeoman generator is a simple way to 'kickoff' your project even more quickly than before. It simply asks a few questions, modifies some files, adds the results to the ouputted files and installs some npm and bower dependencies.
