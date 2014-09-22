@@ -8,11 +8,15 @@ pageid: home
 	<h1 class="sectionTitle">News</h1>
 
 	{% for post in paginator.posts %}
-		{% for member in site.data.team %}
-			{% if member.short_name == post.author %}
-				{% assign author = member %}
-			{% endif %}
-		{% endfor %}
+		{% if post.contributor != null %}
+			{% assign author = post.contributor %}
+		{% else %}
+			{% for member in site.data.team %}
+				{% if member.short_name == post.author %}
+					{% assign author = member %}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
 		<article class="entry entry--multiple clearfix">
 			<div class="col-a">
 				<h1 class="entry-title entry-title--entries"><a href="{{ post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h1>

@@ -19,13 +19,17 @@ pageid: news
 
 	<div class="entry-meta entry-meta--post">
 		<div class="entry-date"><time>Posted on {{ page.date | date: "%d %h %Y" }}</time></div>
-		{% for item in site.data.team %}
-			{% if item.short_name == page.author %}
-				{% assign author = item %}
-			{% endif %}
-		{% endfor %}
+		{% if page.contributor != null %}
+			{% assign author = page.contributor %}
+		{% else %}
+			{% for item in site.data.team %}
+				{% if item.short_name == page.author %}
+					{% assign author = item %}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
 		<div class="media entry-author">
-			<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.name }}" class="media-img entry-author-img">
+			{% if page.contributor == null %}<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.name }}" class="media-img entry-author-img">{% endif %}
 			<div class="media-body">
 				<h3 class="entry-author-name"><a href="http://twitter.com/{{ author.twitter }}">{{ author.name }}</a></h3>
 				<p class="entry-author-desc">{{ author.short_desc }}</p>
