@@ -1,0 +1,98 @@
+---
+layout: default
+pageid: code
+---
+
+<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">code</h1>
+
+	{% if page.featuredImage %}
+		<figure class="featuredImage">
+			<img src="{{ page.featuredImage }}" alt="{{ page.title }}">
+		</figure>
+	{% endif %}
+
+
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">{{ page.title }}</h1>
+
+	<div class="links">
+		{% if page.github_url != null %}
+			<a href="{{ page.github_url }}" class="links-item">Code</a>
+		{% endif %}
+		{% if page.demo != null %}
+			<a href="{{ page.demo }}" class="links-item">Demo</a>
+		{% endif %}
+		{% if page.issues != null %}
+			<a href="{{ page.issues }}" class="links-item">Issues</a>
+		{% endif %}
+		{% if page.article != null %}
+			<a href="{{ page.article }}" class="links-item">Article</a>
+		{% endif %}
+		{% if page.info != null %}
+			<a href="{{ page.info }}" class="links-item">Info</a>
+		{% endif %}
+		{% if page.npm != null %}
+			<a href="{{ page.npm }}" class="links-item">NPM</a>
+		{% endif %}
+	</div>
+
+		{{ content }}
+	</div>
+
+
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date">Maintained by</div>
+		<p class="entry-maintainers l-list--floated unstyled">
+
+				{% for teammate in page.team %}
+					{% for member in site.data.team %}
+						{% if member.short_name == teammate %}
+							{% assign author = member %}
+						{% endif %}
+					{% endfor %}
+					<div class="media entry-author">
+			{% if page.contributor == null %}<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.name }}" class="media-img entry-author-img">{% endif %}
+			<div class="media-body">
+				<h3 class="entry-author-name"><a href="http://twitter.com/{{ author.twitter }}">{{ author.name }}</a></h3>
+				<p class="entry-author-desc">{{ author.short_desc }}</p>
+			</div>
+		</div>
+				{% endfor %}
+			</p>
+
+	</div>
+
+	{% if page.comments %}
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		var disqus_shortname = 'labstmw';
+
+		{% if page.comments_id %}
+			var disqus_identifier = '{{ page.comments_id }}'; // required: replace example with your forum shortname
+		{% endif %}
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	{% endif %}
+
+	<!-- {% for post in site.related_posts %}
+	  <a href="{{ post.url }}">{{post.title }}</a><br />
+	{% endfor %} -->
+</article>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		{% if page.previous %}
+			<a href="{{page.previous.url}}" class="pagination-item pagination-item--older"><b>Older post</b><br>{{ page.previous.title }}</a>
+		{% endif %}
+		{% if page.next %}
+			<a href="{{page.next.url}}" class="pagination-item pagination-item--newer"><b>Newer post</b><br>{{ page.next.title }}</a>
+		{% endif %}
+	</div>
+</div>
