@@ -3,7 +3,6 @@ layout: code
 title: Kickoff Statix
 subtitle: Kickoff Statix is a simple setup of [Assemble](http://assemble.io/), a static site generator, integrated with our minimal front-end framework, Kickoff, along with a few handy Grunt setup tasks.
 pageid: code
-maintained by:
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
 github_url: https://github.com/tmwagency/kickoff-statix
 demo: http://tmwagency.github.io/kickoff/statix/index.html
@@ -115,11 +114,6 @@ Statix uses Grunt and so if you know Grunt, you can change pretty much any aspec
 
 ## Credits
 
-Developed by [Ashley Nolan](https://github.com/AshNolan_) & [Zander Martineau](https://github.com/mrmartineau).
-
 Uses the static site generator [Assemble](https://github.com/assemble/assemble), which is developed and maintained by [Jon Schlinkert](https://github.com/jonschlinkert) and [Brian Woodward](github/doowb).
 
 If you're using Kickoff Statix we'd love to hear about it; please e-mail us at labs@tmw.co.uk
-
-[![devDependency Status](https://david-dm.org/tmwagency/kickoff/dev-status.png)](https://david-dm.org/tmwagency/kickoff#info=devDependencies) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tmwagency/kickoff/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
-

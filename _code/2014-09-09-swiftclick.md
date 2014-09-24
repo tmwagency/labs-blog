@@ -6,7 +6,7 @@ pageid: code
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
 github_url: https://github.com/tmwagency/swiftclick
 issues: https://github.com/tmwagency/swiftclick/issues
-demo: /code/swiftclick/
+demo: swiftclick
 team:
 - ihayes
 ---
@@ -90,6 +90,3 @@ Doing this will remove all default node names, as well as any that have been add
 
 ### Automatically disabled when not needed
 SwiftClick only intercepts events for touch devices that support orientation change, otherwise it just sits there looking pretty.
-
-## About the Project
-SwiftClick was developed and is currently maintained by [Ivan Hayes](https://twitter.com/munkychop).

@@ -3,10 +3,8 @@ layout: code
 title: Adaptive Images
 subtitle: Responsive Image Method that allows you to specify different images for different breakpoints (and resolutions).
 pageid: code
-maintained by:
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
 github_url: https://github.com/tmwagency/adaptive-image
-demo:
 issues: https://github.com/tmwagency/adaptive-image/issues
 team:
 - ashnolan
@@ -65,6 +63,3 @@ The function is passed 2 values – the first should be your document `window` o
 ####.loadImage(_element_)
 
 Loads an image dependent on the screen size.  Passed the DOM reference of the image to be loaded as `element`.
-
-## Author
-[Ashley Nolan](https://github.com/ashleynolan) – [@AshNolan_](http://www.twitter.com/AshNolan_)
