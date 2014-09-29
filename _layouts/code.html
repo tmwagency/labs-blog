@@ -1,10 +1,10 @@
 ---
 layout: default
-pageid: news
+pageid: code
 ---
 
 <article class="content-inner entry entry--single" role="main">
-	<h1 class="sectionTitle">news</h1>
+	<h1 class="sectionTitle">code</h1>
 
 	{% if page.featuredImage %}
 		<figure class="featuredImage">
@@ -12,29 +12,54 @@ pageid: news
 		</figure>
 	{% endif %}
 
+
 	<div class="entry-content">
 		<h1 class="entry-title entry-title--single">{{ page.title }}</h1>
+
+	<div class="links">
+		{% if page.github_url != null %}
+			<a href="{{ page.github_url }}" class="links-item">Code</a>
+		{% endif %}
+		{% if page.demo != null %}
+			<a href="{{ page.demo }}" class="links-item">Demo</a>
+		{% endif %}
+		{% if page.issues != null %}
+			<a href="{{ page.issues }}" class="links-item">Issues</a>
+		{% endif %}
+		{% if page.article != null %}
+			<a href="{{ page.article }}" class="links-item">Article</a>
+		{% endif %}
+		{% if page.info != null %}
+			<a href="{{ page.info }}" class="links-item">Info</a>
+		{% endif %}
+		{% if page.npm != null %}
+			<a href="{{ page.npm }}" class="links-item">NPM</a>
+		{% endif %}
+	</div>
+
 		{{ content }}
 	</div>
 
+
 	<div class="entry-meta entry-meta--post">
-		<div class="entry-date"><time>Posted on {{ page.date | date: "%d %h %Y" }}</time></div>
-		{% if page.contributor != null %}
-			{% assign author = page.contributor %}
-		{% else %}
-			{% for item in site.data.team %}
-				{% if item.short_name == page.author %}
-					{% assign author = item %}
-				{% endif %}
-			{% endfor %}
-		{% endif %}
-		<div class="media entry-author">
+		<div class="entry-date">Maintained by</div>
+		<p class="entry-maintainers l-list--floated unstyled">
+
+				{% for teammate in page.team %}
+					{% for member in site.data.team %}
+						{% if member.short_name == teammate %}
+							{% assign author = member %}
+						{% endif %}
+					{% endfor %}
+					<div class="media entry-author">
 			{% if page.contributor == null %}<img src="/img/authors/{{ author.avatar }}" alt="Picture of {{ author.name }}" class="media-img entry-author-img">{% endif %}
 			<div class="media-body">
 				<h3 class="entry-author-name"><a href="http://twitter.com/{{ author.twitter }}">{{ author.name }}</a></h3>
 				<p class="entry-author-desc">{{ author.short_desc }}</p>
 			</div>
 		</div>
+				{% endfor %}
+			</p>
 
 	</div>
 

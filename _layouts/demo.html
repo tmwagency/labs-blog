@@ -1,0 +1,23 @@
+---
+layout: default
+pageid: demo
+---
+
+<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">demo</h1>
+
+	{% if page.featuredImage %}
+		<figure class="featuredImage">
+			<img src="{{ page.featuredImage }}" alt="{{ page.title }}">
+		</figure>
+	{% endif %}
+
+
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">{{ page.title }}</h1>
+
+		<a href="{{ page.backlink }}">Back to documentation</a>
+
+		{{ content }}
+	</div>
+</article>

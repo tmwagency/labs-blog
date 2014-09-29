@@ -10,7 +10,10 @@ categories:
   - "Dot Net"
   - "Cloud"
 
-author: tim
+contributor:
+  name: Tim Coppinger
+  twitter: MilitantPenguin
+  short_desc: ".Net Developer, avid snowboarder and nerf gun owner."
 excerpt: "The Umbraco CMS team are adding another string to the bow of their CMS. Tim has a quick look to see what's in store."
 published: true
 ---
