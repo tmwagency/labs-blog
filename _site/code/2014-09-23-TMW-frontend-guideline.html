@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Front-End Dev guidelines - labs@tmw</title>
+		<meta name="description" content="labs@tmw - where TMW talks Tech">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script>var pageName = 'code';</script>
+
+		<script>
+			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			grunticon(["/img/icons/icons.data.svg.css", "/img/icons/icons.data.png.css", "/img/icons/icons.fallback.css"]);
+		</script>
+		<noscript><link href="/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+
+		<!-- <script type="text/javascript" src="/js/libs/modernizr.min.js"></script> -->
+
+		<!-- Mobile & Fav Icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/favicons/lbtmw-144.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/favicons/lbtmw-114.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/favicons/lbtmw-72.png">
+		<link rel="apple-touch-icon-precomposed" href="/img/favicons/lbtmw-57.png">
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-title" content="labs@tmw">
+
+		<link rel="alternate" type="application/atom+xml" title="labs@tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+	</head>
+	<body>
+
+<div class="sidebar">
+	<header class="masthead">
+	<h1 class="logo"><a href="/">tech<span class="dot">.</span><span class="tmwBrand">tmw</span></a></h1>
+	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank" class="tmwBrand"><strong>tmw</strong></a> tech team</p>
+
+	<nav class="nav">
+		<a href="/" class="nav-item">News</a>
+		<a href="/code" class="nav-item is-active">Code</a>
+		<a href="/team" class="nav-item">Team</a>
+		<a href="/work" class="nav-item">Work</a>
+	</nav>
+</header>
+
+
+	<footer class="footer" role="contentinfo">
+	<div class="socialLinks">
+		<a href="http://github.com/tmwagency/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-github"></span>@tmwagency</a>
+		<a href="http://twitter.com/tmwTechTeam/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-twitter"></span>@tmwTechTeam</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-kickoff"></span>We also maintain Kickoff</a>
+		<a href="http://eepurl.com/KaKbv" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-subscribe"></span>Subscribe by Email</a>
+	</div>
+</footer>
+
+</div>
+
+<div class="content">
+	<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">code</h1>
+
+	
+
+
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">Front-End Dev guidelines</h1>
+
+	<div class="links">
+		
+			<a href="https://github.com/tmwagency/TMW-frontend-guidelines" class="links-item">Code</a>
+		
+		
+		
+		
+		
+		
+	</div>
+
+		<h2>Overview</h2>
+
+<p>This document details the guidelines and standards adhered to by the Creative Technology department at TMW, and all web applications built
+should take these into consideration.  It is an evolving document and should be reviewed as and when required to keep up with changes in
+technology and best practice.</p>
+
+<p>These guidelines have been compiled looking at various previously written guidelines - credit goes to <a href="http://na.isobar.com/standards">Isobar</a>
+and <a href="https://github.com/csswizardry/CSS-Guidelines/blob/master/CSS%20Guidelines.md">CSS Wizardry</a> both of which have been used as foundations
+to build upon for this document, and in some sections been directly quoted.</p>
+
+<h2>Contents</h2>
+
+<ol>
+<li><a href="#section-intro">General Guidelines</a>
+
+<ol>
+<li><a href="#section-intro-indentation">Indentation</a></li>
+<li><a href="#section-intro-readability">Readability vs Compression</a></li>
+</ol></li>
+<li><a href="#section-browsersupport">Browser Support</a></li>
+<li><a href="#section-frameworks">Base Templates and frameworks</a></li>
+<li><a href="#section-markup">Markup</a>
+
+<ol>
+<li><a href="#section-markup-html5">HTML5</a></li>
+<li><a href="#section-markup-general">General Markup Guidelines</a></li>
+<li><a href="#section-markup-attributes">Quoting Attributes</a></li>
+<li><a href="#section-markup-encoding">Character Encoding</a></li>
+<li><a href="#section-markup-accessibility">Accessibility</a></li>
+</ol></li>
+<li><a href="#section-css">CSS</a>
+
+<ol>
+<li><a href="#section-css-general">General CSS Principles</a></li>
+<li><a href="#section-css-formatting">Syntax and formatting</a></li>
+<li><a href="#section-css-indenting">Indenting</a></li>
+<li><a href="#section-css-ocss">OOCSS</a></li>
+<li><a href="#section-css-typography">Typography</a></li>
+<li><a href="#section-css-reset">Reset vs Normalisation</a></li>
+<li><a href="#section-css-comments">Comments</a></li>
+<li><a href="#section-css-specificity">Specificity, IDs and classes</a></li>
+<li><a href="#section-css-conditionalstylesheets">Conditional Stylesheets</a></li>
+<li><a href="#section-css-important">!important</a></li>
+<li><a href="#section-css-magicnumbers">Magic Numbers and absolutes</a></li>
+<li><a href="#section-css-images">Images</a></li>
+<li><a href="#section-css-debugging">Debugging</a></li>
+<li><a href="#section-css-preprocessors">Preprocessors</a></li>
+<li><a href="#section-css-rwd">Responsive Design</a></li>
+<li><a href="#section-css-tools">Tools</a></li>
+</ol></li>
+<li><a href="#section-sass">Sass</a>
+
+<ol>
+<li><a href="#section-sass-general">General Sass Principles</a></li>
+<li><a href="#section-sass-nesting">Nesting</a></li>
+<li><a href="#section-sass-extend">@extend</a></li>
+<li><a href="#section-sass-mobilefirst">Mobile First</a></li>
+</ol></li>
+<li><a href="#section-js">JavaScript</a>
+
+<ol>
+<li><a href="#section-js-general">General JavaScript Principles</a></li>
+<li><a href="#section-js-formatting">Formatting and code sensibility</a></li>
+<li><a href="#section-js-libraries">Libraries</a></li>
+<li><a href="#section-js-plugins">Plugins</a></li>
+<li><a href="#section-js-dependencies">Dependency Management</a></li>
+<li><a href="#section-js-jquery">jQuery Best Practices</a></li>
+<li><a href="#section-js-debugging">Debugging</a></li>
+<li><a href="#section-js-resources">Resources</a></li>
+</ol></li>
+<li><a href="#section-accessibility">Accessibility</a></li>
+<li><a href="#section-performance">Performance and Optimisation</a></li>
+</ol>
+
+<hr>
+
+<h1><a name="section-intro"></a> General Guidelines</h1>
+
+<ul>
+<li>All front-end code should display clear separation of presentation, content, and behaviour.</li>
+<li>Markup should be well formed, semantically correct and generally valid.</li>
+<li>JavaScript should progressively enhance the experience
+
+<ul>
+<li>Use feature detection rather than browser sniffing (edge cases such as performance are acceptable)</li>
+</ul></li>
+<li>Gracefully degrade functionality when not present (e.g GPS, box-shadow, forms etc).</li>
+</ul>
+
+<h2><a name="section-intro-indentation"></a> Indentation</h2>
+
+<p>For all languages, indent your code with tabs.  The default tab size should be set as 4.</p>
+
+<h2><a name="section-intro-readability"></a> Readability vs Compression</h2>
+
+<p>We encourage readability over file-size when it comes to maintaining existing files. Plenty of white-space is encouraged, along with ASCII art, where appropriate. There is no need for any developer to purposefully compress HTML or CSS, nor obfuscate JavaScript.</p>
+
+<p>We will use server-side or build processes to automatically minify and gzip all static client-side files, such as CSS and JavaScript.</p>
+
+<hr>
+
+<h1><a name="section-browsersupport"></a> Browser Support</h1>
+
+<ul>
+<li>Internet Explorer 7+</li>
+<li>Firefox 3.6+</li>
+<li>Google Chrome</li>
+<li>Safari 5</li>
+<li>Opera</li>
+</ul>
+
+<hr>
+
+<h1><a name="section-frameworks"></a> Base Templates and frameworks</h1>
+
+<p>We use <a href="http://tmwagency.github.io/kickoff/">Kickoff</a>, a lightweight front-end framework
+we have put together for creating scalable, responsive sites.</p>
+
+<p>When building static templates, we use <a href="http://tmwagency.github.io/kickoff/statix/index.html">Kickoff Statix</a>, which integrates Kickoff with Assemble to make templating faster and more maintainable.</p>
+
+<p>Both Kickoff and Kickoff Statix are actively maintained by the Creative Tech team at TMW; for more information about their features, getting started and demos, see the <a href="http://tmwagency.github.io/kickoff/">Kickoff documentation site</a>.</p>
+
+<hr>
+
+<h1><a name="section-markup"></a> Markup</h1>
+
+<h2><a name="section-markup-html5"></a> HTML5</h2>
+
+<p>The HTML5 Doctype and HTML5 features will be used on projects when appropriate.</p>
+
+<p>To ensure HTML5 markup compatibility with older browsers, use either:</p>
+
+<ul>
+<li><a href="http://www.modernizr.com/">Modernizr</a> - consider bloat, use the build generator to decrease its size</li>
+<li><a href="http://code.google.com/p/html5shiv/">HTML5shiv</a> - no feature detection, simply ensures markup compatibility</li>
+</ul>
+
+<p>We will test our markup against the <a href="http://validator.w3.org/">W3C validator</a>, to ensure that the markup is well formed. 100% valid code is not a goal, but validation certainly helps to write more maintainable sites as well as debugging code. TMW does not guarantee markup is 100% valid, but instead assures the cross-browser experience is consistent.</p>
+
+<h2><a name="section-markup-general"></a> General Markup Guidelines</h2>
+
+<p>The following are general guidelines for structuring your HTML markup. Authors are reminded to always use markup which represents the semantics of the content in the document being created.</p>
+
+<ul>
+<li>Use <code>&lt;p&gt;</code> elements for paragraph delimiters as opposed to multiple <code>&lt;br /&gt;</code> tags.</li>
+<li>Items in list form should always be housed in a <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, or <code>&lt;dl&gt;</code>, never a set of <code>&lt;div&gt;</code>s or <code>&lt;p&gt;</code>s.</li>
+<li>Place an HTML comment around DIV tags that contain a larger amount of markup to indicate the element you&#39;re closing. It will help when there is a lot of nesting and indentation. For example:</li>
+</ul>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Start of .contentWrap --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"contentWrap"</span><span class="nt">&gt;</span>
+
+    //some markup goes here
+
+<span class="nt">&lt;/div&gt;</span> <span class="c">&lt;!-- End of .contentWrap --&gt;</span>
+</code></pre></div>
+<ul>
+<li>Make use of <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, and <code>&lt;th&gt;</code> tags (and <code>Scope</code> attribute) when appropriate.</li>
+<li>Make use of <code>&lt;dl&gt;</code> (definition lists) and <code>&lt;blockquote&gt;</code>, when appropriate.</li>
+<li>Use <code>&lt;label&gt;</code> fields to label each form field.  The <code>for</code> attribute should associate itself with the input field, so users can click the labels and obtain focus.</li>
+<li>Do not use the <code>size</code> attribute on your input fields. The <code>size</code> attribute is relative to the font-size of the text inside the input. Instead use CSS width.</li>
+<li>Always use title-case for headers and titles. Do not use all caps or all lowercase titles in markup, instead apply the CSS property <code>text-transform: uppercase/lowercase</code>.</li>
+<li>Use microformats and/or Microdata where appropriate, specifically <code>hCard</code> and <code>adr</code>.</li>
+</ul>
+
+<p>...and the single most important rule...</p>
+
+<ul>
+<li>Tables <strong>shouldn&#39;t ever</strong> be used for page layout.</li>
+</ul>
+
+<h2><a name="section-markup-attributes"></a> Quoting Attributes</h2>
+
+<p>While the HTML5 specification defines quotes around attributes as optional for consistency with attributes that accept whitespace, all attributes should be quoted.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"mylink.html"</span> <span class="na">title=</span><span class="s">"My Link Title"</span> <span class="na">data-attribute=</span><span class="s">"32"</span><span class="nt">&gt;</span>This is my Link<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+<h2><a name="section-markup-encoding"></a> Character Encoding</h2>
+
+<p>All markup should be delivered as UTF-8, as it&#39;s the most friendly for internationalization. It should be designated in both the HTTP header and the head of the document.</p>
+
+<p>Set the character set using <code>&lt;meta&gt;</code> tags:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+</code></pre></div>
+<h2><a name="section-markup-accessibility"></a> Accessibility</h2>
+
+<p>Consider ARIA integration for high accessibility sites.</p>
+
+<p>For our full guidelines on Accessibility, refer to the <a href="#section-accessibility">Accessibility Guidelines</a> section of this document.</p>
+
+<hr>
+
+<h1><a name="section-css"></a> CSS</h1>
+
+<h2><a name="section-css-general"></a> General CSS Principles</h2>
+
+<ul>
+<li>Every time you write inline styles in your markup, a front-end developer somewhere dies - whether it&#39;s in a style tag or directly in the markup. Don&#39;t do it.</li>
+<li>Add CSS through external files, minimizing the number of files, if possible. CSS should always be included in the <code>&lt;head&gt;</code> of the document.</li>
+<li>Use the <code>&lt;link&gt;</code> tag to include, never <code>@import</code>.</li>
+<li>Ensure markup and style stays separate (some style classes are allowed, e.g imageReplace etc).  Only use style only markup if you absolutely have to (e.g extra wrapping elements); consider <code>:before</code> and <code>:after</code> CSS pseudo-elements if styles are not 100% necessary.</li>
+</ul>
+
+<h2><a name="section-css-formatting"></a> Syntax and formatting</h2>
+
+<ul>
+<li>Use multi-line CSS declarations. This helps with version control (diff-ing single line CSS can be a nightmare). Group CSS declarations by type - keeping font related styling together, layout styling together etc - and ordered by relevance, not alphabetized.</li>
+<li>All CSS rules should have a space after the selector colon and a trailing semi-colon.</li>
+<li>Selectors should be specified using a simplified version of BEM
+
+<ul>
+<li>INSERT RULES HERE.</li>
+</ul></li>
+<li>Use shorthand when specifying multiple values.  Remember longhand can be shorter for single values.</li>
+<li>Multi-attribute selectors should go on separate lines.</li>
+<li>Don&#39;t over qualify class or ID selectors.  Leads to specificity issues further down the line.</li>
+</ul>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="o">//</span> <span class="nt">Bad</span>
+<span class="nt">div</span><span class="nc">.content</span> <span class="p">{}</span>
+
+<span class="o">//</span> <span class="nt">Good</span>
+<span class="nc">.content</span> <span class="p">{}</span>
+</code></pre></div>
+<ul>
+<li>0 requires no units</li>
+</ul>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="o">//</span> <span class="nt">Good</span>
+<span class="nc">.bar</span><span class="o">,</span>
+<span class="nc">.foo</span><span class="o">[</span><span class="nt">href</span><span class="o">=</span><span class="err">"</span><span class="nt">bar</span><span class="err">"</span><span class="o">]</span> <span class="p">{</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+    <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">bottom</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="nl">background</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">-moz-border-radius</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2><a name="section-css-indenting"></a> Indenting</h2>
+
+<p>For each level of markup nesting, indent your CSS to match.  For example:</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">nav</span> <span class="p">{}</span>
+    <span class="nt">nav</span> <span class="nt">li</span> <span class="p">{}</span>
+        <span class="nt">nav</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{}</span>
+
+<span class="nc">.content</span> <span class="p">{}</span>
+    <span class="nc">.content</span> <span class="nt">p</span> <span class="p">{}</span>
+</code></pre></div>
+<h2><a name="section-css-ocss"></a> OOCSS</h2>
+
+<p>When building components try and keep a DRY, OO frame of mind.</p>
+
+<p>Instead of building dozens of unique components, try and spot repeated design patterns and abstract them; build these skeletons as base &#39;objects&#39; and then peg classes onto these to extend their styling for more unique circumstances.</p>
+
+<p>If you have to build a new component split it into structure and skin; build the structure of the component using very generic classes so that we can reuse that construct and then use more specific classes to skin it up and add design treatments.</p>
+
+<p>Read:
+- <a href="http://csswizardry.com/2011/09/the-nav-abstraction/">The Nav Abstraction</a></p>
+
+<h2><a name="section-css-typography"></a> Typography</h2>
+
+<p>@font-face should be used for font replacement where possible - ensuring that the font can be safely used in .ttf format on the web in agreement with its licensing agreement.  Where this is an issue, look to use tools such as <a href="https://typekit.com/">TypeKit</a> or <a href="http://fontdeck.com/">Fontdeck</a></p>
+
+<p>To generate @font-face files, the <a href="http://www.fontsquirrel.com/fontface/generator">Font Squirrel font-face generator</a> should be used.</p>
+
+<p>JavaScript replacement techniques should be avoided where possible, as they are painful, time-consuming and usually inaccurate.  Flash replacement techniques (such as Sifr) should never be used.</p>
+
+<p>Always define <a href="http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/">supporting font-size classes</a>, in conjunction with headers to avoid restyling header sizes.</p>
+
+<h2><a name="section-css-reset"></a> Reset vs Normalisation</h2>
+
+<p>There is no set preference to using a reset CSS file or using a normalisation technique, as long as consistency is applied throughout projects.</p>
+
+<p>If a reset is preferred, the <a href="http://html5doctor.com/html-5-reset-stylesheet/">Eric Meyer reloaded reset</a> should be used.</p>
+
+<p>For normalisation, the excellent <a href="http://necolas.github.com/normalize.css/">normalise.css</a> should be included.</p>
+
+<p>Kickoff, which is used as a base for all of TMW‘s projects, chooses to implement normalisation by default, rather than a CSS reset.</p>
+
+<h2><a name="section-css-comments"></a> Comments</h2>
+
+<p>Comment as much as you can as often as you can. Where it might be useful, include a commented out piece of markup which can help put the current CSS into context.</p>
+
+<p>CSS will be minified before it hits live servers, so don&#39;t worry about excessive commenting bloating code - the benefits far outweigh any file-size worries.</p>
+
+<p>This is especially true for responsive layouts where percentage width/margin&#39;s have been worked out.  Always comment in the ratio so that the resulting % values mean something to the next developer viewing your CSS.  A random 6dp percentage will mean nothing to anyone else looking at your code.</p>
+
+<p>e.g.</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">width</span><span class="o">:</span> <span class="nt">34</span><span class="nc">.042553</span><span class="o">%</span> <span class="c">/* 320 / 940 */</span>
+</code></pre></div>
+<h2><a name="section-css-specificity"></a> Specificity, IDs and classes</h2>
+
+<p>CSS is designed to cascade, so make sure you understand <a href="http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html">cascading and selector specificity</a>.  It will enable you to write very terse and effective code.</p>
+
+<p>Use of IDs and classes effect specificity massively.  Only use IDs where deemed necessary, especially on larger builds.  Classes are much more modular and portable.  If you want to use an ID solely as a JavaScript hook, consider using the ID alongside a class for CSS styling.</p>
+
+<p>Name classes and IDs by the nature of <strong>what it is</strong> rather than what it looks like. A class of blueBox-left may seem relevant at the time, but should its colour or position change, it will become meaningless.  Naming in conjunction with a more OOCSS approach should eliminate this ambiguity.</p>
+
+<p><strong>Read:</strong> <a href="http://csswizardry.com/2012/07/shoot-to-kill-css-selector-intent/">Shoot to kill – CSS Selector Intent</a></p>
+
+<h2><a name="section-css-conditionalstylesheets"></a> Conditional Stylesheets</h2>
+
+<p>Stylesheets specific for Internet Explorer can, by and large, be totally avoided. The only time an IE stylesheet may be required is to circumvent blatant lack of support (e.g. media queries, PNG fixes).</p>
+
+<p>As a general rule, all layout and box-model rules can and will work without an IE stylesheet if you refactor and rework your CSS. This means we never want to see <code>&lt;!--[if IE 7]&gt; element{ margin-left:-9px; } &lt; ![endif]--&gt;</code> or other such CSS that is clearly using arbitrary styling to just &#39;make stuff work&#39;; it will hinder the maintainability of our CSS.</p>
+
+<p>When building mobile first responsive websites, it is necessary to generate a separate stylesheet for old versions of IE to ensure they aren&#39;t left with the mobile version of your website because they cannot read media queries.  This can be done using SASS and is covered in the <a href="#section-sass-mobilefirst">SASS – IE Stylesheet</a> section of this documentation.</p>
+
+<p>If IE specific styling is required, look to utilise Paul Irish&#39;s <a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/">body/html class conditional for IE* targeting</a>.</p>
+
+<h2><a name="section-css-important"></a> !important</h2>
+
+<p>It is okay to use <code>!important</code> on helper classes only. To add <code>!important</code> pre-emptively is fine, e.g. .error { color:red!important }, as you know you will always want this rule to take precedence.</p>
+
+<p>Using <code>!important</code> reactively, e.g. to get yourself out of nasty specificity situations, is not advised. Rework your CSS and try to combat these issues by refactoring your selectors. Keeping selectors short and avoiding IDs will help you out here massively.</p>
+
+<h2><a name="section-css-magicnumbers"></a> Magic numbers and absolutes</h2>
+
+<p>A magic number is a number which is used because ‘it just works’. These are bad because they rarely work for any real reason and are not usually very futureproof or flexible/forgiving. They tend to fix symptoms and not problems.</p>
+
+<p>For example, using .dropdown-nav li:hover ul { top: 37px; } to move a dropdown to the bottom of the nav on hover is bad, as 37px is a magic number. 37px only works here because in this particular scenario the .dropdown-nav happens to be 37px tall.</p>
+
+<p>Instead you should use .dropdown-nav li:hover ul { top: 100%; } which means no matter how tall the .dropdown-nav gets, the dropdown will always sit 100% from the top.</p>
+
+<p>Every time you hard code a number think twice; if you can avoid it by using keywords or ‘aliases’ (i.e. top: 100% to mean ‘all the way from the top’) or—even better—no measurements at all then you probably should.</p>
+
+<p>Every hard-coded measurement you set is a commitment you might not necessarily want to keep.</p>
+
+<h2><a name="section-css-images"></a> Images</h2>
+
+<p>Image names should use dashes and be named so that their use is clear i.e. icon-facebook-blue.png</p>
+
+<p>It is hard to advise on a one size fits all solution for images currently.  Instead there are a number of methods that should be considered and chosen from when approaching images in CSS.</p>
+
+<p>CSS sprites can be very useful for combining the number of images on your site into a single HTTP request. Sprites work in every browser, although care should be taken when including large sprites on mobile devices as memory limits can be reached when large image files are used.  <a href="http://www.spritecow.com/">Sprite Cow</a> is a great tool for generating the CSS required for positioning, as is <a href="http://spriteme.org/">SpriteMe</a> for generating a sprite out of the images used on your site.</p>
+
+<p>Alternatively, converting your images to data URI&#39;s and including them in the CSS avoids HTTP requests entirely.  This is however at the expense of older browser support, <a href="http://caniuse.com/datauri">namely Internet Explorer 7 and earlier</a>.</p>
+
+<p>At TMW, we currently use a combination of <a href="https://github.com/filamentgroup/grunticon">GruntIcon</a>, and data-uris, but this is reviewed on a project-by-project basis.</p>
+
+<h2><a name="section-css-debugging"></a> Debugging</h2>
+
+<p>If you run into a CSS problem, take code away before you start adding more in a bid to fix it. The problem will exist in the CSS that is already written, more CSS isn&#39;t necessarily the right answer!</p>
+
+<p>It can be tempting to put overflow:hidden; on something to hide the effects of a layout quirk, but overflow was probably never the problem; fix the problem, not its symptoms.</p>
+
+<h2><a name="section-css-preprocessors"></a> Preprocessors</h2>
+
+<p>Use of a preprocessor should be used on a per project basis where it is deemed necessary.</p>
+
+<p>Where a preprocessor is used, we shall use <a href="http://sass-lang.com/">Sass</a>.  Kickoff, the TMW base framework, contains a set of Sass base files that should be used.</p>
+
+<p>Be sure to know the ins-and-outs of excellent vanilla CSS and where a preprocessor can aid that, not hinder or undo it. Learn the downsides of preprocessors inside-out and then fuse the best aspects of the two with the bad bits of neither.</p>
+
+<p>For more specific guidelines on using Sass, read the <a href="#section-sass">Sass section of these guidelines</a>.</p>
+
+<h2><a name="section-css-rwd"></a> Responsive Design</h2>
+
+<p>All work is considered in a responsive, mobile first, way unless the project dictates otherwise.</p>
+
+<p>Responsive design isn&#39;t just a way of developing, it is a way of thinking that needs to flow through the entire site development process from content, UX, design and development.</p>
+
+<p>It is recommended to read Ethan Marcotte&#39;s excellent book, <a href="http://www.abookapart.com/products/responsive-web-design">Responsive Web Design</a> as well as the related <a href="http://alistapart.com/article/responsive-web-design/">A List Apart article on the subject</a>.</p>
+
+<p>It is out of the scope of this document to go through the specifics of developing responsively, but some suggested techniques that we use during development are talked about in <a href="#section-sass-mobilefirst">Sass – Mobile First</a>.</p>
+
+<h2><a name="section-css-tools"></a> Tools</h2>
+
+<ul>
+<li><a href="http://procssor.com/">Procssor</a> - formats untidy CSS into indented loveliness</li>
+</ul>
+
+<hr>
+
+<h1><a name="section-sass"></a> Sass</h1>
+
+<h2><a name="section-sass-general"></a> General Sass Principles</h2>
+
+<ul>
+<li>Be sure to know the ins-and-outs of excellent vanilla CSS and where a preprocessor can aid that, not hinder or undo it. Learn the downsides of preprocessors inside-out and then fuse the best aspects of the two with the bad bits of neither.</li>
+<li>One of the most powerful features of using a preprocessor is simply being able to separate your CSS into a number of different files that are pulled in and combined at compile time.  This makes it easier to make your code more maintainable and better structured than having all of your code in one file.</li>
+</ul>
+
+<h2><a name="section-sass-nesting"></a> Nesting</h2>
+
+<p>When nesting selectors, try not to nest more than 3 levels deep.  If you find yourself writing deeply nested selectors, it is usually a sign that you should rethink how you have structured your markup or class declarations.</p>
+
+<p>Nest only when it would actually be necessary in vanilla CSS, e.g.</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.header</span> <span class="p">{}</span>
+<span class="nc">.header</span> <span class="nc">.site-nav</span> <span class="p">{}</span>
+<span class="nc">.header</span> <span class="nc">.site-nav</span> <span class="nt">li</span> <span class="p">{}</span>
+<span class="nc">.header</span> <span class="nc">.site-nav</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{}</span>
+</code></pre></div>
+<p>Would be wholly unnecessary in normal CSS, so the following would be bad Sass:</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.header</span> <span class="p">{</span>
+    <span class="err">.site-nav</span> <span class="err">{</span>
+        <span class="err">li</span> <span class="err">{</span>
+            <span class="err">a</span> <span class="err">{</span><span class="p">}</span>
+        <span class="err">}</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+</code></pre></div>
+<p>If you were to write this in Sass, it would look more like:</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.header</span> <span class="p">{}</span>
+<span class="nc">.site-nav</span> <span class="p">{</span>
+    <span class="err">li</span> <span class="err">{</span><span class="p">}</span>
+    <span class="nt">a</span> <span class="p">{}</span>
+<span class="err">}</span>
+</code></pre></div>
+<h2><a name="section-sass-extend"></a> @extend</h2>
+
+<p>Use caution when using the @extend operator.  It can give unexpected results in the compiled CSS when used too liberally and can usually be avoided by using classes to extend styling in a more modular fashion.</p>
+
+<p>For example, rather than writing the following:</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.section-centered</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.masthead</span> <span class="p">{</span>
+    <span class="err">@extends</span> <span class="err">.section-centered;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Simply add the class to the masthead markup instead:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"masthead section-centered"</span><span class="nt">&gt;</span>
+    …
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>Doing this will help to keep your styling modular and more reusable.</p>
+
+<p>There are of course times that using @extend can be very useful, but don&#39;t use it as a defacto when sensible use of vanilla CSS would be just as simple.</p>
+
+<h2><a name="section-sass-mobilefirst"></a> Mobile first</h2>
+
+<p>In the majority of cases, sites should be built mobile first, specifiying the mobile styles as your base CSS and adding media queries to progressively enhance the experience for larger width devices and screens.</p>
+
+<p>The problem with doing this is that Internet Explorer version 8 and earlier doesn&#39;t support media queries and so ignore them and render just the mobile styles.  There is a way of solving this problem using JavaScript, but our preferred solution is to solve the problem using Sass.</p>
+
+<p><a href="http://jakearchibald.github.io/sass-ie/">Jake Archibald wrote about this solution</a> which uses Sass to generate two stylesheets – a fixed width stylesheet, which is conditionally loaded for IE8 and below, and a separate stylesheet for all other browsers.  This solution is also built into Kickoff, TMW&#39;s front-end framework.</p>
+
+<hr>
+
+<h1><a name="section-js"></a> Javascript</h1>
+
+<h2><a name="section-js-general"></a> General JavaScript Principles</h2>
+
+<ul>
+<li>99% of JavaScript should be included in external JavaScript files and included at the END of the BODY tag.  One exception to this rule is <a href="http://modernizr.com/">Modernizr</a> which should be included at the end of the <code>&lt;head&gt;</code>.</li>
+<li>Feature detect, don&#39;t browser detect.  <a href="http://modernizr.com/">Modernizr</a> is a great resource for doing this.</li>
+<li>Name variables and functions logically and in camelCase.  Sensible names that are long are preferred to short names that make no sense.</li>
+<li>Try to write functions to follow the principle that they should do one thing and do it well.  If you can see that a function is becoming more complex, abstract it out into multiple functions – it will become more readable, reusable and will make more sense to someone unfamiliar to the code.</li>
+<li>Prefix jQuery collection variables with the dollar (<code>$</code>) character e.g <code>$headerChildren</code></li>
+<li>Class declarations should start with a capital letter.</li>
+<li>Constants or configuration variables should be at the start of a class and written in CAPS.</li>
+<li>Build using the object literal pattern e.g.</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">SiteSetup</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">init</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$sections</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#container section'</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$additionalTextNodes</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'section a &gt; span'</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">createMarkup</span><span class="p">();</span>
+    <span class="p">},</span>
+    <span class="na">createMarkup</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="kd">var</span> <span class="nx">$additionalTextNodes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$sections</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+        <span class="o">&amp;</span><span class="nx">additionalTextNodes</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span>
+            <span class="na">position</span><span class="p">:</span> <span class="s1">'absolute'</span><span class="p">,</span>
+            <span class="na">top</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">-</span> <span class="nx">$sections</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">SiteSetup</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li>Structure and formatting should follow the example below:</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+
+    <span class="kd">var</span> <span class="nx">SiteSetup</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">ANIMATION_SPEED</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+
+        <span class="na">init</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="c1">//fire off all other classes
+</span>            <span class="k">if</span> <span class="p">(</span><span class="nx">LightBox</span><span class="p">.</span><span class="nx">$lightbox</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">LightBox</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">LightBox</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">$lightbox</span><span class="p">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.lightbox'</span><span class="p">),</span>
+
+        <span class="na">init</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
+        <span class="na">open</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
+        <span class="na">close</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
+    <span class="p">};</span>
+
+    <span class="nx">SiteSetup</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div>
+<ul>
+<li>Documentation should follow <a href="http://www.naturaldocs.org/documenting.html">NaturalDocs</a> structure.  As with all code, document as frequently as you can - the more detail the better.  At the very least, document each function you create.</li>
+</ul>
+
+<p>*<em>Read: *</em>
+<a href="http://net.tutsplus.com/tutorials/javascript-ajax/the-essentials-of-writing-high-quality-javascript/">The Essentials of Writing High Quality JavaScript</a></p>
+
+<h2><a name="section-js-formatting"></a> Formatting and code sensibility</h2>
+
+<ul>
+<li>Separate operators/comparators with spacing</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good
+</span><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">call</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Terrible
+</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span><span class="o">&amp;&amp;</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">&amp;&amp;</span><span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">===</span><span class="s1">'object'</span><span class="p">){</span>
+    <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">call</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Use braces for logic evaluations.  If evaluation execution is simple, keep non-braced logic on a single line e.g:</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good
+</span><span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// Good
+</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">foo</span><span class="p">.</span><span class="nx">baz</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">*</span> <span class="mf">2.7</span> <span class="o">+</span> <span class="s1">'rad'</span>
+<span class="p">}</span>
+
+<span class="c1">// Bad
+</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="nx">foo</span><span class="p">.</span><span class="nx">baz</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">*</span> <span class="mf">2.7</span> <span class="o">+</span> <span class="s1">'rad'</span>
+
+<span class="c1">// Bad
+</span><span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// Bad
+</span><span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Remap this to self when passing context</li>
+<li>Always use <code>===</code> as a comparator (unless you really need flexible evaluations e.g comparison to null)</li>
+<li>Always add a second radix param to parseInt() to prevent accidental octal issues</li>
+<li>Never bother comparing variables to <code>true</code>/<code>false</code></li>
+<li>For large loops, either cache the length variable to prevent re-evaluation or use a reverse while loop</li>
+<li>Don&#39;t create functions in loops - its slow (and stupid)</li>
+<li>When creating functions with many parameters, pass in an object rather than listing numerous parameters.
+
+<ul>
+<li>use <code>$.extend</code> if you are using jQuery to extend a passed in object while providing defaults</li>
+</ul></li>
+<li>If possible, avoid using bitwise operations unless they really help. If used, document them with comments</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// inverting bits to ease comparison to -1
+</span><span class="k">if</span> <span class="p">(</span><span class="o">~</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'leetness'</span><span class="p">)){</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">'w00t!'</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2><a name="section-js-libraries"></a> Libraries</h2>
+
+<p>When considering how we use JavaScript on a project, no two projects are usually the same in how it uses libraries, although the style and inclusion of the libraries is kept as consistent as possible.</p>
+
+<p>Many of our projects are developed using a mix of native JavaScript and <a href="http://jquery.com/">jQuery</a>, although the use of jQuery or simply a native solution is considered at the start of each project.</p>
+
+<p>Kickoff, the TMW front-end framework, includes jQuery as part of it&#39;s default build, but this can be easily removed, especially if using the Yeoman generator for Kickoff, which will ask if you would like to include it as part of your project setup.</p>
+
+<h2><a name="section-js-plugins"></a> Plugins</h2>
+
+<p>We maintain a number of JavaScript classes and plugins we have built and extended across a number of projects.  These can be found on <a href="https://github.com/tmwagency/js-classes-and-plugins">our github repo</a>, the readme of which details our actively maintained projects.</p>
+
+<p>We also maintain an active wiki detailing a number of JavaScript and jQuery plugins we use for common use cases such as form validation, carousels and lightboxes.  Any additions to this must first be added to the experimental list and then approved by at least 2 Members of the team.</p>
+
+<h2><a name="section-js-dependencies"></a> Dependency Management</h2>
+
+<p>Dependency management and build processing in JavaScript is an area that has progressed rapidly over the last 12-18 months.  Our preferred method of handling dependencies in JavaScript is to use <a href="browserify.org">Browserify</a>, which uses a CommonJS syntax to manage your dependencies.</p>
+
+<p>Although it is encouraged to use browserify on future projects, it is down to the lead developer on each project to choose the solution that best fits their needs.</p>
+
+<h2><a name="section-js-jquery"></a> jQuery Best Practices</h2>
+
+<ul>
+<li>Always cache DOM selection if you plan to re-use data</li>
+<li>Use efficient query selectors. Write for many browsers, don&#39;t assume document.querySelector()</li>
+<li>Avoid using $.each for repeated or performance critical functionality. Instead use a <code>for</code> or reverse <code>while</code> loop (especially for large objects)</li>
+<li>Use <code>on()</code> and <code>off()</code> handlers for events.  Everything else is now deprecated (live, delegate, bind)</li>
+<li>When using simple html5 attribute data, simply use <code>$selected.attr(&#39;data-foo&#39;)</code> unless working with complex data types (where you can use <code>$selected.data()</code>)</li>
+<li>Try to understand the underlying JavaScript functionality of jQuery methods.  This will help you write much more efficient selectors (watch Paul Irish&#39;s talk - <a href="http://paulirish.com/2010/10-things-i-learned-from-the-jquery-source/">10 Things I Learned from the jQuery Source</a>)</li>
+</ul>
+
+<h2><a name="section-js-debugging"></a> Debugging</h2>
+
+<p>Learn how to use your browser tools properly as it will save you hours in debugging.</p>
+
+<p>If you&#39;re using <code>alert()</code> you&#39;re doing it wrong.  Use <code>console.log()</code>, or <a href="http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/">Paul Irish&#39;s lightweight wrapper</a></p>
+
+<h2><a name="section-js-resources"></a> Resources</h2>
+
+<h3>Forms</h3>
+
+<ul>
+<li>Uniform</li>
+</ul>
+
+<h3>Responsive Carousels</h3>
+
+<ul>
+<li>Flexslider</li>
+</ul>
+
+<h3>Responsive Images</h3>
+
+<ul>
+<li>Adaptive Image</li>
+</ul>
+
+<h3>Mobile touch</h3>
+
+<ul>
+<li>SwiftClick</li>
+</ul>
+
+<p>This list will eventually go on a separate wiki detailing more specific plugin information.</p>
+
+<hr>
+
+<h2><a name="section-accessibility"></a> Accessibility</h2>
+
+<p>Markup and code should be written in a way that is inherently accessibile, irrespective of the project being worked on.</p>
+
+<p>When marking up content, ARIA roles are the preferred method of designating the role of sections in our markup when its use may be ambiguous.</p>
+
+<p>For accessibility testing, consider using one of the following:
+- <a href="http://wave.webaim.org/">Wave Accessibility tester</a></p>
+
+<hr>
+
+<h2><a name="section-performance"></a> Performance and Optimisation</h2>
+
+	</div>
+
+
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date">Maintained by</div>
+		<p class="entry-maintainers l-list--floated unstyled">
+
+				
+					
+						
+					
+						
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+					<div class="media entry-author">
+			<img src="/img/authors/anolan.jpg" alt="Picture of Ashley Nolan" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="entry-author-name"><a href="http://twitter.com/AshNolan_">Ashley Nolan</a></h3>
+				<p class="entry-author-desc">Ashley is a Creative Technologist at TMW.  After reading about Amazon’s new delivery plans, he is currently preparing for the advent of Skynet and welcomes our new drone overlords.</p>
+			</div>
+		</div>
+				
+					
+						
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+					<div class="media entry-author">
+			<img src="/img/authors/zmartineau.jpg" alt="Picture of Zander Martineau" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="entry-author-name"><a href="http://twitter.com/mrmartineau">Zander Martineau</a></h3>
+				<p class="entry-author-desc">Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.</p>
+			</div>
+		</div>
+				
+			</p>
+
+	</div>
+
+	
+
+	<!--  -->
+</article>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		
+		
+	</div>
+</div>
+</div>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27779119-7', 'tmw.co.uk');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>

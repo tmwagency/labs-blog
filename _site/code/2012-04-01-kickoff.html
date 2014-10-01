@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Adaptive Images - labs@tmw</title>
+		<title>Kickoff - labs@tmw</title>
 		<meta name="description" content="labs@tmw - where TMW talks Tech">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/kickoff.css">
@@ -65,79 +65,83 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 
 
 	<div class="entry-content">
-		<h1 class="entry-title entry-title--single">Adaptive Images</h1>
+		<h1 class="entry-title entry-title--single">Kickoff</h1>
 
 	<div class="links">
 		
-			<a href="https://github.com/tmwagency/adaptive-image" class="links-item">Code</a>
+			<a href="https://github.com/tmwagency/kickoff" class="links-item">Code</a>
 		
 		
+			<a href="http://tmwagency.github.io/kickoff/" class="links-item">Demo</a>
 		
-			<a href="https://github.com/tmwagency/adaptive-image/issues" class="links-item">Issues</a>
+		
+			<a href="https://github.com/tmwagency/kickoff/issues" class="links-item">Issues</a>
 		
 		
 		
 		
 	</div>
 
-		<p>Allows you to specify different images for different breakpoints (and resolutions).</p>
+		<p><img src="http://f.cl.ly/items/3d0o1O190m0U443I0B1I/Screen%20Shot%202013-10-07%20at%2022.05.42.png" alt=""></p>
 
-<p>Can also be used to simply lazy load images on your page that don&#39;t need to be loaded until the rest of your content has been.</p>
+<p>Developed and maintained by <a href="https://github.com/dragongraphics">Ashley Nolan</a> &amp; <a href="https://github.com/mrmartineau">Zander Martineau</a></p>
 
-<h2>Usage</h2>
+<p>If you&#39;re using Kickoff we&#39;d love to hear about it; please e-mail us at <a href="mailto:labs@tmw.co.uk">labs@tmw.co.uk</a></p>
 
-<p>Add the <a href="https://github.com/tmwagency/adaptive-image/blob/master/js/adaptive-image.js">adaptive-image.js</a> to your project.</p>
+<h3>Features</h3>
 
-<p>Specify your adaptive images using HTML as shown below, and then call <code>AdaptiveImage.init(window, false);</code> to initialise your adaptive images.</p>
+<ul>
+<li>Built in a mobile-first, responsive philosophy <em>(but can easily be used for fixed sites as well)</em></li>
+<li>Sass compilation uses autoprefixer to dynamically add vendor prefixes so you don&#39;t even have to think about it</li>
+<li>Sass mixins for many CSS3 features including gradients, REMs with fallbacks</li>
+<li>Starter content styles, including clean typography, lists, tables, etc</li>
+<li>Starter form element styles: stacked on small-screen to 2-column (if you choose) at the breakpoint of your choice</li>
+<li>Grunt used extensively to ease common development bottlenecks
 
-<p>Also see the <a href="https://github.com/tmwagency/adaptive-image/blob/master/index.html">index.html in the root of the repo</a> for more info.</p>
+<ul>
+<li>Sass compilation using <a href="https://github.com/gruntjs/grunt-contrib-sass">grunt-contrib-sass</a> although <a href="https://github.com/sindresorhus/grunt-sass">grunt-sass</a> can be used a drop-in replacement but there are still some bugs; it is far quicker though..</li>
+<li>Concatenation and minification of JS files with and <a href="https://github.com/gruntjs/grunt-contrib-uglify">grunt-contrib-uglify</a></li>
+<li>Simple server using <a href="https://github.com/gruntjs/grunt-contrib-connect">grunt-contrib-connect</a></li>
+</ul></li>
+</ul>
 
-<h3>Specifying your adaptive images</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;div class="adaptive-image" data-adaptive="" data-adaptive-image-breakpoints="320 480 800" data-alt="Adaptive Test Image" data-img-320="img/less320.jpg" data-img-480="img/less480.jpg" data-img-800="img/less800.jpg" data-img-max="img/max.jpg"&gt;
-    &lt;noscript&gt;
-        &lt;img src="img/max.jpg" width="800" height="800" alt="Adaptive Test Image" title="Adaptive Test Image" /&gt;
-    &lt;/noscript&gt;
-&lt;/div&gt;
-</code></pre></div>
-<p>All adaptive images must be specified using <code>div</code> tags, and a fallback image should be specified in <code>&lt;noscript&gt;</code> tags for when users have JS disabled.</p>
+<h3>Browser support</h3>
 
-<h2>Attributes</h2>
+<p>Simple: Internet Explorer 8+</p>
 
-<h4><code>data-adaptive</code></h4>
+<h2>Demos and documentation</h2>
 
-<p>Should be set to specify that the container is an adaptive image element.</p>
+<p>Please visit <a href="http://tmwagency.github.io/kickoff/">tmwagency.github.io/kickoff/</a> all demos and documentation for Kickoff.</p>
 
-<h4><code>data-adaptive-image-breakpoints</code></h4>
+<h2>Want to use Grunt?</h2>
 
-<p>Set with the breakpoint width values you wish to specify images for, in pixels.</p>
+<ul>
+<li>Install Node from <a href="http://nodejs.org/">nodejs.org</a></li>
+<li>Install Grunt CLI - <code>npm install -g grunt-cli</code></li>
+<li>Install Sass globally - <code>sudo gem install sass --pre</code>. <a href="https://www.ruby-lang.org/en/">Ruby</a> v2 is needed. Update using <a href="http://rvm.io/">rvm</a>, <a href="http://brew.sh">brew</a> (if you use a Mac) or from <a href="https://www.ruby-lang.org/en/downloads/">ruby-lang.org/en/downloads/</a> then install the packages below</li>
+<li>Navigate (<code>cd</code>) to your project directory and run <code>npm install</code> which will install all Grunt&#39;s dependencies</li>
+<li>Run <code>grunt watch</code> or <code>grunt serve</code> (if you want to create a simple local server) to watch for changes and compile Sass/Javascript</li>
+</ul>
 
-<h4><code>data-img-x</code></h4>
+<p>When using Grunt with Kickoff, source maps are created for both the Javascript and Sass. Javascript is compiled to the <code>/js/dist</code> and Sass is compiled to the &#39;/css&#39; folder.</p>
 
-<p>Attributes specifying the image to be displayed when the width is below the pixel amount specified.  So <code>data-img-320</code> specifies an image to be displayed when the calculated width is less than 320 pixels.</p>
+<h2>Using Git?</h2>
 
-<h4><code>data-img-max</code></h4>
+<p>Kickoff&#39;s <a href="https://github.com/tmwagency/kickoff/blob/master/.gitignore#L30">.gitignore</a> file ignores the <code>/dist</code> folder by default. You will want to uncomment this line if you are <strong>not</strong> compiling these on the server.</p>
 
-<p>The image to be displayed when above the maximum breakpoint value given in <code>data-adaptive-image-breakpoints</code>.  So in the above HTML, when the browser is above 800px wide it will display the image specified in <code>data-img-max</code>.</p>
+<h2>Yeoman generator</h2>
 
-<h4><code>data-alt</code></h4>
+<p>There is also a Yeoman generator for Kickoff, visit <a href="http://tmwagency.github.io/kickoff/docs/yeoman.html">tmwagency.github.io/kickoff/docs/yeoman.html</a> for more info.</p>
 
-<p>The alt text for your image. This text is the same across all images</p>
+<h2>Contributing</h2>
 
-<h4><code>data-adaptive-defer</code></h4>
-
-<p>Stops the image from being loaded when the <code>AdaptiveImage.init(…)</code> function is called.  Images can then be subsequently loaded by calling <code>AdaptiveImage.loadImage(image)</code> where image is the dom element of the image being loaded.</p>
-
-<h2>Functions</h2>
-
-<h4>.init(<em>window</em>, <em>checkForPixelDensity</em>)</h4>
-
-<p>Initialise adaptive images on your page.</p>
-
-<p>The function is passed 2 values – the first should be your document <code>window</code> object.  The second is whether you would like AdaptiveImage to check for the device pixel density.</p>
-
-<h4>.loadImage(<em>element</em>)</h4>
-
-<p>Loads an image dependent on the screen size.  Passed the DOM reference of the image to be loaded as <code>element</code>.</p>
+<ol>
+<li>Fork it!</li>
+<li>Create your feature branch: <code>git checkout -b my-new-feature</code></li>
+<li>Commit your changes: <code>git commit -m &#39;Add some feature&#39;</code></li>
+<li>Push to the branch: <code>git push origin my-new-feature</code></li>
+<li>Submit a pull request</li>
+</ol>
 
 	</div>
 
@@ -191,6 +195,53 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 			<div class="media-body">
 				<h3 class="entry-author-name"><a href="http://twitter.com/AshNolan_">Ashley Nolan</a></h3>
 				<p class="entry-author-desc">Ashley is a Creative Technologist at TMW.  After reading about Amazon’s new delivery plans, he is currently preparing for the advent of Skynet and welcomes our new drone overlords.</p>
+			</div>
+		</div>
+				
+					
+						
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+					<div class="media entry-author">
+			<img src="/img/authors/zmartineau.jpg" alt="Picture of Zander Martineau" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="entry-author-name"><a href="http://twitter.com/mrmartineau">Zander Martineau</a></h3>
+				<p class="entry-author-desc">Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.</p>
 			</div>
 		</div>
 				
