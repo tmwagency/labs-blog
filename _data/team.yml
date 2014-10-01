@@ -153,12 +153,24 @@
   job_title: Junior QA Tester
   short_name: damaral
   short_desc: Danny is a Junior QA Tester at TMW. Loves breaking sites for fun, finding bugs and is a gaming God.
-  avatar:
-  email:
+  avatar: danny.jpg
+  email: damaral@tmw.co.uk
   web:
   twitter:
   github:
   team: QA
+
+- name: Guillaume Buat-Menard
+  surname: Buat-Menard
+  job_title: TMW CTO
+  short_name: GBuat-Menard
+  short_desc: Guillaume is TMW’s CTO, he has been leading London agency geeks for the past 17 years.
+  avatar: GuillaumeBuat-Menard.jpg
+  email: GBuat-Menard@tmw.co.uk
+  web:
+  twitter:
+  github:
+  team:
 
   # - name: This person
   # surname: person
