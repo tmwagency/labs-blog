@@ -2511,6 +2511,10 @@ body {
   text-transform: uppercase;
 }
 
+.entry-meta--post {
+  margin-top: 35px;
+}
+
 .entry-author-img {
   max-width: 100px;
 }

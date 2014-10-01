@@ -78,7 +78,7 @@ module.exports = function (grunt) {
 					'img/**/*.*',
 					'authors/*.html',
 					'*.html',
-					'*.md',
+					'**/*.md',
 					'_plugins/*.rb',
 					'Gruntfile.js',
 					'**/*.yml'
@@ -105,7 +105,8 @@ module.exports = function (grunt) {
 					lineNumbers: false,
 					debugInfo : false,
 					precision : 8,
-					sourcemap: true
+					sourcemap: true,
+					loadPath: 'scss'
 				},
 				files: {
 					'css/kickoff.css'       : 'scss/kickoff.scss',
@@ -117,7 +118,8 @@ module.exports = function (grunt) {
 					unixNewlines: true,
 					style: 'expanded',
 					precision : 8,
-					sourcemap: true
+					sourcemap: true,
+					loadPath: 'scss'
 				},
 				files: {
 					'css/styleguide.css': 'scss/styleguide.scss'

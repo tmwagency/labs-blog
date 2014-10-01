@@ -21,7 +21,7 @@ collections:
   team:
     output: false
   code:
-    output: false
+    output: true
   work:
     output: true
 
