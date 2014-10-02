@@ -1,7 +1,7 @@
 ---
 comments: true
 layout: post
-title: "trak.js - Tracking event nirvana"
+title: "Improve tracking events with trak.js"
 author: zander
 excerpt: Add tracking events more easily with this new library
 ---
