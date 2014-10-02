@@ -6,7 +6,6 @@ pageid: code
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
 github_url: https://github.com/tmwagency/swiftclick
 issues: https://github.com/tmwagency/swiftclick/issues
-demo: swiftclick
 team:
 - ihayes
 ---
