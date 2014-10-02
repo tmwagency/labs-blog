@@ -87,21 +87,12 @@
   github: fabzl
   team: frontend
 
-- name: Tim Coppinger
-  surname: Coppinger
-  short_name: tim
-  short_desc: .Net Developer, avid snowboarder and nerf gun owner.
-  avatar: timmy.jpg
-  email: tcoppinger@tmw.co.uk
-  twitter: MilitantPenguin
-  github: TimC-TMW
-  team: contributor
-
-- name: Rolff
+- name: Rolff Kruger
   surname: Kruger
   short_name: rkruger
-  short_desc: Tech Lead
+  short_desc: TMW's Tech Lead
   github: rkruger
+  twitter: rkruger
 
 - name: Matt Basson
   surname: Basson
@@ -163,7 +154,7 @@
 - name: Guillaume Buat-Menard
   surname: Buat-Menard
   job_title: TMW CTO
-  short_name: GBuat-Menard
+  short_name: guillaume
   short_desc: Guillaume is TMW’s CTO, he has been leading London agency geeks for the past 17 years.
   avatar: GuillaumeBuat-Menard.jpg
   email: GBuat-Menard@tmw.co.uk
