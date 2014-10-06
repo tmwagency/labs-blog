@@ -79,6 +79,7 @@ module.exports = function (grunt) {
 					'authors/*.html',
 					'*.html',
 					'**/*.md',
+					'!node_modules/**/*.*',
 					'_plugins/*.rb',
 					'Gruntfile.js',
 					'**/*.yml'

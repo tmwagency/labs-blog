@@ -38,7 +38,7 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank" class="tmwBrand"><strong>tmw</strong></a> tech team</p>
 
 	<nav class="nav">
-		<a href="/" class="nav-item">News</a>
+		<a href="/" class="nav-item">Articles</a>
 		<a href="/code" class="nav-item is-active">Code</a>
 		<a href="/team" class="nav-item">Team</a>
 		<a href="/work" class="nav-item">Work</a>
@@ -65,7 +65,9 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 
 
 	<div class="entry-content">
+		
 		<h1 class="entry-title entry-title--single">Front-End Dev guidelines</h1>
+		
 
 	<div class="links">
 		
@@ -543,7 +545,7 @@ we have put together for creating scalable, responsive sites.</p>
         <span class="k">this</span><span class="p">.</span><span class="nx">$additionalTextNodes</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'section a &gt; span'</span><span class="p">);</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">createMarkup</span><span class="p">();</span>
     <span class="p">},</span>
-    <span class="na">createMarkup</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">createMarkup</span><span class="err">:</span> <span class="kd">function</span><span class="p">(){</span>
         <span class="kd">var</span> <span class="nx">$additionalTextNodes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$sections</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
         <span class="o">&amp;</span><span class="nx">additionalTextNodes</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span>
             <span class="na">position</span><span class="p">:</span> <span class="s1">'absolute'</span><span class="p">,</span>
@@ -562,8 +564,8 @@ we have put together for creating scalable, responsive sites.</p>
         <span class="na">ANIMATION_SPEED</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
 
         <span class="na">init</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="c1">//fire off all other classes
-</span>            <span class="k">if</span> <span class="p">(</span><span class="nx">LightBox</span><span class="p">.</span><span class="nx">$lightbox</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//fire off all other classes</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">LightBox</span><span class="p">.</span><span class="nx">$lightbox</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nx">LightBox</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -572,8 +574,8 @@ we have put together for creating scalable, responsive sites.</p>
         <span class="na">$lightbox</span><span class="p">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.lightbox'</span><span class="p">),</span>
 
         <span class="na">init</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
-        <span class="na">open</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
-        <span class="na">close</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
+        <span class="nx">open</span> <span class="err">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
+        <span class="nx">close</span> <span class="err">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
     <span class="p">};</span>
 
     <span class="nx">SiteSetup</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
@@ -591,37 +593,37 @@ we have put together for creating scalable, responsive sites.</p>
 <ul>
 <li>Separate operators/comparators with spacing</li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good
-</span><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">call</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="c1">// Terrible
-</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span><span class="o">&amp;&amp;</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">&amp;&amp;</span><span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">===</span><span class="s1">'object'</span><span class="p">){</span>
+<span class="c1">// Terrible</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">foo</span><span class="o">&amp;&amp;</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">&amp;&amp;</span><span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">===</span><span class="s1">'object'</span><span class="p">){</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">call</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 <ul>
 <li>Use braces for logic evaluations.  If evaluation execution is simple, keep non-braced logic on a single line e.g:</li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good
-</span><span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 
-<span class="c1">// Good
-</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// Good</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">baz</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">*</span> <span class="mf">2.7</span> <span class="o">+</span> <span class="s1">'rad'</span>
 <span class="p">}</span>
 
-<span class="c1">// Bad
-</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">// Bad</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">baz</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">*</span> <span class="mf">2.7</span> <span class="o">+</span> <span class="s1">'rad'</span>
 
-<span class="c1">// Bad
-</span><span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">// Bad</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 
-<span class="c1">// Bad
-</span><span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">// Bad</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 <span class="p">}</span>
@@ -640,8 +642,8 @@ we have put together for creating scalable, responsive sites.</p>
 </ul></li>
 <li>If possible, avoid using bitwise operations unless they really help. If used, document them with comments</li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// inverting bits to ease comparison to -1
-</span><span class="k">if</span> <span class="p">(</span><span class="o">~</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'leetness'</span><span class="p">)){</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// inverting bits to ease comparison to -1</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">~</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'leetness'</span><span class="p">)){</span>
     <span class="nx">alert</span><span class="p">(</span><span class="s1">'w00t!'</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>

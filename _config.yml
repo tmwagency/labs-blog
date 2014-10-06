@@ -22,6 +22,7 @@ collections:
     output: false
   code:
     output: true
+    permalink: code/:path/
   work:
     output: true
 

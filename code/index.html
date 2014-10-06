@@ -5,7 +5,8 @@ pageid: code
 ---
 <div class="content-inner clearfix">
 	<h1 class="sectionTitle">{{ page.title }} <small>Our open-source offerings</small></h1>
-	{% for work in site.code %}
+	{% assign items = site.code | sort: 'weight' %}
+	{% for work in items %}
 		<article class="entry entry--multiple entry--code">
 			<!-- {% if work.img != null %}
 				<img src="{{ work.img }}" alt="Picture of {{ work.name }}" class="author-img">

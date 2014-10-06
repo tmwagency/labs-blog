@@ -7,6 +7,8 @@ github_url: https://github.com/tmwagency/TMW-frontend-guidelines
 team:
 - ashnolan
 - zander
+
+weight: 6
 ---
 
 ##Overview

@@ -7,14 +7,16 @@ pageid: code
 	<h1 class="sectionTitle">code</h1>
 
 	{% if page.featuredImage %}
-		<figure class="featuredImage">
+		<figure class="featuredImage featuredImage--code">
 			<img src="{{ page.featuredImage }}" alt="{{ page.title }}">
 		</figure>
 	{% endif %}
 
 
 	<div class="entry-content">
+		{% if page.featuredImage == null %}
 		<h1 class="entry-title entry-title--single">{{ page.title }}</h1>
+		{% endif %}
 
 	<div class="links">
 		{% if page.github_url != null %}

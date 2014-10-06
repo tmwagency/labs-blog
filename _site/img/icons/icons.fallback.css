@@ -2,6 +2,8 @@
 
 .icon-kickoff { background-image: url('png/kickoff.png'); background-repeat: no-repeat; }
 
+.icon-statix { background-image: url('png/statix.png'); background-repeat: no-repeat; }
+
 .icon-subscribe { background-image: url('png/subscribe.png'); background-repeat: no-repeat; }
 
 .teamList:before,

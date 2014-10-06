@@ -8,6 +8,8 @@ github_url: https://github.com/tmwagency/adaptive-image
 issues: https://github.com/tmwagency/adaptive-image/issues
 team:
 - ashnolan
+
+weight: 5
 ---
 
 Allows you to specify different images for different breakpoints (and resolutions).

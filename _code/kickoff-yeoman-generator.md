@@ -11,6 +11,8 @@ github_url: https://github.com/tmwagency/generator-kickoff
 issues: https://github.com/tmwagency/generator-kickoff/issues
 team:
 - zander
+
+weight: 7
 ---
 
 ## [Yeoman](http://yeoman.io) generator for the [Kickoff framework](https://github.com/tmwagency/kickoff/)

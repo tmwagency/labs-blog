@@ -2434,6 +2434,10 @@ body {
   padding-bottom: 30px;
 }
 
+.featuredImage--code {
+  max-width: 400px;
+}
+
 .entry-title {
   line-height: 1.1;
   margin-top: 0;

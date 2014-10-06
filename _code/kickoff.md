@@ -10,6 +10,8 @@ issues: https://github.com/tmwagency/kickoff/issues
 team:
 - ashnolan
 - zander
+
+weight: 1
 ---
 
 
