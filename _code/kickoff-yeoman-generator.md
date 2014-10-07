@@ -3,7 +3,6 @@ layout: code
 title: Kickoff Yeoman Generator
 subtitle: Yeoman generator for our Kickoff framework
 pageid: code
-demo: http://tmwagency.github.io/trak.js/demo/
 npm: http://tmwagency.github.io/generator-kickoff/
 info: http://tmwagency.github.io/kickoff/docs/yeoman.html
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg

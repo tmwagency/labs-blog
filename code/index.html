@@ -21,8 +21,11 @@ pageid: code
 				{% if work.github_url != null %}
 					<a href="{{ work.github_url }}" class="links-item">Repo</a>
 				{% endif %}
+				{% if work.docs != null %}
+					<a href="{{ work.docs }}" class="links-item">Documentation</a>
+				{% endif %}
 				{% if work.demo != null %}
-					<a href="{{ work.demo }}" class="links-item">Demo</a>
+					<a href="{{ work.folder }}{{ work.demo }}" class="links-item">Demo</a>
 				{% endif %}
 				{% if work.issues != null %}
 					<a href="{{ work.issues }}" class="links-item">Issues</a>

@@ -3,6 +3,7 @@ layout: code
 title: Statix
 subtitle: A quick and flexible tool to help developers developing static HTML templates or prototypes
 pageid: code
+folder: statix/
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
 github_url: https://github.com/tmwagency/statix
 issues: https://github.com/tmwagency/statix/issues

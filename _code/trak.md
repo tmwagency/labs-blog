@@ -3,6 +3,7 @@ layout: code
 title: trak.js (beta)
 subtitle: Universal event tracking API
 pageid: code
+folder: trak/
 demo: demo.html
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
 github_url: https://github.com/tmwagency/trak.js
