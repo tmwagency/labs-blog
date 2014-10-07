@@ -19,7 +19,7 @@ weight: 1
 
 Developed and maintained by [Ashley Nolan](https://github.com/dragongraphics) & [Zander Martineau](https://github.com/mrmartineau)
 
-If you're using Kickoff we'd love to hear about it; please e-mail us at labs@tmw.co.uk
+If you're using Kickoff we'd love to hear about it; please e-mail us at tech@tmw.co.uk
 
 ### Features
 

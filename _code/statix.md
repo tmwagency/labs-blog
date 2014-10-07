@@ -5,7 +5,6 @@ subtitle: A quick and flexible tool to help developers developing static HTML te
 pageid: code
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
 github_url: https://github.com/tmwagency/statix
-demo: http://tmwagency.github.io/kickoff/statix/index.html
 issues: https://github.com/tmwagency/statix/issues
 featuredImage: /img/src-min/statix.svg
 team:
