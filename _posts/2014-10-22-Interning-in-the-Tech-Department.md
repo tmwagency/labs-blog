@@ -1,6 +1,7 @@
 ---
-comments: false
+comments: true
 layout: post
+date: 2014-10-22 11:30:00
 title: "Interning in the Tech department"
 categories:
 - general
