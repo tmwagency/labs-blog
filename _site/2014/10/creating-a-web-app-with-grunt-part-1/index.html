@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Creating a Web-app with Grunt - Part 1 - tech.tmw.co.uk</title>
+		<meta name="description" content="tech.tmw.co.uk - where TMW talks Tech">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script>var pageName = 'articles';</script>
+
+		<script>
+			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			grunticon(["/img/icons/icons.data.svg.css", "/img/icons/icons.data.png.css", "/img/icons/icons.fallback.css"]);
+		</script>
+		<noscript><link href="/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+
+		<!-- <script type="text/javascript" src="/js/libs/modernizr.min.js"></script> -->
+
+		<!-- Mobile & Fav Icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/favicons/lbtmw-144.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/favicons/lbtmw-114.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/favicons/lbtmw-72.png">
+		<link rel="apple-touch-icon-precomposed" href="/img/favicons/lbtmw-57.png">
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-title" content="tech.tmw">
+
+		<link rel="alternate" type="application/atom+xml" title="tech.tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+	</head>
+	<body>
+
+<div class="sidebar">
+	<header class="masthead">
+	<h1 class="logo"><a href="/">tech<span class="dot">.</span><span class="tmwBrand">tmw</span></a></h1>
+	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank" class="tmwBrand"><strong>tmw</strong></a> tech team</p>
+
+	<nav class="nav">
+		<a href="/" class="nav-item is-active">Articles</a>
+		<a href="/code" class="nav-item">Code</a>
+		<a href="/team" class="nav-item">Team</a>
+		<a href="/work" class="nav-item">Work</a>
+	</nav>
+</header>
+
+
+	<footer class="footer" role="contentinfo">
+	<div class="socialLinks">
+		<a href="http://github.com/tmwagency/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-github"></span>@tmwagency</a>
+		<a href="http://twitter.com/tmwTechTeam/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-twitter"></span>@tmwTechTeam</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-kickoff"></span>We also maintain Kickoff</a>
+		<a href="http://eepurl.com/KaKbv" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-subscribe"></span>Subscribe by Email</a>
+	</div>
+</footer>
+
+</div>
+
+<div class="content">
+	<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">Articles</h1>
+
+	
+
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">Creating a Web-app with Grunt - Part 1</h1>
+		<p>Cross-posted from <a href="http://ivanhayes.com/blog/creating-a-web-app-with-grunt-part-1">the original article on my blog</a>.</p>
+
+<p>This is the first of a two-part tutorial, in which we’ll be creating a web-app called ‘breeze’ that will load and display temperature information for various cities using data from <a href="http://openweathermap.org/">OpenWeatherMap</a>. In this part of the tutorial, we’ll be setting up a simple build workflow using <a href="http://gruntjs.com/">Grunt</a> and <a href="https://www.npmjs.org/">npm</a>.</p>
+
+<p>If you’re short on time and just want to see the complete code for this part of the tutorial then you can <a href="https://github.com/munkychop/breeze/fork">fork the repo on Github</a> and switch to the ‘tutorial-part-1’ branch.</p>
+
+<h3>A Note for Windows Users</h3>
+
+<p>Throughout this tutorial I will be referring to the Mac command line application – <em>Terminal</em>, so if you are on Windows then you’ll simply need to use <em>Command Prompt</em> instead.</p>
+
+<h2>Development Environment Setup</h2>
+
+<p>Firstly we need to have our dev environment setup so that we can use npm and Grunt. To do this we just need to ensure Node.js is installed, as npm comes bundled with it by default. So if you haven’t already got this up and running then installing one of the <a href="http://nodejs.org/download/">pre-built packages from the Node.js website</a> is probably the simplest method.</p>
+
+<p>Next we need to <a href="http://sass-lang.com/install">install Sass</a>. If you are using Windows then you’ll first need to <a href="http://rubyinstaller.org/">install Ruby</a>, whereas if you are using a Mac then Ruby comes pre-installed. To install Sass, open Terminal and run the following command:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">gem install sass
+</code></pre></div>
+<p>This can take a few minutes to complete, so be patient, but if you are using a Mac and the above command is failing then you could use <code>sudo gem install sass</code> instead.</p>
+
+<h2>Project Setup</h2>
+
+<p>You will need to <a href="https://raw.githubusercontent.com/toddmotto/atomic/master/src/atomic.js">download a small library called ‘atomic’</a>, which our project will use for making AJAX requests to the <a href="http://openweathermap.org/api">OpenWeatherMap API</a>.</p>
+
+<p>Now we need to setup the project files and folders – create the following structure:</p>
+
+<pre>
+
+breeze
+│
+├──• Gruntfile.js
+├──• index.html
+├──• package.json
+│
+└───src
+     │
+     ├───js
+     │    ├───app
+     │    │    │
+     │    │    └──• app.js
+     │    │
+     │    └───libs
+     │         │
+     │         └──• atomic.js
+     └───scss
+          │
+          └──• app.scss
+
+
+</pre>
+
+<p>The <em>breeze</em> directory will serve as the document root of our application.</p>
+
+<p>Now that we have the basic structure, let’s add some content to the files we just created. The contents of <em>index.html</em> should be as follows:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Breeze<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">“dist/css/app.min.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"main-container"</span><span class="nt">&gt;</span> <span class="nt">&lt;/div&gt;</span>
+
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">“dist/js/app.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>Astute readers may have noticed that – within the HTML markup – we are referencing directories and files that don’t exist – <em>dist/css/app.min.css</em> and <em>dist/js/app.min.js</em>. These directories and files will be created automatically by Grunt once we set it up and run a build task.</p>
+
+<p>For the contents of <em>app.js</em>, we will temporarily just add an alert message:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">alert</span><span class="p">(</span><span class="s2">"Breeze"</span><span class="p">);</span>
+</code></pre></div>
+<p>And finally, the contents of <em>app.scss</em> will currently just contain the following styles:</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span><span class="o">,</span> <span class="nt">div</span> <span class="p">{</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2>Installing Development Dependencies</h2>
+
+<p>We are going to use npm for installing development dependencies – those used by Grunt for the build step of our application.</p>
+
+<p>The first thing we need to install is the CLI (command line interface) for Grunt. This will be a global install; it isn’t specific to our project and will be available system-wide, so you’ll only need to do this once per-system:</p>
+
+<p><strong>Mac users</strong>
+You will need to run this command with <em>sudo</em>.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo npm install -g grunt-cli
+</code></pre></div>
+<p><strong>Windows users</strong></p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">npm install -g grunt-cli
+</code></pre></div>
+<p>Next up, within the <em>breeze</em> directory, open the <em>package.json</em> file that we created earlier and add the following:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"breeze"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This simply defines some basic information about our application which is required by npm. Save and close the file.</p>
+
+<p>Although the <em>package.json</em> file has many uses, within the scope of this tutorial – and other than the required <em>name</em> and <em>version</em> properties – it will simply be used to define the development dependencies of our application.</p>
+
+<p>Note that the command <code>npm init</code> could instead be used to automatically generate a <em>package.json</em> file, but doing so adds many properties that we won’t need to use in this tutorial, so creating it manually is a simpler option in this case.</p>
+
+<p>Now that we have our <em>package.json</em> file, using Terminal, change to the <em>breeze</em> directory. We will need to run all remaining commands from this directory. Install the development dependencies by running the following command:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">npm install grunt grunt-contrib-connect grunt-contrib-sass grunt-contrib-uglify grunt-contrib-watch grunt-devtools --save-dev
+</code></pre></div>
+<p>This installs all of our development dependencies into a <em>node-modules</em> folder within the <em>breeze</em> directory. A ‘devDependencies’ property is also added to <em>package.json</em>, listing the names and current version numbers of our application’s development dependencies:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"breeze"</span>,
+  <span class="s2">"version"</span>: <span class="s2">"0.0.1"</span>,
+  <span class="s2">"devDependencies"</span>: <span class="o">{</span>
+    <span class="s2">"grunt"</span>: <span class="s2">"^0.4.5"</span>,
+    <span class="s2">"grunt-contrib-connect"</span>: <span class="s2">"^0.8.0"</span>,
+    <span class="s2">"grunt-contrib-sass"</span>: <span class="s2">"^0.8.1"</span>,
+    <span class="s2">"grunt-contrib-uglify"</span>: <span class="s2">"^0.6.0"</span>,
+    <span class="s2">"grunt-contrib-watch"</span>: <span class="s2">"^0.6.1"</span>,
+    <span class="s2">"grunt-devtools"</span>: <span class="s2">"^0.2.1"</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<h2>Doing the Grunt Work</h2>
+
+<p>We will be using <a href="http://gruntjs.com/">Grunt</a> – a JavaScript task runner – to carry out the build step of our application. Grunt works by running various user-defined tasks when instructed to do so. We are going to set it up in such a way that our tasks run when a change to JavaScript or SCSS files is detected.</p>
+
+<p>To use Grunt, we first need to open <em>Gruntfile.js</em> that we created earlier within the <em>breeze</em> directory and paste in the following code, which we will discuss in more detail below:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="s2">"use strict"</span><span class="p">;</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+
+    <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>When we use the Grunt CLI (more on this below), the version of the Grunt library specified within the <em>devDependencies</em>  property inside <em>package.json</em> is loaded and the configuration within the Gruntfile is automatically applied. Currently our Gruntfile doesn’t contain any configuration options, so we’ll start adding these now.</p>
+
+<h3>Sass</h3>
+
+<p>First, we’ll add a config for compiling our SCSS code using the <em>sass</em> task (<a href="https://github.com/gruntjs/grunt-contrib-sass">grunt-contrib-sass</a>) – a wrapper for the version of Sass installed on our system i.e. the Sass Ruby gem we installed earlier:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="s2">"use strict"</span><span class="p">;</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-sass"</span><span class="p">);</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+        <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">dev</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">style</span><span class="p">:</span> <span class="s2">"compressed"</span><span class="p">,</span>
+                    <span class="na">sourcemap</span> <span class="p">:</span> <span class="kc">true</span>
+                <span class="p">},</span>
+
+                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"dist/css/app.min.css"</span><span class="p">:</span> <span class="s2">"src/scss/app.scss"</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Here, we first tell Grunt to load the <em>sass</em> task and then we define the config for this task within the object that gets passed into Grunt’s <em>initConfig</em> method. Within the <em>sass</em> task we define a ‘dev’ configuration object. We can define however many configurations we like and call them whatever we like, but within these configuration objects we need to follow the rules of the task we are using, which in this case is <em>sass</em>. The <em>sass</em> task allows us to define an ‘options’ object containing various properties that affect how our SCSS is converted into CSS. In this case we are simply stating that we want the CSS to be compressed into one line with any empty space removed. The ‘files’ object contains two file path strings – the one on the left is the file path to which we want Grunt to output our compiled CSS, and the one on the right is the main SCSS file we want to use to start the compilation process.</p>
+
+<p>To test that everything is working as expected, run the following command in Terminal:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">grunt sass:dev
+</code></pre></div>
+<p>Doing that should compile the SCSS into an <em>app.min.css</em> file within the <em>dist/css/</em> directory.</p>
+
+<h3>Uglify</h3>
+
+<p>Next up, we want to use the <em>uglify</em> (<a href="https://github.com/gruntjs/grunt-contrib-uglify">grunt-contrib-uglify</a>) task to concatenate all of our JavaScript into a single file and then minify this file when complete so that it loads quickly in web browsers. This is also a good way to reduce the number of HTTP requests an application makes when developing with more than one JavaScript file; rather than using multiple <em>script</em> tags within the HTML markup we will only need to use a single one that points to the compiled file containing all of our JavaScript code – <em>app.min.js</em>. To carry out the concatenation and minification process we will add a configuration object for the <em>uglify</em> task:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="s2">"use strict"</span><span class="p">;</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-sass"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-uglify"</span><span class="p">);</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+
+        <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">dev</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">style</span><span class="p">:</span> <span class="s2">"compressed"</span><span class="p">,</span>
+                    <span class="na">sourcemap</span> <span class="p">:</span> <span class="kc">true</span>
+                <span class="p">},</span>
+
+                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"dist/css/app.min.css"</span><span class="p">:</span> <span class="s2">"src/scss/app.scss"</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+        <span class="na">uglify</span> <span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">dev</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span> <span class="p">:</span> <span class="p">{</span>
+                    <span class="na">compress</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="na">mangle</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="na">preserveComments</span> <span class="p">:</span> <span class="kc">false</span>
+                <span class="p">},</span>
+
+                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"dist/js/app.min.js"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"src/js/libs/atomic.js"</span><span class="p">,</span> <span class="s2">"src/js/app/app.js"</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>We have now also loaded the <em>uglify</em> task and defined a <em>dev</em> config for it within the object passed into Grunt’s <em>initConfig</em> method.</p>
+
+<p>The ‘files’ object for <em>uglify</em> works in exactly the same way as the one within the <em>sass</em> config, with the exception that we are passing in an array of JavaScript file paths on the right. All of these files will be concatenated, minified and output to a single JavaScript file. When set to ‘true’, the <em>compress</em> option shortens variable and function names, and removes empty space in an attempt to reduce the overall file size. Similarly, When set to ‘true’, the <em>mangle</em> option performs various optimisations such as removing unreferenced functions and variables. We have set the <em>preserveComments</em> option to ‘false’ so that all comments will be removed from the minified file.</p>
+
+<p>To test that everything is working as expected, run the following command in Terminal:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">grunt uglify:dev
+</code></pre></div>
+<p>Doing that should compile the JavaScript into an <em>app.min.js</em> file within the <em>dist/js/</em> directory.</p>
+
+<p>A word of warning here – the files are concatenated in the same order that they are specified in the array of file paths, so you’ll need to ensure that dependencies are ordered correctly.</p>
+
+<p>With all that working as expected, the project directory structure should now look like this:</p>
+
+<pre>
+
+breeze
+│
+├──• Gruntfile.js
+├──• index.html
+├──• package.json
+│
+├───src
+│    │
+│    ├───js
+│    │    │
+│    │    ├───app
+│    │    │    │
+│    │    │    └──• app.js
+│    │    │
+│    │    └───libs
+│    │         │
+│    │         └──• atomic.js
+│    └───scss
+│         │
+│         └──• app.scss
+│
+└───dist
+     │
+     ├───css
+     │    │
+     │    └──• app.min.css
+     └───js
+          │
+          └──• app.min.js
+
+
+</pre>
+
+<h3>Connect</h3>
+
+<p>Now that we’ve setup a build for our SCSS and JavaScript, we are going to create a <em>connect</em> (<a href="https://github.com/gruntjs/grunt-contrib-connect">grunt-contrib-connect</a>) config that allows us to quickly start a basic server in order to run our application, which will be launched in the default browser. This is way quicker than configuring Apache, for example. And like Apache, the <em>connect</em> server runs our application using the <em>http://</em> protocol – which allows us to use AJAX – rather than the <em>file://</em> protocol which does not.</p>
+
+<p>We will set this up in a similar way to the other configs:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="s2">"use strict"</span><span class="p">;</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-sass"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-uglify"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-connect"</span><span class="p">);</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+
+        <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">style</span><span class="p">:</span> <span class="s2">"compressed"</span><span class="p">,</span>
+                    <span class="na">sourcemap</span> <span class="p">:</span> <span class="kc">true</span>
+                <span class="p">},</span>
+
+                <span class="na">files</span> <span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"dist/css/app.min.css"</span><span class="p">:</span> <span class="s2">"src/scss/app.scss"</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+        <span class="na">uglify</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">compress</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="na">mangle</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="na">preserveComments</span><span class="p">:</span> <span class="kc">false</span>
+                <span class="p">},</span>
+
+                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"dist/js/app.min.js"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"src/js/libs/atomic.js"</span><span class="p">,</span> <span class="s2">"src/js/app/app.js"</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+        <span class="na">connect</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">server</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">open</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="na">keepalive</span><span class="p">:</span> <span class="kc">true</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>As with the other tasks, we have loaded the <em>connect</em> task and defined a config, which this time we have called ‘server’. The only two options we need to use at this point are ‘open’ and ‘keepalive’ – both of which we have set to ‘true’. The <em>open</em> option simply launches the default web browser on our system and loads the index page within the same directory as the Gruntfile. By default, the <em>connect</em> task only keeps the server active for as long as our other tasks are running, so since we have no continually-running tasks, we use the <em>keepalive</em> option to force the server to stay active until it is manually stopped.</p>
+
+<p>Run the following command to launch our application in the default browser:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">grunt connect:server
+</code></pre></div>
+<p>Notice that, within the Terminal window, we can no longer run any commands now that we have the server running. To stop the server, on the keyboard hold the <code>ctrl</code> key and press <code>c</code>.</p>
+
+<p>If you want to run Grunt commands while the server is active then you can open another Terminal window and once again change to the <em>breeze</em> directory.</p>
+
+<h2>Running Multiple Tasks with One Command</h2>
+
+<p>So far, we have set things up so that we can run tasks one at a time, but what if we want to run multiple tasks? We could run them one after the other in Terminal, but there is an easier way – we can register our own tasks with Grunt, which is much more straightforward than it sounds. Let’s start by creating a task that will first run <em>sass:dev</em>, followed by <em>uglify:dev</em>, and then finally <em>connect:server</em>. We’ll call this task ‘breeze’:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="s2">"use strict"</span><span class="p">;</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-sass"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-uglify"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-connect"</span><span class="p">);</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+
+        <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">style</span><span class="p">:</span> <span class="s2">"compressed"</span><span class="p">,</span>
+                    <span class="na">sourcemap</span> <span class="p">:</span> <span class="kc">true</span>
+                <span class="p">},</span>
+
+                <span class="na">files</span> <span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"dist/css/app.min.css"</span><span class="p">:</span> <span class="s2">"src/scss/app.scss"</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+        <span class="na">uglify</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">compress</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="na">mangle</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="na">preserveComments</span><span class="p">:</span> <span class="kc">false</span>
+                <span class="p">},</span>
+
+                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"dist/js/app.min.js"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"src/js/libs/atomic.js"</span><span class="p">,</span> <span class="s2">"src/js/app/app.js"</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+        <span class="na">connect</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">server</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">open</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="na">keepalive</span><span class="p">:</span> <span class="kc">true</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s2">"breeze"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"sass:dev"</span><span class="p">,</span> <span class="s2">"uglify:dev"</span><span class="p">,</span> <span class="err">"</span><span class="nl">connect</span><span class="p">:</span><span class="nx">server</span><span class="err">”</span><span class="p">]);</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>So now instead of sequentially running each task manually, in Terminal, we now simply need to run:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">grunt breeze
+</code></pre></div>
+<p>This will run all the tasks we specified in the array for the second parameter of Grunt’s <em>registerTask</em> method.</p>
+
+<h2>Automating Build Tasks</h2>
+
+<p>Now everything is set up and ready for us to manually run builds of our SCSS and JavaScript, and view our app within the browser. But, wouldn’t it be nice if we could go one step further and have Grunt run relevant tasks automatically when any of our development files is changed? That’s precisely what we’ll be doing in this section of this tutorial.</p>
+
+<h3>Watch</h3>
+
+<p>To automate the running of the tasks that we have already defined, we first need to setup a <em>watch</em> (<a href="https://github.com/gruntjs/grunt-contrib-watch">grunt-contrib-watch</a>) task which watches specific files and runs relevant tasks if any of the files changes.</p>
+
+<p>Setting up the <em>watch</em> task is very similar to the way in which we setup all the other tasks (this is now the complete Gruntfile):</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="s2">"use strict"</span><span class="p">;</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-sass"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-uglify"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-connect"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-watch"</span><span class="p">);</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+
+        <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">style</span><span class="p">:</span> <span class="s2">"compressed"</span><span class="p">,</span>
+                    <span class="na">sourcemap</span> <span class="p">:</span> <span class="kc">true</span>
+                <span class="p">},</span>
+
+                <span class="na">files</span> <span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"dist/css/app.min.css"</span><span class="p">:</span> <span class="s2">"src/scss/app.scss"</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+        <span class="na">uglify</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">compress</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="na">mangle</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="na">preserveComments</span><span class="p">:</span> <span class="kc">false</span>
+                <span class="p">},</span>
+
+                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"dist/js/app.min.js"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"src/js/libs/atomic.js"</span><span class="p">,</span> <span class="s2">"src/js/app/app.js"</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+        <span class="na">connect</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">server</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">open</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="na">keepalive</span><span class="p">:</span> <span class="kc">true</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+        <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="na">js</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">files</span><span class="p">:</span> <span class="p">[</span><span class="s2">"src/js/**/*.js"</span><span class="p">],</span>
+                <span class="na">tasks</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uglify:dev"</span><span class="p">]</span>
+            <span class="p">},</span>
+
+            <span class="na">scss</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">files</span><span class="p">:</span> <span class="p">[</span><span class="s2">"src/scss/**/*.scss"</span><span class="p">],</span>
+                <span class="na">tasks</span><span class="p">:</span> <span class="p">[</span><span class="s2">"sass:dev"</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s2">"breeze"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"sass:dev"</span><span class="p">,</span> <span class="s2">"uglify:dev"</span><span class="p">,</span> <span class="s2">"connect:server"</span><span class="p">,</span> <span class="s2">"watch"</span><span class="p">]);</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>We have loaded the <em>watch</em> task and created two configs – ‘js’ and ‘scss’. These configs could have been called anything else, but the names were chosen so that the nature of what the configs will be used for is clear. Within each config, using the <em>files</em> option, we specify an array of file paths that are to be watched for changes, and then, using the <em>tasks</em> option, we specify a list of tasks to run when any of the listed files is changed. In the <em>js</em> config we are watching all files that have a <em>.js</em> file extension within the <em>src/js</em> directory and its subdirectories. When any of these files is changed, the <em>uglify:dev</em> task is run automatically. Similarly, with the <em>scss</em> config we are watching all files that have a <em>.scss</em> file extension within the <em>src/scss</em> directory and its subdirectories. When any of these files is changed, the <em>sass:dev</em> task is run automatically.</p>
+
+<p>Notice that – within the <em>breeze</em> task we created earlier – ‘watch’ has been added to the array of tasks that Grunt will run for us sequentially.</p>
+
+<p>Now we simply need to once again run our <code>grunt breeze</code> task using Terminal (be sure to cancel any running tasks using <code>ctrl + c</code> first) and our app will launch in the browser, with the <em>watch</em> task waiting for changes on the lists of files we specified. To check this is working change the alert message in <em>app.js</em> to the following:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">alert</span><span class="p">(</span><span class="s2">"Grunt is a breeze"</span><span class="p">);</span>
+</code></pre></div>
+<p>Save the file and Grunt should automatically run the tasks we specified in the <em>watch:js</em> config, so refresh the web browser and you should see the new alert.</p>
+
+<h2>Next steps</h2>
+
+<p>So far we have covered how to setup Sass and npm, and how to use Grunt to setup a simple workflow for the build step of a web application.</p>
+
+<p>In the next instalment of this two-part tutorial, we will cover the logic of the <em>breeze</em> application – loading and displaying current temperature information for various cities by making AJAX requests to the <a href="http://openweathermap.org/api">OpenWeatherMap API</a>. We’ll also briefly cover SCSS variables and mixins.</p>
+
+<p>Feel free to ask questions in the comments below.</p>
+
+<p>Happy coding!</p>
+
+	</div>
+
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date"><time>Posted on 27 Oct 2014</time></div>
+		
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+		
+		<div class="media entry-author">
+			<img src="/img/authors/ihayes.jpg" alt="Picture of Ivan Hayes" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="entry-author-name"><a href="http://twitter.com/munkychop">Ivan Hayes</a></h3>
+				<p class="entry-author-desc">Ivan is a Creative Technologist at TMW. He is a professional geek by day, and skateboard dude by night.</p>
+			</div>
+		</div>
+
+	</div>
+
+	
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		var disqus_shortname = 'labstmw';
+
+		
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	
+
+	<!-- 
+	  <a href="/2014/10/Interning-in-the-Tech-Department">Interning in the Tech department</a><br />
+	
+	  <a href="/2014/10/kickoff-version-4">Kickoff Version 4 released</a><br />
+	
+	  <a href="/2014/10/outsourcing">Should you outsource development?</a><br />
+	
+	  <a href="/2014/08/the-road-to-kickoff-version-4">The road to Kickoff version 4</a><br />
+	
+	  <a href="/2014/03/yeoman-generator-development-tips">Yeoman Generator Development Tips</a><br />
+	
+	  <a href="/2014/03/the-future-of-umbraco">The Future of Umbraco</a><br />
+	
+	  <a href="/2014/02/kickoff-statix-for-slicker-template-workflow">Kickoff Statix: A slicker template workflow</a><br />
+	
+	  <a href="/2014/01/building-the-tmw-shelter-christmas-tree">Building the TMW Shelter Christmas Tree</a><br />
+	
+	  <a href="/2014/01/hyping-the-ibeacon">Hyping the iBeacon</a><br />
+	
+	  <a href="/2014/01/speedtesting-gulp-and-grunt">Speedtesting gulp.js and Grunt</a><br />
+	 -->
+</article>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		
+			<a href="/2014/10/Interning-in-the-Tech-Department" class="pagination-item pagination-item--older"><b>Older post</b><br>Interning in the Tech department</a>
+		
+		
+	</div>
+</div>
+</div>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27779119-7', 'tmw.co.uk');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>
