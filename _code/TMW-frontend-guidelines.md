@@ -13,13 +13,9 @@ weight: 6
 
 ##Overview
 
-This document details the guidelines and standards adhered to by the Creative Technology department at TMW, and all web applications built
-should take these into consideration.  It is an evolving document and should be reviewed as and when required to keep up with changes in
-technology and best practice.
+This document details the guidelines and standards adhered to by the Creative Technology department at TMW, and all web applications built should take these into consideration.  It is an evolving document and should be reviewed as and when required to keep up with changes in technology and best practice.
 
-These guidelines have been compiled looking at various previously written guidelines - credit goes to [Isobar](http://na.isobar.com/standards)
-and [CSS Wizardry](https://github.com/csswizardry/CSS-Guidelines/blob/master/CSS%20Guidelines.md) both of which have been used as foundations
-to build upon for this document, and in some sections been directly quoted.
+These guidelines have been compiled looking at various previously written guidelines - credit goes to [Isobar](http://na.isobar.com/standards) and [CSS Wizardry](http://cssguidelin.es/) both of which have been used as foundations to build upon for this document, and in some sections been directly quoted.
 
 ##Contents
 
@@ -67,6 +63,8 @@ to build upon for this document, and in some sections been directly quoted.
 	8. [Resources](#section-js-resources)
 8. [Accessibility](#section-accessibility)
 9. [Performance and Optimisation](#section-performance)
+	1. [Assets](#section-performance-assets)
+	2. [Tools](#section-performance-tools)
 
 
 ***
@@ -76,7 +74,7 @@ to build upon for this document, and in some sections been directly quoted.
 
 - All front-end code should display clear separation of presentation, content, and behaviour.
 - Markup should be well formed, semantically correct and generally valid.
-- JavaScript should progressively enhance the experience
+- JavaScript should [progressively enhance](https://www.gov.uk/service-manual/making-software/progressive-enhancement.html) the experience
 	- Use feature detection rather than browser sniffing (edge cases such as performance are acceptable)
 - Gracefully degrade functionality when not present (e.g GPS, box-shadow, forms etc).
 
@@ -98,23 +96,24 @@ We will use server-side or build processes to automatically minify and gzip all 
 <a name="section-browsersupport"></a> Browser Support
 ========================================
 
-- Internet Explorer 7+
-- Firefox 3.6+
+- Internet Explorer 8+
+- Firefox
 - Google Chrome
-- Safari 5
+- Safari
 - Opera
+
+We test in the latest 3 versions of Firefox, Chrome and Safari due to them using incremental auto-updates.
 
 ***
 
 <a name="section-frameworks"></a> Base Templates and frameworks
 ======================================================
 
-We use [Kickoff](http://tmwagency.github.io/kickoff/), a lightweight front-end framework
-we have put together for creating scalable, responsive sites.
+We use [Kickoff](http://tmwagency.github.io/kickoff/), a lightweight front-end framework we maintain for creating scalable, responsive sites.
 
-When building static templates, we use [Kickoff Statix](http://tmwagency.github.io/kickoff/statix/index.html), which integrates Kickoff with Assemble to make templating faster and more maintainable.
+When building static templates, we use [Statix](http://tmwagency.github.io/statix/), which integrates Kickoff with Assemble to make templating faster and more maintainable.
 
-Both Kickoff and Kickoff Statix are actively maintained by the Creative Tech team at TMW; for more information about their features, getting started and demos, see the [Kickoff documentation site](http://tmwagency.github.io/kickoff/).
+Both Kickoff and Statix are actively maintained by the Creative Tech team at TMW; for more information about their features, getting started and demos, see the [Kickoff documentation site](http://tmwagency.github.io/kickoff/).
 
 ***
 
@@ -161,7 +160,7 @@ The following are general guidelines for structuring your HTML markup. Authors a
 
 ...and the single most important rule...
 
-- Tables **shouldn't ever** be used for page layout.
+- Tables **shouldn't ever** be used for page layout – only for tabular data.
 
 <a name="section-markup-attributes"></a> Quoting Attributes
 ----------------------------------------------------
@@ -209,8 +208,43 @@ For our full guidelines on Accessibility, refer to the [Accessibility Guidelines
 
 - Use multi-line CSS declarations. This helps with version control (diff-ing single line CSS can be a nightmare). Group CSS declarations by type - keeping font related styling together, layout styling together etc - and ordered by relevance, not alphabetized.
 - All CSS rules should have a space after the selector colon and a trailing semi-colon.
-- Selectors should be specified using a simplified version of BEM
-	- INSERT RULES HERE.
+- Selectors should be specified using a simplified version of BEM:
+
+```css
+/* Descriptors use camel-casing if more than one word: e.g. twoWords */
+.skipToContent {
+    ...
+}
+
+/* ========= */
+
+/* Child elements use single hyphens: - */
+.form-controlGroup {
+    ...
+}
+
+/* ========= */
+
+/* Modifier element use a double hyphen: -- */
+.btn.btn--primary {
+    ...
+}
+
+/* ========= */
+
+/* Element state: .is- */
+.is-active {
+    ...
+}
+
+/* ========= */
+
+/* Sass variables are dash-case */
+a {
+    color: $color-primary;
+}
+```
+
 - Use shorthand when specifying multiple values.  Remember longhand can be shorter for single values.
 - Multi-attribute selectors should go on separate lines.
 - Don't over qualify class or ID selectors.  Leads to specificity issues further down the line.
@@ -261,7 +295,7 @@ nav {}
 <a name="section-css-ocss"></a> OOCSS
 -------------------------------------
 
-When building components try and keep a DRY, OO frame of mind.
+When building components, or modules, try and keep a DRY, OO frame of mind.
 
 Instead of building dozens of unique components, try and spot repeated design patterns and abstract them; build these skeletons as base 'objects' and then peg classes onto these to extend their styling for more unique circumstances.
 
@@ -293,7 +327,7 @@ If a reset is preferred, the [Eric Meyer reloaded reset](http://html5doctor.com/
 
 For normalisation, the excellent [normalise.css](http://necolas.github.com/normalize.css/) should be included.
 
-Kickoff, which is used as a base for all of TMW‘s projects, chooses to implement normalisation by default, rather than a CSS reset.
+[Kickoff](http://tmwagency.github.io/kickoff/), which is used as a base for all of TMW‘s projects, chooses to implement normalisation by default, rather than a CSS reset.
 
 
 <a name="section-css-comments"></a> Comments
@@ -690,7 +724,7 @@ This list will eventually go on a separate wiki detailing more specific plugin i
 ***
 
 <a name="section-accessibility"></a> Accessibility
---------------------------------------------
+================================
 
 Markup and code should be written in a way that is inherently accessibile, irrespective of the project being worked on.
 
@@ -703,7 +737,32 @@ For accessibility testing, consider using one of the following:
 ***
 
 <a name="section-performance"></a> Performance and Optimisation
-------------------------------------------------------------
+============================================
+
+Performance should be treated as a [constraint on your project](http://timkadlec.com/2013/01/setting-a-performance-budget/).  It is no use making the most beautiful site on the web if noone can be bothered to wait for it to download.
+
+<a name="section-performance-assets"></a> Assets
+----------------------------------------------
+
+It isn’t just down to the size of your files, but the number of them.  Each additional request on mobile [increases the latency of your website](https://www.igvita.com/2012/07/19/latency-the-new-web-performance-bottleneck/).
+
+CSS and JavaScript should be concatenated and minified on production servers to minimse their footprint on your website.
+
+Images are a complex subject, especially in the realm of Responsive Design, and is one that is constantly changing.  We recommend checking out [PictureFill](http://scottjehl.github.io/picturefill/) for handling responsive images, as well as reading [Eric Portis' excellent article on the subject](http://alistapart.com/article/responsive-images-in-practice).
+
+For image optimisation, we use:
+
+- [Pngyu](http://nukesaq88.github.io/Pngyu/) – For PNGs
+- [JPEGMini](http://www.jpegmini.com/) – For JPEGs
+
+
+<a name="section-performance-tools"></a> Tools
+--------------------------------------------
+
+We recommend running your web pages through one of the following tools to get feedback on the loading and optimsation of your site:
+
+- [Google PageSpeed](https://developers.google.com/speed/pagespeed/)
+- [WebPage Test](http://www.webpagetest.org/)
 
 
 
