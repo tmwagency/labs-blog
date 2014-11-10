@@ -362,6 +362,7 @@ module.exports = function (grunt) {
 	 * run jshint, uglify and sass:production
 	 */
 	grunt.registerTask('deploy', [
+		'jekyll',
 		'uglify',
 		'sass:kickoff',
 		'autoprefixer:dist',
