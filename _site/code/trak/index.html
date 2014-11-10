@@ -106,13 +106,13 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'application/javascript'</span> <span class="na">src=</span><span class="s">'/path/to/trak.js'</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre></div>
 <p>then run <code>trak();</code> when the DOM is ready:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Native JS</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'DOMContentLoaded'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Native JS
+</span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'DOMContentLoaded'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">trak</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="c1">// jQuery</span>
-<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="c1">// jQuery
+</span><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="nx">trak</span><span class="p">();</span>
 <span class="p">});</span>
 </code></pre></div>
@@ -219,8 +219,8 @@ Default: <code>undefined</code></p>
 
 <p>Add any other event tracking providers. See below for example:</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">trak</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">additionalTypes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">UDM</span><span class="p">.</span><span class="nx">evq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="nx">trak</span><span class="p">.</span><span class="nx">clean</span><span class="p">(</span><span class="nx">category</span><span class="p">),</span> <span class="nx">trak</span><span class="p">.</span><span class="nx">clean</span><span class="p">(</span><span class="nx">action</span><span class="p">)]);</span> <span class="c1">// trak.clean(label)</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fire additional event'</span><span class="p">);</span>
+    <span class="nx">UDM</span><span class="p">.</span><span class="nx">evq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="nx">trak</span><span class="p">.</span><span class="nx">clean</span><span class="p">(</span><span class="nx">category</span><span class="p">),</span> <span class="nx">trak</span><span class="p">.</span><span class="nx">clean</span><span class="p">(</span><span class="nx">action</span><span class="p">)]);</span> <span class="c1">// trak.clean(label)
+</span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fire additional event'</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4>trak.options.debug</h4>
