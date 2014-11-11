@@ -312,6 +312,13 @@ module.exports = function (grunt) {
 			blog: {
 				src: './',
 				dest: '_site'
+			},
+			drafts: {
+				options : {
+					drafts : true
+				},
+				src: './',
+				dest: '_site'
 			}
 		}
 	});
