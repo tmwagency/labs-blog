@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Front-End Dev guidelines - labs@tmw</title>
-		<meta name="description" content="labs@tmw - where TMW talks Tech">
+		<title>Front-End Dev guidelines - tech.tmw.co.uk</title>
+		<meta name="description" content="tech.tmw.co.uk - where TMW talks Tech">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/kickoff.css">
 		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
@@ -26,9 +26,11 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/favicons/lbtmw-72.png">
 		<link rel="apple-touch-icon-precomposed" href="/img/favicons/lbtmw-57.png">
 		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-		<meta name="apple-mobile-web-app-title" content="labs@tmw">
+		<meta name="apple-mobile-web-app-title" content="tech.tmw">
 
-		<link rel="alternate" type="application/atom+xml" title="labs@tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/social-icon.png"/>
+
+		<link rel="alternate" type="application/atom+xml" title="tech.tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
 	</head>
 	<body>
 
@@ -38,7 +40,7 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank" class="tmwBrand"><strong>tmw</strong></a> tech team</p>
 
 	<nav class="nav">
-		<a href="/" class="nav-item">News</a>
+		<a href="/" class="nav-item">Articles</a>
 		<a href="/code" class="nav-item is-active">Code</a>
 		<a href="/team" class="nav-item">Team</a>
 		<a href="/work" class="nav-item">Work</a>
@@ -65,11 +67,14 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 
 
 	<div class="entry-content">
+		
 		<h1 class="entry-title entry-title--single">Front-End Dev guidelines</h1>
+		
 
 	<div class="links">
 		
-			<a href="https://github.com/tmwagency/TMW-frontend-guidelines" class="links-item">Code</a>
+			<a href="https://github.com/tmwagency/TMW-frontend-guidelines" class="links-item">View the Repo on Github</a>
+		
 		
 		
 		
@@ -80,13 +85,9 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 
 		<h2>Overview</h2>
 
-<p>This document details the guidelines and standards adhered to by the Creative Technology department at TMW, and all web applications built
-should take these into consideration.  It is an evolving document and should be reviewed as and when required to keep up with changes in
-technology and best practice.</p>
+<p>This document details the guidelines and standards adhered to by the Creative Technology department at TMW, and all web applications built should take these into consideration.  It is an evolving document and should be reviewed as and when required to keep up with changes in technology and best practice.</p>
 
-<p>These guidelines have been compiled looking at various previously written guidelines - credit goes to <a href="http://na.isobar.com/standards">Isobar</a>
-and <a href="https://github.com/csswizardry/CSS-Guidelines/blob/master/CSS%20Guidelines.md">CSS Wizardry</a> both of which have been used as foundations
-to build upon for this document, and in some sections been directly quoted.</p>
+<p>These guidelines have been compiled looking at various previously written guidelines - credit goes to <a href="http://na.isobar.com/standards">Isobar</a> and <a href="http://cssguidelin.es/">CSS Wizardry</a> both of which have been used as foundations to build upon for this document, and in some sections been directly quoted.</p>
 
 <h2>Contents</h2>
 
@@ -149,7 +150,12 @@ to build upon for this document, and in some sections been directly quoted.</p>
 <li><a href="#section-js-resources">Resources</a></li>
 </ol></li>
 <li><a href="#section-accessibility">Accessibility</a></li>
-<li><a href="#section-performance">Performance and Optimisation</a></li>
+<li><a href="#section-performance">Performance and Optimisation</a>
+
+<ol>
+<li><a href="#section-performance-assets">Assets</a></li>
+<li><a href="#section-performance-tools">Tools</a></li>
+</ol></li>
 </ol>
 
 <hr>
@@ -159,7 +165,7 @@ to build upon for this document, and in some sections been directly quoted.</p>
 <ul>
 <li>All front-end code should display clear separation of presentation, content, and behaviour.</li>
 <li>Markup should be well formed, semantically correct and generally valid.</li>
-<li>JavaScript should progressively enhance the experience
+<li>JavaScript should <a href="https://www.gov.uk/service-manual/making-software/progressive-enhancement.html">progressively enhance</a> the experience
 
 <ul>
 <li>Use feature detection rather than browser sniffing (edge cases such as performance are acceptable)</li>
@@ -182,23 +188,24 @@ to build upon for this document, and in some sections been directly quoted.</p>
 <h1><a name="section-browsersupport"></a> Browser Support</h1>
 
 <ul>
-<li>Internet Explorer 7+</li>
-<li>Firefox 3.6+</li>
+<li>Internet Explorer 8+</li>
+<li>Firefox</li>
 <li>Google Chrome</li>
-<li>Safari 5</li>
+<li>Safari</li>
 <li>Opera</li>
 </ul>
+
+<p>We test in the latest 3 versions of Firefox, Chrome and Safari due to them using incremental auto-updates.</p>
 
 <hr>
 
 <h1><a name="section-frameworks"></a> Base Templates and frameworks</h1>
 
-<p>We use <a href="http://tmwagency.github.io/kickoff/">Kickoff</a>, a lightweight front-end framework
-we have put together for creating scalable, responsive sites.</p>
+<p>We use <a href="http://tmwagency.github.io/kickoff/">Kickoff</a>, a lightweight front-end framework we maintain for creating scalable, responsive sites.</p>
 
-<p>When building static templates, we use <a href="http://tmwagency.github.io/kickoff/statix/index.html">Kickoff Statix</a>, which integrates Kickoff with Assemble to make templating faster and more maintainable.</p>
+<p>When building static templates, we use <a href="http://tmwagency.github.io/statix/">Statix</a>, which integrates Kickoff with Assemble to make templating faster and more maintainable.</p>
 
-<p>Both Kickoff and Kickoff Statix are actively maintained by the Creative Tech team at TMW; for more information about their features, getting started and demos, see the <a href="http://tmwagency.github.io/kickoff/">Kickoff documentation site</a>.</p>
+<p>Both Kickoff and Statix are actively maintained by the Creative Tech team at TMW; for more information about their features, getting started and demos, see the <a href="http://tmwagency.github.io/kickoff/">Kickoff documentation site</a>.</p>
 
 <hr>
 
@@ -245,7 +252,7 @@ we have put together for creating scalable, responsive sites.</p>
 <p>...and the single most important rule...</p>
 
 <ul>
-<li>Tables <strong>shouldn&#39;t ever</strong> be used for page layout.</li>
+<li>Tables <strong>shouldn&#39;t ever</strong> be used for page layout – only for tabular data.</li>
 </ul>
 
 <h2><a name="section-markup-attributes"></a> Quoting Attributes</h2>
@@ -284,11 +291,42 @@ we have put together for creating scalable, responsive sites.</p>
 <ul>
 <li>Use multi-line CSS declarations. This helps with version control (diff-ing single line CSS can be a nightmare). Group CSS declarations by type - keeping font related styling together, layout styling together etc - and ordered by relevance, not alphabetized.</li>
 <li>All CSS rules should have a space after the selector colon and a trailing semi-colon.</li>
-<li>Selectors should be specified using a simplified version of BEM
+<li>Selectors should be specified using a simplified version of BEM:</li>
+</ul>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* Descriptors use camel-casing if more than one word: e.g. twoWords */</span>
+<span class="nc">.skipToContent</span> <span class="p">{</span>
+    <span class="err">...</span>
+<span class="p">}</span>
 
+<span class="c">/* ========= */</span>
+
+<span class="c">/* Child elements use single hyphens: - */</span>
+<span class="nc">.form-controlGroup</span> <span class="p">{</span>
+    <span class="err">...</span>
+<span class="p">}</span>
+
+<span class="c">/* ========= */</span>
+
+<span class="c">/* Modifier element use a double hyphen: -- */</span>
+<span class="nc">.btn.btn--primary</span> <span class="p">{</span>
+    <span class="err">...</span>
+<span class="p">}</span>
+
+<span class="c">/* ========= */</span>
+
+<span class="c">/* Element state: .is- */</span>
+<span class="nc">.is-active</span> <span class="p">{</span>
+    <span class="err">...</span>
+<span class="p">}</span>
+
+<span class="c">/* ========= */</span>
+
+<span class="c">/* Sass variables are dash-case */</span>
+<span class="nt">a</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="err">$</span><span class="n">color-primary</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <ul>
-<li>INSERT RULES HERE.</li>
-</ul></li>
 <li>Use shorthand when specifying multiple values.  Remember longhand can be shorter for single values.</li>
 <li>Multi-attribute selectors should go on separate lines.</li>
 <li>Don&#39;t over qualify class or ID selectors.  Leads to specificity issues further down the line.</li>
@@ -331,7 +369,7 @@ we have put together for creating scalable, responsive sites.</p>
 </code></pre></div>
 <h2><a name="section-css-ocss"></a> OOCSS</h2>
 
-<p>When building components try and keep a DRY, OO frame of mind.</p>
+<p>When building components, or modules, try and keep a DRY, OO frame of mind.</p>
 
 <p>Instead of building dozens of unique components, try and spot repeated design patterns and abstract them; build these skeletons as base &#39;objects&#39; and then peg classes onto these to extend their styling for more unique circumstances.</p>
 
@@ -358,7 +396,7 @@ we have put together for creating scalable, responsive sites.</p>
 
 <p>For normalisation, the excellent <a href="http://necolas.github.com/normalize.css/">normalise.css</a> should be included.</p>
 
-<p>Kickoff, which is used as a base for all of TMW‘s projects, chooses to implement normalisation by default, rather than a CSS reset.</p>
+<p><a href="http://tmwagency.github.io/kickoff/">Kickoff</a>, which is used as a base for all of TMW‘s projects, chooses to implement normalisation by default, rather than a CSS reset.</p>
 
 <h2><a name="section-css-comments"></a> Comments</h2>
 
@@ -543,7 +581,7 @@ we have put together for creating scalable, responsive sites.</p>
         <span class="k">this</span><span class="p">.</span><span class="nx">$additionalTextNodes</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'section a &gt; span'</span><span class="p">);</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">createMarkup</span><span class="p">();</span>
     <span class="p">},</span>
-    <span class="na">createMarkup</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">createMarkup</span><span class="err">:</span> <span class="kd">function</span><span class="p">(){</span>
         <span class="kd">var</span> <span class="nx">$additionalTextNodes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$sections</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
         <span class="o">&amp;</span><span class="nx">additionalTextNodes</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span>
             <span class="na">position</span><span class="p">:</span> <span class="s1">'absolute'</span><span class="p">,</span>
@@ -562,8 +600,8 @@ we have put together for creating scalable, responsive sites.</p>
         <span class="na">ANIMATION_SPEED</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
 
         <span class="na">init</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="c1">//fire off all other classes
-</span>            <span class="k">if</span> <span class="p">(</span><span class="nx">LightBox</span><span class="p">.</span><span class="nx">$lightbox</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//fire off all other classes</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">LightBox</span><span class="p">.</span><span class="nx">$lightbox</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nx">LightBox</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -572,8 +610,8 @@ we have put together for creating scalable, responsive sites.</p>
         <span class="na">$lightbox</span><span class="p">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.lightbox'</span><span class="p">),</span>
 
         <span class="na">init</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
-        <span class="na">open</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
-        <span class="na">close</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
+        <span class="nx">open</span> <span class="err">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
+        <span class="nx">close</span> <span class="err">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
     <span class="p">};</span>
 
     <span class="nx">SiteSetup</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
@@ -591,37 +629,37 @@ we have put together for creating scalable, responsive sites.</p>
 <ul>
 <li>Separate operators/comparators with spacing</li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good
-</span><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">call</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="c1">// Terrible
-</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span><span class="o">&amp;&amp;</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">&amp;&amp;</span><span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">===</span><span class="s1">'object'</span><span class="p">){</span>
+<span class="c1">// Terrible</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">foo</span><span class="o">&amp;&amp;</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">&amp;&amp;</span><span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">===</span><span class="s1">'object'</span><span class="p">){</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">call</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 <ul>
 <li>Use braces for logic evaluations.  If evaluation execution is simple, keep non-braced logic on a single line e.g:</li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good
-</span><span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 
-<span class="c1">// Good
-</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// Good</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">baz</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">*</span> <span class="mf">2.7</span> <span class="o">+</span> <span class="s1">'rad'</span>
 <span class="p">}</span>
 
-<span class="c1">// Bad
-</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">// Bad</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">baz</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">*</span> <span class="mf">2.7</span> <span class="o">+</span> <span class="s1">'rad'</span>
 
-<span class="c1">// Bad
-</span><span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">// Bad</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 
-<span class="c1">// Bad
-</span><span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">// Bad</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 <span class="p">}</span>
@@ -640,8 +678,8 @@ we have put together for creating scalable, responsive sites.</p>
 </ul></li>
 <li>If possible, avoid using bitwise operations unless they really help. If used, document them with comments</li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// inverting bits to ease comparison to -1
-</span><span class="k">if</span> <span class="p">(</span><span class="o">~</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'leetness'</span><span class="p">)){</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// inverting bits to ease comparison to -1</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">~</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'leetness'</span><span class="p">)){</span>
     <span class="nx">alert</span><span class="p">(</span><span class="s1">'w00t!'</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -712,7 +750,7 @@ we have put together for creating scalable, responsive sites.</p>
 
 <hr>
 
-<h2><a name="section-accessibility"></a> Accessibility</h2>
+<h1><a name="section-accessibility"></a> Accessibility</h1>
 
 <p>Markup and code should be written in a way that is inherently accessibile, irrespective of the project being worked on.</p>
 
@@ -723,7 +761,33 @@ we have put together for creating scalable, responsive sites.</p>
 
 <hr>
 
-<h2><a name="section-performance"></a> Performance and Optimisation</h2>
+<h1><a name="section-performance"></a> Performance and Optimisation</h1>
+
+<p>Performance should be treated as a <a href="http://timkadlec.com/2013/01/setting-a-performance-budget/">constraint on your project</a>.  It is no use making the most beautiful site on the web if noone can be bothered to wait for it to download.</p>
+
+<h2><a name="section-performance-assets"></a> Assets</h2>
+
+<p>It isn’t just down to the size of your files, but the number of them.  Each additional request on mobile <a href="https://www.igvita.com/2012/07/19/latency-the-new-web-performance-bottleneck/">increases the latency of your website</a>.</p>
+
+<p>CSS and JavaScript should be concatenated and minified on production servers to minimse their footprint on your website.</p>
+
+<p>Images are a complex subject, especially in the realm of Responsive Design, and is one that is constantly changing.  We recommend checking out <a href="http://scottjehl.github.io/picturefill/">PictureFill</a> for handling responsive images, as well as reading <a href="http://alistapart.com/article/responsive-images-in-practice">Eric Portis&#39; excellent article on the subject</a>.</p>
+
+<p>For image optimisation, we use:</p>
+
+<ul>
+<li><a href="http://nukesaq88.github.io/Pngyu/">Pngyu</a> – For PNGs</li>
+<li><a href="http://www.jpegmini.com/">JPEGMini</a> – For JPEGs</li>
+</ul>
+
+<h2><a name="section-performance-tools"></a> Tools</h2>
+
+<p>We recommend running your web pages through one of the following tools to get feedback on the loading and optimsation of your site:</p>
+
+<ul>
+<li><a href="https://developers.google.com/speed/pagespeed/">Google PageSpeed</a></li>
+<li><a href="http://www.webpagetest.org/">WebPage Test</a></li>
+</ul>
 
 	</div>
 
@@ -774,7 +838,7 @@ we have put together for creating scalable, responsive sites.</p>
 			<img src="/img/authors/anolan.jpg" alt="Picture of Ashley Nolan" class="media-img entry-author-img">
 			<div class="media-body">
 				<h3 class="entry-author-name"><a href="http://twitter.com/AshNolan_">Ashley Nolan</a></h3>
-				<p class="entry-author-desc">Ashley is a Creative Technologist at TMW.  After reading about Amazon’s new delivery plans, he is currently preparing for the advent of Skynet and welcomes our new drone overlords.</p>
+				<p class="entry-author-desc">Ashley is a Senior Creative Technologist at TMW.  He currently splits his commitments between two very worthwhile endeavors; watching Netflix and playing PS4…</p>
 			</div>
 		</div>
 				

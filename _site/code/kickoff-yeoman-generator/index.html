@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Kickoff Yeoman Generator - tech.tmw.co.uk</title>
+		<meta name="description" content="tech.tmw.co.uk - where TMW talks Tech">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script>var pageName = 'code';</script>
+
+		<script>
+			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			grunticon(["/img/icons/icons.data.svg.css", "/img/icons/icons.data.png.css", "/img/icons/icons.fallback.css"]);
+		</script>
+		<noscript><link href="/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+
+		<!-- <script type="text/javascript" src="/js/libs/modernizr.min.js"></script> -->
+
+		<!-- Mobile & Fav Icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/favicons/lbtmw-144.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/favicons/lbtmw-114.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/favicons/lbtmw-72.png">
+		<link rel="apple-touch-icon-precomposed" href="/img/favicons/lbtmw-57.png">
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-title" content="tech.tmw">
+
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/social-icon.png"/>
+
+		<link rel="alternate" type="application/atom+xml" title="tech.tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+	</head>
+	<body>
+
+<div class="sidebar">
+	<header class="masthead">
+	<h1 class="logo"><a href="/">tech<span class="dot">.</span><span class="tmwBrand">tmw</span></a></h1>
+	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank" class="tmwBrand"><strong>tmw</strong></a> tech team</p>
+
+	<nav class="nav">
+		<a href="/" class="nav-item">Articles</a>
+		<a href="/code" class="nav-item is-active">Code</a>
+		<a href="/team" class="nav-item">Team</a>
+		<a href="/work" class="nav-item">Work</a>
+	</nav>
+</header>
+
+
+	<footer class="footer" role="contentinfo">
+	<div class="socialLinks">
+		<a href="http://github.com/tmwagency/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-github"></span>@tmwagency</a>
+		<a href="http://twitter.com/tmwTechTeam/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-twitter"></span>@tmwTechTeam</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-kickoff"></span>We also maintain Kickoff</a>
+		<a href="http://eepurl.com/KaKbv" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-subscribe"></span>Subscribe by Email</a>
+	</div>
+</footer>
+
+</div>
+
+<div class="content">
+	<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">code</h1>
+
+	
+
+
+	<div class="entry-content">
+		
+		<h1 class="entry-title entry-title--single">Kickoff Yeoman Generator</h1>
+		
+
+	<div class="links">
+		
+			<a href="https://github.com/tmwagency/generator-kickoff" class="links-item">View the Repo on Github</a>
+		
+		
+		
+		
+			<a href="https://github.com/tmwagency/generator-kickoff/issues" class="links-item">Issues</a>
+		
+		
+		
+			<a href="http://tmwagency.github.io/kickoff/docs/yeoman.html" class="links-item">Info</a>
+		
+		
+			<a href="http://tmwagency.github.io/generator-kickoff/" class="links-item">NPM</a>
+		
+	</div>
+
+		<h2><a href="http://yeoman.io">Yeoman</a> generator for the <a href="https://github.com/tmwagency/kickoff/">Kickoff framework</a></h2>
+
+<h3>The generator asks for:</h3>
+
+<ul>
+<li>The project&#39;s name</li>
+<li>The names of the project&#39;s developers</li>
+<li>The javascript namespace you would like to use (default is <code>KO</code>)</li>
+<li>If you&#39;d like to use <a href="/kickoff/statix/">Statix</a></li>
+<li>Which javascript libraries to install. jQuery v1x/2x, Trak.js, Swiftclick &amp; Cookies are the options</li>
+<li>If you&#39;d like to use Browserify (available soon)</li>
+</ul>
+
+<p><a href="https://nodei.co/npm/generator-kickoff/"><img src="https://nodei.co/npm/generator-kickoff.png?downloads=true&amp;stars=true" alt="NPM"></a></p>
+
+<h2>Install the generator</h2>
+
+<p>To install generator-kickoff from npm, run:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">npm install -g generator-kickoff
+</code></pre></div>
+<p>Finally, initiate the generator:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">yo kickoff
+</code></pre></div>
+<p>If you&#39;d like to get to know Yeoman better and meet some of his friends, <a href="http://gruntjs.com">Grunt</a> and <a href="http://bower.io">Bower</a>, check out the complete <a href="https://github.com/yeoman/yeoman/wiki/Getting-Started">Getting Started Guide</a>.</p>
+
+<h2>License</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/MIT_License">MIT License</a></p>
+
+	</div>
+
+
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date">Maintained by</div>
+		<p class="entry-maintainers l-list--floated unstyled">
+
+				
+					
+						
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+					<div class="media entry-author">
+			<img src="/img/authors/zmartineau.jpg" alt="Picture of Zander Martineau" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="entry-author-name"><a href="http://twitter.com/mrmartineau">Zander Martineau</a></h3>
+				<p class="entry-author-desc">Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.</p>
+			</div>
+		</div>
+				
+			</p>
+
+	</div>
+
+	
+
+	<!--  -->
+</article>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		
+		
+	</div>
+</div>
+</div>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27779119-7', 'tmw.co.uk');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>

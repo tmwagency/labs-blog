@@ -79,6 +79,7 @@ module.exports = function (grunt) {
 					'authors/*.html',
 					'*.html',
 					'**/*.md',
+					'!node_modules/**/*.*',
 					'_plugins/*.rb',
 					'Gruntfile.js',
 					'**/*.yml'
@@ -369,6 +370,7 @@ module.exports = function (grunt) {
 	 * run jshint, uglify and sass:production
 	 */
 	grunt.registerTask('deploy', [
+		'jekyll',
 		'uglify',
 		'sass:kickoff',
 		'autoprefixer:dist',

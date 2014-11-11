@@ -7,18 +7,23 @@ pageid: code
 	<h1 class="sectionTitle">code</h1>
 
 	{% if page.featuredImage %}
-		<figure class="featuredImage">
+		<figure class="featuredImage featuredImage--code">
 			<img src="{{ page.featuredImage }}" alt="{{ page.title }}">
 		</figure>
 	{% endif %}
 
 
 	<div class="entry-content">
+		{% if page.featuredImage == null %}
 		<h1 class="entry-title entry-title--single">{{ page.title }}</h1>
+		{% endif %}
 
 	<div class="links">
 		{% if page.github_url != null %}
-			<a href="{{ page.github_url }}" class="links-item">Code</a>
+			<a href="{{ page.github_url }}" class="links-item">View the Repo on Github</a>
+		{% endif %}
+		{% if page.docs != null %}
+			<a href="{{ page.docs }}" class="links-item">Documentation</a>
 		{% endif %}
 		{% if page.demo != null %}
 			<a href="{{ page.demo }}" class="links-item">Demo</a>

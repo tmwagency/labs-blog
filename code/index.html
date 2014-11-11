@@ -5,7 +5,8 @@ pageid: code
 ---
 <div class="content-inner clearfix">
 	<h1 class="sectionTitle">{{ page.title }} <small>Our open-source offerings</small></h1>
-	{% for work in site.code %}
+	{% assign items = site.code | sort: 'weight' %}
+	{% for work in items %}
 		<article class="entry entry--multiple entry--code">
 			<!-- {% if work.img != null %}
 				<img src="{{ work.img }}" alt="Picture of {{ work.name }}" class="author-img">
@@ -18,10 +19,13 @@ pageid: code
 
 			<div class="links">
 				{% if work.github_url != null %}
-					<a href="{{ work.github_url }}" class="links-item">Code</a>
+					<a href="{{ work.github_url }}" class="links-item">View the Repo on Github</a>
+				{% endif %}
+				{% if work.docs != null %}
+					<a href="{{ work.docs }}" class="links-item">Documentation</a>
 				{% endif %}
 				{% if work.demo != null %}
-					<a href="{{ work.demo }}" class="links-item">Demo</a>
+					<a href="{{ work.folder }}{{ work.demo }}" class="links-item">Demo</a>
 				{% endif %}
 				{% if work.issues != null %}
 					<a href="{{ work.issues }}" class="links-item">Issues</a>

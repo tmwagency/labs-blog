@@ -3,13 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Swiftclick - labs@tmw</title>
-		<meta name="description" content="labs@tmw - where TMW talks Tech">
+		<title>Swiftclick - tech.tmw.co.uk</title>
+		<meta name="description" content="tech.tmw.co.uk - where TMW talks Tech">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/kickoff.css">
 		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-		<script>var pageName = 'demo';</script>
+		<script>var pageName = 'code';</script>
 
 		<script>
 			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
@@ -26,9 +26,11 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/favicons/lbtmw-72.png">
 		<link rel="apple-touch-icon-precomposed" href="/img/favicons/lbtmw-57.png">
 		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-		<meta name="apple-mobile-web-app-title" content="labs@tmw">
+		<meta name="apple-mobile-web-app-title" content="tech.tmw">
 
-		<link rel="alternate" type="application/atom+xml" title="labs@tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/social-icon.png"/>
+
+		<link rel="alternate" type="application/atom+xml" title="tech.tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
 	</head>
 	<body>
 
@@ -38,8 +40,8 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmw.co.uk" title="TMW's website" target="_blank" class="tmwBrand"><strong>tmw</strong></a> tech team</p>
 
 	<nav class="nav">
-		<a href="/" class="nav-item">News</a>
-		<a href="/code" class="nav-item">Code</a>
+		<a href="/" class="nav-item">Articles</a>
+		<a href="/code" class="nav-item is-active">Code</a>
 		<a href="/team" class="nav-item">Team</a>
 		<a href="/work" class="nav-item">Work</a>
 	</nav>
@@ -59,20 +61,159 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 
 <div class="content">
 	<article class="content-inner entry entry--single" role="main">
-	<h1 class="sectionTitle">demo</h1>
+	<h1 class="sectionTitle">code</h1>
 
 	
 
 
 	<div class="entry-content">
+		
 		<h1 class="entry-title entry-title--single">Swiftclick</h1>
+		
 
-		<a href="../swiftclick.html">Back to documentation</a>
-
+	<div class="links">
+		
+			<a href="https://github.com/tmwagency/swiftclick" class="links-item">View the Repo on Github</a>
+		
+		
+		
+		
+			<a href="https://github.com/tmwagency/swiftclick/issues" class="links-item">Issues</a>
+		
+		
+		
 		
 	</div>
+
+		<p>SwiftClick is a library created to eliminate the 300ms click event delay on touch devices that support orientation change and is designed to be super lightweight.</p>
+
+<h3>Teeny-tiny</h3>
+
+<p>Only 957 bytes minified &amp; gzipped :-)</p>
+
+<h2>Usage</h2>
+
+<p>Firstly, grab either the <a href="https://raw2.github.com/tmwagency/swiftclick/master/js/dist/swiftclick.min.js">minified</a>, or <a href="https://raw2.github.com/tmwagency/swiftclick/master/js/libs/swiftclick.js">non-minified</a> source from Github.</p>
+
+<p>Alternatively, if you can use npm with the following command in your command prompt:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">npm install swiftclick --save
+</code></pre></div>
+<p>Or you can install via Bower instead, if that&#39;s your thing:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">bower install swiftclick
+</code></pre></div>
+<h3>Include SwiftClick in your application</h3>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"application/javascript"</span> <span class="na">src=</span><span class="s">"path/to/swiftclick.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+<p>If using CommonJS then simply require SwiftClick as per usual:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">SwiftClick</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"swiftclick"</span><span class="p">);</span>
+</code></pre></div>
+<h3>Setup SwiftClick</h3>
+
+<p>Setting up SwiftClick is a very easy process, which mirrors that of FastClick in that instances must be attached to a context element. Touch events from all elements within the context element are automatically captured and converted to click events when necessary, minus the delay.</p>
+
+<p>Start by creating a reference to a new instance of SwiftClick using the &#39;attach&#39; helper method and attach it to a context element. Attaching to document.body is easiest if you only need a single instance of SwiftClick:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+</code></pre></div>
+<p>If necessary, multiple instances of SwiftClick can be created for specific context elements which, although not really necessary in most cases, can sometimes be useful for optimising applications with a large amount of HTML:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">navigationSwiftClick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nx">someNavElement</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">uiSwiftClick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nx">someOtherElement</span><span class="p">);</span>
+</code></pre></div>
+<h3>Default Elements</h3>
+
+<p>Once attached, by default SwiftClick will track events originating from the following element types:</p>
+
+<ul>
+<li><code>&lt;a&gt;</code></li>
+<li><code>&lt;div&gt;</code></li>
+<li><code>&lt;span&gt;</code></li>
+<li><code>&lt;button&gt;</code></li>
+</ul>
+
+<h3>Adding non-default element types</h3>
+
+<p>If necessary you can make SwiftClick track events originating from additional element types by adding an array of node names. This requires a reference to an instance of SwiftClick:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nx">someElement</span><span class="p">);</span>
+<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">addNodeNamesToTrack</span><span class="p">([</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"h1"</span><span class="p">,</span> <span class="s2">"nav"</span><span class="p">]);</span>
+</code></pre></div>
+<h3>Replacing all stored node names to track</h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nx">someElement</span><span class="p">);</span>
+<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">replaceNodeNamesToTrack</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"div"</span><span class="p">,</span> <span class="s2">"h1"</span><span class="p">]);</span>
+</code></pre></div>
+<p>Doing this will remove all default node names, as well as any that have been added, and replace them with the node names within the array that is passed in, resulting in only the new node names being tracked.</p>
+
+<h3>Automatically disabled when not needed</h3>
+
+<p>SwiftClick only intercepts events for touch devices that support orientation change, otherwise it just sits there looking pretty.</p>
+
+	</div>
+
+
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date">Maintained by</div>
+		<p class="entry-maintainers l-list--floated unstyled">
+
+				
+					
+						
+					
+						
+					
+						
+					
+						
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+					<div class="media entry-author">
+			<img src="/img/authors/ihayes.jpg" alt="Picture of Ivan Hayes" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="entry-author-name"><a href="http://twitter.com/munkychop">Ivan Hayes</a></h3>
+				<p class="entry-author-desc">Ivan is a Creative Technologist at TMW. He is a professional geek by day, and skateboard dude by night.</p>
+			</div>
+		</div>
+				
+			</p>
+
+	</div>
+
+	
+
+	<!--  -->
 </article>
 
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		
+		
+	</div>
+</div>
 </div>
 
 	<script>

@@ -3,13 +3,16 @@ layout: code
 title: Kickoff
 subtitle: Kickoff is a lightweight front-end framework for creating scalable, responsive sites.
 pageid: code
+folder: kickoff/
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
 github_url: https://github.com/tmwagency/kickoff
-demo: http://tmwagency.github.io/kickoff/
+docs: http://tmwagency.github.io/kickoff/
 issues: https://github.com/tmwagency/kickoff/issues
 team:
 - ashnolan
 - zander
+
+weight: 1
 ---
 
 
@@ -17,7 +20,7 @@ team:
 
 Developed and maintained by [Ashley Nolan](https://github.com/dragongraphics) & [Zander Martineau](https://github.com/mrmartineau)
 
-If you're using Kickoff we'd love to hear about it; please e-mail us at labs@tmw.co.uk
+If you're using Kickoff we'd love to hear about it; please e-mail us at tech@tmw.co.uk
 
 ### Features
 

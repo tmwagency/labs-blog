@@ -12,7 +12,7 @@ excerpt: "Your weekly dose of really good hyperlinks - Issue &#35;1"
 published: true
 ---
 
-Welcome to the first of a regular weekly labs@tmw post, that we've inventively called 'Really Good Hyperlinks', where we attempt to filter out some of the finest links we've seen over the past week on the web.
+Welcome to the first of a regular weekly tech.tmw post, that we've inventively called 'Really Good Hyperlinks', where we attempt to filter out some of the finest links we've seen over the past week on the web.
 
 So without further ado, let's get started:
 

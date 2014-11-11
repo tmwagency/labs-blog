@@ -14,7 +14,7 @@
   surname: Nolan
   job_title: Senior Creative Technologist
   short_name: ashnolan
-  short_desc: Ashley is a Creative Technologist at TMW.  After reading about Amazon’s new delivery plans, he is currently preparing for the advent of Skynet and welcomes our new drone overlords.
+  short_desc: Ashley is a Senior Creative Technologist at TMW.  He currently splits his commitments between two very worthwhile endeavors; watching Netflix and playing PS4…
   avatar: anolan.jpg
   email: anolan@tmw.co.uk
   web: http://www.ashleynolan.co.uk
@@ -26,6 +26,7 @@
   surname: Park
   job_title: Creative Technologist
   short_name: cpark
+  short_desc: Ciaran is a Creative Technologist at TMW.
   avatar: cpark.png
   email: cpark@tmw.co.uk
   web: http://www.ashleynolan.co.uk
@@ -90,7 +91,7 @@
 - name: Rolff Kruger
   surname: Kruger
   short_name: rkruger
-  short_desc: TMW's Tech Lead
+  short_desc: Technical Director
   github: rkruger
   twitter: rkruger
 
@@ -159,7 +160,7 @@
   avatar: GuillaumeBuat-Menard.jpg
   email: GBuat-Menard@tmw.co.uk
   web:
-  twitter:
+  twitter: TheG
   github:
   team:
 

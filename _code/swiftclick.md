@@ -3,11 +3,14 @@ layout: code
 title: Swiftclick
 subtitle: SwiftClick is a library created to eliminate the 300ms click event delay on touch devices that support orientation change and is designed to be super lightweight.
 pageid: code
+folder: swiftclick/
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
 github_url: https://github.com/tmwagency/swiftclick
 issues: https://github.com/tmwagency/swiftclick/issues
 team:
 - ihayes
+
+weight: 3
 ---
 
 SwiftClick is a library created to eliminate the 300ms click event delay on touch devices that support orientation change and is designed to be super lightweight.
