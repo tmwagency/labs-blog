@@ -83,7 +83,7 @@ module.exports = function (grunt) {
 					'Gruntfile.js',
 					'**/*.yml'
 				],
-				tasks: 'jekyll',
+				tasks: 'jekyll:blog',
 				options: {
 					livereload: true
 				}
@@ -352,7 +352,8 @@ module.exports = function (grunt) {
 		'sass:kickoff',
 		'autoprefixer:dist',
 		'svgmin',
-		'grunticon'
+		'grunticon',
+		'jekyll:blog'
 	]);
 
 
@@ -364,7 +365,8 @@ module.exports = function (grunt) {
 		'uglify',
 		'sass:kickoff',
 		'autoprefixer:dist',
-		'csso'
+		'csso',
+		'jekyll:blog'
 	]);
 
 
@@ -373,7 +375,18 @@ module.exports = function (grunt) {
 	 * run connect and watch
 	 */
 	grunt.registerTask("serve", [
-		'jekyll',
+		'jekyll:blog',
+		'dev',
+		'connect',
+		'watch'
+	]);
+
+	/**
+	 * GRUNT SERVE * A task for for a static server with a watch
+	 * run connect and watch
+	 */
+	grunt.registerTask("drafts", [
+		'jekyll:drafts',
 		'dev',
 		'connect',
 		'watch'
