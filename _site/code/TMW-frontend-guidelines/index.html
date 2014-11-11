@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Front-End Dev guidelines - tech.tmw.co.uk</title>
 		<meta name="description" content="tech.tmw.co.uk - where TMW talks Tech">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/kickoff.css">
 		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
@@ -13,22 +14,41 @@
 
 		<script>
 			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
-window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
 			grunticon(["/img/icons/icons.data.svg.css", "/img/icons/icons.data.png.css", "/img/icons/icons.fallback.css"]);
 		</script>
 		<noscript><link href="/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
 
-		<!-- <script type="text/javascript" src="/js/libs/modernizr.min.js"></script> -->
-
 		<!-- Mobile & Fav Icons -->
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/favicons/lbtmw-144.png">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/favicons/lbtmw-114.png">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/favicons/lbtmw-72.png">
-		<link rel="apple-touch-icon-precomposed" href="/img/favicons/lbtmw-57.png">
 		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png" />
+
 		<meta name="apple-mobile-web-app-title" content="tech.tmw">
 
-		<meta property="og:image" content="http://tech.tmw.co.uk/img/social-icon.png"/>
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png"/>
+
+		<!-- Twitter - https://dev.twitter.com/cards/overview -->
+		<meta name="twitter:site" content="@tmwTechTeam">
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Front-End Dev guidelines" />
+		<meta name="twitter:description" content="{page description}" />
+		<meta name="twitter:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png" />
+		<meta name="twitter:url" content="{page url}" />
+
+
+		<!-- Open Graph data -->
+		<meta property="og:title" content="Front-End Dev guidelines" />
+		<meta property="og:description" content="{page description}" />
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content="{page url}" />
+		<meta property="og:image" content="{share image}" />
 
 		<link rel="alternate" type="application/atom+xml" title="tech.tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
 	</head>
@@ -581,7 +601,7 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
         <span class="k">this</span><span class="p">.</span><span class="nx">$additionalTextNodes</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'section a &gt; span'</span><span class="p">);</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">createMarkup</span><span class="p">();</span>
     <span class="p">},</span>
-    <span class="nx">createMarkup</span><span class="err">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="na">createMarkup</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
         <span class="kd">var</span> <span class="nx">$additionalTextNodes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$sections</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
         <span class="o">&amp;</span><span class="nx">additionalTextNodes</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span>
             <span class="na">position</span><span class="p">:</span> <span class="s1">'absolute'</span><span class="p">,</span>
@@ -600,8 +620,8 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
         <span class="na">ANIMATION_SPEED</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
 
         <span class="na">init</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="c1">//fire off all other classes</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">LightBox</span><span class="p">.</span><span class="nx">$lightbox</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//fire off all other classes
+</span>            <span class="k">if</span> <span class="p">(</span><span class="nx">LightBox</span><span class="p">.</span><span class="nx">$lightbox</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nx">LightBox</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -610,8 +630,8 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
         <span class="na">$lightbox</span><span class="p">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.lightbox'</span><span class="p">),</span>
 
         <span class="na">init</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
-        <span class="nx">open</span> <span class="err">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
-        <span class="nx">close</span> <span class="err">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
+        <span class="na">open</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
+        <span class="na">close</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
     <span class="p">};</span>
 
     <span class="nx">SiteSetup</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
@@ -629,37 +649,37 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 <ul>
 <li>Separate operators/comparators with spacing</li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good
+</span><span class="k">if</span> <span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">call</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="c1">// Terrible</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">foo</span><span class="o">&amp;&amp;</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">&amp;&amp;</span><span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">===</span><span class="s1">'object'</span><span class="p">){</span>
+<span class="c1">// Terrible
+</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span><span class="o">&amp;&amp;</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">&amp;&amp;</span><span class="k">typeof</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="o">===</span><span class="s1">'object'</span><span class="p">){</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">call</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 <ul>
 <li>Use braces for logic evaluations.  If evaluation execution is simple, keep non-braced logic on a single line e.g:</li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Good
+</span><span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 
-<span class="c1">// Good</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// Good
+</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">baz</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">*</span> <span class="mf">2.7</span> <span class="o">+</span> <span class="s1">'rad'</span>
 <span class="p">}</span>
 
-<span class="c1">// Bad</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">// Bad
+</span><span class="k">if</span><span class="p">(</span><span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
     <span class="nx">foo</span><span class="p">.</span><span class="nx">baz</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">*</span> <span class="mf">2.7</span> <span class="o">+</span> <span class="s1">'rad'</span>
 
-<span class="c1">// Bad</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">// Bad
+</span><span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 
-<span class="c1">// Bad</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">// Bad
+</span><span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 <span class="p">}</span>
@@ -678,8 +698,8 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 </ul></li>
 <li>If possible, avoid using bitwise operations unless they really help. If used, document them with comments</li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// inverting bits to ease comparison to -1</span>
-<span class="k">if</span> <span class="p">(</span><span class="o">~</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'leetness'</span><span class="p">)){</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// inverting bits to ease comparison to -1
+</span><span class="k">if</span> <span class="p">(</span><span class="o">~</span><span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'leetness'</span><span class="p">)){</span>
     <span class="nx">alert</span><span class="p">(</span><span class="s1">'w00t!'</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
