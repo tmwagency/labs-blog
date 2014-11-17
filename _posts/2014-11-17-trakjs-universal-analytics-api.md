@@ -1,9 +1,9 @@
 ---
 comments: true
 layout: post
-title: "Improve tracking events with trak.js"
+title: "Improve website event tracking with trak.js"
 author: zander
-excerpt: Add tracking events more easily with this new library
+excerpt: Add tracking events more easily with our new library
 ---
 Whether you use Google Analytics or another provider, adding tracking events to a site is often a painful experience. Events usually have to be defined in javascript which can make it tricky to dynamically change parameters based on certain criteria. Wouldn't it be nice to define events within the markup so that hundreds of click events can be left free from your javasript code? Trak.js does just that.
 
