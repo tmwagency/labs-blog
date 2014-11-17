@@ -495,8 +495,7 @@ module.exports = function(grunt) {
 
 			server : {
 				options: {
-					open: true,
-					keepalive: true
+					open: true
 				}
 			}
 		},
@@ -520,6 +519,8 @@ module.exports = function(grunt) {
 ```
 
 We have loaded the _watch_ task and created two configs – ‘js’ and ‘scss’. These configs could have been called anything else, but the names were chosen so that the nature of what the configs will be used for is clear. Within each config, using the _files_ option, we specify an array of file paths that are to be watched for changes, and then, using the _tasks_ option, we specify a list of tasks to run when any of the listed files is changed. In the _js_ config we are watching all files that have a _.js_ file extension within the _src/js_ directory and its subdirectories. When any of these files is changed, the _uglify:dev_ task is run automatically. Similarly, with the _scss_ config we are watching all files that have a _.scss_ file extension within the _src/scss_ directory and its subdirectories. When any of these files is changed, the _sass:dev_ task is run automatically.
+
+At this point, it is important to note that we have removed the _keepalive_ property from the 'server' config of the _connect_ task, since it would have stopped the _watch_ task – or any task, for that matter – from running afterwards. The _keepalive_ property is no longer needed because we are now using the continually-running _watch_ task, which will keep the server alive automatically.
 
 Notice that – within the _breeze_ task we created earlier – ‘watch’ has been added to the array of tasks that Grunt will run for us sequentially.
 

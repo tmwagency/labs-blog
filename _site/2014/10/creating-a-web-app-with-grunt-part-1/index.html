@@ -525,8 +525,7 @@ breeze
 
             <span class="na">server</span> <span class="p">:</span> <span class="p">{</span>
                 <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">open</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="na">keepalive</span><span class="p">:</span> <span class="kc">true</span>
+                    <span class="na">open</span><span class="p">:</span> <span class="kc">true</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">},</span>
@@ -549,6 +548,8 @@ breeze
 <span class="p">};</span>
 </code></pre></div>
 <p>We have loaded the <em>watch</em> task and created two configs – ‘js’ and ‘scss’. These configs could have been called anything else, but the names were chosen so that the nature of what the configs will be used for is clear. Within each config, using the <em>files</em> option, we specify an array of file paths that are to be watched for changes, and then, using the <em>tasks</em> option, we specify a list of tasks to run when any of the listed files is changed. In the <em>js</em> config we are watching all files that have a <em>.js</em> file extension within the <em>src/js</em> directory and its subdirectories. When any of these files is changed, the <em>uglify:dev</em> task is run automatically. Similarly, with the <em>scss</em> config we are watching all files that have a <em>.scss</em> file extension within the <em>src/scss</em> directory and its subdirectories. When any of these files is changed, the <em>sass:dev</em> task is run automatically.</p>
+
+<p>At this point, it is important to note that we have removed the <em>keepalive</em> property from the &#39;server&#39; config of the <em>connect</em> task, since it would have stopped the <em>watch</em> task – or any task, for that matter – from running afterwards. The <em>keepalive</em> property is no longer needed because we are now using the continually-running <em>watch</em> task, which will keep the server alive automatically.</p>
 
 <p>Notice that – within the <em>breeze</em> task we created earlier – ‘watch’ has been added to the array of tasks that Grunt will run for us sequentially.</p>
 
