@@ -7,7 +7,7 @@ excerpt: Add tracking events more easily with our new library
 ---
 Whether you use Google Analytics or another provider, adding tracking events to a site is often a painful experience. Events usually have to be defined in javascript which can make it tricky to dynamically change parameters based on certain criteria. Wouldn't it be nice to define events within the markup so that hundreds of click events can be left free from your javasript code? Trak.js does just that.
 
-**trak.js** is an API wrapper for your analytics APIs. By default it uses the Google Universal Analytics but you can override this with the older ga.js or Google Tag Manager if you wish. You can even add custom event trackers as well, instead of GA.
+**trak.js** is a wrapper for your analytics APIs. By default it uses the Google Universal Analytics but you can override this with the older ga.js or Google Tag Manager if you wish. You can even add custom event trackers as well, instead of GA.
 
 ## Using trak.js
 There are two main ways to use trak.js, as data-* attributes in your markup or in your javascript code.
