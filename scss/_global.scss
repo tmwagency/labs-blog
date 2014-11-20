@@ -122,11 +122,23 @@ body {
 }
 
 .tmwBrand {
-	&, &:link, &:visited {
+	&,
+	&:link,
+	&:visited {
 		color: $orange;
+
+		span {
+			color: #fff;
+		}
 	}
 
+
+
 	&:hover {
-		color: darken($orange, 15%)
+		color: darken($orange, 15%);
+
+		span {
+			color: darken(#fff, 15%);
+		}
 	}
 }

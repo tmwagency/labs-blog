@@ -2316,8 +2316,14 @@ body {
 .tmwBrand, .tmwBrand:link, .tmwBrand:visited {
   color: #FE7C08;
 }
+.tmwBrand span, .tmwBrand:link span, .tmwBrand:visited span {
+  color: #fff;
+}
 .tmwBrand:hover {
   color: #b95801;
+}
+.tmwBrand:hover span {
+  color: #d9d9d9;
 }
 
 .logo {
@@ -2725,4 +2731,5 @@ h1.typeSpecimen:after {
 p.typeSpecimen:after {
   content: "Font stack: franklin-gothic-urw, raleway, Helvetica Neue, Helvetica, Arial, sans-serif";
 }
+
 /*# sourceMappingURL=styleguide.css.map */
