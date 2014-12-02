@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Improve website event tracking with trak.js - tech.tmw.co.uk</title>
+		<meta name="description" content="tech.tmw.co.uk - where TMW talks Tech">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script>var pageName = 'articles';</script>
+
+		<script>
+			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+			window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			grunticon(["/img/icons/icons.data.svg.css", "/img/icons/icons.data.png.css", "/img/icons/icons.fallback.css"]);
+		</script>
+		<noscript><link href="/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+
+		<!-- Mobile & Fav Icons -->
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png" />
+
+		<meta name="apple-mobile-web-app-title" content="tech.tmw">
+
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png"/>
+
+		<!-- Twitter - https://dev.twitter.com/cards/overview -->
+		<meta name="twitter:site" content="@tmwTechTeam">
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Improve website event tracking with trak.js" />
+		<meta name="twitter:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png" />
+		<meta name="twitter:url" content="http://tech.tmw.co.uk/2014/11/trakjs-universal-analytics-api" />
+
+
+		<!-- Open Graph data -->
+		<meta property="og:title" content="Improve website event tracking with trak.js" />
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content="http://tech.tmw.co.uk/2014/11/trakjs-universal-analytics-api" />
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png" />
+
+		<link rel="alternate" type="application/atom+xml" title="tech.tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+	</head>
+	<body>
+
+<div class="sidebar">
+	<header class="masthead">
+	<h1 class="logo"><a href="/">tech<span class="dot">.</span><span class="tmwBrand">tmw</span></a></h1>
+	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmwunlimited.com" title="TMWUnlimited&hellip;'s website" target="_blank" class="tmwBrand">TMW<span>Unlimited&hellip;</span></a> tech team</p>
+
+	<nav class="nav">
+		<a href="/" class="nav-item is-active">Articles</a>
+		<a href="/code" class="nav-item">Code</a>
+		<a href="/team" class="nav-item">Team</a>
+		<a href="/work" class="nav-item">Work</a>
+	</nav>
+</header>
+
+
+	<footer class="footer" role="contentinfo">
+	<div class="socialLinks">
+		<a href="http://github.com/tmwagency/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-github"></span>@tmwagency</a>
+		<a href="http://twitter.com/tmwTechTeam/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-twitter"></span>@tmwTechTeam</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-kickoff"></span>We also maintain Kickoff</a>
+		<a href="http://eepurl.com/KaKbv" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-subscribe"></span>Subscribe by Email</a>
+	</div>
+</footer>
+
+</div>
+
+<div class="content">
+	<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">Articles</h1>
+
+	
+
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">Improve website event tracking with trak.js</h1>
+		<p>Whether you use Google Analytics or another provider, adding tracking events to a site is often a painful experience. Events usually have to be defined in javascript which can make it tricky to dynamically change parameters based on certain criteria. Wouldn&#39;t it be nice to define events within the markup so that hundreds of click events can be left free from your javasript code? Trak.js does just that.</p>
+
+<p>Put simply, <strong>trak.js</strong> is a wrapper for any analytics API. By default it uses Google Universal Analytics but you can override this with the older ga.js or Google Tag Manager if you wish, or you can even add custom event trackers as well, instead of Google Analytics.</p>
+
+<h2>Using trak.js</h2>
+
+<p>There are two main ways to use trak.js, as data-* attributes in your markup or in your javascript code.</p>
+
+<h3>data-* attr implementation:</h3>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#pagehref"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Test category","action":"Test action","label":"Test label"}'</span> <span class="na">title=</span><span class="s">"1 title"</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+<h3>Javascript implementation</h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">trak</span><span class="p">.</span><span class="nx">event</span><span class="p">({</span>
+  <span class="na">category</span><span class="p">:</span> <span class="s1">'engagement'</span><span class="p">,</span>
+  <span class="na">action</span><span class="p">:</span> <span class="s1">'signpost'</span><span class="p">,</span>
+  <span class="na">label</span><span class="p">:</span> <span class="s1">'page.href'</span>
+<span class="p">});</span>
+
+<span class="nx">trak</span><span class="p">.</span><span class="nx">event</span><span class="p">({</span>
+  <span class="na">category</span><span class="p">:</span> <span class="s1">'engagement'</span><span class="p">,</span>
+  <span class="na">action</span><span class="p">:</span> <span class="s1">'signpost'</span><span class="p">,</span>
+  <span class="na">label</span><span class="p">:</span> <span class="s1">'page.href'</span><span class="p">,</span>
+  <span class="na">value</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="na">nonInteraction</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">eventName</span><span class="p">:</span> <span class="s1">'This is a Google Tag Manager event name'</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2>API Reference</h2>
+
+<h4>Arguments object: (these are all optional)</h4>
+
+<p><strong>category</strong>: A string value of the category value to set<br> 
+<strong>action</strong>: A string value of the action value to set<br> 
+<strong>label</strong>: A string value of the label value to set<br>
+<strong>value</strong>: An integer<br>
+<strong>nonInteraction</strong>: An integer<br> 
+<strong>eventName</strong>: A string value used only with Google Tag Manager. Define your GTM event name here</p>
+
+<p>If any property is left <code>undefined</code>, the browser&#39;s default value will be used instead.</p>
+
+<h2>Wildcards:</h2>
+
+<p><strong>trak.js</strong> introduces the concept of wildcards when working with your events, this makes it extremely easy to use more complex values in your events. There are a number of wildcards available for both the data-* attr and js implentation. These can be used to specify certain options like the page title, the url, the current anchor&#39;s href value and a few others.</p>
+
+<ul>
+<li><strong><code>page.href</code></strong> wildcard uses <code>window.location.href</code> as the value.</li>
+<li><strong><code>page.title</code></strong> wildcard uses <code>document.title</code> as the value.</li>
+<li><strong><code>link.href</code></strong> wildcard uses <code>this.href</code> as the value.</li>
+<li><strong><code>link.title</code></strong> wildcard uses <code>this.title</code> as the value.</li>
+<li><strong><code>referrer</code></strong> uses <code>document.referrer</code> as the value</li>
+</ul>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- page.href wildcard --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"page.href","label":"Up"}'</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+<span class="c">&lt;!-- page.title wildcard --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"page.title","label":"Up"}'</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+<span class="c">&lt;!-- link.href wildcard --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"link.href","label":"Up"}'</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+<span class="c">&lt;!-- link.title wildcard --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"link.title","label":"Up"}'</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+<span class="c">&lt;!-- referrer wildcard --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"document.referrer","label":"Up"}'</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+<h2>Getting the Library</h2>
+
+<h3>Direct downloads</h3>
+
+<ul>
+<li><a href="https://raw.githubusercontent.com/tmwagency/trak.js/master/dist/trak.min.js">Minified</a> (~481 B gzipped)</li>
+<li><a href="https://raw.githubusercontent.com/tmwagency/trak.js/master/dist/trak.js">Unminified</a> (~1.7 KB gzipped)</li>
+</ul>
+
+<h3>Bower</h3>
+
+<p><code>bower install trak</code></p>
+
+<h3>NPM</h3>
+
+<p><code>npm install trak.js --save</code></p>
+
+<h2>More information</h2>
+
+<p>More information and the full documentation can be found at our repository on <a href="https://github.com/tmwagency/trak.js">Github</a>. Also, options can be overridden; there&#39;s a debug mode; and most importantly, almost any other analytics APIs can be used.</p>
+
+	</div>
+
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date"><time>Posted on 17 Nov 2014</time></div>
+		
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+		
+		<div class="media entry-author">
+			<img src="/img/authors/zmartineau.jpg" alt="Picture of Zander Martineau" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="entry-author-name"><a href="http://twitter.com/mrmartineau">Zander Martineau</a></h3>
+				<p class="entry-author-desc">Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.</p>
+			</div>
+		</div>
+
+	</div>
+
+	
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		var disqus_shortname = 'labstmw';
+
+		
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	
+
+	<!-- 
+	  <a href="/2014/10/creating-a-web-app-with-grunt-part-1">Creating a Web-app with Grunt - Part 1</a><br />
+	
+	  <a href="/2014/10/Interning-in-the-Tech-Department">Interning in the Tech department</a><br />
+	
+	  <a href="/2014/10/kickoff-version-4">Kickoff Version 4 released</a><br />
+	
+	  <a href="/2014/10/outsourcing">Should you outsource development?</a><br />
+	
+	  <a href="/2014/08/the-road-to-kickoff-version-4">The road to Kickoff version 4</a><br />
+	
+	  <a href="/2014/03/yeoman-generator-development-tips">Yeoman Generator Development Tips</a><br />
+	
+	  <a href="/2014/03/the-future-of-umbraco">The Future of Umbraco</a><br />
+	
+	  <a href="/2014/02/kickoff-statix-for-slicker-template-workflow">Kickoff Statix: A slicker template workflow</a><br />
+	
+	  <a href="/2014/01/building-the-tmw-shelter-christmas-tree">Building the TMW Shelter Christmas Tree</a><br />
+	
+	  <a href="/2014/01/hyping-the-ibeacon">Hyping the iBeacon</a><br />
+	 -->
+</article>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		
+			<a href="/2014/10/creating-a-web-app-with-grunt-part-1" class="pagination-item pagination-item--older"><b>Older post</b><br>Creating a Web-app with Grunt - Part 1</a>
+		
+		
+	</div>
+</div>
+</div>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27779119-7', 'tmw.co.uk');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>

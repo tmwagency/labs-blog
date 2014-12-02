@@ -2404,8 +2404,14 @@ body {
 .tmwBrand, .tmwBrand:link, .tmwBrand:visited {
   color: #FE7C08;
 }
+.tmwBrand span, .tmwBrand:link span, .tmwBrand:visited span {
+  color: #fff;
+}
 .tmwBrand:hover {
   color: #b95801;
+}
+.tmwBrand:hover span {
+  color: #d9d9d9;
 }
 
 .logo {
