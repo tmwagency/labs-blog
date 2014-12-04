@@ -142,3 +142,20 @@ body {
 		}
 	}
 }
+
+/* haveYouSeen style ------------------------------------------------------------------ */
+
+.openSource {
+	background-color: #FE7C08;
+	margin: 0;
+	padding: 3% 10px;
+
+	@include respond-min($breakpoint-single-col) {
+		padding: 3% 50px;
+	}
+}
+
+//making font link text white
+.white {
+	color: #fff;
+}

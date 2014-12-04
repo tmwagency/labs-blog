@@ -761,7 +761,6 @@ textarea,
 .fileWrapper {
   -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
@@ -2324,6 +2323,22 @@ body {
 }
 .tmwBrand:hover span {
   color: #d9d9d9;
+}
+
+/* haveYouSeen style ------------------------------------------------------------------ */
+.openSource {
+  background-color: #FE7C08;
+  margin: 0;
+  padding: 3% 10px;
+}
+@media screen and (min-width: 53.75em) {
+  .openSource {
+    padding: 3% 50px;
+  }
+}
+
+.white {
+  color: #fff;
 }
 
 .logo {
