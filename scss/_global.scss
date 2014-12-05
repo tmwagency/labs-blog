@@ -146,16 +146,31 @@ body {
 /* haveYouSeen style ------------------------------------------------------------------ */
 
 .openSource {
-	background-color: #FE7C08;
-	margin: 0;
+	background-color: $orange ;
+	display: block;
 	padding: 3% 10px;
+
+	&,
+	h2,
+	p {
+		color: #fff;
+		margin: 0;
+	}
+
+	h2 {
+		font-weight: normal;
+		font-style: italic;
+	}
+
+	p {
+	}
 
 	@include respond-min($breakpoint-single-col) {
 		padding: 3% 50px;
 	}
+
+	&:hover{
+		background-color: darken($orange, 10%);
+	}
 }
 
-//making font link text white
-.white {
-	color: #fff;
-}

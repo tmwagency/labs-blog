@@ -2416,17 +2416,26 @@ body {
 /* haveYouSeen style ------------------------------------------------------------------ */
 .openSource {
   background-color: #FE7C08;
-  margin: 0;
+  display: block;
   padding: 3% 10px;
+}
+.openSource,
+.openSource h2,
+.openSource p {
+  color: #fff;
+  margin: 0;
+}
+.openSource h2 {
+  font-weight: normal;
+  font-style: italic;
 }
 @media screen and (min-width: 53.75em) {
   .openSource {
     padding: 3% 50px;
   }
 }
-
-.white {
-  color: #fff;
+.openSource:hover {
+  background-color: #d26401;
 }
 
 .logo {
