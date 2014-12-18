@@ -762,6 +762,7 @@ textarea,
   -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
@@ -2755,5 +2756,4 @@ h1.typeSpecimen:after {
 p.typeSpecimen:after {
   content: "Font stack: franklin-gothic-urw, raleway, Helvetica Neue, Helvetica, Arial, sans-serif";
 }
-
 /*# sourceMappingURL=styleguide.css.map */
