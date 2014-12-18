@@ -1,7 +1,7 @@
 ---
 layout: code
 title: trak.js
-subtitle: Universal event tracking API
+subtitle: Universal analytics event tracking API wrapper
 pageid: code
 folder: trak/
 demo: demo.html
@@ -14,7 +14,7 @@ team:
 weight: 4
 ---
 
-**trak.js** is a API wrapper for your analytics APIs. By default it uses the Google Universal Analytics but you can override this witht the older ga.js or Google Tag Manager if you wish. You can even add custom event trackers as well as, or instead of GA.
+Put simply, **trak.js** is a wrapper for any analytics API. By default it uses Google Universal Analytics but you can override this with the older ga.js or Google Tag Manager if you wish, or you can even add custom event trackers as well, instead of Google Analytics.
 
 ## Getting the Library
 ### Direct downloads
@@ -29,22 +29,19 @@ weight: 4
 
 ## Usage:
 Include **trak.js** in your JavaScript bundle or add it to your HTML page like this:
-
 ```html
 <script type='application/javascript' src='/path/to/trak.js'></script>
 ```
-
 then run `trak.start();` when the DOM is ready (after version 0.3.0 this has changed, run `trak();` before version 0.3.0):
-
 ```js
 // Native JS
 document.addEventListener('DOMContentLoaded', function(e) {
-	trak.start();
+  trak.start();
 }
 
 // jQuery
 $(function(){
-	trak.start();
+  trak.start();
 });
 ```
 
@@ -57,12 +54,12 @@ There are two main ways to use **trak.js**, in your js code or as data-* attribu
 Fires an analytics event
 
 #### Arguments object: (these are all optional)
-*category*: A string value of the category value to set<br> 
-*action*: A string value of the action value to set<br> 
+*category*: A string value of the category value to set<br>
+*action*: A string value of the action value to set<br>
 *label*: A string value of the label value to set<br>
 *value*: An integer<br>
-*nonInteraction*: An integer<br> 
-*eventName*: A string value used only with Google Tag Manager. Define your GTM event name here
+*nonInteraction*: An integer<br>
+*eventName*: A string value used only with Google Tag Manager. Define your GTM event name here<br>
 
 If any property is left `undefined`, the browser's default value will be used instead.
 
@@ -71,28 +68,24 @@ trak.event({category: 'category value', action: 'action value'});
 trak.event({category: 'category value', action: 'action value', label: 'label value'});
 trak.event({category: 'category value', action: 'action value', label: 'label value' , value: '', nonInteraction: '', eventName: ''});
 ```
-
 ##### Example:
-
 ```js
-trak.event({
-  category: 'engagement',
-  action: 'signpost',
-  label: 'page.href'
-});
-
-trak.event({
-  category: 'engagement',
-  action: 'signpost',
-  label: 'page.href',
-  value: 10,
-  nonInteraction: true,
-  eventName: 'This is a Google Tag Manager event name'
-});
+el.addEventListener('click', function() {
+  trak.event({category: 'engagement', action: 'signpost', label: 'page.href'});
+}
+el.addEventListener('mouseover', function() {
+  trak.event({
+    category: 'engagement',
+    action: 'signpost',
+    label: 'page.href',
+    value: 10,
+    nonInteraction: true,
+    eventName: 'This is a Google Tag Manager event name'
+  });
+}
 ```
 
-### Data-* attr implementation:
-
+### Data-* attr implementation
 ```html
 <a href="#" data-trak='{"category":"Rating","action":"Comparison notepad","label":"Up"}'>link</a>
 
@@ -100,32 +93,21 @@ trak.event({
 <a href="#pagehref" title="1 title" data-trak='{"category":"Test category","action":"Test action","label":"Test label","eventName":"Event name test"}'>Data attr test #1</a>
 ```
 
-#### Using data-* attr options with but fire event with js
-You can also use data-* attr options but fire events in js. To do this, add the relevant `data-trak` data and also a `data-trakwithjs` boolean attribute. This means that the event will only fire when you run it in your js. To run in your js, use the `trak.attrEvent` method like we have below:
+### Custom trigger type (new as of v0.4.0)
+Data-* attrs can also define a custom trigger type, instead of `click`; `mouseover`, `touchstart`, `focus`, `blur` or any other valid event can be used to trigger a trak event.
 
 ```html
-<a href="#pagehref" data-trakwithjs data-trak='{"category":"Tracked with JS not attr call","action":"link.href","label":"this is a label"}'>JS Test #5</a>
-
-<script>
-  test5.addEventListener('click', function() {
-    trak.attrEvent.call(this);
-  }, true);
-</script>
+<!-- Triggered on focus -->
+<a href="#pagehref" title="1 title" data-trak='{"trigger":"focus","category":"Test category","action":"Test action","label":"Test label"}'>Custom trigger type</a>
 ```
 
-See this in use in the [trak demo](http://tech.tmw.co.uk/code/trak/demo.html).
-
-## Extended options
-These can be used 
-
-### data-trak wildcards:
+### Wildcards
 Wildcards can be used to specify certain options like the page title or url.
 
 ##### page.href: Uses `window.location.href`
-
 ```html
 <a href="#" data-trak='{"category":"Rating","action":"page.href","label":"Up"}'>link</a>
-``` 
+```
 ##### page.title: Uses `document.title`
 ```html
 <a href="#" data-trak='{"category":"Rating","action":"page.title","label":"Up"}'>link</a>
@@ -143,7 +125,21 @@ Wildcards can be used to specify certain options like the page title or url.
 <a href="#" data-trak='{"category":"Rating","action":"document.referrer","label":"Up"}'>link</a>
 ```
 
---- 
+#### Using data-* attr options with but fire event with js
+You can also use data-* attr options but fire events in js. To do this, add the relevant `data-trak` data and also a `data-trakwithjs` boolean attribute. This means that the event will only fire when you run it in your js. To run in your js, use the `trak.attrEvent` method like we have below:
+
+```html
+<a href="#pagehref" data-trakwithjs data-trak='{"category":"Tracked with JS not attr call","action":"link.href","label":"this is a label"}'>trakwithjs</a>
+
+<script>
+  el.addEventListener('click', function() {
+    trak.attrEvent.call(this);
+  });
+</script>
+```
+See this in use in the [trak demo](http://tech.tmw.co.uk/code/trak/demo.html).
+
+---
 
 ### Options
 Various default **trak.js** options can be overridden:
@@ -151,49 +147,48 @@ Various default **trak.js** options can be overridden:
 #### trak.options.clean
 Choose whether you'd like to clean the provided category, action and labels
 
-Type: `boolean`<br>
+Type: `boolean`
 Default: `true`
 
 
 #### trak.options.delimeter
 **trak.js** includes a cleaning method to normalise the arguments that are passed to it. Spaces are converted to an underscore by default but can be overridden by reassigning this value.
 
-Type: `string`<br>
+Type: `string`
 Default: `_`
 
 
 #### trak.options.trackType
-Type: `string`<br>
+Type: `string`
 Default: `ga`
 
-Alternatives: 
-
-* `ga` : Google Analytics (Universal 
+Alternatives:
+* `ga` : Google Analytics (Universal
 * `_gaq` : Google Analytics (ga.js) Old version
 * `gtm` : Google Tag Manager
 
 Use this to change your default tracking provider.
 
 #### trak.options.additionalTypes
-Type: `function`  
+Type: `function`
 Default: `undefined`
 
 Add any other event tracking providers. See below for example:
 
 ```js
 trak.options.additionalTypes = function() {
-	UDM.evq.push(['trackEvent', trak.clean(category), trak.clean(action)]); // trak.clean(label)
-	console.log('Fire additional event');
+  UDM.evq.push(['trackEvent', trak.clean(category), trak.clean(action)]); // trak.clean(label)
+  console.log('Fire additional event');
 }
 ```
 
 #### trak.options.debug
-Type: `boolean`  
+Type: `boolean`
 Default: `false`
 
 Show debug logs in the javascript console
 
---- 
+---
 
 ## Which tracking API's are used?
 The default implementation uses latest version of Google Analytics (`ga.js`) but **trak.js** also supports the older `_gaq` type or Google Tag Manager.
