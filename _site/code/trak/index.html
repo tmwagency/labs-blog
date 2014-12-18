@@ -105,7 +105,7 @@
 		
 	</div>
 
-		<p><strong>trak.js</strong> is a API wrapper for your analytics APIs. By default it uses the Google Universal Analytics but you can override this witht the older ga.js or Google Tag Manager if you wish. You can even add custom event trackers as well as, or instead of GA.</p>
+		<p>Put simply, <strong>trak.js</strong> is a wrapper for any analytics API. By default it uses Google Universal Analytics but you can override this with the older ga.js or Google Tag Manager if you wish, or you can even add custom event trackers as well, instead of Google Analytics.</p>
 
 <h2>Getting the Library</h2>
 
@@ -132,12 +132,12 @@
 <p>then run <code>trak.start();</code> when the DOM is ready (after version 0.3.0 this has changed, run <code>trak();</code> before version 0.3.0):</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Native JS
 </span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'DOMContentLoaded'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">trak</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+  <span class="nx">trak</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="c1">// jQuery
 </span><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">trak</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+  <span class="nx">trak</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
 <span class="p">});</span>
 </code></pre></div>
 <h1>API Reference</h1>
@@ -152,12 +152,12 @@
 
 <h4>Arguments object: (these are all optional)</h4>
 
-<p><em>category</em>: A string value of the category value to set<br> 
-<em>action</em>: A string value of the action value to set<br> 
+<p><em>category</em>: A string value of the category value to set<br>
+<em>action</em>: A string value of the action value to set<br>
 <em>label</em>: A string value of the label value to set<br>
 <em>value</em>: An integer<br>
-<em>nonInteraction</em>: An integer<br> 
-<em>eventName</em>: A string value used only with Google Tag Manager. Define your GTM event name here</p>
+<em>nonInteraction</em>: An integer<br>
+<em>eventName</em>: A string value used only with Google Tag Manager. Define your GTM event name here<br></p>
 
 <p>If any property is left <code>undefined</code>, the browser&#39;s default value will be used instead.</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">trak</span><span class="p">.</span><span class="nx">event</span><span class="p">({</span><span class="na">category</span><span class="p">:</span> <span class="s1">'category value'</span><span class="p">,</span> <span class="na">action</span><span class="p">:</span> <span class="s1">'action value'</span><span class="p">});</span>
@@ -165,63 +165,61 @@
 <span class="nx">trak</span><span class="p">.</span><span class="nx">event</span><span class="p">({</span><span class="na">category</span><span class="p">:</span> <span class="s1">'category value'</span><span class="p">,</span> <span class="na">action</span><span class="p">:</span> <span class="s1">'action value'</span><span class="p">,</span> <span class="na">label</span><span class="p">:</span> <span class="s1">'label value'</span> <span class="p">,</span> <span class="na">value</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">nonInteraction</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">eventName</span><span class="p">:</span> <span class="s1">''</span><span class="p">});</span>
 </code></pre></div>
 <h5>Example:</h5>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">trak</span><span class="p">.</span><span class="nx">event</span><span class="p">({</span>
-  <span class="na">category</span><span class="p">:</span> <span class="s1">'engagement'</span><span class="p">,</span>
-  <span class="na">action</span><span class="p">:</span> <span class="s1">'signpost'</span><span class="p">,</span>
-  <span class="na">label</span><span class="p">:</span> <span class="s1">'page.href'</span>
-<span class="p">});</span>
-
-<span class="nx">trak</span><span class="p">.</span><span class="nx">event</span><span class="p">({</span>
-  <span class="na">category</span><span class="p">:</span> <span class="s1">'engagement'</span><span class="p">,</span>
-  <span class="na">action</span><span class="p">:</span> <span class="s1">'signpost'</span><span class="p">,</span>
-  <span class="na">label</span><span class="p">:</span> <span class="s1">'page.href'</span><span class="p">,</span>
-  <span class="na">value</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="na">nonInteraction</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="na">eventName</span><span class="p">:</span> <span class="s1">'This is a Google Tag Manager event name'</span>
-<span class="p">});</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">trak</span><span class="p">.</span><span class="nx">event</span><span class="p">({</span><span class="na">category</span><span class="p">:</span> <span class="s1">'engagement'</span><span class="p">,</span> <span class="na">action</span><span class="p">:</span> <span class="s1">'signpost'</span><span class="p">,</span> <span class="na">label</span><span class="p">:</span> <span class="s1">'page.href'</span><span class="p">});</span>
+<span class="p">}</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseover'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">trak</span><span class="p">.</span><span class="nx">event</span><span class="p">({</span>
+    <span class="na">category</span><span class="p">:</span> <span class="s1">'engagement'</span><span class="p">,</span>
+    <span class="na">action</span><span class="p">:</span> <span class="s1">'signpost'</span><span class="p">,</span>
+    <span class="na">label</span><span class="p">:</span> <span class="s1">'page.href'</span><span class="p">,</span>
+    <span class="na">value</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="na">nonInteraction</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">eventName</span><span class="p">:</span> <span class="s1">'This is a Google Tag Manager event name'</span>
+  <span class="p">});</span>
+<span class="p">}</span>
 </code></pre></div>
-<h3>Data-* attr implementation:</h3>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"Comparison notepad","label":"Up"}'</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
-
-<span class="c">&lt;!-- With an extended option --&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#pagehref"</span> <span class="na">title=</span><span class="s">"1 title"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Test category","action":"Test action","label":"Test label","eventName":"Event name test"}'</span><span class="nt">&gt;</span>Data attr test #1<span class="nt">&lt;/a&gt;</span>
+<h3>Data-* attr implementation</h3>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"Comparison notepad","label":"Up"}'</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
-<h4>Using data-* attr options with but fire event with js</h4>
+<h3>Custom trigger type (new as of v0.4.0)</h3>
 
-<p>You can also use data-* attr options but fire events in js. To do this, add the relevant <code>data-trak</code> data and also a <code>data-trakwithjs</code> boolean attribute. This means that the event will only fire when you run it in your js. To run in your js, use the <code>trak.attrEvent</code> method like we have below:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#pagehref"</span> <span class="na">data-trakwithjs</span> <span class="na">data-trak=</span><span class="s">'{"category":"Tracked with JS not attr call","action":"link.href","label":"this is a label"}'</span><span class="nt">&gt;</span>JS Test #5<span class="nt">&lt;/a&gt;</span>
-
-<span class="nt">&lt;script&gt;</span>
-  <span class="nx">test5</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">trak</span><span class="p">.</span><span class="nx">attrEvent</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-  <span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
-<span class="nt">&lt;/script&gt;</span>
+<p>Data-* attrs can also define a custom trigger type instead of <code>click</code>. Now <code>mouseover</code>, <code>touchstart</code>, <code>focus</code>, <code>blur</code> or any other valid event can be used to trigger a trak event.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Triggered on focus --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">data-trak=</span><span class="s">'{"trigger":"focus","category":"Test category","action":"Test action","label":"Test label"}'</span> <span class="na">href=</span><span class="s">"#pagehref"</span><span class="nt">&gt;</span>Custom trigger type<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
-<p>See this in use in the <a href="http://tech.tmw.co.uk/code/trak/demo.html">trak demo</a>.</p>
-
-<h2>Extended options</h2>
-
-<p>These can be used </p>
-
-<h3>data-trak wildcards:</h3>
+<h3>Wildcards</h3>
 
 <p>Wildcards can be used to specify certain options like the page title or url.</p>
 
 <h5>page.href: Uses <code>window.location.href</code></h5>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"page.href","label":"Up"}'</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"page.href","label":"Up"}'</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
 <h5>page.title: Uses <code>document.title</code></h5>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"page.title","label":"Up"}'</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"page.title","label":"Up"}'</span><span class="na">href=</span><span class="s">"#"</span> <span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
 <h5>link.href: Uses <code>this.href</code></h5>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"link.href","label":"Up"}'</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"link.href","label":"Up"}'</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
 <h5>link.title: Uses <code>this.title</code></h5>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"link.title","label":"Up"}'</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"link.title","label":"Up"}'</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
 <h5>referrer: Uses <code>document.referrer</code></h5>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"document.referrer","label":"Up"}'</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">data-trak=</span><span class="s">'{"category":"Rating","action":"document.referrer","label":"Up"}'</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
+<h4>Using data-* attr options with but fire event with js</h4>
+
+<p>You can also use data-* attr options but fire events in js. To do this, add the relevant <code>data-trak</code> data and also a <code>data-trakwithjs</code> boolean attribute. This means that the event will only fire when you run it in your js. To run in your js, use the <code>trak.attrEvent</code> method like we have below:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">data-trakwithjs</span> <span class="na">data-trak=</span><span class="s">'{"category":"Tracked with JS not attr call","action":"link.href","label":"this is a label"}'</span> <span class="na">href=</span><span class="s">"#pagehref"</span><span class="nt">&gt;</span>trakwithjs<span class="nt">&lt;/a&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">trak</span><span class="p">.</span><span class="nx">attrEvent</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+<p>See this in use in the <a href="http://tech.tmw.co.uk/code/trak/demo.html">trak demo</a>.</p>
+
 <hr>
 
 <h3>Options</h3>
@@ -232,45 +230,42 @@
 
 <p>Choose whether you&#39;d like to clean the provided category, action and labels</p>
 
-<p>Type: <code>boolean</code><br>
+<p>Type: <code>boolean</code>
 Default: <code>true</code></p>
 
 <h4>trak.options.delimeter</h4>
 
 <p><strong>trak.js</strong> includes a cleaning method to normalise the arguments that are passed to it. Spaces are converted to an underscore by default but can be overridden by reassigning this value.</p>
 
-<p>Type: <code>string</code><br>
+<p>Type: <code>string</code>
 Default: <code>_</code></p>
 
 <h4>trak.options.trackType</h4>
 
-<p>Type: <code>string</code><br>
+<p>Type: <code>string</code>
 Default: <code>ga</code></p>
 
-<p>Alternatives: </p>
-
-<ul>
-<li><code>ga</code> : Google Analytics (Universal </li>
-<li><code>_gaq</code> : Google Analytics (ga.js) Old version</li>
-<li><code>gtm</code> : Google Tag Manager</li>
-</ul>
+<p>Alternatives:
+* <code>ga</code> : Google Analytics (Universal
+* <code>_gaq</code> : Google Analytics (ga.js) Old version
+* <code>gtm</code> : Google Tag Manager</p>
 
 <p>Use this to change your default tracking provider.</p>
 
 <h4>trak.options.additionalTypes</h4>
 
-<p>Type: <code>function</code><br>
+<p>Type: <code>function</code>
 Default: <code>undefined</code></p>
 
 <p>Add any other event tracking providers. See below for example:</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">trak</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">additionalTypes</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">UDM</span><span class="p">.</span><span class="nx">evq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="nx">trak</span><span class="p">.</span><span class="nx">clean</span><span class="p">(</span><span class="nx">category</span><span class="p">),</span> <span class="nx">trak</span><span class="p">.</span><span class="nx">clean</span><span class="p">(</span><span class="nx">action</span><span class="p">)]);</span> <span class="c1">// trak.clean(label)
-</span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fire additional event'</span><span class="p">);</span>
+  <span class="nx">UDM</span><span class="p">.</span><span class="nx">evq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="nx">trak</span><span class="p">.</span><span class="nx">clean</span><span class="p">(</span><span class="nx">category</span><span class="p">),</span> <span class="nx">trak</span><span class="p">.</span><span class="nx">clean</span><span class="p">(</span><span class="nx">action</span><span class="p">)]);</span> <span class="c1">// trak.clean(label)
+</span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fire additional event'</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4>trak.options.debug</h4>
 
-<p>Type: <code>boolean</code><br>
+<p>Type: <code>boolean</code>
 Default: <code>false</code></p>
 
 <p>Show debug logs in the javascript console</p>
