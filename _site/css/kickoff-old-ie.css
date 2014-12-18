@@ -2387,6 +2387,27 @@ body {
   color: #d9d9d9;
 }
 
+/* haveYouSeen style ------------------------------------------------------------------ */
+.openSource {
+  background-color: #FE7C08;
+  display: block;
+  padding: 3% 10px;
+  padding: 3% 50px;
+}
+.openSource,
+.openSource h2,
+.openSource p {
+  color: #fff;
+  margin: 0;
+}
+.openSource h2 {
+  font-weight: normal;
+  font-style: italic;
+}
+.openSource:hover {
+  background-color: #d26401;
+}
+
 .logo {
   margin-bottom: 0.2em;
   font-size: 60px;
