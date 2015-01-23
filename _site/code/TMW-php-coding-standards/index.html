@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>PHP coding standards - tech.tmw.co.uk</title>
+		<meta name="description" content="tech.tmw.co.uk - where TMW talks Tech">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script>var pageName = 'code';</script>
+
+		<script>
+			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+			window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			grunticon(["/img/icons/icons.data.svg.css", "/img/icons/icons.data.png.css", "/img/icons/icons.fallback.css"]);
+		</script>
+		<noscript><link href="/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+
+		<!-- Mobile & Fav Icons -->
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png" />
+
+		<meta name="apple-mobile-web-app-title" content="tech.tmw">
+
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png"/>
+
+		<!-- Twitter - https://dev.twitter.com/cards/overview -->
+		<meta name="twitter:site" content="@tmwTechTeam">
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="PHP coding standards" />
+		<meta name="twitter:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png" />
+		<meta name="twitter:url" content="http://tech.tmw.co.uk/code/TMW-php-coding-standards/" />
+
+
+		<!-- Open Graph data -->
+		<meta property="og:title" content="PHP coding standards" />
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content="http://tech.tmw.co.uk/code/TMW-php-coding-standards/" />
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png" />
+
+		<link rel="alternate" type="application/atom+xml" title="tech.tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+	</head>
+	<body>
+
+<div class="sidebar">
+	<header class="masthead">
+	<h1 class="logo"><a href="/">tech<span class="dot">.</span><span class="tmwBrand">tmw</span></a></h1>
+	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmwunlimited.com" title="TMWUnlimited&hellip;'s website" target="_blank" class="tmwBrand">TMW<span>Unlimited&hellip;</span></a> tech team</p>
+
+	<nav class="nav">
+		<a href="/" class="nav-item">Articles</a>
+		<a href="/code" class="nav-item is-active">Code</a>
+		<a href="/team" class="nav-item">Team</a>
+		<a href="/work" class="nav-item">Work</a>
+	</nav>
+</header>
+
+
+	<footer class="footer" role="contentinfo">
+	<div class="socialLinks">
+		<a href="http://github.com/tmwagency/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-github"></span>@tmwagency</a>
+		<a href="http://twitter.com/tmwTechTeam/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-twitter"></span>@tmwTechTeam</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-kickoff"></span>We also maintain Kickoff</a>
+		<a href="http://eepurl.com/KaKbv" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-subscribe"></span>Subscribe by Email</a>
+	</div>
+</footer>
+
+</div>
+
+<div class="content">
+	<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">code</h1>
+
+	
+
+
+	<div class="entry-content">
+		
+		<h1 class="entry-title entry-title--single">PHP coding standards</h1>
+		
+
+	<div class="links">
+		
+			<a href="https://github.com/tmwagency/TMW-PHP-coding-standards" class="links-item">View the Repo on Github</a>
+		
+		
+		
+		
+		
+		
+		
+	</div>
+
+		<h2>Coding Standards and Best Programming Practices for PHP</h2>
+
+<h3>Contents</h3>
+
+<ol>
+<li><a href="#naming-conventions-and-standards">Naming Conventions and Standards</a>
+
+<ol>
+<li><a href="#code-indentation">Code Indentation</a></li>
+<li><a href="#brace-usage">Brace Usage</a></li>
+<li><a href="#trailing-whitespace">Trailing Whitespace</a></li>
+<li><a href="#naming-conventions">Naming Conventions</a></li>
+<li><a href="#code-commenting">Code Commenting</a></li>
+<li><a href="#string-concatenation">String Concatenation</a></li>
+</ol></li>
+<li><a href="#good-programming-practices">Good Programming Practices</a>
+
+<ol>
+<li><a href="#kiss-principles">KISS Principles</a></li>
+<li><a href="#be-mindful-of-the-language">Be Mindful of the Language</a></li>
+<li><a href="#clear-commenting">Clear Commenting</a></li>
+<li><a href="#frameworks-and-platforms">Frameworks and Platforms</a></li>
+<li><a href="#character-encoding">Character Encoding</a></li>
+<li><a href="#complicated-if-else-constructs">Complicated If Else Constructs</a></li>
+</ol></li>
+<li><a href="#databases">Databases</a>
+
+<ol>
+<li><a href="#encoding-issues-&amp;amp;-database">Encoding Issues &amp; Database</a></li>
+</ol></li>
+<li><a href="#security">Security</a>
+
+<ol>
+<li><a href="#treat-all-incoming-data-as-tainted">Treat All Incoming Data as Tainted</a></li>
+<li><a href="#handling-file-uploads">Handling File Uploads</a></li>
+<li><a href="#databases">Databases</a>
+
+<ol>
+<li><a href="#sql-injection">SQL Injection</a></li>
+</ol></li>
+</ol></li>
+<li><a href="#local-development-environment">Local Development Environment</a></li>
+<li><a href="#server-environment-settings">Server Environment Settings</a>
+
+<ol>
+<li><a href="#handling-redirects">Handling Redirects</a></li>
+<li><a href="#php-parsing">PHP Parsing</a></li>
+</ol></li>
+</ol>
+
+<h2><a name="naming-conventions-and-standards"> </a>Naming Conventions and Standards</h2>
+
+<h3><a name="code-indentation"> </a>Code Indentation</h3>
+
+<p>Generally you should use the Allman style (<a href="http://en.wikipedia.org/wiki/Indent_style#Allman_style">http://en.wikipedia.org/wiki/Indent_style#Allman_style</a>) of indenting code. This puts opening braces onto a new line of their own, such that they line up vertically:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">expression</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// statements</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This will differ slightly from the indentation style mainly used for Javascript (like K&amp;R), but there are valid cases where the Allman style would cause syntactic differences in code execution (such as implied return values in Javascript because the semicolon is optional). The advantage to the Allman style (aside from visually outlining logical blocks of code) is that the expression part can be commented out leaving the statements part intact and others easily added during testing and development:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="c1">//for($i=0; $i&lt;count($array); $i++)</span>
+<span class="k">foreach</span><span class="p">(</span><span class="nv">$array</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// statements</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Also, tabs should be used to indent code rather than spaces. The reason for this is to preserve the formatting of code when multiple people are working on it, as a tab is an unspecified indentation amount (e.g. 2, 4, or 8 spaces), which people can set to their own preference on their machines without affecting the way it&#39;s presented for you. This avoids issues with code not formatting correctly for different developers working on the same project.</p>
+
+<h3><a name="brace-usage"> </a>Brace Usage</h3>
+
+<p>If your  <code>if()</code>  or loop only contains one executable statement, the containing braces are optional, and should be omitted:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">expression</span><span class="p">)</span>
+    <span class="c1">// statement</span>
+
+<span class="c1">// or...</span>
+
+<span class="k">foreach</span><span class="p">(</span><span class="nv">$array</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="c1">// statement</span>
+</code></pre></div>
+<p>The statement should still be indented as usual, and kept on a separate line for readability.</p>
+
+<h3><a name="trailing-whitespace"> </a>Trailing Whitespace</h3>
+
+<p>Avoid this if you can. Most IDEs and advanced text editors have an option to automatically strip trailing whitespace upon saving of a file, and you should enable this option if it exists.</p>
+
+<h3><a name="naming-conventions"> </a>Naming Conventions</h3>
+
+<p>Classes, constants and variables should follow the Python/Ruby naming conventions (<a href="http://en.wikipedia.org/wiki/Naming_convention_%28programming%29#Python_and_Ruby">http://en.wikipedia.org/wiki/Naming_convention_%28programming%29#Python_and_Ruby</a>) where class names use camel case, constants are all caps with underscores used to space, and other variables and method/function names are lower-case with underscores used to space. All variables, constants and functions should use logical names without unnecessary abbreviations but not be overly verbose. So, the following are good:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$error_message</span>
+<span class="nx">DB_USERNAME</span>
+<span class="nx">get_all_news_content</span><span class="p">()</span>
+</code></pre></div>
+<p>But the following are not:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$a</span>
+<span class="nx">LONG_CONSTANT_DESCRIBING_THE_NATURE_OF_THE_VALUE_IT_CONTAINS_WHERE_A_COMMENT_WOULD_DO</span>
+<span class="nx">do_something</span><span class="p">()</span>
+</code></pre></div>
+<p>There are a few occasions where single-letter variables can be used, such as counters in small loops, or when dealing with coordinate systems or colour models, for example, but in the main variable names should always reflect the data they contain. If you feel there might be any ambiguity when initially declaring them, add a comment to indicate this. It can also be helpful to make variable names for things like arrays plural and simple objects singular, such as:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$images</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="k">foreach</span><span class="p">(</span><span class="nv">$images</span> <span class="k">as</span> <span class="nv">$image</span><span class="p">)</span>
+<span class="p">{}</span>
+</code></pre></div>
+<h3><a name="code-commenting"> </a>Code Commenting</h3>
+
+<p>It&#39;s best practice if code is sufficiently commented to aid future developers who may have to pick it up. At the very least, all functions and class methods should be commented in the <a href="http://phpdoc.org/docs/latest/glossary.html#term-docblocks">DocBlock</a> format, and should contain a brief description about that function, and details on the inputs and outputs. A decent IDE should be able to automatically supply a lot of these details for you when you open the DocBlock with <code>/**</code> and hit enter.</p>
+
+<p>Below is an example:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="sd">/**</span>
+<span class="sd">* return a filtered string</span>
+<span class="sd">* @param string $filter_line the string to be filtered</span>
+<span class="sd">* @param string $replace_char optional character to use as the replacement - defaults to *</span>
+<span class="sd">* @return string</span>
+<span class="sd">*/</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">filter_string</span><span class="p">(</span><span class="nv">$filter_line</span><span class="p">,</span> <span class="nv">$replace_char</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+</code></pre></div>
+<h3><a name="string-concatenation"> </a>String Concatenation</h3>
+
+<p>It&#39;s typical in JavaScript to build up strings with lots of concatenation like this:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="s1">&#39;hello &#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, welcome.&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>This is bad practice in PHP; it makes the code look messy. Instead, something like one of these is preferred:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$greeting</span> <span class="o">=</span> <span class="s2">&quot;hello </span><span class="si">{</span><span class="nv">$name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nv">$name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">, welcome.&quot;</span><span class="p">;</span>
+
+<span class="nv">$greeting</span> <span class="o">=&lt;&lt;&lt;</span><span class="nx">GREETING</span>
+    <span class="nx">hello</span> <span class="p">{</span><span class="nv">$name</span><span class="p">[</span><span class="mi">0</span><span class="p">]}</span> <span class="p">{</span><span class="nv">$name</span><span class="p">[</span><span class="mi">1</span><span class="p">]},</span> <span class="nx">welcome</span><span class="o">.</span>
+<span class="nx">GREETING</span><span class="p">;</span>
+</code></pre></div>
+<p>The second example is better for large text blocks that might themselves contain quotes where escaping them becomes too messy.</p>
+
+<h2><a name="good-programming-practices"> </a>Good Programming Practices</h2>
+
+<h3><a name="kiss-principles"> </a>KISS Principles</h3>
+
+<p>As with any language, avoid functions/methods in PHP that are overly long. Typically, anything that can not fit comfortably into a standard screen of code (this is deliberately subjective, as it may vary from project to project) is too long, and should be refactored. Follow the Unix philosophy and write small methods that do one job well. If you have a method or function which performs several tasks then consider splitting these out.</p>
+
+<p>Avoid over engineering a solution to a problem. A simple holding page does not necessarily need a large framework and database behind it. Be aware that a sledgehammer is not always the ideal tool to crack a nut.</p>
+
+<p>Also, omit the closing  <code>?&gt;</code> tag on scripts if there is no output to follow within the same file, the PHP parser will automatically close it if it&#39;s left out. This negates the chance of running into a “headers already sent” error, which can be cause by trailing whitespace (a space, newline, etc) after the closing PHP tag.</p>
+
+<h3><a name="be-mindful-of-the-language"> </a>Be Mindful of the Language</h3>
+
+<p>PHP is a loose-typed language, and as such can often behave in what looks like an unexpected way if you&#39;re used to stricter languages. One main thing to bear in mind is comparison operators. For example:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Test string&quot;</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This example will never execute the statements inside the braces because the first character position match (0, as strings are treated somewhat similarly to C++ strings in PHP) equates to a false value due to the loose typing. Instead, this should be used:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;Test string&quot;</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">)</span> <span class="o">!==</span> <span class="k">false</span><span class="p">)</span>  <span class="c1">// test explicitly for non-false values</span>
+<span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>PHP is also quite forgiving of some things, so code might still work if you try to treat a string as an array of characters, but it might exhibit strange behaviour in certain circumstances, just as code will function if you try treating a variable of one type as another, but it may not work as expected under all conditions, even though PHP is a loosely typed language. The following illustrates this:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$string</span> <span class="o">=</span> <span class="s2">&quot;tested&quot;</span><span class="p">;</span>
+<span class="nv">$chess</span> <span class="o">=</span> <span class="s2">&quot;♔♕♖♗♘♙&quot;</span><span class="p">;</span>
+
+<span class="nv">$string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">;</span>
+<span class="nv">$chess</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span><span class="p">;</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chess</span><span class="p">);</span>
+
+<span class="c1">//output:</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="s2">&quot;bested&quot;</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="s2">&quot;a��♕♖♗♘♙&quot;</span>
+</code></pre></div>
+<p>While the string replacement works for the  <code>$string</code>  variable, it breaks for  <code>$chess</code>  because the array syntax only works for plain ASCII strings, not any of the multibyte encodings.</p>
+
+<h3><a name="clear-commenting"> </a>Clear Commenting</h3>
+
+<p>If possible, all class methods and functions you write should be documented with PHPDoc syntax. This gives a consistent commenting style that can be used to generate documentation if needed. Try to be verbose in the comments if something is not immediately obvious, and explain all inputs and outputs. So, this would be an example of good commenting:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="sd">/**</span>
+<span class="sd">* returns an array containg the data count for the &#39;other&#39; portion and the</span>
+<span class="sd">* index of the key at which the other count was started</span>
+<span class="sd">* the cutoff is hard-coded at 2%, i.e. if the value is less than 2% of the</span>
+<span class="sd">* total, it gets shoved into the $other total</span>
+<span class="sd">* @param array $data the original data</span>
+<span class="sd">* @param array $labels the datasets keys</span>
+<span class="sd">* @return bool</span>
+<span class="sd">*/</span>
+<span class="k">function</span> <span class="nf">_aportion_other</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nv">$labels</span><span class="p">)</span>
+<span class="p">{}</span>
+</code></pre></div>
+<p>But this, not so much:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="sd">/**</span>
+<span class="sd">* modifies the data and label arrays</span>
+<span class="sd">* @param array $data</span>
+<span class="sd">* @param array $labels</span>
+<span class="sd">*/</span>
+<span class="k">function</span> <span class="nf">_aportion_other</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nv">$labels</span><span class="p">)</span>
+<span class="p">{}</span>
+</code></pre></div>
+<h3><a name="frameworks-and-platforms"> </a>Frameworks and Platforms</h3>
+
+<p>If you&#39;re using a framework or other platform you should follow the best practices of that to ensure code consistency. If it&#39;s an MVC framework, make sure your code is split accordingly, e.g. file and database access should be done only from within a model, not a controller, and view code shouldn&#39;t be in a controller either. If the framework/platform offers something like Eloquent or Active Record, then you should try to use that rather than roll your own database library. There may be some valid exceptions to this, such as queries that would be too complex to create in Active Record, or validation libraries that are sub-standard (e.g. CodeIgniters validation library), and it may just be more efficient to write your own methods.</p>
+
+<p>As a general rule though, you should try to adhere to the guidelines given by the framework of choice.</p>
+
+<p>Our preferred MVC frameworks are:</p>
+
+<ul>
+<li>Laravel</li>
+<li>Zend</li>
+<li>CodeIgniter (this should be used only on older PHP hosting that cannot support newer frameworks and PHP functionality)</li>
+</ul>
+
+<p>Some of the CMS platforms we use are:</p>
+
+<ul>
+<li>WordPress</li>
+<li>Expression Engine (</li>
+<li>EZPublish</li>
+</ul>
+
+<h3><a name="character-encoding"> </a>Character Encoding</h3>
+
+<p>To avoid unnecessary encoding issues ensure that all PHP scripts are saved as UTF8 files. Most editors and IDEs will do this automatically, although some on Windows platforms might need some &#39;encouragement&#39; in this regard. Occassionally you might run into files saved as UTF8 not behaving correctly in the PHP parser. You should check to see if the file has been saved with a BOM (byte order mark) which has been known to cause strange output.</p>
+
+<p>That is usually enough to trigger Apache to output the right encoding headers, but if it&#39;s been set to a different default, or you&#39;re using PHP on IIS, then it may be necessary to use the following code to force the correct encoding:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Content-Type: text/html; charset=utf-8&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h3><a name="complicated-if-else-constructs"> </a>Complicated If Else Constructs</h3>
+
+<p>An if/else construct should never go beyond a few else cases. If you&#39;re writing code with more than 2 or 3 else parts, then you should be using a switch/case instead.</p>
+
+<p>If you are using the else cases to check different variables, then you may still use a switch, but of this form:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">switch</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="p">(</span><span class="nv">$a</span> <span class="o">==</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="p">(</span><span class="nv">$b</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$c</span><span class="p">))</span><span class="o">:</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This slight abuse of the switch also works in JavaScript!</p>
+
+<h2><a name="databases"> </a>Databases</h2>
+
+<p>While not strictly PHP, it&#39;s important that you can develop a well structured and flexible schema. This includes the following:</p>
+
+<ul>
+<li>Using the right database encodings. Generally using utf8 for your character set, and</li>
+<li>Selecting the right table engine. Typically, most MySQL tools default to MyISAM or InnoDB, but it&#39;s useful to know the differences between the two. MyISAM is faster for reads, slower for writes, and employs table-level locking on writes, which is a potential bottleneck. InnoDB is faster for writes, slower than MyISAM for reads, but employs row-level locking and allows you to use foreign key constraints.</li>
+<li>Use the most appropriate field types. If you need a column for simple yes/no values, don&#39;t use</li>
+<li>Generate appropriate indexes on tables. Don&#39;t just index everything, but focus on the fields that you are going to be using in joins and searches. This can have a tremendous impact on your application when done correctly</li>
+<li>Don&#39;t be too worried about multiple joins across tables to retrieve a dataset. With good indexes this won&#39;t be an issue, and embracing a good relational schema allows your data to be used in more flexible ways in the future as the nature of an application changes. It&#39;s also a</li>
+<li>Wherever possible, join on integers (this includes dates and</li>
+<li>Plan your schema in advance and think about how different parts of the data interact with each other. Your database is not a spreadsheet, and you shouldn&#39;t treat it like it is.</li>
+</ul>
+
+<h3><a name="encoding-issues-&amp;-database"> </a>Encoding Issues &amp; Database</h3>
+
+<p>It is always best to ensure that the correct encoding is set for your database(es). MySQL has three levels of encoding: database, table, and field. Typically, setting it to  <code>utf8_general_ci</code>  when you create the database will ensure that it cascades down automatically when you create tables and fields. If you set it wrongly though, and attempt to retroactively correct it, you will need to do so at each level, as such changes only propagate downwards upon creation, not modification. You may also run into issues with the connection that PHP has with MySQL, which must also be made as UTF8. The exact implementation varies slightly for the different connection methods, PDO uses this for example:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">&quot;mysql:dbname=</span><span class="si">$dbname</span><span class="s2">;host=</span><span class="si">$dbhost</span><span class="s2">&quot;</span><span class="p">,</span><span class="nv">$dbuser</span><span class="p">,</span><span class="nv">$dbpass</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">MYSQL_ATTR_INIT_COMMAND</span> <span class="o">=&gt;</span> <span class="s2">&quot;SET NAMES &#39;UTF8&#39;&quot;</span><span class="p">));</span>
+</code></pre></div>
+<p>Also, when creating tables, try to use the field types that are most appropriate for the data they will be carrying, so things like telephone numbers, email addresses, names, etc, will suit the varchar type, small finite lists suit an enum type, etc. It can be worth being overly generous when specifying lengths for varchar fields also; entries won&#39;t use more space than they need to, but it will prevent accidental truncation of data. As mentioned above, take care when inserting data into the database, and ensure that all data is properly filtered to prevent SQL injection. The best method is to use parameterised PDO queries, but if you&#39;re using a framework or platform it may have an abstracted interface for something like this.</p>
+
+<p><strong>Avoid using the</strong> <code>mysql_*</code> <strong>functions at all costs!</strong></p>
+
+<p>If you run into issues with the &quot;headers already sent&quot; error, and you&#39;re sure there is no output occurring before you&#39;re attempting a (either explicitly or implied)  <code>header()</code>  call, then check to see if your editor/IDE has added a byte order mark (BOM). PHP doesn&#39;t play well with these, and it can trigger some unusual bugs, so BOMs should be removed whenever possible in source code.</p>
+
+<h2><a name="security"> </a>Security</h2>
+
+<h3><a name="treat-all-incoming-data-as-tainted"> </a>Treat All Incoming Data as Tainted</h3>
+
+<p>It&#39;s always important to remember that any data coming from the user has the potential to be malicious, so you should always treat all user data as if it were anyway. This includes the following:</p>
+
+<ul>
+<li>All form data – take advantage of the</li>
+<li>Select list values, checkbox &amp; radio button values, and hidden fields - just because you&#39;re setting these from code, does not mean that they will contain your predefined values when the form is submitted. Always check these values on the server.</li>
+<li>URL query string parameters – as above, make sure these are filtered. So for example, tacking this onto a stock Joomla site URL would reveal an injection vulnerability with an unsanitised URL being output directly to the page:</li>
+<li>The URLs themselves can be altered in such a way as to inject code onto a page, which is particularly an issue with some frameworks and CMSs such as Joomla. Utilise functions such as</li>
+<li><p>Uploaded images – it&#39;s not always enough to check a files extension as this can be faked. A good method is using something like GD or Imagick (PHPs ImageMagick extension) to read in some data about the image. If it&#39;s not an image, try using the PECL FileInfo extension to get the mime type of the file which reads in the header bytes of a file to determine its type. Typically, resizing or resampling the image to the same dimensions that it should be will be sufficient. At a pinch, analysing the first few bytes of a file can help determine the validity of a file. See</p></li>
+<li><p>Cookie values can be tampered with, do not store anything important in them which you don&#39;t mind being altered, and do not rely on any value retrieved from a cookie.</p></li>
+<li><p>Avoid incremental identifiers for sensitive information - rather than using an auto-incremented ID to retrieve information over the URL, consider using a GUID instead. Incremental IDs are an invitation for people to tamper, and could allow people to see information which is not intended for them. Sequential identifiers like this make it an easy task to guess more within an application, whereas a GUID is in effect random, and does not lead to more identifiers to be inferred easily.</p></li>
+<li><p>Header values in a request can be altered, so do not rely on these to be untampered.</p></li>
+</ul>
+
+<h4><a name="sql-injection"> </a>SQL Injection</h4>
+
+<p>You should always use a method of connecting to a database that offers some form of protection against SQL injection, whether it be through parameterised queries, or prepared statements. You should never use the deprecated  <code>mysql_*</code>  functions, as these are old and not secure.</p>
+
+<p>Note that while it&#39;s good to validate and filter incoming data, be mindful of the use to which that data is being put, so don&#39;t apply  <code>htmlentities()</code>  to data that&#39;s only being put into a database, apply that only once you&#39;re actually outputting it, as this may cause issues with how you wish to use that data later on (see <a href="https://www.google.co.uk/search?q=htmlentities+before+db">https://www.google.co.uk/search?q=htmlentities+before+db</a> for more details on why this should be avoided).</p>
+
+<p>If the framework you&#39;re using has a built-in database layer (like ActiveRecord, or Eloquent) then use that, as that will (used correctly) naturally protect against SQL injection. Be mindful here that each of the frameworks&#39; database layers behaves differently in terms of what it escapes before sending to the database, and it&#39;s still possible to abuse the DB layer object to create an SQL injection point.</p>
+
+<h3><a name="handling-file-uploads"> </a>Handling File Uploads</h3>
+
+<p>File uploads can often be used as an attack vector just as easily as bad form and URL data, more so in some situations. As such, validating and sanitising your file uploads is extremely important. There is a great PECL extension for this called  <code>finfo</code> , which detects the mime type of a file based on its contents rather than the extensions (as the extension comes from the user and must be treated as tainted). This may not always be available on all servers though. If that&#39;s the case, then you have to go a bit “old-school”. For example, if you&#39;re expecting an image upload, check to see that it is indeed a valid image by using GD to detect its dimensions. Likewise, if it&#39;s a PDF, us a library like fPDF to identify it.  <code>DomDocument</code>  can handle the XML/HTML/SVG files, and in conjunction with Zip can handle modern office documents.</p>
+
+<p>It&#39;s also best practice to store user generated content outside of the web document root if possible so that it is not accessible directly from a web browser. For example, if your website is in a  <code>httpdocs</code>  directory, consider creating a sibling directory next to it to store user content and then using PHP to pass through the file data.</p>
+
+<h3><a name="databases"> </a>Databases</h3>
+
+<p>If you&#39;re using a framework or CMS, use the database methods and connections that it provides. Do not try rolling your own, as this can lead to opening yourself up to security vulnerabilities. Most good frameworks will provide methods for making data safe for use in queries, and some of the better ones use things like PDO which allows you to parameterise your queries. Always use these where they exist, even it slightly increases your development time.</p>
+
+<p>In no case should you ever store unencrypted passwords. At the very least use  <code>md5()</code>  to generate a hash of the password before storing it. Ideally this would be salted with another piece of user data (to lessen the chance of it being brute forced from an md5-hash list). If the nature of your application requires it, then use more powerful encryption methods in PHP to secure the passwords, like the  <code>crypt()</code>  function, using a suitably strong algorithm.</p>
+
+<p>Also, don&#39;t blindly apply all levels of sanitisation to your data as soon as you receive it. Only use functions like  <code>strip_tags</code>  and  <code>htmlentities</code>  when presenting data to a browser, it&#39;s not necessary before inserting into a database. With the exception of passwords, you should try to store user data in the database as close to the original as possible.</p>
+
+<h2><a name="local-development-environment"> </a>Local Development Environment</h2>
+
+<p>Your local development environment should always have all errors and warnings displayed. The best way to do this is from within the php.ini file, with the following configuration:</p>
+<div class="highlight"><pre><code class="language-ini" data-lang="ini"><span class="na">display_errors</span> <span class="o">=</span> <span class="s">On</span>
+<span class="na">error_reporting</span> <span class="o">=</span> <span class="s">E_ALL</span>
+</code></pre></div>
+<p>It will also help to install the Xdebug PECL extension, as this will give better debugging and error output. The package you&#39;ll need to install for this is  <code>php-pecl-xdebug</code> . Where possible your local environment should mirror the live servers in terms of PHP version, enabled libraries/modules and general config settings. Particularly settings such as  <code>upload_max_filesize</code> , and <code>post_max_size</code>. When you produce release notes you should highlight these settings so that they are correctly set on the server.</p>
+
+<p><strong>Do not turn off error display on your local machine to hide warnings and other errors and use of @ to suppress runtime errors is to be avoided always.</strong></p>
+
+<p>You should ensure that your code does not produce any errors or warnings. Warnings might oft-times appear to be harmless, but they can often indicate a larger logic bomb hidden within the code, and these result in unexpected behaviour. Most typical warnings are usually around issues of undeclared variable use, or using functions on the wrong types of scaler (even though PHP is a loosely typed language, the type conversion is subject to certain rules, and not all types can be converted on the fly)</p>
+
+<h2><a name="server-environment-settings"> </a>Server Environment Settings</h2>
+
+<p>If possible, always avoid setting site-wide server settings from within PHP itself. Ideally, they should be set from the php.ini (if you have access and it&#39;s not a setting which would have a detrimental effect on other sites sharing the setting), the virtual host configuration file (if you have access), or an .htaccess file (if the web server is Apache). There are two main reasons for never setting these values from within PHP itself:</p>
+
+<ul>
+<li>Problems become more difficult to diagnose as these values do not present themselves from a</li>
+<li>Specific functions can be disabled from being set by PHP for security reasons at a server level</li>
+</ul>
+
+<p>Sometimes setting these may be unavoidable, but when this happens, make sure it&#39;s documented in any release notes and in the wiki to ensure any future work isn&#39;t hindered by this. It&#39;s also preferable to keep all configuration settings to a minimum set of files. Some frameworks split configuration into specific files for general config, database connections, mail, etc. In cases like this, document the files that may need to be edited for a server deployment in the wiki page for the project.</p>
+
+<h3><a name="handling-redirects"> </a>Handling Redirects</h3>
+
+<p>Throughout the lifecycle of an application, it may be necessary to employ permanent (301) redirects for the purposes of SEO and domain addition and re-pointing.</p>
+
+<p>These ideally would be handled from either an  <code>.htaccess</code>  file, or through the Apache (or other web server) virtual host configuration file. The main reason for this is to avoid hitting the PHP parser which incurs an extra load on the server to process, which can have an effect on the site as a whole for all visitors. Loading in any kind of framework or CMS to perform the redirect is definitely overkill and not recommended at all, as this then incurs extra memory requirements and an impact on speed (dictated by the general speed of the framework/CMS in question as opposed to a raw Apache request)</p>
+
+<p>There may be valid time for exceptions, e.g. where the redirects become too complicated to manage via a standard redirect list in a file (such as for the Infiniti website which uses an XML mapping for the many hundreds of redirects across all of its domains). These should be looked at an weighed up on a case-by-case basis.</p>
+
+<h3><a name="php-parsing"> </a>PHP Parsing</h3>
+
+<p>It&#39;s never recommended to have the PHP parser invoked for non-PHP files, as this will incur the overhead of running the parser when plain Apache output would do. The exception to this is when you might be running files through the parser as part of a security process, e.g. authenticating user credentials before passing a files contents downstream.</p>
+
+	</div>
+
+
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date">Maintained by</div>
+		<p class="entry-maintainers l-list--floated unstyled">
+
+				
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+					<div class="media entry-author">
+			<img src="/img/authors/asheridan.jpg" alt="Picture of Ashley Sheridan" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="entry-author-name"><a href="http://twitter.com/ashleyjsheridan">Ashley Sheridan</a></h3>
+				<p class="entry-author-desc">A PHP developer with a penchant for Linux, open-source and general tinkering.</p>
+			</div>
+		</div>
+				
+			</p>
+
+	</div>
+
+	
+
+	<!--  -->
+</article>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		
+		
+	</div>
+</div>
+</div>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27779119-7', 'tmw.co.uk');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>

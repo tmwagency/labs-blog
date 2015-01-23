@@ -143,25 +143,25 @@ breeze
 <span class="nt">&lt;html&gt;</span>
     <span class="nt">&lt;head&gt;</span>
         <span class="nt">&lt;title&gt;</span>Breeze<span class="nt">&lt;/title&gt;</span>
-        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">“dist/css/app.min.css"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">“dist/css/app.min.css&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;/head&gt;</span>
 
     <span class="nt">&lt;body&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"main-container"</span><span class="nt">&gt;</span> <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;main-container&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/div&gt;</span>
 
-        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">“dist/js/app.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">“dist/js/app.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
     <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 <p>Astute readers may have noticed that – within the HTML markup – we are referencing directories and files that don’t exist – <em>dist/css/app.min.css</em> and <em>dist/js/app.min.js</em>. These directories and files will be created automatically by Grunt once we set it up and run a build task.</p>
 
 <p>For the contents of <em>app.js</em>, we will temporarily just add an alert message:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">alert</span><span class="p">(</span><span class="s2">"Breeze"</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Breeze&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>And finally, the contents of <em>app.scss</em> will currently just contain the following styles:</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span><span class="o">,</span> <span class="nt">div</span> <span class="p">{</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2>Installing Development Dependencies</h2>
@@ -178,11 +178,11 @@ You will need to run this command with <em>sudo</em>.</p>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">npm install -g grunt-cli
 </code></pre></div>
 <p>Next up, within the <em>breeze</em> directory, open the <em>package.json</em> file that we created earlier and add the following:</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"breeze"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.1"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;breeze&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0.1&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>This simply defines some basic information about our application which is required by npm. Save and close the file.</p>
 
 <p>Although the <em>package.json</em> file has many uses, within the scope of this tutorial – and other than the required <em>name</em> and <em>version</em> properties – it will simply be used to define the development dependencies of our application.</p>
@@ -194,15 +194,15 @@ You will need to run this command with <em>sudo</em>.</p>
 </code></pre></div>
 <p>This installs all of our development dependencies into a <em>node-modules</em> folder within the <em>breeze</em> directory. A ‘devDependencies’ property is also added to <em>package.json</em>, listing the names and current version numbers of our application’s development dependencies:</p>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">{</span>
-  <span class="s2">"name"</span>: <span class="s2">"breeze"</span>,
-  <span class="s2">"version"</span>: <span class="s2">"0.0.1"</span>,
-  <span class="s2">"devDependencies"</span>: <span class="o">{</span>
-    <span class="s2">"grunt"</span>: <span class="s2">"^0.4.5"</span>,
-    <span class="s2">"grunt-contrib-connect"</span>: <span class="s2">"^0.8.0"</span>,
-    <span class="s2">"grunt-contrib-sass"</span>: <span class="s2">"^0.8.1"</span>,
-    <span class="s2">"grunt-contrib-uglify"</span>: <span class="s2">"^0.6.0"</span>,
-    <span class="s2">"grunt-contrib-watch"</span>: <span class="s2">"^0.6.1"</span>,
-    <span class="s2">"grunt-devtools"</span>: <span class="s2">"^0.2.1"</span>
+  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;breeze&quot;</span>,
+  <span class="s2">&quot;version&quot;</span>: <span class="s2">&quot;0.0.1&quot;</span>,
+  <span class="s2">&quot;devDependencies&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;grunt&quot;</span>: <span class="s2">&quot;^0.4.5&quot;</span>,
+    <span class="s2">&quot;grunt-contrib-connect&quot;</span>: <span class="s2">&quot;^0.8.0&quot;</span>,
+    <span class="s2">&quot;grunt-contrib-sass&quot;</span>: <span class="s2">&quot;^0.8.1&quot;</span>,
+    <span class="s2">&quot;grunt-contrib-uglify&quot;</span>: <span class="s2">&quot;^0.6.0&quot;</span>,
+    <span class="s2">&quot;grunt-contrib-watch&quot;</span>: <span class="s2">&quot;^0.6.1&quot;</span>,
+    <span class="s2">&quot;grunt-devtools&quot;</span>: <span class="s2">&quot;^0.2.1&quot;</span>
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
@@ -213,7 +213,7 @@ You will need to run this command with <em>sudo</em>.</p>
 <p>To use Grunt, we first need to open <em>Gruntfile.js</em> that we created earlier within the <em>breeze</em> directory and paste in the following code, which we will discuss in more detail below:</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="s2">"use strict"</span><span class="p">;</span>
+    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
     <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
 
@@ -227,21 +227,21 @@ You will need to run this command with <em>sudo</em>.</p>
 <p>First, we’ll add a config for compiling our SCSS code using the <em>sass</em> task (<a href="https://github.com/gruntjs/grunt-contrib-sass">grunt-contrib-sass</a>) – a wrapper for the version of Sass installed on our system i.e. the Sass Ruby gem we installed earlier:</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="s2">"use strict"</span><span class="p">;</span>
+    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-sass"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-sass&quot;</span><span class="p">);</span>
 
     <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
-        <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">sass</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">dev</span> <span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">style</span><span class="p">:</span> <span class="s2">"compressed"</span><span class="p">,</span>
-                    <span class="na">sourcemap</span> <span class="p">:</span> <span class="kc">true</span>
+            <span class="nx">dev</span> <span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">style</span><span class="o">:</span> <span class="s2">&quot;compressed&quot;</span><span class="p">,</span>
+                    <span class="nx">sourcemap</span> <span class="o">:</span> <span class="kc">true</span>
                 <span class="p">},</span>
 
-                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"dist/css/app.min.css"</span><span class="p">:</span> <span class="s2">"src/scss/app.scss"</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;dist/css/app.min.css&quot;</span><span class="o">:</span> <span class="s2">&quot;src/scss/app.scss&quot;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -260,38 +260,38 @@ You will need to run this command with <em>sudo</em>.</p>
 <p>Next up, we want to use the <em>uglify</em> (<a href="https://github.com/gruntjs/grunt-contrib-uglify">grunt-contrib-uglify</a>) task to concatenate all of our JavaScript into a single file and then minify this file when complete so that it loads quickly in web browsers. This is also a good way to reduce the number of HTTP requests an application makes when developing with more than one JavaScript file; rather than using multiple <em>script</em> tags within the HTML markup we will only need to use a single one that points to the compiled file containing all of our JavaScript code – <em>app.min.js</em>. To carry out the concatenation and minification process we will add a configuration object for the <em>uglify</em> task:</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="s2">"use strict"</span><span class="p">;</span>
+    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-sass"</span><span class="p">);</span>
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-uglify"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-sass&quot;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-uglify&quot;</span><span class="p">);</span>
 
     <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
 
-        <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">sass</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">dev</span> <span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">style</span><span class="p">:</span> <span class="s2">"compressed"</span><span class="p">,</span>
-                    <span class="na">sourcemap</span> <span class="p">:</span> <span class="kc">true</span>
+            <span class="nx">dev</span> <span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">style</span><span class="o">:</span> <span class="s2">&quot;compressed&quot;</span><span class="p">,</span>
+                    <span class="nx">sourcemap</span> <span class="o">:</span> <span class="kc">true</span>
                 <span class="p">},</span>
 
-                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"dist/css/app.min.css"</span><span class="p">:</span> <span class="s2">"src/scss/app.scss"</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;dist/css/app.min.css&quot;</span><span class="o">:</span> <span class="s2">&quot;src/scss/app.scss&quot;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">},</span>
 
-        <span class="na">uglify</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nx">uglify</span> <span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">dev</span> <span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span> <span class="p">:</span> <span class="p">{</span>
-                    <span class="na">compress</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="na">mangle</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="na">preserveComments</span> <span class="p">:</span> <span class="kc">false</span>
+            <span class="nx">dev</span> <span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span> <span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">compress</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">mangle</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">preserveComments</span> <span class="o">:</span> <span class="kc">false</span>
                 <span class="p">},</span>
 
-                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"dist/js/app.min.js"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"src/js/libs/atomic.js"</span><span class="p">,</span> <span class="s2">"src/js/app/app.js"</span><span class="p">]</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;dist/js/app.min.js&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;src/js/libs/atomic.js&quot;</span><span class="p">,</span> <span class="s2">&quot;src/js/app/app.js&quot;</span><span class="p">]</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -353,49 +353,49 @@ breeze
 <p>We will set this up in a similar way to the other configs:</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="s2">"use strict"</span><span class="p">;</span>
+    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-sass"</span><span class="p">);</span>
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-uglify"</span><span class="p">);</span>
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-connect"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-sass&quot;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-uglify&quot;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-connect&quot;</span><span class="p">);</span>
 
     <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
 
-        <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">sass</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">style</span><span class="p">:</span> <span class="s2">"compressed"</span><span class="p">,</span>
-                    <span class="na">sourcemap</span> <span class="p">:</span> <span class="kc">true</span>
+            <span class="nx">dev</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">style</span><span class="o">:</span> <span class="s2">&quot;compressed&quot;</span><span class="p">,</span>
+                    <span class="nx">sourcemap</span> <span class="o">:</span> <span class="kc">true</span>
                 <span class="p">},</span>
 
-                <span class="na">files</span> <span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"dist/css/app.min.css"</span><span class="p">:</span> <span class="s2">"src/scss/app.scss"</span>
+                <span class="nx">files</span> <span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;dist/css/app.min.css&quot;</span><span class="o">:</span> <span class="s2">&quot;src/scss/app.scss&quot;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">},</span>
 
-        <span class="na">uglify</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">uglify</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">compress</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="na">mangle</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="na">preserveComments</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="nx">dev</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">compress</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">mangle</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">preserveComments</span><span class="o">:</span> <span class="kc">false</span>
                 <span class="p">},</span>
 
-                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"dist/js/app.min.js"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"src/js/libs/atomic.js"</span><span class="p">,</span> <span class="s2">"src/js/app/app.js"</span><span class="p">]</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;dist/js/app.min.js&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;src/js/libs/atomic.js&quot;</span><span class="p">,</span> <span class="s2">&quot;src/js/app/app.js&quot;</span><span class="p">]</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">},</span>
 
-        <span class="na">connect</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">connect</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">server</span> <span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">open</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="na">keepalive</span><span class="p">:</span> <span class="kc">true</span>
+            <span class="nx">server</span> <span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">open</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">keepalive</span><span class="o">:</span> <span class="kc">true</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -416,55 +416,55 @@ breeze
 <p>So far, we have set things up so that we can run tasks one at a time, but what if we want to run multiple tasks? We could run them one after the other in Terminal, but there is an easier way – we can register our own tasks with Grunt, which is much more straightforward than it sounds. Let’s start by creating a task that will first run <em>sass:dev</em>, followed by <em>uglify:dev</em>, and then finally <em>connect:server</em>. We’ll call this task ‘breeze’:</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="s2">"use strict"</span><span class="p">;</span>
+    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-sass"</span><span class="p">);</span>
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-uglify"</span><span class="p">);</span>
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-connect"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-sass&quot;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-uglify&quot;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-connect&quot;</span><span class="p">);</span>
 
     <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
 
-        <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">sass</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">style</span><span class="p">:</span> <span class="s2">"compressed"</span><span class="p">,</span>
-                    <span class="na">sourcemap</span> <span class="p">:</span> <span class="kc">true</span>
+            <span class="nx">dev</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">style</span><span class="o">:</span> <span class="s2">&quot;compressed&quot;</span><span class="p">,</span>
+                    <span class="nx">sourcemap</span> <span class="o">:</span> <span class="kc">true</span>
                 <span class="p">},</span>
 
-                <span class="na">files</span> <span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"dist/css/app.min.css"</span><span class="p">:</span> <span class="s2">"src/scss/app.scss"</span>
+                <span class="nx">files</span> <span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;dist/css/app.min.css&quot;</span><span class="o">:</span> <span class="s2">&quot;src/scss/app.scss&quot;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">},</span>
 
-        <span class="na">uglify</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">uglify</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">compress</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="na">mangle</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="na">preserveComments</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="nx">dev</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">compress</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">mangle</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">preserveComments</span><span class="o">:</span> <span class="kc">false</span>
                 <span class="p">},</span>
 
-                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"dist/js/app.min.js"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"src/js/libs/atomic.js"</span><span class="p">,</span> <span class="s2">"src/js/app/app.js"</span><span class="p">]</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;dist/js/app.min.js&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;src/js/libs/atomic.js&quot;</span><span class="p">,</span> <span class="s2">&quot;src/js/app/app.js&quot;</span><span class="p">]</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">},</span>
 
-        <span class="na">connect</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">connect</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">server</span> <span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">open</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="na">keepalive</span><span class="p">:</span> <span class="kc">true</span>
+            <span class="nx">server</span> <span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">open</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">keepalive</span><span class="o">:</span> <span class="kc">true</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">});</span>
 
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s2">"breeze"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"sass:dev"</span><span class="p">,</span> <span class="s2">"uglify:dev"</span><span class="p">,</span> <span class="err">"</span><span class="nl">connect</span><span class="p">:</span><span class="nx">server</span><span class="err">”</span><span class="p">]);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s2">&quot;breeze&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;sass:dev&quot;</span><span class="p">,</span> <span class="s2">&quot;uglify:dev&quot;</span><span class="p">,</span> <span class="err">&quot;</span><span class="nx">connect</span><span class="o">:</span><span class="nx">server</span><span class="err">”</span><span class="p">]);</span>
 <span class="p">};</span>
 </code></pre></div>
 <p>So now instead of sequentially running each task manually, in Terminal, we now simply need to run:</p>
@@ -483,68 +483,68 @@ breeze
 <p>Setting up the <em>watch</em> task is very similar to the way in which we setup all the other tasks (this is now the complete Gruntfile):</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="s2">"use strict"</span><span class="p">;</span>
+    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-sass"</span><span class="p">);</span>
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-uglify"</span><span class="p">);</span>
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-connect"</span><span class="p">);</span>
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-watch"</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-sass&quot;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-uglify&quot;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-connect&quot;</span><span class="p">);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-watch&quot;</span><span class="p">);</span>
 
     <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
 
-        <span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">sass</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">style</span><span class="p">:</span> <span class="s2">"compressed"</span><span class="p">,</span>
-                    <span class="na">sourcemap</span> <span class="p">:</span> <span class="kc">true</span>
+            <span class="nx">dev</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">style</span><span class="o">:</span> <span class="s2">&quot;compressed&quot;</span><span class="p">,</span>
+                    <span class="nx">sourcemap</span> <span class="o">:</span> <span class="kc">true</span>
                 <span class="p">},</span>
 
-                <span class="na">files</span> <span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"dist/css/app.min.css"</span><span class="p">:</span> <span class="s2">"src/scss/app.scss"</span>
+                <span class="nx">files</span> <span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;dist/css/app.min.css&quot;</span><span class="o">:</span> <span class="s2">&quot;src/scss/app.scss&quot;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">},</span>
 
-        <span class="na">uglify</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">uglify</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">dev</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">compress</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="na">mangle</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="na">preserveComments</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="nx">dev</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">compress</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">mangle</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">preserveComments</span><span class="o">:</span> <span class="kc">false</span>
                 <span class="p">},</span>
 
-                <span class="na">files</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"dist/js/app.min.js"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"src/js/libs/atomic.js"</span><span class="p">,</span> <span class="s2">"src/js/app/app.js"</span><span class="p">]</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;dist/js/app.min.js&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;src/js/libs/atomic.js&quot;</span><span class="p">,</span> <span class="s2">&quot;src/js/app/app.js&quot;</span><span class="p">]</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">},</span>
 
-        <span class="na">connect</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">connect</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">server</span> <span class="p">:</span> <span class="p">{</span>
-                <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="na">open</span><span class="p">:</span> <span class="kc">true</span>
+            <span class="nx">server</span> <span class="o">:</span> <span class="p">{</span>
+                <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">open</span><span class="o">:</span> <span class="kc">true</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">},</span>
 
-        <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
 
-            <span class="na">js</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">files</span><span class="p">:</span> <span class="p">[</span><span class="s2">"src/js/**/*.js"</span><span class="p">],</span>
-                <span class="na">tasks</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uglify:dev"</span><span class="p">]</span>
+            <span class="nx">js</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;src/js/**/*.js&quot;</span><span class="p">],</span>
+                <span class="nx">tasks</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;uglify:dev&quot;</span><span class="p">]</span>
             <span class="p">},</span>
 
-            <span class="na">scss</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">files</span><span class="p">:</span> <span class="p">[</span><span class="s2">"src/scss/**/*.scss"</span><span class="p">],</span>
-                <span class="na">tasks</span><span class="p">:</span> <span class="p">[</span><span class="s2">"sass:dev"</span><span class="p">]</span>
+            <span class="nx">scss</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">files</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;src/scss/**/*.scss&quot;</span><span class="p">],</span>
+                <span class="nx">tasks</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;sass:dev&quot;</span><span class="p">]</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">});</span>
 
-    <span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s2">"breeze"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"sass:dev"</span><span class="p">,</span> <span class="s2">"uglify:dev"</span><span class="p">,</span> <span class="s2">"connect:server"</span><span class="p">,</span> <span class="s2">"watch"</span><span class="p">]);</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s2">&quot;breeze&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;sass:dev&quot;</span><span class="p">,</span> <span class="s2">&quot;uglify:dev&quot;</span><span class="p">,</span> <span class="s2">&quot;connect:server&quot;</span><span class="p">,</span> <span class="s2">&quot;watch&quot;</span><span class="p">]);</span>
 <span class="p">};</span>
 </code></pre></div>
 <p>We have loaded the <em>watch</em> task and created two configs – ‘js’ and ‘scss’. These configs could have been called anything else, but the names were chosen so that the nature of what the configs will be used for is clear. Within each config, using the <em>files</em> option, we specify an array of file paths that are to be watched for changes, and then, using the <em>tasks</em> option, we specify a list of tasks to run when any of the listed files is changed. In the <em>js</em> config we are watching all files that have a <em>.js</em> file extension within the <em>src/js</em> directory and its subdirectories. When any of these files is changed, the <em>uglify:dev</em> task is run automatically. Similarly, with the <em>scss</em> config we are watching all files that have a <em>.scss</em> file extension within the <em>src/scss</em> directory and its subdirectories. When any of these files is changed, the <em>sass:dev</em> task is run automatically.</p>
@@ -554,7 +554,7 @@ breeze
 <p>Notice that – within the <em>breeze</em> task we created earlier – ‘watch’ has been added to the array of tasks that Grunt will run for us sequentially.</p>
 
 <p>Now we simply need to once again run our <code>grunt breeze</code> task using Terminal (be sure to cancel any running tasks using <code>ctrl + c</code> first) and our app will launch in the browser, with the <em>watch</em> task waiting for changes on the lists of files we specified. To check this is working change the alert message in <em>app.js</em> to the following:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">alert</span><span class="p">(</span><span class="s2">"Grunt is a breeze"</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Grunt is a breeze&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>Save the file and Grunt should automatically run the tasks we specified in the <em>watch:js</em> config, so refresh the web browser and you should see the new alert.</p>
 
@@ -582,8 +582,6 @@ breeze
 			
 				
 					
-				
-			
 				
 			
 				

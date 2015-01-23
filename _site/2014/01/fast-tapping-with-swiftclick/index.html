@@ -86,10 +86,10 @@
 	<div class="entry-content">
 		<h1 class="entry-title entry-title--single">Faster tapping with SwiftClick</h1>
 		<p>As many of you will have experienced when using touch devices such as iPhones, tapping on HTML elements sometimes feels a bit sluggish. This is because there is a <a href="http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away">300ms delay</a> before click events are fired. As a user experience this is clunky behaviour and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and create a variable for the event name to use in click listeners – the value of which being either &#39;touchstart&#39; for devices that support touch, or &#39;click&#39; for those that don&#39;t:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">clickEventType</span> <span class="o">=</span> <span class="s2">"ontouchstart"</span> <span class="k">in</span> <span class="nb">window</span> <span class="p">?</span> <span class="s2">"touchstart"</span> <span class="p">:</span> <span class="s2">"click"</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">clickEventType</span> <span class="o">=</span> <span class="s2">&quot;ontouchstart&quot;</span> <span class="k">in</span> <span class="nb">window</span> <span class="o">?</span> <span class="s2">&quot;touchstart&quot;</span> <span class="o">:</span> <span class="s2">&quot;click&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>The problem with this detection method is that laptops or monitors that support touch would expect a touch event, meaning that if a mouse was being used then click events wouldn&#39;t work. Because of this the detection method was refined to check if the device supports both touch and orientation change and only use touch events if both conditions are met:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">clickEventType</span> <span class="o">=</span> <span class="s2">"onorientationchange"</span> <span class="k">in</span> <span class="nb">window</span> <span class="o">&amp;&amp;</span> <span class="s2">"ontouchstart"</span> <span class="k">in</span> <span class="nb">window</span> <span class="p">?</span> <span class="s2">"touchstart"</span> <span class="p">:</span> <span class="s2">"click"</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">clickEventType</span> <span class="o">=</span> <span class="s2">&quot;onorientationchange&quot;</span> <span class="k">in</span> <span class="nb">window</span> <span class="o">&amp;&amp;</span> <span class="s2">&quot;ontouchstart&quot;</span> <span class="k">in</span> <span class="nb">window</span> <span class="o">?</span> <span class="s2">&quot;touchstart&quot;</span> <span class="o">:</span> <span class="s2">&quot;click&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>This detection method worked well in the majority of situations we needed.</p>
 
@@ -110,7 +110,7 @@
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">bower install swiftclick
 </code></pre></div>
 <h3>Include SwiftClick in your application</h3>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"application/javascript"</span> <span class="na">src=</span><span class="s">"path/to/swiftclick.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;application/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;path/to/swiftclick.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre></div>
 <h3>Setup SwiftClick</h3>
 
@@ -138,11 +138,11 @@
 
 <p>If necessary you can make SwiftClick track events originating from additional element types by adding an array of node names. This requires a reference to an instance of SwiftClick:</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span> <span class="p">(</span><span class="nx">someElement</span><span class="p">);</span>
-<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">addNodeNamesToTrack</span> <span class="p">([</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"h1"</span><span class="p">,</span> <span class="s2">"nav"</span><span class="p">]);</span>
+<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">addNodeNamesToTrack</span> <span class="p">([</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;h1&quot;</span><span class="p">,</span> <span class="s2">&quot;nav&quot;</span><span class="p">]);</span>
 </code></pre></div>
 <h3>Replacing all stored node names to track</h3>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span> <span class="p">(</span><span class="nx">someElement</span><span class="p">);</span>
-<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">replaceNodeNamesToTrack</span> <span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"div"</span><span class="p">]);</span>
+<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">replaceNodeNamesToTrack</span> <span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;div&quot;</span><span class="p">]);</span>
 </code></pre></div>
 <p>Doing this will remove all default node names, as well as any that have been added, and replace them with the node names within the array that is passed in, resulting in only the new node names being tracked.</p>
 
@@ -170,8 +170,6 @@
 			
 				
 					
-				
-			
 				
 			
 				

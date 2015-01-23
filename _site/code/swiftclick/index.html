@@ -120,10 +120,10 @@
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">bower install swiftclick
 </code></pre></div>
 <h3>Include SwiftClick in your application</h3>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"application/javascript"</span> <span class="na">src=</span><span class="s">"path/to/swiftclick.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;application/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;path/to/swiftclick.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre></div>
 <p>If using CommonJS then simply require SwiftClick as per usual:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">SwiftClick</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"swiftclick"</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">SwiftClick</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;swiftclick&quot;</span><span class="p">);</span>
 </code></pre></div>
 <h3>Setup SwiftClick</h3>
 
@@ -151,11 +151,11 @@
 
 <p>If necessary you can make SwiftClick track events originating from additional element types by adding an array of node names. This requires a reference to an instance of SwiftClick:</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nx">someElement</span><span class="p">);</span>
-<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">addNodeNamesToTrack</span><span class="p">([</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"h1"</span><span class="p">,</span> <span class="s2">"nav"</span><span class="p">]);</span>
+<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">addNodeNamesToTrack</span><span class="p">([</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;h1&quot;</span><span class="p">,</span> <span class="s2">&quot;nav&quot;</span><span class="p">]);</span>
 </code></pre></div>
 <h3>Replacing all stored node names to track</h3>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nx">someElement</span><span class="p">);</span>
-<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">replaceNodeNamesToTrack</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"div"</span><span class="p">,</span> <span class="s2">"h1"</span><span class="p">]);</span>
+<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">replaceNodeNamesToTrack</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="s2">&quot;h1&quot;</span><span class="p">]);</span>
 </code></pre></div>
 <p>Doing this will remove all default node names, as well as any that have been added, and replace them with the node names within the array that is passed in, resulting in only the new node names being tracked.</p>
 
@@ -180,8 +180,6 @@
 					
 						
 							
-						
-					
 						
 					
 						
