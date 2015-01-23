@@ -1,15 +1,4 @@
----
-layout: code
-title: PHP Coding Standards
-subtitle: TMW PHP coding standards for developers
-pageid: code
-github_url: https://github.com/tmwagency/TMW-PHP-coding-standards/
-team:
-- asheridan
-
-weight: 6
----
-
+<?xml version="1.0"?>
 TMW Coding Standards and Best Programming Practices for PHP
 ===========================================================
 
@@ -44,7 +33,7 @@ TMW Coding Standards and Best Programming Practices for PHP
 <a name="naming-conventions-and-standards"> </a>Naming Conventions and Standards
 --------------------------------
 ### <a name="code-indentation"> </a>Code Indentation
-Generally you should use the Allman style ([&lt;http://en.wikipedia.org/wiki/Indent_style#Allman_style&gt;, http://en.wikipedia.org/wiki/Indent_style#Allman_style]) of indenting code. This puts opening braces onto a new line of their own, such that they line up vertically:
+Generally you should use the Allman style ([http://en.wikipedia.org/wiki/Indent_style#Allman_style](http://en.wikipedia.org/wiki/Indent_style#Allman_style)) of indenting code. This puts opening braces onto a new line of their own, such that they line up vertically:
 
 ```php
 if(expression)
@@ -87,7 +76,7 @@ The statement should still be indented as usual, and kept on a separate line for
 Avoid this if you can. Most IDEs and advanced text editors have an option to automatically strip trailing whitespace upon saving of a file, and you should enable this option if it exists.
 
 ### <a name="naming-conventions"> </a>Naming Conventions
-Classes, constants and variables should follow the Python/Ruby naming conventions ([&lt;http://en.wikipedia.org/wiki/Naming\_convention\_%28programming%29\#Python\_and\_Ruby&gt;, http://en.wikipedia.org/wiki/Naming\_convention\_%28programming%29\#Python\_and\_Ruby]) where class names use camel case, constants are all caps with underscores used to space, and other variables and method/function names are lower-case with underscores used to space. All variables, constants and functions should use logical names without unnecessary abbreviations but not be overly verbose. So, the following are good:
+Classes, constants and variables should follow the Python/Ruby naming conventions ([http://en.wikipedia.org/wiki/Naming\_convention\_%28programming%29\#Python\_and\_Ruby](http://en.wikipedia.org/wiki/Naming\_convention\_%28programming%29\#Python\_and\_Ruby)) where class names use camel case, constants are all caps with underscores used to space, and other variables and method/function names are lower-case with underscores used to space. All variables, constants and functions should use logical names without unnecessary abbreviations but not be overly verbose. So, the following are good:
 
 ```php
 $error_message
@@ -115,7 +104,7 @@ foreach($images as $image)
 ```
 
 ### <a name="code-commenting"> </a>Code Commenting
-It's best practice if code is sufficiently commented to aid future developers who may have to pick it up. At the very least, all functions and class methods should be commented in the [&lt;http://phpdoc.org/docs/latest/glossary.html#term-docblocks&gt;, DocBlock] format, and should contain a brief description about that function, and details on the inputs and outputs. A decent IDE should be able to automatically supply a lot of these details for you when you open the DocBlock with `/**` and hit enter.
+It's best practice if code is sufficiently commented to aid future developers who may have to pick it up. At the very least, all functions and class methods should be commented in the [DocBlock](http://phpdoc.org/docs/latest/glossary.html#term-docblocks) format, and should contain a brief description about that function, and details on the inputs and outputs. A decent IDE should be able to automatically supply a lot of these details for you when you open the DocBlock with `/**` and hit enter.
 
 Below is an example:
 
@@ -343,7 +332,7 @@ It's always important to remember that any data coming from the user has the pot
 #### <a name="sql-injection"> </a>SQL Injection
 You should always use a method of connecting to a database that offers some form of protection against SQL injection, whether it be through parameterised queries, or prepared statements. You should never use the deprecated  `mysql_*`  functions, as these are old and not secure.
 
-Note that while it's good to validate and filter incoming data, be mindful of the use to which that data is being put, so don't apply  `htmlentities()`  to data that's only being put into a database, apply that only once you're actually outputting it, as this may cause issues with how you wish to use that data later on (see [&lt;https://www.google.co.uk/search?q=htmlentities+before+db&gt;, https://www.google.co.uk/search?q=htmlentities+before+db] for more details on why this should be avoided).
+Note that while it's good to validate and filter incoming data, be mindful of the use to which that data is being put, so don't apply  `htmlentities()`  to data that's only being put into a database, apply that only once you're actually outputting it, as this may cause issues with how you wish to use that data later on (see [https://www.google.co.uk/search?q=htmlentities+before+db](https://www.google.co.uk/search?q=htmlentities+before+db) for more details on why this should be avoided).
 
 If the framework you're using has a built-in database layer (like ActiveRecord, or Eloquent) then use that, as that will (used correctly) naturally protect against SQL injection. Be mindful here that each of the frameworks' database layers behaves differently in terms of what it escapes before sending to the database, and it's still possible to abuse the DB layer object to create an SQL injection point.
 
