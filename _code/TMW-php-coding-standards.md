@@ -1,8 +1,18 @@
-<?xml version="1.0"?>
-TMW Coding Standards and Best Programming Practices for PHP
-===========================================================
+---
+layout: code
+title: PHP coding standards
+subtitle: TMW frontend guidelines for developers
+pageid: code
+github_url: https://github.com/tmwagency/TMW-PHP-coding-standards
+team:
+- asheridan
 
-## Contents
+weight: 6
+---
+
+## Coding Standards and Best Programming Practices for PHP
+
+### Contents
 
 1. [Naming Conventions and Standards](#naming-conventions-and-standards)
 	1. [Code Indentation](#code-indentation)
@@ -36,6 +46,7 @@ TMW Coding Standards and Best Programming Practices for PHP
 Generally you should use the Allman style ([http://en.wikipedia.org/wiki/Indent_style#Allman_style](http://en.wikipedia.org/wiki/Indent_style#Allman_style)) of indenting code. This puts opening braces onto a new line of their own, such that they line up vertically:
 
 ```php
+<?php
 if(expression)
 {
 	// statements
@@ -46,6 +57,7 @@ if(expression)
 This will differ slightly from the indentation style mainly used for Javascript (like K&amp;R), but there are valid cases where the Allman style would cause syntactic differences in code execution (such as implied return values in Javascript because the semicolon is optional). The advantage to the Allman style (aside from visually outlining logical blocks of code) is that the expression part can be commented out leaving the statements part intact and others easily added during testing and development:
 
 ```php
+<?php
 //for($i=0; $i<count($array); $i++)
 foreach($array as $key => $value)
 {
@@ -60,6 +72,7 @@ Also, tabs should be used to indent code rather than spaces. The reason for this
 If your  `if()`  or loop only contains one executable statement, the containing braces are optional, and should be omitted:
 
 ```php
+<?php
 if(expression)
 	// statement
 
@@ -79,6 +92,7 @@ Avoid this if you can. Most IDEs and advanced text editors have an option to aut
 Classes, constants and variables should follow the Python/Ruby naming conventions ([http://en.wikipedia.org/wiki/Naming\_convention\_%28programming%29\#Python\_and\_Ruby](http://en.wikipedia.org/wiki/Naming\_convention\_%28programming%29\#Python\_and\_Ruby)) where class names use camel case, constants are all caps with underscores used to space, and other variables and method/function names are lower-case with underscores used to space. All variables, constants and functions should use logical names without unnecessary abbreviations but not be overly verbose. So, the following are good:
 
 ```php
+<?php
 $error_message
 DB_USERNAME
 get_all_news_content()
@@ -88,6 +102,7 @@ get_all_news_content()
 But the following are not:
 
 ```php
+<?php
 $a
 LONG_CONSTANT_DESCRIBING_THE_NATURE_OF_THE_VALUE_IT_CONTAINS_WHERE_A_COMMENT_WOULD_DO
 do_something()
@@ -97,6 +112,7 @@ do_something()
 There are a few occasions where single-letter variables can be used, such as counters in small loops, or when dealing with coordinate systems or colour models, for example, but in the main variable names should always reflect the data they contain. If you feel there might be any ambiguity when initially declaring them, add a comment to indicate this. It can also be helpful to make variable names for things like arrays plural and simple objects singular, such as:
 
 ```php
+<?php
 $images = array(1, 2, 3, 4);
 foreach($images as $image)
 {}
@@ -109,6 +125,7 @@ It's best practice if code is sufficiently commented to aid future developers wh
 Below is an example:
 
 ```php
+<?php
 /**
 * return a filtered string
 * @param string $filter_line the string to be filtered
@@ -132,6 +149,7 @@ var greeting = 'hello ' + name[0] + ' ' + name[1] + ', welcome.';
 This is bad practice in PHP; it makes the code look messy. Instead, something like one of these is preferred:
 
 ```php
+<?php
 $greeting = "hello {$name[0]} {$name[1]}, welcome.";
 
 $greeting =<<<GREETING
@@ -149,12 +167,13 @@ As with any language, avoid functions/methods in PHP that are overly long. Typic
 
 Avoid over engineering a solution to a problem. A simple holding page does not necessarily need a large framework and database behind it. Be aware that a sledgehammer is not always the ideal tool to crack a nut.
 
-Also, omit the closing  `?>`  tag on scripts if there is no output to follow within the same file, the PHP parser will automatically close it if it's left out. This negates the chance of running into a “headers already sent” error, which can be cause by trailing whitespace (a space, newline, etc) after the closing PHP tag.
+Also, omit the closing  `?>` tag on scripts if there is no output to follow within the same file, the PHP parser will automatically close it if it's left out. This negates the chance of running into a “headers already sent” error, which can be cause by trailing whitespace (a space, newline, etc) after the closing PHP tag.
 
 ### <a name="be-mindful-of-the-language"> </a>Be Mindful of the Language
 PHP is a loose-typed language, and as such can often behave in what looks like an unexpected way if you're used to stricter languages. One main thing to bear in mind is comparison operators. For example:
 
 ```php
+<?php
 $string = "Test string";
 if(strpos($string, "T"))
 {
@@ -166,6 +185,7 @@ if(strpos($string, "T"))
 This example will never execute the statements inside the braces because the first character position match (0, as strings are treated somewhat similarly to C++ strings in PHP) equates to a false value due to the loose typing. Instead, this should be used:
 
 ```php
+<?php
 $string = "Test string";
 if(strpos($string, "T") !== false)  // test explicitly for non-false values
 {
@@ -177,6 +197,7 @@ if(strpos($string, "T") !== false)  // test explicitly for non-false values
 PHP is also quite forgiving of some things, so code might still work if you try to treat a string as an array of characters, but it might exhibit strange behaviour in certain circumstances, just as code will function if you try treating a variable of one type as another, but it may not work as expected under all conditions, even though PHP is a loosely typed language. The following illustrates this:
 
 ```php
+<?php
 $string = "tested";
 $chess = "♔♕♖♗♘♙";
 
@@ -198,14 +219,15 @@ While the string replacement works for the  `$string`  variable, it breaks for  
 If possible, all class methods and functions you write should be documented with PHPDoc syntax. This gives a consistent commenting style that can be used to generate documentation if needed. Try to be verbose in the comments if something is not immediately obvious, and explain all inputs and outputs. So, this would be an example of good commenting:
 
 ```php
+<?php
 /**
-* returns an array containg the data count for the 'other' portion and the 
+* returns an array containg the data count for the 'other' portion and the
 * index of the key at which the other count was started
 * the cutoff is hard-coded at 2%, i.e. if the value is less than 2% of the
 * total, it gets shoved into the $other total
 * @param array $data the original data
 * @param array $labels the datasets keys
-* @return bool 
+* @return bool
 */
 function _aportion_other(&$data, &$labels)
 {}
@@ -215,6 +237,7 @@ function _aportion_other(&$data, &$labels)
 But this, not so much:
 
 ```php
+<?php
 /**
 * modifies the data and label arrays
 * @param array $data
@@ -233,17 +256,13 @@ As a general rule though, you should try to adhere to the guidelines given by th
 Our preferred MVC frameworks are:
 
 - Laravel
-
 - Zend
-
 - CodeIgniter (this should be used only on older PHP hosting that cannot support newer frameworks and PHP functionality)
 
 Some of the CMS platforms we use are:
 
 - WordPress
-
 - Expression Engine (
-
 - EZPublish
 
 ### <a name="character-encoding"> </a>Character Encoding
@@ -252,6 +271,7 @@ To avoid unnecessary encoding issues ensure that all PHP scripts are saved as UT
 That is usually enough to trigger Apache to output the right encoding headers, but if it's been set to a different default, or you're using PHP on IIS, then it may be necessary to use the following code to force the correct encoding:
 
 ```php
+<?php
 header('Content-Type: text/html; charset=utf-8');
 
 ```
@@ -262,6 +282,7 @@ An if/else construct should never go beyond a few else cases. If you're writing 
 If you are using the else cases to check different variables, then you may still use a switch, but of this form:
 
 ```php
+<?php
 switch(true)
 {
 	case ($a == 'test'):
@@ -280,24 +301,19 @@ This slight abuse of the switch also works in JavaScript!
 ---------
 While not strictly PHP, it's important that you can develop a well structured and flexible schema. This includes the following:
 
-- Using the right database encodings. Generally using utf8 for your character set, and 
-
+- Using the right database encodings. Generally using utf8 for your character set, and
 - Selecting the right table engine. Typically, most MySQL tools default to MyISAM or InnoDB, but it's useful to know the differences between the two. MyISAM is faster for reads, slower for writes, and employs table-level locking on writes, which is a potential bottleneck. InnoDB is faster for writes, slower than MyISAM for reads, but employs row-level locking and allows you to use foreign key constraints.
-
-- Use the most appropriate field types. If you need a column for simple yes/no values, don't use 
-
+- Use the most appropriate field types. If you need a column for simple yes/no values, don't use
 - Generate appropriate indexes on tables. Don't just index everything, but focus on the fields that you are going to be using in joins and searches. This can have a tremendous impact on your application when done correctly
-
-- Don't be too worried about multiple joins across tables to retrieve a dataset. With good indexes this won't be an issue, and embracing a good relational schema allows your data to be used in more flexible ways in the future as the nature of an application changes. It's also a 
-
-- Wherever possible, join on integers (this includes dates and 
-
+- Don't be too worried about multiple joins across tables to retrieve a dataset. With good indexes this won't be an issue, and embracing a good relational schema allows your data to be used in more flexible ways in the future as the nature of an application changes. It's also a
+- Wherever possible, join on integers (this includes dates and
 - Plan your schema in advance and think about how different parts of the data interact with each other. Your database is not a spreadsheet, and you shouldn't treat it like it is.
 
 ### <a name="encoding-issues-&amp;-database"> </a>Encoding Issues &amp; Database
 It is always best to ensure that the correct encoding is set for your database(es). MySQL has three levels of encoding: database, table, and field. Typically, setting it to  `utf8_general_ci`  when you create the database will ensure that it cascades down automatically when you create tables and fields. If you set it wrongly though, and attempt to retroactively correct it, you will need to do so at each level, as such changes only propagate downwards upon creation, not modification. You may also run into issues with the connection that PHP has with MySQL, which must also be made as UTF8. The exact implementation varies slightly for the different connection methods, PDO uses this for example:
 
 ```php
+<?php
 $pdo = new PDO("mysql:dbname=$dbname;host=$dbhost",$dbuser,$dbpass, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"));
 
 ```
@@ -313,20 +329,14 @@ If you run into issues with the "headers already sent" error, and you're sure th
 ### <a name="treat-all-incoming-data-as-tainted"> </a>Treat All Incoming Data as Tainted
 It's always important to remember that any data coming from the user has the potential to be malicious, so you should always treat all user data as if it were anyway. This includes the following:
 
-- All form data – take advantage of the 
-
+- All form data – take advantage of the
 - Select list values, checkbox &amp; radio button values, and hidden fields - just because you're setting these from code, does not mean that they will contain your predefined values when the form is submitted. Always check these values on the server.
-
-- URL query string parameters – as above, make sure these are filtered. So for example, tacking this onto a stock Joomla site URL would reveal an injection vulnerability with an unsanitised URL being output directly to the page: 
-
-- The URLs themselves can be altered in such a way as to inject code onto a page, which is particularly an issue with some frameworks and CMSs such as Joomla. Utilise functions such as 
-
-- Uploaded images – it's not always enough to check a files extension as this can be faked. A good method is using something like GD or Imagick (PHPs ImageMagick extension) to read in some data about the image. If it's not an image, try using the PECL FileInfo extension to get the mime type of the file which reads in the header bytes of a file to determine its type. Typically, resizing or resampling the image to the same dimensions that it should be will be sufficient. At a pinch, analysing the first few bytes of a file can help determine the validity of a file. See 
+- URL query string parameters – as above, make sure these are filtered. So for example, tacking this onto a stock Joomla site URL would reveal an injection vulnerability with an unsanitised URL being output directly to the page:
+- The URLs themselves can be altered in such a way as to inject code onto a page, which is particularly an issue with some frameworks and CMSs such as Joomla. Utilise functions such as
+- Uploaded images – it's not always enough to check a files extension as this can be faked. A good method is using something like GD or Imagick (PHPs ImageMagick extension) to read in some data about the image. If it's not an image, try using the PECL FileInfo extension to get the mime type of the file which reads in the header bytes of a file to determine its type. Typically, resizing or resampling the image to the same dimensions that it should be will be sufficient. At a pinch, analysing the first few bytes of a file can help determine the validity of a file. See
 
 - Cookie values can be tampered with, do not store anything important in them which you don't mind being altered, and do not rely on any value retrieved from a cookie.
-
 - Avoid incremental identifiers for sensitive information - rather than using an auto-incremented ID to retrieve information over the URL, consider using a GUID instead. Incremental IDs are an invitation for people to tamper, and could allow people to see information which is not intended for them. Sequential identifiers like this make it an easy task to guess more within an application, whereas a GUID is in effect random, and does not lead to more identifiers to be inferred easily.
-
 - Header values in a request can be altered, so do not rely on these to be untampered.
 
 #### <a name="sql-injection"> </a>SQL Injection
@@ -368,8 +378,7 @@ You should ensure that your code does not produce any errors or warnings. Warnin
 ---------------------------
 If possible, always avoid setting site-wide server settings from within PHP itself. Ideally, they should be set from the php.ini (if you have access and it's not a setting which would have a detrimental effect on other sites sharing the setting), the virtual host configuration file (if you have access), or an .htaccess file (if the web server is Apache). There are two main reasons for never setting these values from within PHP itself:
 
-- Problems become more difficult to diagnose as these values do not present themselves from a 
-
+- Problems become more difficult to diagnose as these values do not present themselves from a
 - Specific functions can be disabled from being set by PHP for security reasons at a server level
 
 Sometimes setting these may be unavoidable, but when this happens, make sure it's documented in any release notes and in the wiki to ensure any future work isn't hindered by this. It's also preferable to keep all configuration settings to a minimum set of files. Some frameworks split configuration into specific files for general config, database connections, mail, etc. In cases like this, document the files that may need to be edited for a server deployment in the wiki page for the project.
