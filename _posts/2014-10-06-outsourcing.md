@@ -3,6 +3,10 @@ comments: true
 layout: post
 title: "Should you outsource development?"
 author: guillaume
+contributor:
+  name: Guillaume Buat-Menard
+  twitter: TheG
+  short_desc: "Guillaume is TMW’s ex-CTO, he has been leading London agency geeks for the past 17 years."
 excerpt: You should ask the right questions about outsourcing
 ---
 I often get asked whether we should outsource if development is cheaper elsewhere.
