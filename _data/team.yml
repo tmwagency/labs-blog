@@ -122,7 +122,7 @@
 - name: Rento Mucenieks
   surname: Mucenieks
   short_name: rmucenieks
-  short_desc: Wordpress developer
+  short_desc: Full-stack developer. Currently exploring blockchain technologies.
   github: rentodesign
   team: php
 
@@ -151,18 +151,6 @@
   twitter:
   github:
   team: QA
-
-- name: Guillaume Buat-Menard
-  surname: Buat-Menard
-  job_title: TMW CTO
-  short_name: guillaume
-  short_desc: Guillaume is TMW’s CTO, he has been leading London agency geeks for the past 17 years.
-  avatar: GuillaumeBuat-Menard.jpg
-  email: GBuat-Menard@tmw.co.uk
-  web:
-  twitter: TheG
-  github:
-  team:
 
   # - name: This person
   # surname: person
