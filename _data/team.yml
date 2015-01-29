@@ -44,6 +44,7 @@
   twitter: munkychop
   github: munkychop
   team: frontend
+  web: http://ivanhayes.com
 
 - name: Simon Kinslow
   surname: Kinslow
@@ -66,6 +67,7 @@
   email: asheridan@tmw.co.uk
   web: http://ashleysheridan.co.uk
   twitter: ashleyjsheridan
+  github: ashleyjsheridan
   team: php
 
 - name: Andrew Williams
@@ -125,6 +127,7 @@
   short_desc: Full-stack developer. Currently exploring blockchain technologies.
   github: rentodesign
   team: php
+  avatar: rmucenieks.jpg
 
 - name: Edward Acheampong
   surname: Acheampong
@@ -151,6 +154,27 @@
   twitter:
   github:
   team: QA
+
+- name: Colin Humphrey
+  surname: Humphrey
+  job_title: PHP developer
+  short_name: chumphrey
+  email: chumphrey@tmw.co.uk
+  team: PHP
+
+- name: Dee Kennerly
+  surname: Kennerly
+  job_title: .NET developer
+  short_name: dkennerly
+  email: dkennerly@tmw.co.uk
+  team: .NET
+
+- name: Naveen Ameti
+  surname: Ameti
+  job_title: .NET developer
+  short_name: nametti
+  email: nametti@tmw.co.uk
+  team: .NET
 
   # - name: This person
   # surname: person
