@@ -420,7 +420,7 @@ Firstly, we are checking if the status code in the data object returned by the A
 
 
 ## Adding Search Functionality
-At this point, we have successfully displayed weather information for a user’s coordinates, and we can further improve our application adding a search feature, so that we can get temperature information for practically any location in the world, based on user-entered text.
+At this point, we have successfully displayed weather information for a user’s coordinates, and we can further improve our application by adding a search feature, so that we can get temperature information for practically any location in the world, based on user-entered text.
 
 The input text field already exists in the HTML code, but is currently not functional. In this section we’ll go through the logic for using a search term. To reiterate, we want to do the following:
 
