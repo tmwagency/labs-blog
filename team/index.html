@@ -17,6 +17,9 @@ pageid: team
 
 			<div class="gridItem-back">
 				<div class="gridItem-desc">{{ member.short_desc }}</div>
+				{% if member.web != null %}
+				<a href="{{ member.web }}" class="gridItem-desc">{{ member.web }}</a href="">
+				{% endif %}
 				<div class="gridItem-links">
 					{% if member.twitter != null %}
 					<a href="http://twitter.com/{{ member.twitter }}" class="icon-small icon-twitter">{{ member.twitter }}</a>
