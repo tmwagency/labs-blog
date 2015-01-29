@@ -22,11 +22,11 @@ $port = 'COM4';
 while(true)
 {
 	$fh = fopen($port, 'w');
-	
+
 	fwrite($fh, 'a');
-	
+
 	fclose($fh);
-	
+
 	sleep(1);
 }
 ```
@@ -37,7 +37,7 @@ Some people have mentioned issues when attempting to open sockets up with <code>
 
 The slightly more complicated part comes with the Arduino code, which is C++ with some additional built-in methods:
 
-```arduino
+```c++
 #include <string.h>
 
 int pin = 13;
@@ -55,7 +55,7 @@ void loop()
 	if (Serial.available() > 0)
 	{
 		char c = Serial.read();
-		
+
 		// ignore the newline - not necessary if you set no line ending in the serial monitor or you communicate directly via sockets
 		//if(c != 13)
 		{
@@ -71,7 +71,7 @@ void loop()
 			}
 			else
 				digitalWrite(pin, LOW);
-				
+
 			if(buffer.length() > buffer_length)  // don't let the buffer grow too large and cause an out of memory error!
 				buffer = "";
 		}
