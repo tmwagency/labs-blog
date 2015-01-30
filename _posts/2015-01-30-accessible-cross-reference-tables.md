@@ -12,7 +12,7 @@ Thankfully, there have been many accessibility advances in traditional HTML tabl
 
 Consider a typical cross-reference table where you're listing your preference for several TV shows:
 
-<table>
+<table class="table table--bordered">
 <tr>
 	<td></td><th>Great</th><th>It's ok</th><th>Awful</th>
 </tr>
@@ -69,7 +69,7 @@ The next step in the process is to resolve that ambiguous 'x' used in the cells.
 
 However, now that's made our table look strange, and not aesthetically appealing:
 
-<table>
+<table class="table table--bordered">
 <tr>
 	<td></td><th>Great</th><th>It's ok</th><th>Awful</th>
 </tr>
@@ -102,7 +102,7 @@ table.cross_ref td[headers]
 
 Making our final table look like this:
 
-<table class="cross_ref">
+<table class="cross_ref table table--bordered">
 <tr>
 	<td></td><th>Great</th><th>It's ok</th><th>Awful</th>
 </tr>
@@ -134,7 +134,7 @@ Making our final table look like this:
 <style>
 table.cross_ref td[headers]
 {
-	text-margin: -999em;
+	text-indent: -999em;
 	background-image: url(/img/blog/accessible-cross-reference-tables/tick.png);
 	background-repeat: no-repeat;
 	background-size: auto 100%;
