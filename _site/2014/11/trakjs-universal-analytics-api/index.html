@@ -91,43 +91,50 @@
 
 <h2>Using trak.js</h2>
 
-<p>There are two main ways to use trak.js, as data-* attributes in your markup or in your javascript code.</p>
+<p>There are two main ways to use trak.js, as <code>data-trak</code> attributes in your markup or in your javascript code.</p>
 
-<h3>data-* attr implementation:</h3>
+<h3>data-trak attr implementation:</h3>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#pagehref&quot;</span> <span class="na">data-trak=</span><span class="s">&#39;{&quot;category&quot;:&quot;Test category&quot;,&quot;action&quot;:&quot;Test action&quot;,&quot;label&quot;:&quot;Test label&quot;}&#39;</span> <span class="na">title=</span><span class="s">&quot;1 title&quot;</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+<h4>Custom trigger type (new as of v0.4.0)</h4>
+
+<p><code>data-trak</code> attrs can also define a custom trigger type instead of <code>click</code>. Now <code>mouseover</code>, <code>touchstart</code>, <code>focus</code>, <code>blur</code> or any other valid event can be used to trigger a trak event. Just add <code>&quot;trigger&quot;: &quot;eventName&quot;</code> to the options object. See below for an example of this using the <code>focus</code> event:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Triggered on focus --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">data-trak=</span><span class="s">&#39;{&quot;trigger&quot;:&quot;focus&quot;,&quot;category&quot;:&quot;Test category&quot;,&quot;action&quot;:&quot;Test action&quot;,&quot;label&quot;:&quot;Test label&quot;}&#39;</span> <span class="na">href=</span><span class="s">&quot;#pagehref&quot;</span><span class="nt">&gt;</span>Custom trigger type<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
 <h3>Javascript implementation</h3>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">trak</span><span class="p">.</span><span class="nx">event</span><span class="p">({</span>
-  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;engagement&#39;</span><span class="p">,</span>
-  <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;signpost&#39;</span><span class="p">,</span>
-  <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;page.href&#39;</span>
+    <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;engagement&#39;</span><span class="p">,</span>
+    <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;signpost&#39;</span><span class="p">,</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;page.href&#39;</span>
 <span class="p">});</span>
 
 <span class="nx">trak</span><span class="p">.</span><span class="nx">event</span><span class="p">({</span>
-  <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;engagement&#39;</span><span class="p">,</span>
-  <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;signpost&#39;</span><span class="p">,</span>
-  <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;page.href&#39;</span><span class="p">,</span>
-  <span class="nx">value</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="nx">nonInteraction</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">eventName</span><span class="o">:</span> <span class="s1">&#39;This is a Google Tag Manager event name&#39;</span>
+    <span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;engagement&#39;</span><span class="p">,</span>
+    <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;signpost&#39;</span><span class="p">,</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;page.href&#39;</span><span class="p">,</span>
+    <span class="nx">value</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nx">nonInteraction</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">eventName</span><span class="o">:</span> <span class="s1">&#39;This is a Google Tag Manager event name&#39;</span>
 <span class="p">});</span>
 </code></pre></div>
 <h2>API Reference</h2>
 
 <h4>Arguments object: (these are all optional)</h4>
 
-<p><strong>category</strong>: A string value of the category value to set<br> 
-<strong>action</strong>: A string value of the action value to set<br> 
+<p><strong>category</strong>: A string value of the category value to set<br>
+<strong>action</strong>: A string value of the action value to set<br>
 <strong>label</strong>: A string value of the label value to set<br>
 <strong>value</strong>: An integer<br>
-<strong>nonInteraction</strong>: An integer<br> 
+<strong>trigger</strong>: A string value of a valid event name: <code>click</code>, <code>focus</code>, <code>mouseover</code> etc<br>
+<strong>nonInteraction</strong>: An integer<br>
 <strong>eventName</strong>: A string value used only with Google Tag Manager. Define your GTM event name here</p>
 
 <p>If any property is left <code>undefined</code>, the browser&#39;s default value will be used instead.</p>
 
-<h2>Wildcards:</h2>
+<h2>Wildcards</h2>
 
-<p><strong>trak.js</strong> introduces the concept of wildcards when working with your events, this makes it extremely easy to use more complex values in your events. There are a number of wildcards available for both the data-* attr and js implentation. These can be used to specify certain options like the page title, the url, the current anchor&#39;s href value and a few others.</p>
+<p><strong>trak.js</strong> introduces the concept of wildcards when working with your events, this makes it extremely easy to use more complex values in your events. There are a number of wildcards available for both the <code>data-trak</code> attr and js implentation. These can be used to specify certain options like the page title, the url, the current anchor&#39;s href value and a few others.</p>
 
 <ul>
 <li><strong><code>page.href</code></strong> wildcard uses <code>window.location.href</code> as the value.</li>
@@ -138,12 +145,16 @@
 </ul>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- page.href wildcard --&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-trak=</span><span class="s">&#39;{&quot;category&quot;:&quot;Rating&quot;,&quot;action&quot;:&quot;page.href&quot;,&quot;label&quot;:&quot;Up&quot;}&#39;</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+
 <span class="c">&lt;!-- page.title wildcard --&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-trak=</span><span class="s">&#39;{&quot;category&quot;:&quot;Rating&quot;,&quot;action&quot;:&quot;page.title&quot;,&quot;label&quot;:&quot;Up&quot;}&#39;</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+
 <span class="c">&lt;!-- link.href wildcard --&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-trak=</span><span class="s">&#39;{&quot;category&quot;:&quot;Rating&quot;,&quot;action&quot;:&quot;link.href&quot;,&quot;label&quot;:&quot;Up&quot;}&#39;</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+
 <span class="c">&lt;!-- link.title wildcard --&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-trak=</span><span class="s">&#39;{&quot;category&quot;:&quot;Rating&quot;,&quot;action&quot;:&quot;link.title&quot;,&quot;label&quot;:&quot;Up&quot;}&#39;</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+
 <span class="c">&lt;!-- referrer wildcard --&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-trak=</span><span class="s">&#39;{&quot;category&quot;:&quot;Rating&quot;,&quot;action&quot;:&quot;document.referrer&quot;,&quot;label&quot;:&quot;Up&quot;}&#39;</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
@@ -241,6 +252,8 @@
 	
 
 	<!-- 
+	  <a href="/2015/01/accessible-cross-reference-tables">Accessible Cross Reference Tables</a><br />
+	
 	  <a href="/2015/01/communicating-between-php-and-an-arduino-with-sockets">Communicating Between PHP and an Arduino with Sockets</a><br />
 	
 	  <a href="/2015/01/creating-a-web-app-with-grunt-part-2">Creating a Web-app with Grunt - Part 2</a><br />
@@ -258,8 +271,6 @@
 	  <a href="/2014/03/yeoman-generator-development-tips">Yeoman Generator Development Tips</a><br />
 	
 	  <a href="/2014/03/the-future-of-umbraco">The Future of Umbraco</a><br />
-	
-	  <a href="/2014/02/kickoff-statix-for-slicker-template-workflow">Kickoff Statix: A slicker template workflow</a><br />
 	 -->
 </article>
 

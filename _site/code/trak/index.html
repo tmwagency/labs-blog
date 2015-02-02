@@ -124,7 +124,7 @@
 
 <p><code>npm install trak.js --save</code></p>
 
-<h2>Usage:</h2>
+<h2>Usage</h2>
 
 <p>Include <strong>trak.js</strong> in your JavaScript bundle or add it to your HTML page like this:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&#39;application/javascript&#39;</span> <span class="na">src=</span><span class="s">&#39;/path/to/trak.js&#39;</span><span class="nt">&gt;&lt;/script&gt;</span>
@@ -142,7 +142,7 @@
 </code></pre></div>
 <h1>API Reference</h1>
 
-<p>There are two main ways to use <strong>trak.js</strong>, in your js code or as data-* attributes in your markup.</p>
+<p>There are two main ways to use <strong>trak.js</strong>, in your js code or as <code>data-trak</code> attributes in your markup.</p>
 
 <h2>JS implementation:</h2>
 
@@ -156,8 +156,9 @@
 <em>action</em>: A string value of the action value to set<br>
 <em>label</em>: A string value of the label value to set<br>
 <em>value</em>: An integer<br>
-<em>nonInteraction</em>: An integer<br>
-<em>eventName</em>: A string value used only with Google Tag Manager. Define your GTM event name here<br></p>
+<strong>trigger</strong>: A string value of a valid event name: <code>click</code>, <code>focus</code>, <code>mouseover</code> etc<br>
+<strong>nonInteraction</strong>: An integer<br>
+<strong>eventName</strong>: A string value used only with Google Tag Manager. Define your GTM event name here</p>
 
 <p>If any property is left <code>undefined</code>, the browser&#39;s default value will be used instead.</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">trak</span><span class="p">.</span><span class="nx">event</span><span class="p">({</span><span class="nx">category</span><span class="o">:</span> <span class="s1">&#39;category value&#39;</span><span class="p">,</span> <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;action value&#39;</span><span class="p">});</span>
@@ -179,12 +180,12 @@
   <span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3>Data-* attr implementation</h3>
+<h3>data-trak attr implementation</h3>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">data-trak=</span><span class="s">&#39;{&quot;category&quot;:&quot;Rating&quot;,&quot;action&quot;:&quot;Comparison notepad&quot;,&quot;label&quot;:&quot;Up&quot;}&#39;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
 <h3>Custom trigger type (new as of v0.4.0)</h3>
 
-<p>Data-* attrs can also define a custom trigger type instead of <code>click</code>. Now <code>mouseover</code>, <code>touchstart</code>, <code>focus</code>, <code>blur</code> or any other valid event can be used to trigger a trak event.</p>
+<p><code>data-trak</code> attrs can also define a custom trigger type instead of <code>click</code>. Now <code>mouseover</code>, <code>touchstart</code>, <code>focus</code>, <code>blur</code> or any other valid event can be used to trigger a trak event.</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Triggered on focus --&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">data-trak=</span><span class="s">&#39;{&quot;trigger&quot;:&quot;focus&quot;,&quot;category&quot;:&quot;Test category&quot;,&quot;action&quot;:&quot;Test action&quot;,&quot;label&quot;:&quot;Test label&quot;}&#39;</span> <span class="na">href=</span><span class="s">&quot;#pagehref&quot;</span><span class="nt">&gt;</span>Custom trigger type<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
@@ -207,7 +208,7 @@
 <h5>referrer: Uses <code>document.referrer</code></h5>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">data-trak=</span><span class="s">&#39;{&quot;category&quot;:&quot;Rating&quot;,&quot;action&quot;:&quot;document.referrer&quot;,&quot;label&quot;:&quot;Up&quot;}&#39;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
-<h4>Using data-* attr options with but fire event with js</h4>
+<h4>Using <code>data-trak</code> attr options with but fire event with js</h4>
 
 <p>You can also use data-* attr options but fire events in js. To do this, add the relevant <code>data-trak</code> data and also a <code>data-trakwithjs</code> boolean attribute. This means that the event will only fire when you run it in your js. To run in your js, use the <code>trak.attrEvent</code> method like we have below:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">data-trakwithjs</span> <span class="na">data-trak=</span><span class="s">&#39;{&quot;category&quot;:&quot;Tracked with JS not attr call&quot;,&quot;action&quot;:&quot;link.href&quot;,&quot;label&quot;:&quot;this is a label&quot;}&#39;</span> <span class="na">href=</span><span class="s">&quot;#pagehref&quot;</span><span class="nt">&gt;</span>trakwithjs<span class="nt">&lt;/a&gt;</span>
