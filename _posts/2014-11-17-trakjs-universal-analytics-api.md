@@ -10,45 +10,56 @@ Whether you use Google Analytics or another provider, adding tracking events to 
 Put simply, **trak.js** is a wrapper for any analytics API. By default it uses Google Universal Analytics but you can override this with the older ga.js or Google Tag Manager if you wish, or you can even add custom event trackers as well, instead of Google Analytics.
 
 ## Using trak.js
-There are two main ways to use trak.js, as data-* attributes in your markup or in your javascript code.
+There are two main ways to use trak.js, as `data-trak` attributes in your markup or in your javascript code.
 
-### data-* attr implementation:
+### data-trak attr implementation:
+
 ```html
 <a href="#pagehref" data-trak='{"category":"Test category","action":"Test action","label":"Test label"}' title="1 title">link</a>
 ```
 
+#### Custom trigger type (new as of v0.4.0)
+`data-trak` attrs can also define a custom trigger type instead of `click`. Now `mouseover`, `touchstart`, `focus`, `blur` or any other valid event can be used to trigger a trak event. Just add `"trigger": "eventName"` to the options object. See below for an example of this using the `focus` event:
+
+```html
+<!-- Triggered on focus -->
+<a data-trak='{"trigger":"focus","category":"Test category","action":"Test action","label":"Test label"}' href="#pagehref">Custom trigger type</a>
+```
+
 ### Javascript implementation
+
 ```js
 trak.event({
-  category: 'engagement',
-  action: 'signpost',
-  label: 'page.href'
+	category: 'engagement',
+	action: 'signpost',
+	label: 'page.href'
 });
 
 trak.event({
-  category: 'engagement',
-  action: 'signpost',
-  label: 'page.href',
-  value: 10,
-  nonInteraction: true,
-  eventName: 'This is a Google Tag Manager event name'
+	category: 'engagement',
+	action: 'signpost',
+	label: 'page.href',
+	value: 10,
+	nonInteraction: true,
+	eventName: 'This is a Google Tag Manager event name'
 });
 ```
 
 ## API Reference
 
 #### Arguments object: (these are all optional)
-**category**: A string value of the category value to set<br> 
-**action**: A string value of the action value to set<br> 
+**category**: A string value of the category value to set<br>
+**action**: A string value of the action value to set<br>
 **label**: A string value of the label value to set<br>
 **value**: An integer<br>
-**nonInteraction**: An integer<br> 
+**trigger**: A string value of a valid event name: `click`, `focus`, `mouseover` etc<br>
+**nonInteraction**: An integer<br>
 **eventName**: A string value used only with Google Tag Manager. Define your GTM event name here
 
 If any property is left `undefined`, the browser's default value will be used instead.
 
-## Wildcards:
-**trak.js** introduces the concept of wildcards when working with your events, this makes it extremely easy to use more complex values in your events. There are a number of wildcards available for both the data-* attr and js implentation. These can be used to specify certain options like the page title, the url, the current anchor's href value and a few others.
+## Wildcards
+**trak.js** introduces the concept of wildcards when working with your events, this makes it extremely easy to use more complex values in your events. There are a number of wildcards available for both the `data-trak` attr and js implentation. These can be used to specify certain options like the page title, the url, the current anchor's href value and a few others.
 
 * **`page.href`** wildcard uses `window.location.href` as the value.
 * **`page.title`** wildcard uses `document.title` as the value.
@@ -59,15 +70,20 @@ If any property is left `undefined`, the browser's default value will be used in
 ```html
 <!-- page.href wildcard -->
 <a href="#" data-trak='{"category":"Rating","action":"page.href","label":"Up"}'>link</a>
+
 <!-- page.title wildcard -->
 <a href="#" data-trak='{"category":"Rating","action":"page.title","label":"Up"}'>link</a>
+
 <!-- link.href wildcard -->
 <a href="#" data-trak='{"category":"Rating","action":"link.href","label":"Up"}'>link</a>
+
 <!-- link.title wildcard -->
 <a href="#" data-trak='{"category":"Rating","action":"link.title","label":"Up"}'>link</a>
+
 <!-- referrer wildcard -->
 <a href="#" data-trak='{"category":"Rating","action":"document.referrer","label":"Up"}'>link</a>
 ```
+
 
 ## Getting the Library
 ### Direct downloads
