@@ -103,7 +103,7 @@
 
 		<h2>Coding Standards and Best Programming Practices for PHP</h2>
 
-<h3>Contents</h3>
+<h2>Contents</h2>
 
 <ol>
 <li><a href="#naming-conventions-and-standards">Naming Conventions and Standards</a>
@@ -135,11 +135,13 @@
 
 <ol>
 <li><a href="#treat-all-incoming-data-as-tainted">Treat All Incoming Data as Tainted</a></li>
+<li><a href="#sql-injection">SQL Injection</a></li>
 <li><a href="#handling-file-uploads">Handling File Uploads</a></li>
-<li><a href="#databases">Databases</a>
+<li><a href="#databases">Databases</a></li>
+<li><a href="#email-spam-relay-prevention">Email Spam Relay Prevention</a>
 
 <ol>
-<li><a href="#sql-injection">SQL Injection</a></li>
+<li><a href="#do-not-reinvent-the-wheel">Do Not Reinvent the Wheel</a></li>
 </ol></li>
 </ol></li>
 <li><a href="#local-development-environment">Local Development Environment</a></li>
@@ -249,7 +251,7 @@
 
 <p>Avoid over engineering a solution to a problem. A simple holding page does not necessarily need a large framework and database behind it. Be aware that a sledgehammer is not always the ideal tool to crack a nut.</p>
 
-<p>Also, omit the closing  <code>?&gt;</code> tag on scripts if there is no output to follow within the same file, the PHP parser will automatically close it if it&#39;s left out. This negates the chance of running into a “headers already sent” error, which can be cause by trailing whitespace (a space, newline, etc) after the closing PHP tag.</p>
+<p>Also, omit the closing  <code>?&gt;</code>  tag on scripts if there is no output to follow within the same file, the PHP parser will automatically close it if it&#39;s left out. This negates the chance of running into a “headers already sent” error, which can be cause by trailing whitespace (a space, newline, etc) after the closing PHP tag.</p>
 
 <h3><a name="be-mindful-of-the-language"> </a>Be Mindful of the Language</h3>
 
@@ -291,13 +293,13 @@
 <p>If possible, all class methods and functions you write should be documented with PHPDoc syntax. This gives a consistent commenting style that can be used to generate documentation if needed. Try to be verbose in the comments if something is not immediately obvious, and explain all inputs and outputs. So, this would be an example of good commenting:</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 <span class="sd">/**</span>
-<span class="sd">* returns an array containg the data count for the &#39;other&#39; portion and the</span>
+<span class="sd">* returns an array containg the data count for the &#39;other&#39; portion and the </span>
 <span class="sd">* index of the key at which the other count was started</span>
 <span class="sd">* the cutoff is hard-coded at 2%, i.e. if the value is less than 2% of the</span>
 <span class="sd">* total, it gets shoved into the $other total</span>
 <span class="sd">* @param array $data the original data</span>
 <span class="sd">* @param array $labels the datasets keys</span>
-<span class="sd">* @return bool</span>
+<span class="sd">* @return bool </span>
 <span class="sd">*/</span>
 <span class="k">function</span> <span class="nf">_aportion_other</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nv">$labels</span><span class="p">)</span>
 <span class="p">{}</span>
@@ -321,17 +323,17 @@
 <p>Our preferred MVC frameworks are:</p>
 
 <ul>
-<li>Laravel</li>
-<li>Zend</li>
-<li>CodeIgniter (this should be used only on older PHP hosting that cannot support newer frameworks and PHP functionality)</li>
+<li><p>Laravel</p></li>
+<li><p>Zend</p></li>
+<li><p>CodeIgniter (this should be used only on older PHP hosting that cannot support newer frameworks and PHP functionality)</p></li>
 </ul>
 
 <p>Some of the CMS platforms we use are:</p>
 
 <ul>
-<li>WordPress</li>
-<li>Expression Engine (</li>
-<li>EZPublish</li>
+<li><p>WordPress</p></li>
+<li><p>Expression Engine (</p></li>
+<li><p>EZPublish</p></li>
 </ul>
 
 <h3><a name="character-encoding"> </a>Character Encoding</h3>
@@ -365,13 +367,13 @@
 <p>While not strictly PHP, it&#39;s important that you can develop a well structured and flexible schema. This includes the following:</p>
 
 <ul>
-<li>Using the right database encodings. Generally using utf8 for your character set, and</li>
-<li>Selecting the right table engine. Typically, most MySQL tools default to MyISAM or InnoDB, but it&#39;s useful to know the differences between the two. MyISAM is faster for reads, slower for writes, and employs table-level locking on writes, which is a potential bottleneck. InnoDB is faster for writes, slower than MyISAM for reads, but employs row-level locking and allows you to use foreign key constraints.</li>
-<li>Use the most appropriate field types. If you need a column for simple yes/no values, don&#39;t use</li>
-<li>Generate appropriate indexes on tables. Don&#39;t just index everything, but focus on the fields that you are going to be using in joins and searches. This can have a tremendous impact on your application when done correctly</li>
-<li>Don&#39;t be too worried about multiple joins across tables to retrieve a dataset. With good indexes this won&#39;t be an issue, and embracing a good relational schema allows your data to be used in more flexible ways in the future as the nature of an application changes. It&#39;s also a</li>
-<li>Wherever possible, join on integers (this includes dates and</li>
-<li>Plan your schema in advance and think about how different parts of the data interact with each other. Your database is not a spreadsheet, and you shouldn&#39;t treat it like it is.</li>
+<li><p>Using the right database encodings. Generally using utf8 for your character set, and </p></li>
+<li><p>Selecting the right table engine. Typically, most MySQL tools default to MyISAM or InnoDB, but it&#39;s useful to know the differences between the two. MyISAM is faster for reads, slower for writes, and employs table-level locking on writes, which is a potential bottleneck. InnoDB is faster for writes, slower than MyISAM for reads, but employs row-level locking and allows you to use foreign key constraints.</p></li>
+<li><p>Use the most appropriate field types. If you need a column for simple yes/no values, don&#39;t use </p></li>
+<li><p>Generate appropriate indexes on tables. Don&#39;t just index everything, but focus on the fields that you are going to be using in joins and searches. This can have a tremendous impact on your application when done correctly</p></li>
+<li><p>Don&#39;t be too worried about multiple joins across tables to retrieve a dataset. With good indexes this won&#39;t be an issue, and embracing a good relational schema allows your data to be used in more flexible ways in the future as the nature of an application changes. It&#39;s also a </p></li>
+<li><p>Wherever possible, join on integers (this includes dates and </p></li>
+<li><p>Plan your schema in advance and think about how different parts of the data interact with each other. Your database is not a spreadsheet, and you shouldn&#39;t treat it like it is.</p></li>
 </ul>
 
 <h3><a name="encoding-issues-&amp;-database"> </a>Encoding Issues &amp; Database</h3>
@@ -393,21 +395,112 @@
 <p>It&#39;s always important to remember that any data coming from the user has the potential to be malicious, so you should always treat all user data as if it were anyway. This includes the following:</p>
 
 <ul>
-<li>All form data – take advantage of the</li>
-<li>Select list values, checkbox &amp; radio button values, and hidden fields - just because you&#39;re setting these from code, does not mean that they will contain your predefined values when the form is submitted. Always check these values on the server.</li>
-<li>URL query string parameters – as above, make sure these are filtered. So for example, tacking this onto a stock Joomla site URL would reveal an injection vulnerability with an unsanitised URL being output directly to the page:</li>
-<li>The URLs themselves can be altered in such a way as to inject code onto a page, which is particularly an issue with some frameworks and CMSs such as Joomla. Utilise functions such as</li>
-<li><p>Uploaded images – it&#39;s not always enough to check a files extension as this can be faked. A good method is using something like GD or Imagick (PHPs ImageMagick extension) to read in some data about the image. If it&#39;s not an image, try using the PECL FileInfo extension to get the mime type of the file which reads in the header bytes of a file to determine its type. Typically, resizing or resampling the image to the same dimensions that it should be will be sufficient. At a pinch, analysing the first few bytes of a file can help determine the validity of a file. See</p></li>
+<li><p>All form data – take advantage of the </p></li>
+<li><p>Select list values, checkbox &amp; radio button values, and hidden fields - just because you&#39;re setting these from code, does not mean that they will contain your predefined values when the form is submitted. Always check these values on the server.</p></li>
+<li><p>URL query string parameters – as above, make sure these are filtered. So for example, tacking this onto a stock Joomla site URL would reveal an injection vulnerability with an unsanitised URL being output directly to the page: </p></li>
+<li><p>The URLs themselves can be altered in such a way as to inject code onto a page, which is particularly an issue with some frameworks and CMSs such as Joomla. Utilise functions such as </p></li>
+<li><p>Uploaded images – it&#39;s not always enough to check a files extension as this can be faked. A good method is using something like GD or Imagick (PHPs ImageMagick extension) to read in some data about the image. If it&#39;s not an image, try using the PECL FileInfo extension to get the mime type of the file which reads in the header bytes of a file to determine its type. Typically, resizing or resampling the image to the same dimensions that it should be will be sufficient. At a pinch, analysing the first few bytes of a file can help determine the validity of a file. See </p></li>
 <li><p>Cookie values can be tampered with, do not store anything important in them which you don&#39;t mind being altered, and do not rely on any value retrieved from a cookie.</p></li>
 <li><p>Avoid incremental identifiers for sensitive information - rather than using an auto-incremented ID to retrieve information over the URL, consider using a GUID instead. Incremental IDs are an invitation for people to tamper, and could allow people to see information which is not intended for them. Sequential identifiers like this make it an easy task to guess more within an application, whereas a GUID is in effect random, and does not lead to more identifiers to be inferred easily.</p></li>
 <li><p>Header values in a request can be altered, so do not rely on these to be untampered.</p></li>
 </ul>
 
-<h4><a name="sql-injection"> </a>SQL Injection</h4>
+<h4><a name="do-not-reinvent-the-wheel"> </a>Do Not Reinvent the Wheel</h4>
 
-<p>You should always use a method of connecting to a database that offers some form of protection against SQL injection, whether it be through parameterised queries, or prepared statements. You should never use the deprecated  <code>mysql_*</code>  functions, as these are old and not secure.</p>
+<p>As tempting as it might be to write the best regular expression of your life to validate an email address, don&#39;t do it. It will never match the ISO specification, and it will be cumbersome to ever debug. Here&#39;s an example of a regular expression that is the closest case to matching the ISO specification for email address format <a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html</a> :
+ `</p>
 
-<p>Note that while it&#39;s good to validate and filter incoming data, be mindful of the use to which that data is being put, so don&#39;t apply  <code>htmlentities()</code>  to data that&#39;s only being put into a database, apply that only once you&#39;re actually outputting it, as this may cause issues with how you wish to use that data later on (see <a href="https://www.google.co.uk/search?q=htmlentities+before+db">https://www.google.co.uk/search?q=htmlentities+before+db</a> for more details on why this should be avoided).</p>
+<p>(?:(?:\r\n)?[ \t])<em>(?:(?:(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t]
+)+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> \t]))</em>&quot;(?:(?:
+\r\n)?[ \t])<em>)(?:.(?:(?:\r\n)?[ \t])</em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(
+?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> 
+\t]))<em>&quot;(?:(?:\r\n)?[ \t])</em>))<em>@(?:(?:\r\n)?[ \t])</em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\0
+31]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[(<a href="?:(?:rn)?%5B%20t%5D"><sup>[]\r\]|\.)*\</sup>
+</a><em>)(?:.(?:(?:\r\n)?[ \t])</em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+
+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)*](?:</sup>
+(?:\r\n)?[ \t])<em>))</em>|(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z
+|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> \t]))<em>&quot;(?:(?:\r\n)
+?[ \t])</em>)<em>&lt;(?:(?:\r\n)?[ \t])</em>(?:@(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\
+r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup>
+\t])<em>)(?:.(?:(?:\r\n)?[ \t])</em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)
+?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup> \t]
+)<em>))</em>(?:,@(?:(?:\r\n)?[ \t])<em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[
+\t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)</sup></em>](?:(?:\r\n)?[ \t])*
+)(?:.(?:(?:\r\n)?[ \t])<em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t]
+)+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)</sup></em>](?:(?:\r\n)?[ \t])<em>))</em>)
+<em>:(?:(?:\r\n)?[ \t])</em>)?(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+
+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> \t]))<em>&quot;(?:(?:\r
+\n)?[ \t])</em>)(?:.(?:(?:\r\n)?[ \t])<em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:
+\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> \t
+]))</em>&quot;(?:(?:\r\n)?[ \t])<em>))</em>@(?:(?:\r\n)?[ \t])<em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031
+]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)</sup></em>](
+?:(?:\r\n)?[ \t])<em>)(?:.(?:(?:\r\n)?[ \t])</em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?
+:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)*](?:(?</sup>
+:\r\n)?[ \t])<em>))</em>&gt;(?:(?:\r\n)?[ \t])<em>)|(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?
+:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?</sup>
+[ \t]))</em>&quot;(?:(?:\r\n)?[ \t])<em>)</em>:(?:(?:\r\n)?[ \t])<em>(?:(?:(?:[&lt;&gt;@,;:\&quot;.[] 
+\000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|</sup>
+\.|(?:(?:\r\n)?[ \t]))</em>&quot;(?:(?:\r\n)?[ \t])<em>)(?:.(?:(?:\r\n)?[ \t])</em>(?:[&lt;&gt;
+@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;
+(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> \t]))<em>&quot;(?:(?:\r\n)?[ \t])</em>))<em>@(?:(?:\r\n)?[ \t]
+)</em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\
+&quot;.[]]))|[([<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup> \t])<em>)(?:.(?:(?:\r\n)?[ \t])</em>(?
+:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[
+]]))|[([<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup> \t])<em>))</em>|(?:[&lt;&gt;@,;:\&quot;.[] \000-
+\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(</sup>
+?:(?:\r\n)?[ \t]))<em>&quot;(?:(?:\r\n)?[ \t])</em>)<em>&lt;(?:(?:\r\n)?[ \t])</em>(?:@(?:[&lt;&gt;@,;
+:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([
+<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup> \t])<em>)(?:.(?:(?:\r\n)?[ \t])</em>(?:[&lt;&gt;@,;:\&quot;
+.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[\</sup>
+]\r\]|\.)<em>](?:(?:\r\n)?[ \t])</em>))<em>(?:,@(?:(?:\r\n)?[ \t])</em>(?:[&lt;&gt;@,;:\&quot;.\
+[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\</sup>
+r\]|\.)<em>](?:(?:\r\n)?[ \t])</em>)(?:.(?:(?:\r\n)?[ \t])<em>(?:[&lt;&gt;@,;:\&quot;.[] 
+\000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]</sup>
+|\.)</em>](?:(?:\r\n)?[ \t])<em>))</em>)<em>:(?:(?:\r\n)?[ \t])</em>)?(?:[&lt;&gt;@,;:\&quot;.[] \0
+00-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|\</sup>
+.|(?:(?:\r\n)?[ \t]))<em>&quot;(?:(?:\r\n)?[ \t])</em>)(?:.(?:(?:\r\n)?[ \t])<em>(?:[&lt;&gt;@,
+;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?
+:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> \t]))</em>&quot;(?:(?:\r\n)?[ \t])<em>))</em>@(?:(?:\r\n)?[ \t])*
+(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.
+[]]))|[([<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup> \t])<em>)(?:.(?:(?:\r\n)?[ \t])</em>(?:[
+&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]
+]))|[([<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup> \t])<em>))</em>&gt;(?:(?:\r\n)?[ \t])<em>)(?:,\s</em>(
+?:(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\
+&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> \t]))<em>&quot;(?:(?:\r\n)?[ \t])</em>)(?:.(?:(
+?:\r\n)?[ \t])<em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[
+[&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> \t]))</em>&quot;(?:(?:\r\n)?[ \t
+])<em>))</em>@(?:(?:\r\n)?[ \t])<em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t
+])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)</sup></em>](?:(?:\r\n)?[ \t])<em>)(?
+:.(?:(?:\r\n)?[ \t])</em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|
+\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup> \t])<em>))</em>|(?:
+[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[\
+]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> \t]))<em>&quot;(?:(?:\r\n)?[ \t])</em>)<em>&lt;(?:(?:\r\n)
+?[ \t])</em>(?:@(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;
+()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup> \t])<em>)(?:.(?:(?:\r\n)
+?[ \t])</em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;
+@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup> \t])<em>))</em>(?:,@(?:(?:\r\n)?[
+\t])<em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,
+;:\&quot;.[]]))|[([<sup>[]\r\]|\.)</sup></em>](?:(?:\r\n)?[ \t])<em>)(?:.(?:(?:\r\n)?[ \t]
+)</em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\
+&quot;.[]]))|[([<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup> \t])<em>))</em>)<em>:(?:(?:\r\n)?[ \t])</em>)?
+(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.
+[]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> \t]))<em>&quot;(?:(?:\r\n)?[ \t])</em>)(?:.(?:(?:
+\r\n)?[ \t])<em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z|(?=[[
+&quot;()&lt;&gt;@,;:\&quot;.[]]))|&quot;(?:[<sup>\&quot;\r\]|\.|(?:(?:\r\n)?[</sup> \t]))</em>&quot;(?:(?:\r\n)?[ \t])
+<em>))</em>@(?:(?:\r\n)?[ \t])<em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])
++|\Z|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)</sup></em>](?:(?:\r\n)?[ \t])<em>)(?:\
+.(?:(?:\r\n)?[ \t])</em>(?:[&lt;&gt;@,;:\&quot;.[] \000-\031]+(?:(?:(?:\r\n)?[ \t])+|\Z
+|(?=[[&quot;()&lt;&gt;@,;:\&quot;.[]]))|[([<sup>[]\r\]|\.)*](?:(?:\r\n)?[</sup> \t])<em>))</em>&gt;(?:(
+?:\r\n)?[ \t])<em>))</em>)?;\s*)</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    ` 
+</code></pre></div>
+<p>This is not something you want in your code, ever. Use the filter_var() function, which has email validation support built in. </p>
+
+<h3><a name="sql-injection"> </a>SQL Injection</h3>
+
+<p>You should always use a method of connecting to a database that offers some form of protection against SQL injection, whether it be through parameterised queries, or prepared statements. You should never use the deprecated  <code>mysql_*</code>  functions, as these are old and not secure. Note that use of stored procedures does not protect against SQL injection. A recent webex by Jerry Hoff from White Hat Security explicitely mentioned that parameterised queries were the defacto way to protect against SQL injection. </p>
+
+<p>While it&#39;s essential to validate and filter incoming data, be mindful of the use to which that data is being put, so don&#39;t apply  <code>htmlentities()</code>  to data that&#39;s only being put into a database, apply that only once you&#39;re actually outputting it, as this may cause issues with how you wish to use that data later on (see <a href="https://www.google.co.uk/search?q=htmlentities+before+db">https://www.google.co.uk/search?q=htmlentities+before+db</a> for more details on why this should be avoided).</p>
 
 <p>If the framework you&#39;re using has a built-in database layer (like ActiveRecord, or Eloquent) then use that, as that will (used correctly) naturally protect against SQL injection. Be mindful here that each of the frameworks&#39; database layers behaves differently in terms of what it escapes before sending to the database, and it&#39;s still possible to abuse the DB layer object to create an SQL injection point.</p>
 
@@ -421,9 +514,28 @@
 
 <p>If you&#39;re using a framework or CMS, use the database methods and connections that it provides. Do not try rolling your own, as this can lead to opening yourself up to security vulnerabilities. Most good frameworks will provide methods for making data safe for use in queries, and some of the better ones use things like PDO which allows you to parameterise your queries. Always use these where they exist, even it slightly increases your development time.</p>
 
-<p>In no case should you ever store unencrypted passwords. At the very least use  <code>md5()</code>  to generate a hash of the password before storing it. Ideally this would be salted with another piece of user data (to lessen the chance of it being brute forced from an md5-hash list). If the nature of your application requires it, then use more powerful encryption methods in PHP to secure the passwords, like the  <code>crypt()</code>  function, using a suitably strong algorithm.</p>
+<p>In no case should you ever store unencrypted passwords. At the very least use  <code>md5()</code>  to generate a hash of the password before storing it. Ideally this would be salted with another piece of user data (to lessen the chance of it being brute forced from an md5-hash list). If the nature of your application requires it, then use more powerful encryption methods in PHP to secure the passwords, like the  <code>crypt()</code>  function, using a suitably strong algorithm. *<em>In no circumstances is *</em></p>
 
 <p>Also, don&#39;t blindly apply all levels of sanitisation to your data as soon as you receive it. Only use functions like  <code>strip_tags</code>  and  <code>htmlentities</code>  when presenting data to a browser, it&#39;s not necessary before inserting into a database. With the exception of passwords, you should try to store user data in the database as close to the original as possible.</p>
+
+<h3><a name="email-spam-relay-prevention"> </a>Email Spam Relay Prevention</h3>
+
+<p>When your application is sending out any emails, you should pay attention to what user data you&#39;re passing into it, as there are ways to inject parameters into that and effectively turn your email code into a spam relay. So, for example, pass all the user variables through something like this to strip out any attempt to inject email headers into a message: </p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">function remove_headers($string)</span>
+<span class="x">{</span>
+<span class="x">    $headers = array(</span>
+<span class="x">        &quot;/to\:/i&quot;,</span>
+<span class="x">        &quot;/from\:/i&quot;,</span>
+<span class="x">        &quot;/bcc\:/i&quot;,</span>
+<span class="x">        &quot;/cc\:/i&quot;,</span>
+<span class="x">        &quot;/Content\-Transfer\-Encoding\:/i&quot;,</span>
+<span class="x">        &quot;/Content\-Type\:/i&quot;,</span>
+<span class="x">        &quot;/Mime\-Version\:/i&quot;</span>
+<span class="x">        );</span>
+<span class="x">    return preg_replace($headers, &#39;&#39;, $string);</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>This will at the least ensure that the user is not injecting an extra  <code>Cc</code>  header, for example, into your email code, which could be used to send out their message to more recipients using your email server! </p>
 
 <h2><a name="local-development-environment"> </a>Local Development Environment</h2>
 
@@ -442,8 +554,8 @@
 <p>If possible, always avoid setting site-wide server settings from within PHP itself. Ideally, they should be set from the php.ini (if you have access and it&#39;s not a setting which would have a detrimental effect on other sites sharing the setting), the virtual host configuration file (if you have access), or an .htaccess file (if the web server is Apache). There are two main reasons for never setting these values from within PHP itself:</p>
 
 <ul>
-<li>Problems become more difficult to diagnose as these values do not present themselves from a</li>
-<li>Specific functions can be disabled from being set by PHP for security reasons at a server level</li>
+<li><p>Problems become more difficult to diagnose as these values do not present themselves from a </p></li>
+<li><p>Specific functions can be disabled from being set by PHP for security reasons at a server level</p></li>
 </ul>
 
 <p>Sometimes setting these may be unavoidable, but when this happens, make sure it&#39;s documented in any release notes and in the wiki to ensure any future work isn&#39;t hindered by this. It&#39;s also preferable to keep all configuration settings to a minimum set of files. Some frameworks split configuration into specific files for general config, database connections, mail, etc. In cases like this, document the files that may need to be edited for a server deployment in the wiki page for the project.</p>
