@@ -9,6 +9,20 @@
   twitter: mrmartineau
   github: mrmartineau
   team: frontend
+  active: true
+
+- name: Ashley Nolan
+  surname: Nolan
+  job_title: Senior Creative Technologist
+  short_name: ashnolan
+  short_desc: Ashley is a Senior Creative Technologist at TMW.  He currently splits his commitments between two very worthwhile endeavors; watching Netflix and playing PS4…
+  avatar: anolan.jpg
+  email: anolan@tmw.co.uk
+  web: http://www.ashleynolan.co.uk
+  twitter: AshNolan_
+  github: ashleynolan
+  team: frontend
+  active: false
 
 - name: Ciaran Park
   surname: Park
@@ -20,6 +34,7 @@
   twitter: ciaranpark
   github: ciaranpark
   team: frontend
+  active: true
 
 - name: Ivan Hayes
   surname: Hayes
@@ -32,6 +47,7 @@
   github: munkychop
   team: frontend
   web: http://ivanhayes.com
+  active: true
 
 - name: Simon Kinslow
   surname: Kinslow
@@ -44,6 +60,7 @@
   twitter: kinslowdian
   github: kinslowdian
   team: frontend
+  active: true
 
 - name: Ashley Sheridan
   surname: Sheridan
@@ -56,6 +73,7 @@
   twitter: ashleyjsheridan
   github: ashleyjsheridan
   team: php
+  active: true
 
 - name: Andrew Williams
   surname: Williams
@@ -67,6 +85,7 @@
   github: roowilliams
   web: http://roowilliams.com
   job_title: Product Designer
+  active: true
 
 - name: Rolff Kruger
   surname: Kruger
@@ -74,6 +93,7 @@
   short_desc: Technical Director
   github: rkruger
   twitter: rkruger
+  active: true
 
 - name: Matt Basson
   surname: Basson
@@ -83,6 +103,7 @@
   github: MattBasson
   avatar: mbasson.jpg
   team: dotnet
+  active: true
 
 - name: Iqbal Kahn
   surname: Kahn
@@ -90,6 +111,7 @@
   short_desc: .Net Developer
   github: MedievalCoder
   team: dotnet
+  active: true
 
 - name: Yemi Akinola-Kehinde
   surname: Akinola-Kehinde
@@ -98,6 +120,7 @@
   avatar: yemi.jpg
   github: YKehinde
   team: frontend
+  active: true
 
 - name: Rento Mucenieks
   surname: Mucenieks
@@ -107,6 +130,7 @@
   twitter: Rento_rm
   team: frontend
   avatar: rmucenieks.jpg
+  active: true
 
 - name: Edward Acheampong
   surname: Acheampong
@@ -114,6 +138,7 @@
   short_desc: .Net developer
   github: mreacheampong
   team: dotnet
+  active: true
 
 - name: Vijay Kumar Rajagopolan
   surname: Rajagopolan
@@ -121,6 +146,7 @@
   short_desc: Senior .Net Developer
   github: vijaykumar-r
   team: dotnet
+  active: true
 
 - name: Danny Amaral
   surname: Amaral
@@ -130,6 +156,7 @@
   avatar: danny.jpg
   email: damaral@tmwunlimited.co.uk
   team: QA
+  active: true
 
 - name: Colin Humphrey
   surname: Humphrey
@@ -137,6 +164,7 @@
   short_name: chumphrey
   email: chumphrey@tmwunlimited.co.uk
   team: PHP
+  active: true
 
 - name: Dee Kennerly
   surname: Kennerly
@@ -144,6 +172,7 @@
   short_name: dkennerly
   email: dkennerly@tmwunlimited.co.uk
   team: dotnet
+  active: true
 
 - name: Naveen Ameti
   surname: Ameti
@@ -151,6 +180,7 @@
   short_name: nametti
   email: nametti@tmwunlimited.co.uk
   team: dotnet
+  active: true
 
   # - name: This person
   # surname: person
