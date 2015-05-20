@@ -5,10 +5,7 @@ title: Structuring team development
 date: 2013-12-19 12:00:00
 categories:
   - "front-end"
-contributor:
-  name: Ashley Nolan
-  twitter: AshNolan_
-  short_desc: "Senior Web UI Engineer at JustEat & ex-Senior Creative Technologist at TMW"
+author: ashnolan
 excerpt: "It's important to make sure a team of developers are all on the same page when developing across multiple projects. We look at what helps our front-end team at TMW."
 published: true
 ---

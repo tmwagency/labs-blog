@@ -10,10 +10,7 @@ categories:
   - "grunt"
   - "kickoff"
 
-contributor:
-  name: Ashley Nolan
-  twitter: AshNolan_
-  short_desc: "Senior Web UI Engineer at JustEat & ex-Senior Creative Technologist at TMW"
+author: ashnolan
 excerpt: "Introducing a more efficient way to get up and running when creating static templates or sites."
 published: true
 ---

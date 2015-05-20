@@ -2,10 +2,7 @@
 comments: true
 layout: post
 title: Kickoff Version 4 released
-contributor:
-  name: Ashley Nolan
-  twitter: AshNolan_
-  short_desc: "Senior Web UI Engineer at JustEat & ex-Senior Creative Technologist at TMW"
+author: ashnolan
 excerpt: A new version of the lightweight front-end framework has been released.
 ---
 
