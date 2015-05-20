@@ -4,7 +4,7 @@ title: Kickoff
 subtitle: Kickoff is a lightweight front-end framework for creating scalable, responsive sites.
 pageid: code
 folder: kickoff/
-img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
+img: https://camo.githubusercontent.com/ca2c3390e906ebffcb63f664c12fe68260c33c3f/687474703a2f2f6936312e74696e797069632e636f6d2f317a79697471652e706e67
 github_url: https://github.com/trykickoff/kickoff
 docs: http://trykickoff.github.io/
 issues: https://github.com/trykickoff/kickoff/issues
@@ -16,51 +16,40 @@ weight: 1
 ---
 
 
-![](http://f.cl.ly/items/3d0o1O190m0U443I0B1I/Screen%20Shot%202013-10-07%20at%2022.05.42.png)
+![](https://camo.githubusercontent.com/ca2c3390e906ebffcb63f664c12fe68260c33c3f/687474703a2f2f6936312e74696e797069632e636f6d2f317a79697471652e706e67)
 
-Developed and maintained by [Ashley Nolan](https://github.com/dragongraphics) & [Zander Martineau](https://github.com/mrmartineau)
-
-If you're using Kickoff we'd love to hear about it; please e-mail us at tech@tmw.co.uk
+Developed and maintained by [Ashley Nolan](https://github.com/ashleynolan) & [Zander Martineau](https://github.com/mrmartineau)
 
 ### Features
-
 * Built in a mobile-first, responsive philosophy *(but can easily be used for fixed sites as well)*
-* Sass compilation uses autoprefixer to dynamically add vendor prefixes so you don't even have to think about it
-* Sass mixins for many CSS3 features including gradients, REMs with fallbacks
+* Sass compilation uses [autoprefixer](https://github.com/ai/autoprefixer) to dynamically add vendor prefixes so you don't even have to think about it. We still have many Sass mixins for many CSS3 features including gradients, REMs with fallbacks
 * Starter content styles, including clean typography, lists, tables, etc
 * Starter form element styles: stacked on small-screen to 2-column (if you choose) at the breakpoint of your choice
-* Grunt used extensively to ease common development bottlenecks
- * Sass compilation using [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) although [grunt-sass](https://github.com/sindresorhus/grunt-sass) can be used a drop-in replacement but there are still some bugs; it is far quicker though..
+* **[Grunt](http://gruntjs.com)** used extensively to ease common development bottlenecks
+ * Sass compilation using [libsass](https://github.com/sass/libsass) (using [grunt-sass](https://github.com/sindresorhus/grunt-sass))
  * Concatenation and minification of JS files with and [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify)
  * Simple server using [grunt-contrib-connect](https://github.com/gruntjs/grunt-contrib-connect)
-
-
-### Browser support
-Simple: Internet Explorer 8+
+ * SVG Icon generation using [grunticon](https://github.com/filamentgroup/grunticon)
 
 ## Demos and documentation
-Please visit [trykickoff.github.io/kickoff/](http://trykickoff.github.io/) all demos and documentation for Kickoff.
+Kickoff's demo and documentation site is hosted at [trykickoff.github.io](http://trykickoff.github.io/).
 
-## Want to use Grunt?
-* Install Node from [nodejs.org](http://nodejs.org/)
-* Install Grunt CLI - `npm install -g grunt-cli`
-* Install Sass globally - `sudo gem install sass --pre`. [Ruby](https://www.ruby-lang.org/en/) v2 is needed. Update using [rvm](http://rvm.io/), [brew](http://brew.sh) (if you use a Mac) or from [ruby-lang.org/en/downloads/](https://www.ruby-lang.org/en/downloads/) then install the packages below
-* Navigate (`cd`) to your project directory and run `npm install` which will install all Grunt's dependencies
-* Run `grunt watch` or `grunt serve` (if you want to create a simple local server) to watch for changes and compile Sass/Javascript
+## Bugs and feature requests
+Have a bug or a feature request? Please search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/trykickoff/kickoff/issues/new).
 
-When using Grunt with Kickoff, source maps are created for both the Javascript and Sass. Javascript is compiled to the `/js/dist` and Sass is compiled to the '/css' folder.
+### Browser Compatibility
+Kickoff has been tested in the following browsers:
+- Chrome
+- Safari
+- Firefox 3+
+- Opera 10+
+- Internet Explorer 8+
 
-## Using Git?
-Kickoff's [.gitignore](https://github.com/trykickoff/kickoff/blob/master/.gitignore#L30) file ignores the `/dist` folder by default. You will want to uncomment this line if you are **not** compiling these on the server.
-
-## Yeoman generator
+### Yeoman generator
 There is also a Yeoman generator for Kickoff, visit [trykickoff.github.io/docs/yeoman.html](http://trykickoff.github.io/docs/yeoman.html) for more info.
 
-## Contributing
+If you're using Kickoff we'd love to hear about it; please e-mail us at trykickoff@gmail.com
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request
+### Community
 
+Keep track of development and community news by following [@TryKickoff on Twitter](http://twitter.com/TryKickoff).
