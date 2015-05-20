@@ -6,7 +6,7 @@ pageid: team
 <div class="content-inner clearfix">
 	<h1 class="sectionTitle">team <small>tech.tmw team and authors</small></h1>
 	{% assign teamList = site.data.team | sort: 'surname' %}
-	{% for member in teamList %}
+	{% for member in teamList %}{% if member.active == true %}
 		<article class="gridItem clearfix">
 			{% if member.avatar == null %}
 				<img src="/img/authors/default{% random 1-6 %}.gif" alt="" class="gridItem-avatar">
@@ -30,5 +30,5 @@ pageid: team
 				</div>
 			</div>
 		</article>
-	{% endfor %}
+	{% endif %}{% endfor %}
 </div>
