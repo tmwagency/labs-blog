@@ -1,8 +1,8 @@
 - name: Kickoff
   img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
-  github_url: https://github.com/tmwagency/kickoff
-  demo: http://tmwagency.github.io/kickoff/
-  issues: https://github.com/tmwagency/kickoff/issues
+  github_url: https://github.com/trykickoff/kickoff
+  demo: http://trykickoff.github.io/
+  issues: https://github.com/trykickoff/kickoff/issues
   description: "Kickoff is a lightweight front-end framework for creating scalable, responsive sites."
   team:
    - ashnolan
@@ -10,9 +10,9 @@
 
 - name: Kickoff Statix
   img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
-  github_url: https://github.com/tmwagency/kickoff-statix
-  demo: http://tmwagency.github.io/kickoff/statix/index.html
-  issues: https://github.com/tmwagency/kickoff-statix/issues
+  github_url: https://github.com/trykickoff/statix
+  demo: http://trykickoff.github.io/kickoff/statix/index.html
+  issues: https://github.com/trykickoff/statix/issues
   description: "Kickoff Statix is a simple setup of [Assemble](http://assemble.io/), a static site generator, integrated with our minimal front-end framework, Kickoff, along with a few handy Grunt setup tasks."
   team:
    - ashnolan
@@ -33,19 +33,19 @@
    - ashnolan
 
 - name: trak.js (beta)
-  github_url: https://github.com/tmwagency/trak.js
-  issues: https://github.com/tmwagency/trak.js/issues
-  demo: http://tmwagency.github.io/trak.js/demo/
+  github_url: https://github.com/mrmartineau/trak.js
+  issues: https://github.com/mrmartineau/trak.js/issues
+  demo: http://mrmartineau.github.io/trak.js/demo/
   description: "Universal event tracking API."
   team:
    - zander
 
 - name: Kickoff Yeoman Generator
   img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
-  github_url: https://github.com/tmwagency/generator-kickoff
-  npm: http://tmwagency.github.io/generator-kickoff/
-  issues: https://github.com/tmwagency/generator-kickoff/issues
-  info: http://tmwagency.github.io/kickoff/docs/yeoman.html
+  github_url: https://github.com/trykickoff/generator-kickoff
+  npm: http://trykickoff.github.io/generator-kickoff/
+  issues: https://github.com/trykickoff/generator-kickoff/issues
+  info: http://trykickoff.github.io/kickoff/docs/yeoman.html
   description: "Yeoman generator for our Kickoff framework"
   team:
    - zander
