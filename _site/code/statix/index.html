@@ -93,19 +93,19 @@
 
 	<div class="links">
 		
-			<a href="https://github.com/tmwagency/statix" class="links-item">View the Repo on Github</a>
+			<a href="https://github.com/trykickoff/statix" class="links-item">View the Repo on Github</a>
 		
 		
 		
 		
-			<a href="https://github.com/tmwagency/statix/issues" class="links-item">Issues</a>
+			<a href="https://github.com/trykickoff/statix/issues" class="links-item">Issues</a>
 		
 		
 		
 		
 	</div>
 
-		<p><a href="https://github.com/tmwagency/statix">Statix</a> makes working with static HTML templates quick and easy.</p>
+		<p><a href="https://github.com/TryKickoff/statix">Statix</a> makes creating and working with static HTML templates quick and easy.</p>
 
 <h2>Why do I need Statix in my life?</h2>
 
@@ -157,7 +157,7 @@
 
 <h2>What’s under the hood</h2>
 
-<p>Statix is essentially a simple setup of <a href="http://assemble.io/">Assemble</a>, a powerful static site generator, combined with <a href="http://tmwagency.github.io/kickoff/">Kickoff</a>, a minimal front-end base framework, all tied together with a few handy <a href="http://gruntjs.com/">Grunt</a> setup tasks.</p>
+<p>Statix is essentially a simple setup of <a href="http://assemble.io/">Assemble</a>, a powerful static site generator, combined with <a href="http://trykickoff.github.io/kickoff/">Kickoff</a>, a minimal front-end base framework, all tied together with a few handy <a href="http://gruntjs.com/">Grunt</a> setup tasks.</p>
 
 <p>Collectively, this gives you a framework that streamlines the creation of maintainable, flexible HTML templates with virtually no project setup required.</p>
 
@@ -168,9 +168,9 @@
 <h2>Download Statix</h2>
 
 <ul>
-<li>Github: <a href="https://github.com/tmwagency/statix/archive/master.zip">.zip</a></li>
-<li>Git clone: <code>https://github.com/tmwagency/statix.git your-project-folder</code></li>
-<li>SVN checkout: <code>svn checkout https://github.com/tmwagency/statix your-project-folder</code></li>
+<li>Github: <a href="https://github.com/TryKickoff/statix/archive/master.zip">.zip</a></li>
+<li>Git clone: <code>https://github.com/TryKickoff/statix.git your-project-folder</code></li>
+<li>SVN checkout: <code>svn checkout https://github.com/TryKickoff/statix your-project-folder</code></li>
 </ul>
 
 <hr>
@@ -178,7 +178,7 @@
 <h2>Getting started with Statix</h2>
 
 <ol>
-<li>Download or clone the git repo. To clone run <code>git clone https://github.com/tmwagency/statix.git your-project-folder</code></li>
+<li>Download or clone the git repo. To clone run <code>git clone https://github.com/TryKickoff/statix.git your-project-folder</code></li>
 <li>Ensure you have <a href="#dependencies">Sass, Node and Grunt installed</a>, as Statix needs these dependencies to operate.</li>
 <li>Install the project dependencies by running <code>npm install</code> from the root of the directory.</li>
 <li>Run <code>grunt serve</code>.  This will build your project for the first time and use the connect module to start a static web server for your templates.</li>
@@ -209,10 +209,10 @@
 
 <h2>Further documentation and demos</h2>
 
-<p>Statix is a combination of three tools; <a href="http://assemble.io/">Assemble</a>, <a href="http://tmwagency.github.io/kickoff/">Kickoff</a> and <a href="http://gruntjs.com/">Grunt</a>.  The documentation for these tools should be looked at for extending the base setup of Statix.</p>
+<p>Statix is a combination of three tools; <a href="http://assemble.io/">Assemble</a>, <a href="http://trykickoff.github.io/kickoff/">Kickoff</a> and <a href="http://gruntjs.com/">Grunt</a>.  The documentation for these tools should be looked at for extending the base setup of Statix.</p>
 
 <ul>
-<li> See the <a href="http://tmwagency.github.io/kickoff/">Kickoff documentation</a> for all demos and information relating to Kickoff</li>
+<li> See the <a href="http://trykickoff.github.io/kickoff/">Kickoff documentation</a> for all demos and information relating to Kickoff</li>
 <li> Check out the <a href="http://assemble.io/docs/">Assemble documentation</a> for more information on Assemble.</li>
 <li>Read the excellent <a href="http://gruntjs.com/getting-started">Getting started guide</a> to make a start with Grunt.</li>
 </ul>
@@ -227,9 +227,9 @@
 
 <h3>To replace the SCSS</h3>
 
-<p>Delete the files in the /scss folder, replacing them with your framework of choice.</p>
+<p>Delete the files in the /assets/src/scss folder, replacing them with your framework of choice.</p>
 
-<p>Next, go to <code>/_grunt-configs/css.js</code> in the root of the project and change all references of <code>kickoff.scss</code> and <code>kickoff.css</code> to whatever you have decided to call your main SCSS file.</p>
+<p>Next, go to <code>/_grunt-configs/config.js</code> in the root of the project and change the name of the compiled <code>distFile</code> to whatever you want to.</p>
 
 <p>Finally, change the reference to the compiled CSS file in the <code>html_start.hbs</code> in <code>statix/src/templates/includes</code></p>
 
