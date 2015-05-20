@@ -5,9 +5,8 @@ subtitle: Universal analytics event tracking API wrapper
 pageid: code
 folder: trak/
 demo: demo.html
-img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
-github_url: https://github.com/tmwagency/trak.js
-issues: https://github.com/tmwagency/trak.js/issues
+github_url: https://github.com/mrmartineau/trak.js
+issues: https://github.com/mrmartineau/trak.js/issues
 team:
 - zander
 
@@ -18,8 +17,8 @@ Put simply, **trak.js** is a wrapper for any analytics API. By default it uses G
 
 ## Getting the Library
 ### Direct downloads
-- [Minified](https://raw.githubusercontent.com/tmwagency/trak.js/master/dist/trak.min.js) (~481 B gzipped)
-- [Unminified](https://raw.githubusercontent.com/tmwagency/trak.js/master/dist/trak.js) (~1.7 KB gzipped)
+- [Minified](https://raw.githubusercontent.com/mrmartineau/trak.js/master/dist/trak.min.js) (~481 B gzipped)
+- [Unminified](https://raw.githubusercontent.com/mrmartineau/trak.js/master/dist/trak.js) (~1.7 KB gzipped)
 
 ### Bower
 `bower install trak`

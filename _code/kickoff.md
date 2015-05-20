@@ -5,9 +5,9 @@ subtitle: Kickoff is a lightweight front-end framework for creating scalable, re
 pageid: code
 folder: kickoff/
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
-github_url: https://github.com/tmwagency/kickoff
-docs: http://tmwagency.github.io/kickoff/
-issues: https://github.com/tmwagency/kickoff/issues
+github_url: https://github.com/trykickoff/kickoff
+docs: http://trykickoff.github.io/
+issues: https://github.com/trykickoff/kickoff/issues
 team:
 - ashnolan
 - zander
@@ -39,7 +39,7 @@ If you're using Kickoff we'd love to hear about it; please e-mail us at tech@tmw
 Simple: Internet Explorer 8+
 
 ## Demos and documentation
-Please visit [tmwagency.github.io/kickoff/](http://tmwagency.github.io/kickoff/) all demos and documentation for Kickoff.
+Please visit [trykickoff.github.io/kickoff/](http://trykickoff.github.io/) all demos and documentation for Kickoff.
 
 ## Want to use Grunt?
 * Install Node from [nodejs.org](http://nodejs.org/)
@@ -51,10 +51,10 @@ Please visit [tmwagency.github.io/kickoff/](http://tmwagency.github.io/kickoff/)
 When using Grunt with Kickoff, source maps are created for both the Javascript and Sass. Javascript is compiled to the `/js/dist` and Sass is compiled to the '/css' folder.
 
 ## Using Git?
-Kickoff's [.gitignore](https://github.com/tmwagency/kickoff/blob/master/.gitignore#L30) file ignores the `/dist` folder by default. You will want to uncomment this line if you are **not** compiling these on the server.
+Kickoff's [.gitignore](https://github.com/trykickoff/kickoff/blob/master/.gitignore#L30) file ignores the `/dist` folder by default. You will want to uncomment this line if you are **not** compiling these on the server.
 
 ## Yeoman generator
-There is also a Yeoman generator for Kickoff, visit [tmwagency.github.io/kickoff/docs/yeoman.html](http://tmwagency.github.io/kickoff/docs/yeoman.html) for more info.
+There is also a Yeoman generator for Kickoff, visit [trykickoff.github.io/docs/yeoman.html](http://trykickoff.github.io/docs/yeoman.html) for more info.
 
 ## Contributing
 

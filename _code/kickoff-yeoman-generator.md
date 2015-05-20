@@ -3,11 +3,11 @@ layout: code
 title: Kickoff Yeoman Generator
 subtitle: Yeoman generator for our Kickoff framework
 pageid: code
-npm: http://tmwagency.github.io/generator-kickoff/
-info: http://tmwagency.github.io/kickoff/docs/yeoman.html
+npm: http://trykickoff.github.io/generator-kickoff/
+info: http://trykickoff.github.io/docs/yeoman.html
 img: http://ashleynolan.co.uk/assets/img/work/work-kickoff.jpg
-github_url: https://github.com/tmwagency/generator-kickoff
-issues: https://github.com/tmwagency/generator-kickoff/issues
+github_url: https://github.com/trykickoff/generator-kickoff
+issues: https://github.com/trykickoff/generator-kickoff/issues
 team:
 - zander
 
