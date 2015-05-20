@@ -7,7 +7,10 @@ categories:
   - "front-end"
   - rgh
   - links
-author: ashnolan
+contributor:
+  name: Ashley Nolan
+  twitter: AshNolan_
+  short_desc: "Senior Web UI Engineer at JustEat & ex-Senior Creative Technologist at TMW"
 excerpt: "Your weekly dose of really good hyperlinks - Issue &#35;1"
 published: true
 ---
