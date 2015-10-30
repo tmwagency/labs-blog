@@ -47,6 +47,15 @@
   github: munkychop
   team: frontend
   web: http://ivanhayes.com
+  active: false
+  
+- name: Denzil Brade
+  surname: Brade
+  job_title: Web Developer
+  short_name: dbrade
+  short_desc: Denzil is a Web Developer at TMW. 
+  email: dbrade@tmwunlimited.co.uk
+  team: frontend
   active: true
 
 - name: Simon Kinslow
@@ -85,7 +94,7 @@
   github: roowilliams
   web: http://roowilliams.com
   job_title: Product Designer
-  active: true
+  active: false
 
 - name: Rolff Kruger
   surname: Kruger
@@ -103,12 +112,12 @@
   github: MattBasson
   avatar: mbasson.jpg
   team: dotnet
-  active: true
+  active: false
 
 - name: Iqbal Kahn
   surname: Kahn
   short_name: ikhan
-  short_desc: .Net Developer
+  short_desc: Development Manager
   github: MedievalCoder
   team: dotnet
   active: true
@@ -120,7 +129,7 @@
   avatar: yemi.jpg
   github: YKehinde
   team: frontend
-  active: true
+  active: false
 
 - name: Rento Mucenieks
   surname: Mucenieks
@@ -130,7 +139,7 @@
   twitter: Rento_rm
   team: frontend
   avatar: rmucenieks.jpg
-  active: true
+  active: false
 
 - name: Edward Acheampong
   surname: Acheampong
@@ -138,21 +147,21 @@
   short_desc: .Net developer
   github: mreacheampong
   team: dotnet
-  active: true
+  active: false
 
 - name: Vijay Kumar Rajagopolan
   surname: Rajagopolan
   short_name: vijay
-  short_desc: Senior .Net Developer
+  short_desc: Development Manager
   github: vijaykumar-r
   team: dotnet
   active: true
 
 - name: Danny Amaral
   surname: Amaral
-  job_title: Junior QA Tester
+  job_title: QA Tester
   short_name: damaral
-  short_desc: Danny is a Junior QA Tester at TMW. Loves breaking sites for fun, finding bugs and is a gaming God.
+  short_desc: Danny is a QA Tester at TMW. Loves breaking sites for fun, finding bugs and is a gaming God.
   avatar: danny.jpg
   email: damaral@tmwunlimited.co.uk
   team: QA
@@ -166,10 +175,11 @@
   team: PHP
   active: true
 
-- name: Dee Kennerly
-  surname: Kennerly
+- name: Dee Kennerley
+  surname: Kennerley
   job_title: .NET developer
-  short_name: dkennerly
+  short_name: dkennerley
+  short_desc: Dee is a .Net Developer at TMW. 
   email: dkennerly@tmwunlimited.co.uk
   team: dotnet
   active: true
@@ -178,7 +188,26 @@
   surname: Ameti
   job_title: .NET developer
   short_name: nametti
+  short_desc: Naveen is a .Net Developer at TMW. 
   email: nametti@tmwunlimited.co.uk
+  team: dotnet
+  active: true
+  
+- name: Ranelle Yorke
+  surname: Yorke
+  job_title: Senior .NET developer
+  short_name: ryorke
+  short_desc: Ranelle is a Senior .Net Developer at TMW. 
+  email: ryorke@tmwunlimited.co.uk
+  team: dotnet
+  active: true
+  
+- name: Bhavana Awasthi
+  surname: Awasthi
+  job_title: Senior .NET developer
+  short_name: bawasthi
+  short_desc: Bhavana is a Senior .Net Developer at TMW. 
+  email: bawasthi@tmwunlimited.co.uk
   team: dotnet
   active: true
 
