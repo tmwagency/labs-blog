@@ -25,7 +25,7 @@
 	}
 
 	@include respond-min($breakpoint-huge) {
-		width: 33.333333%;
+		width: 20%;
 	}
 
 	&, * {
@@ -99,6 +99,7 @@
 
 .gridItem-desc {
 	display: none;
+	@include font-size(16);
 
 	@include respond-min($breakpoint-single-col) {
 		display: block;

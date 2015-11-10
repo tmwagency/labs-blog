@@ -1,7 +1,11 @@
 .logo {
 	margin-bottom: 0.2em;
-	@include font-size(60);
+	@include font-size(40);
 	font-weight: normal;
+
+	@include respond-min($breakpoint-mid) {
+		@include font-size(60);
+	}
 
 	.dot {
 		color: #fff;
@@ -9,21 +13,33 @@
 	}
 }
 
+.logo-tagline {
+	@include font-size(16);
+	margin-top: 0;
+
+	@include respond-min($breakpoint-mid) {
+		margin-top: $base-line-height + px;
+		@include font-size($base-font-size);
+	}
+}
+
 .nav {
 	padding: 0.5em 0;
 	margin-bottom: $base-line-height + px;
-	// border-top: 1px solid $blue;
-	// border-bottom: 1px solid $blue;
-	// text-align: center;
+	text-transform: lowercase;
+	font-family: $sans-font-family;
+
+	@include respond-max($breakpoint-mid) {
+		overflow-x: auto;
+		white-space: nowrap;
+		margin-bottom: 0;
+	}
 }
 
 .nav-item {
 	display: inline-block;
 	margin-right: 15px;
 
-	// @include respond-min($breakpoint-single-col) {
-	// 	display: block;
-	// }
 	&.is-active {
 		color: #fff;
 	}

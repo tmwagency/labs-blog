@@ -9,7 +9,7 @@ body {
 .sidebar {
 	text-align: center;
 	color: #fff;
-	padding: 30px 5%;
+	padding: 0 5%;
 	background-color: #181830;
 	// background: #181830 url(/img/sidebar/2.jpg) 0 0 no-repeat;
 	// background: #181830 url(/img/sidebar/pete.jpg) 0 0 no-repeat;
@@ -60,7 +60,7 @@ body {
 }
 
 .content-inner {
-	margin: 7% 30px;
+	margin: 7% 20px;
 
 	@include respond-min($breakpoint-single-col) {
 		margin: 114px 50px 50px;
@@ -73,6 +73,10 @@ body {
 	color: #a7a7a7;
 	margin-bottom: ($base-line-height / 2) + px;
 	font-weight: normal;
+
+	@include respond-max($breakpoint-single-col) {
+		@include font-size($base-font-size);
+	}
 
 	&:before {
 		content:'/';

@@ -1,10 +1,22 @@
 .footer {
 	font-family: $sans-font-family;
+	margin: ($base-font-size + px) 7%;
+	text-align: center;
+
+	@include respond-min($breakpoint-single-col) {
+		position: fixed;
+		bottom: 5%;
+		left: 5%;
+		width: 40%;
+		z-index: 100;
+		text-align: left;
+		margin: 0;
+	}
 }
 
 .socialLinks-item {
 	line-height: 23px;
-	margin-bottom: 10px;
+	margin: 5px 15px;
 	@include font-size(14);
 	display: inline-block;
 	font-style: italic;
@@ -17,5 +29,6 @@
 	@include respond-min($breakpoint-single-col) {
 		display: block;
 		height: 21px;
+		margin: 0 0 10px;
 	}
 }
