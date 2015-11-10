@@ -1,5 +1,4 @@
 ---
-layout: work
 title: "The Bar"
 meta:
   date: February - September 2013

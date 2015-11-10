@@ -1,5 +1,4 @@
 ---
-layout: work
 title: "Be an Energy Shopper"
 meta:
   date: September 2012 - Jan 2013

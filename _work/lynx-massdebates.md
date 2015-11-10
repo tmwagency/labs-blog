@@ -1,5 +1,4 @@
 ---
-layout: work
 title: "Lynx Mass Debates"
 meta:
   name: lynxmassdebates

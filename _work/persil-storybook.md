@@ -1,5 +1,4 @@
 ---
-layout: work
 title: "Persil - Be Mighty"
 meta:
   date: July - September 2013

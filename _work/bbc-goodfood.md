@@ -1,5 +1,4 @@
 ---
-layout: work
 title: "BBC GoodFood"
 meta:
   date: May 2012 - July 2013

@@ -1,5 +1,4 @@
 ---
-layout: work
 title: "Lynx Africa 18th Anniversary"
 meta:
   date: October 2013

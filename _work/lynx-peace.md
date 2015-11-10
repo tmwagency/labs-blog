@@ -1,5 +1,4 @@
 ---
-layout: work
 title: "Lynx Peace"
 meta:
   date: January - April 2014
