@@ -2085,7 +2085,7 @@ body {
 .sidebar {
   text-align: center;
   color: #fff;
-  padding: 30px 5%;
+  padding: 0 5%;
   background-color: #181830;
   background-size: cover;
   z-index: 100;
@@ -2123,7 +2123,7 @@ body {
 }
 
 .content-inner {
-  margin: 7% 30px;
+  margin: 7% 20px;
 }
 @media screen and (min-width: 53.75em) {
   .content-inner {
@@ -2136,6 +2136,12 @@ body {
   color: #a7a7a7;
   margin-bottom: 15.5px;
   font-weight: normal;
+}
+@media screen and (max-width: 53.75em) {
+  .sectionTitle {
+    font-size: 22px;
+    font-size: 1rem;
+  }
 }
 .sectionTitle:before {
   content: '/';
@@ -2217,18 +2223,46 @@ body {
 
 .logo {
   margin-bottom: 0.2em;
-  font-size: 60px;
-  font-size: 2.72727273rem;
+  font-size: 40px;
+  font-size: 1.81818182rem;
   font-weight: normal;
+}
+@media screen and (min-width: 48em) {
+  .logo {
+    font-size: 60px;
+    font-size: 2.72727273rem;
+  }
 }
 .logo .dot {
   color: #fff;
   letter-spacing: -3px;
 }
 
+.logo-tagline {
+  font-size: 16px;
+  font-size: 0.72727273rem;
+  margin-top: 0;
+}
+@media screen and (min-width: 48em) {
+  .logo-tagline {
+    margin-top: 31px;
+    font-size: 22px;
+    font-size: 1rem;
+  }
+}
+
 .nav {
   padding: 0.5em 0;
   margin-bottom: 31px;
+  text-transform: lowercase;
+  font-family: "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@media screen and (max-width: 48em) {
+  .nav {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 0;
+  }
 }
 
 .nav-item {
@@ -2241,11 +2275,24 @@ body {
 
 .footer {
   font-family: "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 22px 7%;
+  text-align: center;
+}
+@media screen and (min-width: 53.75em) {
+  .footer {
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    width: 40%;
+    z-index: 100;
+    text-align: left;
+    margin: 0;
+  }
 }
 
 .socialLinks-item {
   line-height: 23px;
-  margin-bottom: 10px;
+  margin: 5px 15px;
   font-size: 14px;
   font-size: 0.63636364rem;
   display: inline-block;
@@ -2259,6 +2306,7 @@ body {
   .socialLinks-item {
     display: block;
     height: 21px;
+    margin: 0 0 10px;
   }
 }
 
@@ -2620,4 +2668,5 @@ h1.typeSpecimen:after {
 p.typeSpecimen:after {
   content: "Font stack: franklin-gothic-urw, raleway, Helvetica Neue, Helvetica, Arial, sans-serif";
 }
+
 /*# sourceMappingURL=styleguide.css.map */
