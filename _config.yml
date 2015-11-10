@@ -12,6 +12,7 @@ future: false
 
 paginate: 10
 paginate_path: /:num
+gems: [jekyll-paginate]
 
 name: tech.tmw
 description: TMW agency's tech blog
