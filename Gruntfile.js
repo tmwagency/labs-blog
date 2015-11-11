@@ -58,36 +58,6 @@ module.exports = function (grunt) {
 			grunticon : {
 				files: ['img/src/*.svg', 'img/src/*.png'],
 				tasks: ['svgmin', 'grunticon']
-			},
-
-			jekyll : {
-				files: [
-					'_includes/**/*.html',
-					'_layouts/**/*.html',
-					'archive/**/*.html',
-					'_posts/**/*.md',
-					'_team/**/*.md',
-					'team/**/*.html',
-					'_code/**/*.md',
-					'code/**/*.html',
-					'_work/**/*.md',
-					'work/**/*.html',
-					'_drafts/**/*.md',
-					'css/**/*.css',
-					'js/**/*.js',
-					'img/**/*.*',
-					'authors/*.html',
-					'*.html',
-					'**/*.md',
-					'!node_modules/**/*.*',
-					'_plugins/*.rb',
-					'Gruntfile.js',
-					'**/*.yml'
-				],
-				tasks: 'jekyll:blog',
-				options: {
-					livereload: true
-				}
 			}
 		},
 
@@ -301,26 +271,6 @@ module.exports = function (grunt) {
 			options: {
 				config: ".jscs.json"
 			}
-		},
-
-		jekyll : {
-			options : {
-				server : false,
-				auto : false,
-				drafts : false,
-				future : true
-			},
-			blog: {
-				src: './',
-				dest: '_site'
-			},
-			drafts: {
-				options : {
-					drafts : true
-				},
-				src: './',
-				dest: '_site'
-			}
 		}
 	});
 
@@ -360,8 +310,7 @@ module.exports = function (grunt) {
 		'sass:kickoff',
 		'autoprefixer:dist',
 		'svgmin',
-		'grunticon',
-		'jekyll:blog'
+		'grunticon'
 	]);
 
 
@@ -370,12 +319,10 @@ module.exports = function (grunt) {
 	 * run jshint, uglify and sass:production
 	 */
 	grunt.registerTask('deploy', [
-		'jekyll',
 		'uglify',
 		'sass:kickoff',
 		'autoprefixer:dist',
-		'csso',
-		'jekyll:blog'
+		'csso'
 	]);
 
 
@@ -384,7 +331,6 @@ module.exports = function (grunt) {
 	 * run connect and watch
 	 */
 	grunt.registerTask("serve", [
-		'jekyll:blog',
 		'dev',
 		'connect',
 		'watch'
@@ -395,7 +341,6 @@ module.exports = function (grunt) {
 	 * run connect and watch
 	 */
 	grunt.registerTask("drafts", [
-		'jekyll:drafts',
 		'dev',
 		'connect',
 		'watch'
