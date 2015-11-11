@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Kickoff Statix: A slicker template workflow - tech.tmw.co.uk</title>
+		<meta name="description" content="tech.tmw.co.uk - where TMW talks Tech">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script>var pageName = '';</script>
+
+		<script>
+			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+			window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			grunticon(["/img/icons/icons.data.svg.css", "/img/icons/icons.data.png.css", "/img/icons/icons.fallback.css"]);
+		</script>
+		<noscript><link href="/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+
+		<!-- Mobile & Fav Icons -->
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png" />
+
+		<meta name="apple-mobile-web-app-title" content="tech.tmw">
+
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png"/>
+
+		<!-- Twitter - https://dev.twitter.com/cards/overview -->
+		<meta name="twitter:site" content="@tmwTechTeam">
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Kickoff Statix: A slicker template workflow" />
+		<meta name="twitter:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png" />
+		<meta name="twitter:url" content="http://tech.tmw.co.uk/2014/02/kickoff-statix-for-slicker-template-workflow/" />
+
+
+		<!-- Open Graph data -->
+		<meta property="og:title" content="Kickoff Statix: A slicker template workflow" />
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content="http://tech.tmw.co.uk/2014/02/kickoff-statix-for-slicker-template-workflow/" />
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png" />
+
+		<link rel="alternate" type="application/atom+xml" title="tech.tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+	</head>
+	<body class="clearfix">
+
+<div class="sidebar">
+	<header class="masthead">
+	<h1 class="logo"><a href="/"><span class="tmwBrand">TMW</span>tech...</a></h1>
+	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmwunlimited.com" title="TMWUnlimited&hellip;'s website" target="_blank" class="tmwBrand">TMW<span>Unlimited&hellip;</span></a> tech team</p>
+
+	<nav class="nav">
+		<a href="/" class="nav-item">Articles</a>
+		<a href="/code" class="nav-item">Code</a>
+		<a href="/team" class="nav-item">Team</a>
+		<a href="/work" class="nav-item">Work</a>
+	</nav>
+</header>
+
+
+</div>
+
+<div class="content">
+	<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">Articles</h1>
+
+	
+
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">Kickoff Statix: A slicker template workflow</h1>
+		<p>Developing static templates has historically been a bit of a pain in the ass.</p>
+
+<p>Most frameworks of choice such as BootStrap use flat HTML to develop templates, which although fine, becomes less flexible the more templates you have.  Sharing markup across static templates can only be achieved by integrating your own templating language, such as handlebars, using server side includes, or worse case, <a href="http://stackoverflow.com/questions/8988855/include-another-html-file-in-a-html-file">by using jQuery</a>.</p>
+
+<p>Having been using static site generators, such as <a href="http://jekyllrb.com/">Jekyll</a>, for a good while now, I recently started using <a href="http://assemble.io/">Assemble</a>.  Both excellent tools, the main difference I have found is that Assemble can generate templates from a wider array of data types, whereas Jekyll focuses on loading data from YAML and Markdown.</p>
+
+<p>Using these tools got me thinking; static site generators could be used in the front-end workflow to help when building static site templates, not just building full static websites.  This would be especially useful when we are required to handover static templates for integration to backend devs, or when we wanted to keep a version of the static pages separate from the integrated build files.  We could then use the power of static site generators when creating templates.</p>
+
+<p>So I built <a href="http://tmwagency.github.io/kickoff/statix/index.html">Kickoff Statix</a>, a simple setup of Assemble, integrated with our front-end framework, <a href="http://tmwagency.github.io/kickoff/">Kickoff</a>.</p>
+
+<p>This means that when templating, you have the power of using handlebars to share markup across multiple pages – such as header files and navigation.  You can also parse Markdown to keep your development code clean from sample content.  Most importantly this is all setup by simply <a href="https://github.com/tmwagency/kickoff-statix">downloading the project repo</a> and running <code>grunt serve</code> from the base of the project in the terminal.</p>
+
+<p>No config to fiddle with (unless you want to), it just attempts to alleviate some of the most basic headaches faced when creating static templates by setting up a structure for you to start from and build upon.</p>
+
+<p>Because the project is built using Assemble and Grunt, it is easily extensible and configurable to anyone who is familiar with these tools.  Think of it as a quick and flexible templating setup, like Bootstrap, just with a bit more oomph.</p>
+
+<p>More details about how to use Kickoff Statix can be found in the <a href="http://tmwagency.github.io/kickoff/statix/index.html">documentation</a> or in the <a href="https://github.com/tmwagency/kickoff-statix">Github Readme</a>.</p>
+
+<p>If you have any questions about using Statix or just general feedback, <a href="http://twitter.com/TMW_Labs">give us a shout on Twitter</a>.</p>
+
+	</div>
+
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date"><time>Posted on 05 Feb 2014</time></div>
+		
+		<div class="media entry-author">
+			<img src="/img/authors/anolan.jpg" alt="Picture of Ashley Nolan" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="entry-author-name"><a href="http://twitter.com/AshNolan_">Ashley Nolan</a></h3>
+				<p class="entry-author-desc">Senior Web UI Engineer at JustEat & ex-Senior Creative Technologist at TMW</p>
+			</div>
+		</div>
+
+	</div>
+
+	
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		var disqus_shortname = 'labstmw';
+
+		
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	
+
+	<!-- 
+	  <a href="/2015/11/ux-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
+	
+	  <a href="/2015/01/accessible-cross-reference-tables/">Accessible Cross Reference Tables</a><br />
+	
+	  <a href="/2015/01/communicating-between-php-and-an-arduino-with-sockets/">Communicating Between PHP and an Arduino with Sockets</a><br />
+	
+	  <a href="/2015/01/creating-a-web-app-with-grunt-part-2/">Creating a Web-app with Grunt - Part 2</a><br />
+	
+	  <a href="/2014/11/trakjs-universal-analytics-api/">Improve website event tracking with trak.js</a><br />
+	
+	  <a href="/2014/10/creating-a-web-app-with-grunt-part-1/">Creating a Web-app with Grunt - Part 1</a><br />
+	
+	  <a href="/2014/10/interning-in-the-tech-department/">Interning in the Tech department</a><br />
+	
+	  <a href="/2014/10/kickoff-version-4/">Kickoff Version 4 released</a><br />
+	
+	  <a href="/2014/10/outsourcing/">Should you outsource development?</a><br />
+	
+	  <a href="/2014/08/the-road-to-kickoff-version-4/">The road to Kickoff version 4</a><br />
+	 -->
+</article>
+
+	<a class="openSource" href="/code">
+		<h2>Check out our open source projects</h2>
+		<p>We have loads of open source projects for you to try <br>Click here to have a look!</p>
+	</a>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		
+			<a href="/2014/01/building-the-tmw-shelter-christmas-tree/" class="pagination-item pagination-item--older"><b>Older post</b><br>Building the TMW Shelter Christmas Tree</a>
+		
+		
+			<a href="/2014/03/the-future-of-umbraco/" class="pagination-item pagination-item--newer"><b>Newer post</b><br>The Future of Umbraco</a>
+		
+	</div>
+</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="socialLinks">
+		<a href="http://github.com/tmwagency/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-github"></span>@tmwagency</a>
+		<a href="http://twitter.com/tmwTechTeam/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-twitter"></span>@tmwTechTeam</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-kickoff"></span>We also maintain Kickoff</a>
+		<a href="http://eepurl.com/KaKbv" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-subscribe"></span>Subscribe by Email</a>
+	</div>
+</footer>
+
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27779119-7', 'tmw.co.uk');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>trak.js demo area - tech.tmw.co.uk</title>
+		<meta name="description" content="tech.tmw.co.uk - where TMW talks Tech">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/kickoff.css">
+		<script type="text/javascript" src="//use.typekit.net/luc1phj.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<script>var pageName = 'demo';</script>
+
+		<script>
+			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+			window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			grunticon(["/img/icons/icons.data.svg.css", "/img/icons/icons.data.png.css", "/img/icons/icons.fallback.css"]);
+		</script>
+		<noscript><link href="/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+
+		<!-- Mobile & Fav Icons -->
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png" />
+
+		<meta name="apple-mobile-web-app-title" content="tech.tmw">
+
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png"/>
+
+		<!-- Twitter - https://dev.twitter.com/cards/overview -->
+		<meta name="twitter:site" content="@tmwTechTeam">
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="trak.js demo area" />
+		<meta name="twitter:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png" />
+		<meta name="twitter:url" content="http://tech.tmw.co.uk/code/trak/demo/" />
+
+
+		<!-- Open Graph data -->
+		<meta property="og:title" content="trak.js demo area" />
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content="http://tech.tmw.co.uk/code/trak/demo/" />
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png" />
+
+		<link rel="alternate" type="application/atom+xml" title="tech.tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+	</head>
+	<body class="clearfix">
+
+<div class="sidebar">
+	<header class="masthead">
+	<h1 class="logo"><a href="/"><span class="tmwBrand">TMW</span>tech...</a></h1>
+	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmwunlimited.com" title="TMWUnlimited&hellip;'s website" target="_blank" class="tmwBrand">TMW<span>Unlimited&hellip;</span></a> tech team</p>
+
+	<nav class="nav">
+		<a href="/" class="nav-item">Articles</a>
+		<a href="/code" class="nav-item">Code</a>
+		<a href="/team" class="nav-item">Team</a>
+		<a href="/work" class="nav-item">Work</a>
+	</nav>
+</header>
+
+
+</div>
+
+<div class="content">
+	<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">demo</h1>
+
+	
+
+
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">trak.js demo area</h1>
+
+		<a href="../trak.html">Back to documentation</a>
+
+			<p>To test this, please install the <a href="https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna">Google Analytics debugger</a> on the Chrome Web Store or open your browser's Javascript console.</p>
+	<h2>Data attributes</h2>
+	<p>This is when you define any string as the category, action or label</p>
+
+	<p>
+		<a href="#pagehref" title="1 title" data-trak='{"category":"Test category","action":"Test action","label":"Test label","eventName":"Event name test"}'>Data attr test #1</a><br>
+		<b>Trigger event used:</b> <code>click</code><br>
+		<b>Result:</b> Category: test_action, Action: test_action, Label: test_label
+	</p>
+
+	<h3>New events</h3>
+	<p>As of version 0.4.0 we have added the option to choose other trigger event types. You can define any valid event such as <code>click</code>, <code>focus</code>, <code>blur</code>, <code>mouseover</code>, <code>mouseout</code>, <code>touchstart</code> or <code>touchend</code> or anything else.</p>
+
+	<p>
+		<input type="text" data-trak='{"category":"page.title","action":"page.href","label":"this is a label","trigger":"focus"}' class="form-input" placeholder="Event triggers on focus">
+		<b>Trigger event used:</b> <code>focus</code><br>
+		<b>Result:</b> Category: page.title (wildcard), Action: page.href (wildcard), Label: test_label <br>
+	</p>
+
+	<p>
+		<input type="text" data-trak='{"category":"page.title","action":"page.href","label":"this is a label","trigger":"blur"}' class="form-input" placeholder="Event triggers on blur">
+		<b>Trigger event used:</b> <code>blur</code><br>
+		<b>Result:</b> Category: test_action, Action: test_action, Label: test_label <br>
+	</p>
+
+	<h2>Wildcard usage</h2>
+	<h3>page.title &amp; page.href</h3>
+	<p>
+		<a href="#pagehref" title="1 title" data-trak='{"category":"page.title","action":"page.href","label":"this is a label","event":"click"}'>Data attr test #2</a><br>
+		<b>Trigger event used:</b> <code>click</code><br>
+		<b>Result:</b> Category: page.title (wildcard), Action: page.href (wildcard), Label: this is a label <br>
+	</p>
+
+	<h3>link.title &amp; link.href</h3>
+	<p>
+		<a href="#linkhref" title="This is an example link title" data-trak='{"category":"link.title","action":"link.href","label":"this is a label"}'>Data attr test #3</a><br>
+		<b>Trigger event used:</b> <code>click</code><br>
+		<b>Result:</b> Category: link.title (wildcard), Action: link.href (wildcard), Label: this is a label <br>
+	</p>
+
+	<h3>referrer</h3>
+	<p>
+		<a href="#linkhref" title="This is another example link title" data-trak='{"category":"referrer","action":"link.href","label":"this is a label"}'>Data attr test #4</a><br>
+		<b>Trigger event used:</b> <code>click</code><br>
+		<b>Result:</b> Category: document.referrer (wildcard), Action: link.href, Label: this is a label <br>
+	</p>
+
+	<h2>JS implementation</h2>
+	<p>
+		<a href="#pagehref" id="js-test1" title="1 title">JS Test #1</a><br>
+		<b>Trigger event used:</b> <code>click</code><br>
+		<b>Result:</b> Category: test_category_(using_js), Action: test_action_(using_js), Label: test_label_(using_js)<br>
+	</p>
+
+	<p>
+		<a href="#pagehref" id="js-test2" title="1 title">JS Test #2</a><br>
+		<b>Trigger event used:</b> <code>mouseover</code><br>
+		<b>Result:</b> Category: page.href (wildcard), Action: page.title (wildcard), Label: test_label_(using_js)<br>
+	</p>
+
+	<p>
+		<a href="#pagehref" id="js-test3" title="This is an example link title">JS Test #3</a><br>
+		<b>Trigger event used:</b> <code>click</code><br>
+		<b>Result:</b> Category: link.href (wildcard), Action: link.title (wildcard), Label: test_label_(using_js)<br>
+	</p>
+
+	<p>
+		<a href="#pagehref" id="js-test4" title="This is another example link title">JS Test #4</a><br>
+		<b>Trigger event used:</b> <code>click</code><br>
+		<b>Result:</b> Category: document.referrer (wildcard), Action: link.title (wildcard), Label: test_label_(using_js)<br>
+	</p>
+
+	<p>
+		<a href="#pagehref" id="js-test5" title="This is one more example link title" data-trakwithjs data-trak='{"category":"Tracked with JS not attr call","action":"link.href","label":"this is a label"}'>JS Test #5</a><br>
+		<b>Trigger event used:</b> <code>click</code><br>
+		<b>Result:</b> Category: Tracked with JS not attr call, Action: link.href (wildcard), Label: test_label_(using_js)<br>
+	</p>
+
+</div>
+
+<script src="https://rawgit.com/tmwagency/trak.js/master/dist/trak.js"></script>
+
+<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-51572104-1', 'tmwagency.github.io', {
+			'cookieDomain': 'none'
+		});
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-XXXXX-X']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+</script>
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KDXCWV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KDXCWV');</script>
+<!-- End Google Tag Manager -->
+
+
+
+<script>
+	document.addEventListener('DOMContentLoaded', function(e) {
+		trak.start();
+
+		var test1 = document.querySelector('#js-test1');
+		var test2 = document.querySelector('#js-test2');
+		var test3 = document.querySelector('#js-test3');
+		var test4 = document.querySelector('#js-test4');
+		var test5 = document.querySelector('#js-test5');
+
+		test1.addEventListener('click', function() {
+			trak.event({
+				category : 'Test action (using js)',
+				action   : 'Test category (using js)',
+				label    : 'Test label (using js)'
+			});
+		}, true);
+		test2.addEventListener('mouseover', function() {
+			trak.event({
+				category : window.location.href,
+				action   : document.title,
+				label    : 'Test label (using js)'
+			});
+		}, true);
+		test3.addEventListener('click', function() {
+			trak.event({
+				category : this.href,
+				action   : this.title,
+				label    : 'Test label (using js)'
+			});
+		}, true);
+		test4.addEventListener('click', function() {
+			trak.event({
+				category : document.referrer,
+				action   : this.title,
+				label    : 'Test label (using js)',
+				eventName: 'Test eventName'
+			});
+		}, true);
+		test5.addEventListener('click', function() {
+			trak.attrEvent.call(this);
+		}, true);
+
+		/**
+		 * Change some of the default options
+		 */
+		// trak.options.clean = false;
+		trak.options.debug = true;
+		// console.log('trak options:', trak.options);
+		// trak.options.trackType = 'gtm';
+		// Add more tracking codes
+		// trak.options.additionalTypes = function() {
+		// 	// UDM.evq.push(['trackEvent', trak.clean(category), trak.clean(action)]); // trak.clean(label)
+		// 	console.log('Fire additional event');
+		// }
+	});
+</script>
+
+	</div>
+</article>
+
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="socialLinks">
+		<a href="http://github.com/tmwagency/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-github"></span>@tmwagency</a>
+		<a href="http://twitter.com/tmwTechTeam/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-twitter"></span>@tmwTechTeam</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-kickoff"></span>We also maintain Kickoff</a>
+		<a href="http://eepurl.com/KaKbv" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-subscribe"></span>Subscribe by Email</a>
+	</div>
+</footer>
+
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27779119-7', 'tmw.co.uk');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>
