@@ -53,7 +53,7 @@ Once you have these dependencies installed, follow the steps below:
 
 ### Step 1
 
-In your command line, run 
+In your command line, run
 
 ```sh
 git clone https://github.com/tmwagency/labs-blog.git tmw-labs-blog && cd tmw-labs-blog
@@ -62,8 +62,9 @@ git clone https://github.com/tmwagency/labs-blog.git tmw-labs-blog && cd tmw-lab
 - - -
 
 ### Step 2
+Run `grunt watch` in one tab and run `jekyll serve` in another
 
-Run `jekyll serve`
+Visit http://localhost:4000 to view the site
 
 - - -
 
