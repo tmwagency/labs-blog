@@ -48,12 +48,13 @@
   team: frontend
   web: http://ivanhayes.com
   active: false
-  
+
 - name: Denzil Brade
   surname: Brade
   job_title: Web Developer
   short_name: dbrade
-  short_desc: Denzil is a Web Developer at TMW. 
+  avatar: dbrade.jpg
+  short_desc: Denzil is a Web Developer at TMW.
   email: dbrade@tmwunlimited.co.uk
   team: frontend
   active: true
@@ -101,6 +102,7 @@
   short_name: rkruger
   short_desc: Technical Director
   github: rkruger
+  avatar: rkruger.jpg
   twitter: rkruger
   active: true
 
@@ -121,6 +123,7 @@
   github: MedievalCoder
   team: dotnet
   active: true
+  avatar: ikhan.jpg
 
 - name: Yemi Akinola-Kehinde
   surname: Akinola-Kehinde
@@ -156,6 +159,7 @@
   github: vijaykumar-r
   team: dotnet
   active: true
+  avatar: vrajagopalan.jpg
 
 - name: Danny Amaral
   surname: Amaral
@@ -171,6 +175,7 @@
   surname: Humphrey
   job_title: PHP developer
   short_name: chumphrey
+  avatar: chumphrey.jpg
   email: chumphrey@tmwunlimited.co.uk
   team: PHP
   active: true
@@ -179,34 +184,37 @@
   surname: Kennerley
   job_title: .NET developer
   short_name: dkennerley
-  short_desc: Dee is a .Net Developer at TMW. 
+  short_desc: Dee is a .Net Developer at TMW.
   email: dkennerly@tmwunlimited.co.uk
   team: dotnet
   active: true
+  avatar: dkennerley.jpg
 
 - name: Naveen Ameti
   surname: Ameti
   job_title: .NET developer
   short_name: nametti
-  short_desc: Naveen is a .Net Developer at TMW. 
+  short_desc: Naveen is a .Net Developer at TMW.
   email: nametti@tmwunlimited.co.uk
   team: dotnet
   active: true
-  
+  avatar: nameti.jpg
+
 - name: Ranelle Yorke
   surname: Yorke
   job_title: Senior .NET developer
   short_name: ryorke
-  short_desc: Ranelle is a Senior .Net Developer at TMW. 
+  short_desc: Ranelle is a Senior .Net Developer at TMW.
   email: ryorke@tmwunlimited.co.uk
   team: dotnet
   active: true
-  
+  avatar: ryorke.jpg
+
 - name: Bhavana Awasthi
   surname: Awasthi
   job_title: Senior .NET developer
   short_name: bawasthi
-  short_desc: Bhavana is a Senior .Net Developer at TMW. 
+  short_desc: Bhavana is a Senior .Net Developer at TMW.
   email: bawasthi@tmwunlimited.co.uk
   team: dotnet
   active: true
