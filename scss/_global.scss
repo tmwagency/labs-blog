@@ -10,7 +10,7 @@ body {
 	text-align: center;
 	color: #fff;
 	padding: 0 5%;
-	background-color: #181830;
+	background-color: $grayDark;
 	// background: #181830 url(/img/sidebar/2.jpg) 0 0 no-repeat;
 	// background: #181830 url(/img/sidebar/pete.jpg) 0 0 no-repeat;
 	background-size: cover;
@@ -84,7 +84,6 @@ body {
 	}
 
 	small {
-		font-family: $sans-font-family1;
 		font-size: 60%;
 	}
 }
@@ -98,16 +97,15 @@ body {
 	color: #fff;
 	position: relative;
 	overflow: hidden;
-	background-color: #303333;
+	background-color: $grayDark;
 }
 
 .pagination-item {
-	width: 49%;
+	width: 50%;
 	display: block;
 	float: left;
-	padding: 3em 50px;
+	padding: 20px;
 	font-family: $sans-font-family;
-	text-align: center;
 
 	&, &:link, &:visited {
 		color: $color-background;
@@ -116,12 +114,13 @@ body {
 	&:hover, &:active {
 		color: darken($color-background, 25%);
 	}
-}
-.pagination-item--older {
 
+	@include respond-min($breakpoint-mid) {
+		padding: 3% 50px;
+	}
 }
+
 .pagination-item--newer {
-	// border-left: 2px solid $color-background;
 	float: right;
 }
 
@@ -152,7 +151,7 @@ body {
 .openSource {
 	background-color: $orange ;
 	display: block;
-	padding: 3% 10px;
+	padding: 20px;
 
 	&,
 	h2,
@@ -161,19 +160,11 @@ body {
 		margin: 0;
 	}
 
-	h2 {
-		font-weight: normal;
-		font-style: italic;
-	}
-
-	p {
-	}
-
 	@include respond-min($breakpoint-single-col) {
 		padding: 3% 50px;
 	}
 
-	&:hover{
+	&:hover {
 		background-color: darken($orange, 10%);
 	}
 }

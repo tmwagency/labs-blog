@@ -26,21 +26,20 @@ $base-leading                  : 1.4;
 $base-line-height              : round($base-font-size * $base-leading);
 
 // Useful to set here when bold webfonts come as 400 font-weight.
-$bold-font-weight             : bold;
+$bold-font-weight             : 500;
 
 /*
    Font stacks
    ========================================================================== */
-$sans-font-family             : "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$sans-font-family1            : "franklin-gothic-urw", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-font-family             : "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif-font-family            : "chaparral-pro", Georgia, "Times New Roman", Times, serif;
 $mono-font-family             : "source-code-pro", Menlo, Monaco, "Courier New", monospace;
 
-$base-font-family             : $sans-font-family1;
+$base-font-family             : $sans-font-family;
 $alt-font-family              : $serif-font-family;
 
 $headings-font-family         : $sans-font-family; // empty to use Kickoff default $base-font-family
-$headings-font-weight         : bold;    // instead of browser default, bold
+$headings-font-weight         : $bold-font-weight;    // instead of browser default, bold
 
 
 /*
@@ -48,7 +47,7 @@ $headings-font-weight         : bold;    // instead of browser default, bold
    * There are no common breakpoints so these are just a suggestion
    * You'll need to define your own breakpoints to suit your design
    ========================================================================== */
-$breakpoint-narrow            : 490;  // Set in px
+$breakpoint-narrow            : 440;  // Set in px
 $breakpoint-mid               : 768;  // Set in px
 $breakpoint-wide              : 992;  // Set in px
 $breakpoint-huge              : 1600; // Set in px
