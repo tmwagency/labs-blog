@@ -238,18 +238,19 @@ html {
 }
 
 body {
-  font-family: "franklin-gothic-urw", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
   font-size: 1rem;
   line-height: 1.4;
   color: #555;
+  font-weight: 300;
 }
 
 /*
    Paragraphs
    ========================================================================== */
 p {
-  font-family: "franklin-gothic-urw", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
   font-size: 1rem;
   margin-bottom: 0;
@@ -260,8 +261,8 @@ p {
    ========================================================================== */
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-family: "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
   text-rendering: optimizelegibility;
   color: #52525F;
 }
@@ -391,7 +392,7 @@ dl {
 }
 
 dt {
-  font-weight: bold;
+  font-weight: 500;
 }
 .dl-horizontal dt {
   overflow: hidden;
@@ -421,7 +422,7 @@ hr {
 }
 
 strong, b {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 em, i {
@@ -541,12 +542,12 @@ samp {
 
 ::-moz-selection {
   color: #fff;
-  background: #3498db;
+  background: #FE7C08;
 }
 
 ::selection {
   color: #fff;
-  background: #3498db;
+  background: #FE7C08;
 }
 
 /* ==========================================================================
@@ -727,7 +728,7 @@ input[type="button"].btn--block {
   width: 20px;
   line-height: 17px;
   background: #000;
-  color: #3498db;
+  color: #FE7C08;
   text-align: center;
   -o-border-radius: 5px;
   border-radius: 5px;
@@ -841,7 +842,7 @@ input,
 button,
 select,
 textarea {
-  font-family: "franklin-gothic-urw", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 label {
@@ -1242,7 +1243,7 @@ textarea:focus:required:invalid:focus {
 
 .form-helpBlock,
 .form-helpInline {
-  color: #7f8c8d;
+  color: #555;
 }
 
 .form-helpBlock {
@@ -2169,7 +2170,7 @@ body {
   text-align: center;
   color: #fff;
   padding: 0 5%;
-  background-color: #181830;
+  background-color: #303333;
   background-size: cover;
   z-index: 100;
   position: fixed;
@@ -2203,7 +2204,6 @@ body {
   margin-right: 3px;
 }
 .sectionTitle small {
-  font-family: "franklin-gothic-urw", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 60%;
 }
 
@@ -2220,12 +2220,12 @@ body {
 }
 
 .pagination-item {
-  width: 49%;
+  width: 50%;
   display: block;
   float: left;
-  padding: 3em 50px;
-  font-family: "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-align: center;
+  padding: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 3% 50px;
 }
 .pagination-item, .pagination-item:link, .pagination-item:visited {
   color: #f1f1f1;
@@ -2255,7 +2255,7 @@ body {
 .openSource {
   background-color: #FE7C08;
   display: block;
-  padding: 3% 10px;
+  padding: 20px;
   padding: 3% 50px;
 }
 .openSource,
@@ -2263,10 +2263,6 @@ body {
 .openSource p {
   color: #fff;
   margin: 0;
-}
-.openSource h2 {
-  font-weight: normal;
-  font-style: italic;
 }
 .openSource:hover {
   background-color: #d26401;
@@ -2276,13 +2272,13 @@ body {
   margin-bottom: 0.2em;
   font-size: 40px;
   font-size: 1.81818182rem;
-  font-weight: normal;
   font-size: 60px;
   font-size: 2.72727273rem;
 }
-.logo .dot {
-  color: #fff;
-  letter-spacing: -3px;
+.logo,
+.logo a:link,
+.logo a:visited {
+  color: #fff !important;
 }
 
 .logo-tagline {
@@ -2298,19 +2294,20 @@ body {
   padding: 0.5em 0;
   margin-bottom: 31px;
   text-transform: lowercase;
-  font-family: "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .nav-item {
   display: inline-block;
   margin-right: 15px;
+  color: #ddd;
 }
 .nav-item.is-active {
   color: #fff;
 }
 
 .footer {
-  font-family: "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 22px 7%;
   text-align: center;
   position: fixed;
@@ -2355,7 +2352,6 @@ body {
 .entry-title {
   line-height: 1.1;
   margin-top: 0;
-  font-weight: normal;
 }
 .entry-title.entry-title--entries {
   margin-bottom: 15.5px;
@@ -2369,7 +2365,7 @@ body {
   font-size: 15px;
   font-size: 0.68181818rem;
   color: #999;
-  font-family: "purista-web", "raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .entry-meta--listing {
@@ -2650,7 +2646,7 @@ body {
   width: device-width;
 }
 * {
-  -webkit-tap-highlight-color: #3498db !important;
+  -webkit-tap-highlight-color: #FE7C08 !important;
 }
 
 /* A hack for HTML5 contenteditable attribute on mobile */
