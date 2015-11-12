@@ -2283,11 +2283,13 @@ body {
   .footer {
     position: fixed;
     bottom: 5%;
-    left: 5%;
+    left: 0;
     width: 40%;
     z-index: 100;
     text-align: left;
     margin: 0;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 }
 
@@ -2669,5 +2671,4 @@ h1.typeSpecimen:after {
 p.typeSpecimen:after {
   content: "Font stack: Helvetica Neue, Helvetica, Arial, sans-serif";
 }
-
 /*# sourceMappingURL=styleguide.css.map */
