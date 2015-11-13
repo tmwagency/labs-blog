@@ -24,6 +24,9 @@ collections:
   code:
     output: true
     permalink: code/:path/
+  careers:
+    output: true
+    permalink: join-us/:path/
   work:
     output: true
 

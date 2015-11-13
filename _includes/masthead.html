@@ -7,6 +7,9 @@
 		<a href="/code" class="nav-item{% if page.pageid == "code" %} is-active{% endif %}">Code</a>
 		<a href="/team" class="nav-item{% if page.pageid == "team" %} is-active{% endif %}">Team</a>
 		<a href="/work" class="nav-item{% if page.pageid == "work" %} is-active{% endif %}">Work</a>
+		{% if site.careers.size > 0  %}
+			<a href="/join-us" class="nav-item{% if page.pageid == "join-us" %} is-active{% endif %}">Join us</a>
+		{% endif %}
 	</nav>
 </header>
 
