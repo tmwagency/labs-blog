@@ -1,6 +1,6 @@
 - name: Zander Martineau
   surname: Martineau
-  job_title: Senior Creative Technologist
+  job_title: Creative Technology Lead
   short_name: zander
   short_desc: Zander is a Creative Technologist at TMW. Maintainer of Kickoff and sometimes confused with Harry Potter.
   avatar: zmartineau.jpg
@@ -26,7 +26,7 @@
 
 - name: Ciaran Park
   surname: Park
-  job_title: Creative Technologist
+  job_title: Creative Technology Lead
   short_name: cpark
   short_desc: Ciaran is a Creative Technologist at TMW.
   avatar: cpark.png
@@ -218,6 +218,7 @@
   email: bawasthi@tmwunlimited.co.uk
   team: dotnet
   active: true
+  avatar: bhavana.jpg
 
   # - name: This person
   # surname: person
