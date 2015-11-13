@@ -2357,6 +2357,14 @@ body {
   display: inline-block;
   margin-right: 15px;
   color: #ddd;
+  font-size: 16px;
+  font-size: 0.72727273rem;
+}
+@media screen and (min-width: 27.5em) {
+  .nav-item {
+    font-size: 22px;
+    font-size: 1rem;
+  }
 }
 .nav-item.is-active {
   color: #fff;
@@ -2380,6 +2388,11 @@ body {
     padding-right: 5%;
   }
 }
+@media screen and (min-width: 100em) {
+  .footer {
+    width: 30%;
+  }
+}
 
 .socialLinks-item {
   line-height: 23px;
@@ -2387,7 +2400,7 @@ body {
   font-size: 14px;
   font-size: 0.63636364rem;
   display: inline-block;
-  font-style: italic;
+  font-weight: 500;
 }
 .socialLinks-item span {
   margin-right: 10px;

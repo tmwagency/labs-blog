@@ -2301,6 +2301,10 @@ body {
   display: inline-block;
   margin-right: 15px;
   color: #ddd;
+  font-size: 16px;
+  font-size: 0.72727273rem;
+  font-size: 22px;
+  font-size: 1rem;
 }
 .nav-item.is-active {
   color: #fff;
@@ -2327,7 +2331,7 @@ body {
   font-size: 14px;
   font-size: 0.63636364rem;
   display: inline-block;
-  font-style: italic;
+  font-weight: 500;
   display: block;
   height: 21px;
   margin: 0 0 10px;
