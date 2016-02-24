@@ -86,6 +86,7 @@ If any property is left `undefined`, the browser's default value will be used in
 
 
 ## Getting the Library
+
 ### Direct downloads
 - [Minified](https://raw.githubusercontent.com/tmwagency/trak.js/master/dist/trak.min.js) (~481 B gzipped)
 - [Unminified](https://raw.githubusercontent.com/tmwagency/trak.js/master/dist/trak.js) (~1.7 KB gzipped)

@@ -37,7 +37,7 @@ Some people have mentioned issues when attempting to open sockets up with <code>
 
 The slightly more complicated part comes with the Arduino code, which is C++ with some additional built-in methods:
 
-```c++
+```c
 #include <string.h>
 
 int pin = 13;
@@ -57,7 +57,7 @@ void loop()
 		char c = Serial.read();
 
 		// ignore the newline - not necessary if you set no line ending in the serial monitor or you communicate directly via sockets
-		//if(c != 13)
+		// if(c != 13)
 		{
 			buffer = buffer + c;
 
@@ -78,6 +78,7 @@ void loop()
 	}
 }
 ```
+
 The example here just checks if there is any data sitting in the serial buffer (set up when the Arduino is connected to the computer via USB) and if so, reads it, one byte for each iteration of the <code>loop()</code> function.
 
 An output line is used if you're testing this with the serial monitor that is part of the Arduino IDE. You may note the commented out if condition above it which just ignores new lines. When I was testing this I just set the serial monitor to not append newline characters to the input, but you can uncomment this line if you prefer to keep the default settings when testing.

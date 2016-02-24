@@ -31,30 +31,21 @@ You will need to [download a small library called ‘atomic’](https://raw.gith
 
 Now we need to setup the project files and folders – create the following structure:
 
-<pre>
-
+```
 breeze
 │
 ├──• Gruntfile.js
 ├──• index.html
 ├──• package.json
-│
 └───src
-     │
      ├───js
      │    ├───app
-     │    │    │
      │    │    └──• app.js
-     │    │
      │    └───libs
-     │         │
      │         └──• atomic.js
      └───scss
-          │
           └──• app.scss
-
-
-</pre>
+```
 
 The _breeze_ directory will serve as the document root of our application.
 
@@ -268,40 +259,26 @@ A word of warning here – the files are concatenated in the same order that the
 
 With all that working as expected, the project directory structure should now look like this:
 
-<pre>
-
+```
 breeze
 │
 ├──• Gruntfile.js
 ├──• index.html
 ├──• package.json
-│
 ├───src
-│    │
 │    ├───js
-│    │    │
 │    │    ├───app
-│    │    │    │
 │    │    │    └──• app.js
-│    │    │
 │    │    └───libs
-│    │         │
 │    │         └──• atomic.js
 │    └───scss
-│         │
 │         └──• app.scss
-│
 └───dist
-     │
      ├───css
-     │    │
      │    └──• app.min.css
      └───js
-          │
           └──• app.min.js
-
-
-</pre>
+```
 
 ### Connect
 Now that we’ve setup a build for our SCSS and JavaScript, we are going to create a _connect_ ([grunt-contrib-connect](https://github.com/gruntjs/grunt-contrib-connect)) config that allows us to quickly start a basic server in order to run our application, which will be launched in the default browser. This is way quicker than configuring Apache, for example. And like Apache, the _connect_ server runs our application using the _http://_ protocol – which allows us to use AJAX – rather than the _file://_ protocol which does not.

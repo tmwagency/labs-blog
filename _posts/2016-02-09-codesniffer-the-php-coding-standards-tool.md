@@ -10,11 +10,11 @@ excerpt: Using the CodeSniffer tool to test the PHP code at TMW
 
 A couple of years ago I implemented a [coding standards guide for PHP development at TMW](https://github.com/tmwagency/TMW-PHP-coding-standards), as I'd noticed that they only had a document that was focused on .Net and Windows. The guide outlined mostly common sense practices, such as avoiding certain unsafe language functions, and how to best indent and document your code. Just over a year ago I made this document public on the [TMW GitHub account](https://github.com/tmwagency), and have been updating it in small ways since that time.
 
-##Going Further
+## Going Further
 
 A document out on its own though, is not something that can easily be checked against, especially as it was now becoming quite lengthy. In order to be really useful, especially for freelancers who would need to follow the guide, I needed a way that code could be easily checked against the guidelines. Enter [CodeSniffer from Squiz Labs](https://github.com/squizlabs/PHP_CodeSniffer), a tool built in PHP to tokenise your code and validate it against a list of rules you want to test it against.
 
-##Getting Started
+## Getting Started
 
 Installing CodeSniffer is easy using PEAR:
 
@@ -32,7 +32,7 @@ phpcs --standard=PSR2 /directory/of/code/to/check/
 
 This will then produce a standard report on the console with any errors found. This might be fine if you adhere to one of these standards completely, but as with any process like this, it won't be perfect for all situations. This is where you can be more specific about which rules you acually want to apply (and you can even write your own, but that's a bit more in-depth, and probably deserves its own post)
 
-##Making a List
+## Making a List
 
 The first thing I did was go over each and every rule that came with CodeSniffer and pick out the ones that made sense with the TMW Coding Standards document. CodeSniffer allows you to create a rule list very easily with a ruleset.xml file, where you can either specify a single rule, a whole group, or a group with a few excluded.
 
@@ -62,14 +62,14 @@ Then, within your root node, you place your rules. So for example, this snippet 
 ```
 I recommend you go through the list of rules and see what makes sense for you. Some won't work together, such as the indentation rules, one enforces tab indents, another enforces spaces. Play around until you find a good match for your own standard.
 
-##Customising Your Rules
+## Customising Your Rules
 
 You might find that some of the rules go 90% of the way, but that other 10% just doesn't work for you. In this instance, you can copy out the rule into a directory called Sniffs (in the same location as your ruleset.xml file) and customise the rule. One rule I did this with was the PEAR.Functions.FunctionCallSignature rule, as I didn't like the way it enforced space indentation and a required space before the closing bracket of a function call, and I just commented out the code in the rule responsible for throwing those errors.
 
 This makes some of the existing rules a lot more useful, as some of them, I think, try to do a bit too much and ought really to be broken down into smaller sub-rules.
 
 
-##Running Your Custom Rule List
+## Running Your Custom Rule List
 
 Now that you have you list of rules, you actually want to run your code against them. The fastest way is just to point to your XML file:
 
@@ -89,7 +89,7 @@ Now you can just check your code with a command like:
 phpcs /directory/of/code/to/check/
 ```
 
-##Choosing What to Check
+## Choosing What to Check
 
 So far, all the examples I've shown are just checking a directory (and all sub-directories within) for PHP files to scan and report on. That may be fine for very simple things, but what if you're building something on an existing framework or CMS. You don't want to check all the code files of WordPress or Laravel, for example, and neither do you want to check all the 3rd party libraries that you're using. You can instruct CodeSniffer to ignore specific files with the --ignore argument:
 
@@ -105,7 +105,7 @@ phpcs –ignore=laravel/app/{config,database,lang,start,storage,tests} laravel/a
 
 This can be very useful for only testing your own code, and only getting a report with your own errors, and not those that Joe Bloggs made on that library you just downloaded.
 
-##Getting More From Your Reports
+## Getting More From Your Reports
 
 The standard report is all well and good, but there are other useful types of reports that CodeSniffer can produce for you. One is a source report, which will tally up all the specific types of issues found in your code, how many times each one was found, and gives the name and group of the exact rule that was broken. This can be especially useful when you're testing out a new rule group (or groups) and you want to know which error comes from which rule.
 
@@ -128,6 +128,6 @@ A final report type that I've found useful is the git blame report (there's an s
 |svnblame/gitblame|This report shows who was responsible for each error. For code that has not been committed, the report will show no name|
 |notifysend|This doesn't output a report, but triggers a message in the standard OS notification system. Useful when you're performing multiple reports from the same command and want to know when it's completed|
 
-##Conclusion
+## Conclusion
 
 Hopefully you'll have found some of this useful if you're just getting started with CodeSniffer. It's a powerful tool, and can do far more than what I've touched upon in this article, such as checking JavaScript code, and being able to run completely bespoke code to check for things that aren't covered in the standard rules. I encourage you to play around with this, and find a setup that works for you, whether it be as part of a continuous integration chain, or as a pre-commit hook check. I'll leave it to you to decide how best to use it.
