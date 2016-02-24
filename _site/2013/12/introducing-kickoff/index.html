@@ -79,25 +79,23 @@
 		<h1 class="entry-title entry-title--single">Introducing Kickoff</h1>
 		<p>Within a large team, making sure that everyone is on the same page can be difficult; at TMW we have a team of about 20 web developers (6 are front-enders and creative technologists) and this was an issue that we needed to tackle. We create many different types of sites, from single page apps to large-scale builds like <a href="http://uk.thebar.com">uk.thebar.com</a> or <a href="http://www.bbcgoodfood.com">BBC Goodfood</a> and needed a framework that would work for all of them, so <a href="http://twitter.com/AshNolan_">Ash Nolan</a> and I created <a href="http://tmwagency.github.io/kickoff/">Kickoff</a>.</p>
 
-<p><strong>Kickoff is a lightweight front-end framework for creating scalable, responsive sites</strong>; that might sound a bit vague but it is the essence of the framework. Due to the nature of agency work, the projects are hugely varied, but as developers, we always try to cut corners to normalise things as much as possible – basically because we&#39;re lazy and we don&#39;t want to have to repeat things very often! Kickoff aims to mitigate common problems found in web development by providing a strong starting point and a set of helpful defaults for use on almost any project.</p>
+<p><strong>Kickoff is a lightweight front-end framework for creating scalable, responsive sites</strong>; that might sound a bit vague but it is the essence of the framework. Due to the nature of agency work, the projects are hugely varied, but as developers, we always try to cut corners to normalise things as much as possible – basically because we’re lazy and we don’t want to have to repeat things very often! Kickoff aims to mitigate common problems found in web development by providing a strong starting point and a set of helpful defaults for use on almost any project.</p>
 
-<p>The key difference of Kickoff when compared with other similar frameworks – I&#39;m looking at you <a href="http://getbootstrap.com/">Bootstrap</a> and <a href="foundation.zurb.com">Foundation</a> – is that it is not nearly as prescriptive. While those frameworks define almost every aspect of a website with CSS styles and JavaScript plugins that do everything, Kickoff has most of that but does not enable it by default. For example, we have a simple grid system, but if you need something more complex or, heaven forbid, not use one, that is not a problem; just don&#39;t include it.</p>
+<p>The key difference of Kickoff when compared with other similar frameworks – I’m looking at you <a href="http://getbootstrap.com/">Bootstrap</a> and <a href="foundation.zurb.com">Foundation</a> – is that it is not nearly as prescriptive. While those frameworks define almost every aspect of a website with CSS styles and JavaScript plugins that do everything, Kickoff has most of that but does not enable it by default. For example, we have a simple grid system, but if you need something more complex or, heaven forbid, not use one, that is not a problem; just don’t include it.</p>
 
-<h3>The tech</h3>
+<h3 id="the-tech">The tech</h3>
+<p><a href="http://gruntjs.com">Grunt</a> is used extensively in Kickoff. It is the beating heart of the framework, we use it to compile our <a href="http://sass-lang.com">Sass</a>, concatinate and then minify our JavaScript files, or to fire up a simple local server with LiveReload for some testing. Using Grunt has other benefits besides this; it allows any dev to pick up a project, regardless of if they’ve worked on it before, and get up and running in no time at all. We are working on getting Grunt set-up on our Teamcity continuous integration build server but it is not ready yet - this will be a massive step forward once that’s done.</p>
 
-<p><a href="http://gruntjs.com">Grunt</a> is used extensively in Kickoff. It is the beating heart of the framework, we use it to compile our <a href="http://sass-lang.com">Sass</a>, concatinate and then minify our JavaScript files, or to fire up a simple local server with LiveReload for some testing. Using Grunt has other benefits besides this; it allows any dev to pick up a project, regardless of if they&#39;ve worked on it before, and get up and running in no time at all. We are working on getting Grunt set-up on our Teamcity continuous integration build server but it is not ready yet - this will be a massive step forward once that&#39;s done.</p>
-
-<h3>How do you get your hands on it?</h3>
-
+<h3 id="how-do-you-get-your-hands-on-it">How do you get your hands on it?</h3>
 <p>We have built a brochure site at <a href="http://tmwagency.github.io/kickoff/">tmwagency.github.io/kickoff/</a> where you can find documentation and demos on various parts of the framework. If you want to grab the code, visit our Github <a href="https://github.com/tmwagency/kickoff/">project page</a>. It is being actively maintained and we welcome suggestions and support for improvements. If you use <a href="http://yeoman.io">Yeoman</a>, there is a <a href="http://tmwagency.github.io/kickoff/docs/yeoman.html">Kickoff generator</a> that I created to help speed up the project creation process even more.</p>
 
 <p>Here are a few sites using Kickoff:</p>
 
 <ul>
-<li>The <a href="http://www.bbcgoodfood.com">BBC Goodfood</a> cookery site</li>
-<li>The Western Europe version of <a href="http://uk.thebar.com">uk.thebar.com</a> cocktail site</li>
-<li><a href="http://strepsils.co.uk/xfactor">Strepsils Xfactor</a> competition site</li>
-<li><a href="http://labs.tmw.co.uk">labs.tmw.co.uk</a> - Woop Woop!</li>
+  <li>The <a href="http://www.bbcgoodfood.com">BBC Goodfood</a> cookery site</li>
+  <li>The Western Europe version of <a href="http://uk.thebar.com">uk.thebar.com</a> cocktail site</li>
+  <li><a href="http://strepsils.co.uk/xfactor">Strepsils Xfactor</a> competition site</li>
+  <li><a href="http://labs.tmw.co.uk">labs.tmw.co.uk</a> - Woop Woop!</li>
 </ul>
 
 <p>We are very proud of Kickoff, it has helped our team become more efficient, improving workflow throughout the department. Just give it a try on your projects and let us know how you get on.</p>
@@ -133,7 +131,9 @@
 	
 
 	<!-- 
-	  <a href="/2015/11/ux-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
+	  <a href="/2016/02/codesniffer-the-php-coding-standards-tool/">CodeSniffer – The PHP Coding Standards Tool</a><br />
+	
+	  <a href="/2015/11/UX-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
 	
 	  <a href="/2015/01/accessible-cross-reference-tables/">Accessible Cross Reference Tables</a><br />
 	
@@ -145,13 +145,11 @@
 	
 	  <a href="/2014/10/creating-a-web-app-with-grunt-part-1/">Creating a Web-app with Grunt - Part 1</a><br />
 	
-	  <a href="/2014/10/interning-in-the-tech-department/">Interning in the Tech department</a><br />
+	  <a href="/2014/10/Interning-in-the-Tech-Department/">Interning in the Tech department</a><br />
 	
 	  <a href="/2014/10/kickoff-version-4/">Kickoff Version 4 released</a><br />
 	
 	  <a href="/2014/10/outsourcing/">Should you outsource development?</a><br />
-	
-	  <a href="/2014/08/the-road-to-kickoff-version-4/">The road to Kickoff version 4</a><br />
 	 -->
 </article>
 

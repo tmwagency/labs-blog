@@ -97,62 +97,59 @@
 
 		<p>Allows you to specify different images for different breakpoints (and resolutions).</p>
 
-<p>Can also be used to simply lazy load images on your page that don&#39;t need to be loaded until the rest of your content has been.</p>
+<p>Can also be used to simply lazy load images on your page that don’t need to be loaded until the rest of your content has been.</p>
 
-<h2>Usage</h2>
+<h2 id="usage">Usage</h2>
 
 <p>Add the <a href="https://github.com/tmwagency/adaptive-image/blob/master/js/adaptive-image.js">adaptive-image.js</a> to your project.</p>
 
-<p>Specify your adaptive images using HTML as shown below, and then call <code>AdaptiveImage.init(window, false);</code> to initialise your adaptive images.</p>
+<p>Specify your adaptive images using HTML as shown below, and then call <code class="highlighter-rouge">AdaptiveImage.init(window, false);</code> to initialise your adaptive images.</p>
 
 <p>Also see the <a href="https://github.com/tmwagency/adaptive-image/blob/master/index.html">index.html in the root of the repo</a> for more info.</p>
 
-<h3>Specifying your adaptive images</h3>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;div class=&quot;adaptive-image&quot; data-adaptive=&quot;&quot; data-adaptive-image-breakpoints=&quot;320 480 800&quot; data-alt=&quot;Adaptive Test Image&quot; data-img-320=&quot;img/less320.jpg&quot; data-img-480=&quot;img/less480.jpg&quot; data-img-800=&quot;img/less800.jpg&quot; data-img-max=&quot;img/max.jpg&quot;&gt;
-    &lt;noscript&gt;
-        &lt;img src=&quot;img/max.jpg&quot; width=&quot;800&quot; height=&quot;800&quot; alt=&quot;Adaptive Test Image&quot; title=&quot;Adaptive Test Image&quot; /&gt;
-    &lt;/noscript&gt;
+<h3 id="specifying-your-adaptive-images">Specifying your adaptive images</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div class="adaptive-image" data-adaptive="" data-adaptive-image-breakpoints="320 480 800" data-alt="Adaptive Test Image" data-img-320="img/less320.jpg" data-img-480="img/less480.jpg" data-img-800="img/less800.jpg" data-img-max="img/max.jpg"&gt;
+	&lt;noscript&gt;
+		&lt;img src="img/max.jpg" width="800" height="800" alt="Adaptive Test Image" title="Adaptive Test Image" /&gt;
+	&lt;/noscript&gt;
 &lt;/div&gt;
-</code></pre></div>
-<p>All adaptive images must be specified using <code>div</code> tags, and a fallback image should be specified in <code>&lt;noscript&gt;</code> tags for when users have JS disabled.</p>
+</code></pre>
+</div>
 
-<h2>Attributes</h2>
+<p>All adaptive images must be specified using <code class="highlighter-rouge">div</code> tags, and a fallback image should be specified in <code class="highlighter-rouge">&lt;noscript&gt;</code> tags for when users have JS disabled.</p>
 
-<h4><code>data-adaptive</code></h4>
+<h2 id="attributes">Attributes</h2>
 
-<p>Should be set to specify that the container is an adaptive image element.</p>
+<p>####<code class="highlighter-rouge">data-adaptive</code>
+Should be set to specify that the container is an adaptive image element.</p>
 
-<h4><code>data-adaptive-image-breakpoints</code></h4>
+<p>####<code class="highlighter-rouge">data-adaptive-image-breakpoints</code>
+Set with the breakpoint width values you wish to specify images for, in pixels.</p>
 
-<p>Set with the breakpoint width values you wish to specify images for, in pixels.</p>
+<p>####<code class="highlighter-rouge">data-img-x</code>
+Attributes specifying the image to be displayed when the width is below the pixel amount specified.  So <code class="highlighter-rouge">data-img-320</code> specifies an image to be displayed when the calculated width is less than 320 pixels.</p>
 
-<h4><code>data-img-x</code></h4>
+<p>####<code class="highlighter-rouge">data-img-max</code>
+The image to be displayed when above the maximum breakpoint value given in <code class="highlighter-rouge">data-adaptive-image-breakpoints</code>.  So in the above HTML, when the browser is above 800px wide it will display the image specified in <code class="highlighter-rouge">data-img-max</code>.</p>
 
-<p>Attributes specifying the image to be displayed when the width is below the pixel amount specified.  So <code>data-img-320</code> specifies an image to be displayed when the calculated width is less than 320 pixels.</p>
+<p>####<code class="highlighter-rouge">data-alt</code>
+The alt text for your image. This text is the same across all images</p>
 
-<h4><code>data-img-max</code></h4>
+<p>####<code class="highlighter-rouge">data-adaptive-defer</code>
+Stops the image from being loaded when the <code class="highlighter-rouge">AdaptiveImage.init(…)</code> function is called.  Images can then be subsequently loaded by calling <code class="highlighter-rouge">AdaptiveImage.loadImage(image)</code> where image is the dom element of the image being loaded.</p>
 
-<p>The image to be displayed when above the maximum breakpoint value given in <code>data-adaptive-image-breakpoints</code>.  So in the above HTML, when the browser is above 800px wide it will display the image specified in <code>data-img-max</code>.</p>
+<h2 id="functions">Functions</h2>
 
-<h4><code>data-alt</code></h4>
-
-<p>The alt text for your image. This text is the same across all images</p>
-
-<h4><code>data-adaptive-defer</code></h4>
-
-<p>Stops the image from being loaded when the <code>AdaptiveImage.init(…)</code> function is called.  Images can then be subsequently loaded by calling <code>AdaptiveImage.loadImage(image)</code> where image is the dom element of the image being loaded.</p>
-
-<h2>Functions</h2>
-
-<h4>.init(<em>window</em>, <em>checkForPixelDensity</em>)</h4>
+<p>####.init(<em>window</em>, <em>checkForPixelDensity</em>)</p>
 
 <p>Initialise adaptive images on your page.</p>
 
-<p>The function is passed 2 values – the first should be your document <code>window</code> object.  The second is whether you would like AdaptiveImage to check for the device pixel density.</p>
+<p>The function is passed 2 values – the first should be your document <code class="highlighter-rouge">window</code> object.  The second is whether you would like AdaptiveImage to check for the device pixel density.</p>
 
-<h4>.loadImage(<em>element</em>)</h4>
+<p>####.loadImage(<em>element</em>)</p>
 
-<p>Loads an image dependent on the screen size.  Passed the DOM reference of the image to be loaded as <code>element</code>.</p>
+<p>Loads an image dependent on the screen size.  Passed the DOM reference of the image to be loaded as <code class="highlighter-rouge">element</code>.</p>
 
 	</div>
 
@@ -177,7 +174,27 @@
 
 	
 
-	<!--  -->
+	<!-- 
+	  <a href="/2015/11/UX-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
+	
+	  <a href="/2015/01/accessible-cross-reference-tables/">Accessible Cross Reference Tables</a><br />
+	
+	  <a href="/2015/01/communicating-between-php-and-an-arduino-with-sockets/">Communicating Between PHP and an Arduino with Sockets</a><br />
+	
+	  <a href="/2015/01/creating-a-web-app-with-grunt-part-2/">Creating a Web-app with Grunt - Part 2</a><br />
+	
+	  <a href="/2014/11/trakjs-universal-analytics-api/">Improve website event tracking with trak.js</a><br />
+	
+	  <a href="/2014/10/creating-a-web-app-with-grunt-part-1/">Creating a Web-app with Grunt - Part 1</a><br />
+	
+	  <a href="/2014/10/Interning-in-the-Tech-Department/">Interning in the Tech department</a><br />
+	
+	  <a href="/2014/10/kickoff-version-4/">Kickoff Version 4 released</a><br />
+	
+	  <a href="/2014/10/outsourcing/">Should you outsource development?</a><br />
+	
+	  <a href="/2014/08/the-road-to-kickoff-version-4/">The road to Kickoff version 4</a><br />
+	 -->
 </article>
 
 <!-- Pagination links -->

@@ -8,7 +8,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/kickoff.css">
-		<script>var pageName = 'articles';</script>
+		<script>var pageName = '';</script>
 
 		<script>
 			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
@@ -56,7 +56,7 @@
 	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmwunlimited.com" title="TMWUnlimited&hellip;'s website" target="_blank" class="tmwBrand">TMW<span>Unlimited&hellip;</span></a> tech team</p>
 
 	<nav class="nav">
-		<a href="/" class="nav-item is-active">Articles</a>
+		<a href="/" class="nav-item">Articles</a>
 		<a href="/code" class="nav-item">Code</a>
 		<a href="/team" class="nav-item">Team</a>
 		<a href="/work" class="nav-item">Work</a>
@@ -81,84 +81,85 @@
 
 <p>From there on, you have two possible options:</p>
 
-<hr>
+<hr />
 
-<h2>1. Editing using prose.io</h2>
+<h2 id="editing-using-proseio">1. Editing using prose.io</h2>
 
 <p>If you don’t want to have to build the entire site yourself to see what you article will look like in situ, then there is a simple alternative.</p>
 
 <p><a href="http://prose.io/">prose.io</a> let’s you add and edit markdown files in the browser, so you can write your article, commit it into the repo and then we can move it into the published folder once reviewed.</p>
 
-<hr>
+<hr />
 
-<h2>2. Building the site locally</h2>
+<h2 id="building-the-site-locally">2. Building the site locally</h2>
 
 <p>If you want to view your article on the site itself, you’ll need to setup the environment locally.</p>
 
-<h3>Before you start</h3>
+<h3 id="before-you-start">Before you start</h3>
 
 <p>To build the site, make sure you have installed the latest versions of the following</p>
 
 <ul>
-<li><strong>Ruby</strong> – v2 is needed.</li>
-<li><strong>Node</strong> – Install with Homebrew or follow instructions at <a href="http://nodejs.org/">nodejs.org</a></li>
-<li><strong>Jekyll</strong> – install globally by running <code>gem install jekyll</code> from the command line
-
-<ul>
-<li><strong>redcarpet</strong> – for better Markdown parsing. run <code>gem install redcarpet</code></li>
-<li><strong>rouge</strong> – for code highlighting. run <code>gem install rouge</code></li>
-<li><strong>Sass</strong> – run <code>gem install sass</code></li>
-</ul></li>
-<li><strong>Grunt CLI</strong> – run <code>npm install -g grunt-cli</code></li>
+  <li><strong>Ruby</strong> – v2 is needed.</li>
+  <li><strong>Node</strong> – Install with Homebrew or follow instructions at <a href="http://nodejs.org/">nodejs.org</a></li>
+  <li><strong>Jekyll</strong> – install globally by running <code class="highlighter-rouge">gem install jekyll</code> from the command line</li>
+  <li><strong>redcarpet</strong> – for better Markdown parsing. run <code class="highlighter-rouge">gem install redcarpet</code></li>
+  <li><strong>rouge</strong> – for code highlighting. run <code class="highlighter-rouge">gem install rouge</code></li>
+  <li><strong>Sass</strong> – run <code class="highlighter-rouge">gem install sass</code></li>
+  <li><strong>Grunt CLI</strong> – run <code class="highlighter-rouge">npm install -g grunt-cli</code></li>
 </ul>
 
-<h3>Install all at once after Node and Ruby are installed:</h3>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">gem install jekyll
+<h3 id="install-all-at-once-after-node-and-ruby-are-installed">Install all at once after Node and Ruby are installed:</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>gem install jekyll
 gem install redcarpet
 gem install rouge
 gem install sass
 npm install -g grunt-cli
-</code></pre></div>
-<hr>
+</code></pre>
+</div>
+<hr />
 
 <p>Once you have these dependencies installed, follow the steps below:</p>
 
-<hr>
+<hr />
 
-<h3>Step 1</h3>
+<h3 id="step-1">Step 1</h3>
 
 <p>In your command line, run</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">git clone https://github.com/tmwagency/labs-blog.git tmw-labs-blog <span class="o">&amp;&amp;</span> <span class="nb">cd </span>tmw-labs-blog
-</code></pre></div>
-<hr>
 
-<h3>Step 2</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/tmwagency/labs-blog.git tmw-labs-blog <span class="o">&amp;&amp;</span> <span class="nb">cd </span>tmw-labs-blog
+</code></pre>
+</div>
 
-<p>Run <code>grunt watch</code> in one tab and run <code>jekyll serve</code> in another</p>
+<hr />
 
-<p>Visit <a href="http://localhost:4000">http://localhost:4000</a> to view the site</p>
+<h3 id="step-2">Step 2</h3>
+<p>Run <code class="highlighter-rouge">grunt watch</code> in one tab and run <code class="highlighter-rouge">jekyll serve</code> in another</p>
 
-<hr>
+<p>Visit http://localhost:4000 to view the site</p>
 
-<h3>Step 3</h3>
+<hr />
 
-<p>Create (or copy an existing post) a markdown file in the <code>_drafts</code> folder of the site.  The file should be in the format YYYY-MM-DD-post-title-goes-here.md where dashes in the post title get converted into spaces.</p>
+<h3 id="step-3">Step 3</h3>
+
+<p>Create (or copy an existing post) a markdown file in the <code class="highlighter-rouge">_drafts</code> folder of the site.  The file should be in the format YYYY-MM-DD-post-title-goes-here.md where dashes in the post title get converted into spaces.</p>
 
 <p>Then you can start writing your article using <a href="http://daringfireball.net/projects/markdown/basics">markdown</a>.</p>
 
-<hr>
+<hr />
 
-<h3>Step 4</h3>
+<h3 id="step-4">Step 4</h3>
 
-<p>When you are ready to preview your post on the site, open the javascript file <code>Gruntfile.js</code> – which is located in the root of the repo – and search for <code>drafts : false</code>.</p>
+<p>When you are ready to preview your post on the site, open the javascript file <code class="highlighter-rouge">Gruntfile.js</code> – which is located in the root of the repo – and search for <code class="highlighter-rouge">drafts : false</code>.</p>
 
 <p>Changing this to true will automatically rebuild the site <strong>including draft posts</strong>, and so enable you to view your post as it will look on the site when it’s published.</p>
 
-<hr>
+<hr />
 
-<h2>And we’re done!</h2>
+<h2 id="and-were-done">And we’re done!</h2>
 
 <p>That’s it – once you are happy with your article, make sure you let either me or Zander know and we will push it live.</p>
+
 
 	</div>
 
@@ -178,6 +179,8 @@ npm install -g grunt-cli
 	
 
 	<!-- 
+	  <a href="/2015/11/UX-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
+	
 	  <a href="/2015/01/accessible-cross-reference-tables/">Accessible Cross Reference Tables</a><br />
 	
 	  <a href="/2015/01/communicating-between-php-and-an-arduino-with-sockets/">Communicating Between PHP and an Arduino with Sockets</a><br />
@@ -188,15 +191,13 @@ npm install -g grunt-cli
 	
 	  <a href="/2014/10/creating-a-web-app-with-grunt-part-1/">Creating a Web-app with Grunt - Part 1</a><br />
 	
-	  <a href="/2014/10/interning-in-the-tech-department/">Interning in the Tech department</a><br />
+	  <a href="/2014/10/Interning-in-the-Tech-Department/">Interning in the Tech department</a><br />
 	
 	  <a href="/2014/10/kickoff-version-4/">Kickoff Version 4 released</a><br />
 	
 	  <a href="/2014/10/outsourcing/">Should you outsource development?</a><br />
 	
 	  <a href="/2014/08/the-road-to-kickoff-version-4/">The road to Kickoff version 4</a><br />
-	
-	  <a href="/2014/03/yeoman-generator-development-tips/">Yeoman Generator Development Tips</a><br />
 	 -->
 </article>
 

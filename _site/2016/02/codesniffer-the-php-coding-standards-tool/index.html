@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>CodeSniffer – The PHP Coding Standards Tool - tech.tmw.co.uk</title>
+		<meta name="description" content="tech.tmw.co.uk - where TMW talks Tech">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/kickoff.css">
+		<script>var pageName = '';</script>
+
+		<script>
+			/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+			window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+			grunticon(["/img/icons/icons.data.svg.css", "/img/icons/icons.data.png.css", "/img/icons/icons.fallback.css"]);
+		</script>
+		<noscript><link href="/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
+
+		<!-- Mobile & Fav Icons -->
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png" />
+
+		<meta name="apple-mobile-web-app-title" content="tech.tmw">
+
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png"/>
+
+		<!-- Twitter - https://dev.twitter.com/cards/overview -->
+		<meta name="twitter:site" content="@tmwTechTeam">
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="CodeSniffer – The PHP Coding Standards Tool" />
+		<meta name="twitter:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png" />
+		<meta name="twitter:url" content="http://tech.tmw.co.uk/2016/02/codesniffer-the-php-coding-standards-tool/" />
+
+
+		<!-- Open Graph data -->
+		<meta property="og:title" content="CodeSniffer – The PHP Coding Standards Tool" />
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content="http://tech.tmw.co.uk/2016/02/codesniffer-the-php-coding-standards-tool/" />
+		<meta property="og:image" content="http://tech.tmw.co.uk/img/favicons/apple-touch-icon-152x152.png" />
+
+		<link rel="alternate" type="application/atom+xml" title="tech.tmw Feed" href="http://feeds.feedburner.com/TMWLabs" />
+	</head>
+	<body class="clearfix">
+
+<div class="sidebar">
+	<header class="masthead">
+	<h1 class="logo"><a href="/"><span class="tmwBrand">TMW</span>tech...</a></h1>
+	<p class="logo-tagline">Latest news and opinion from the <a href="http://www.tmwunlimited.com" title="TMWUnlimited&hellip;'s website" target="_blank" class="tmwBrand">TMW<span>Unlimited&hellip;</span></a> tech team</p>
+
+	<nav class="nav">
+		<a href="/" class="nav-item">Articles</a>
+		<a href="/code" class="nav-item">Code</a>
+		<a href="/team" class="nav-item">Team</a>
+		<a href="/work" class="nav-item">Work</a>
+		
+			<a href="/join-us" class="nav-item">Join us</a>
+		
+	</nav>
+</header>
+
+
+</div>
+
+<div class="content">
+	<article class="content-inner entry entry--single" role="main">
+	<h1 class="sectionTitle">Articles</h1>
+
+	
+
+	<div class="entry-content">
+		<h1 class="entry-title entry-title--single">CodeSniffer – The PHP Coding Standards Tool</h1>
+		<p><em>Originally posted at <a href="http://www.ashleysheridan.co.uk/blog/CodeSniffer+%E2%80%93+The+PHP+Coding+Standards+Tool">http://www.ashleysheridan.co.uk/blog/CodeSniffer+%E2%80%93+The+PHP+Coding+Standards+Tool</a></em></p>
+
+<p>A couple of years ago I implemented a <a href="https://github.com/tmwagency/TMW-PHP-coding-standards">coding standards guide for PHP development at TMW</a>, as I’d noticed that they only had a document that was focused on .Net and Windows. The guide outlined mostly common sense practices, such as avoiding certain unsafe language functions, and how to best indent and document your code. Just over a year ago I made this document public on the <a href="https://github.com/tmwagency">TMW GitHub account</a>, and have been updating it in small ways since that time.</p>
+
+<h2 id="going-further">Going Further</h2>
+
+<p>A document out on its own though, is not something that can easily be checked against, especially as it was now becoming quite lengthy. In order to be really useful, especially for freelancers who would need to follow the guide, I needed a way that code could be easily checked against the guidelines. Enter <a href="https://github.com/squizlabs/PHP_CodeSniffer">CodeSniffer from Squiz Labs</a>, a tool built in PHP to tokenise your code and validate it against a list of rules you want to test it against.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>Installing CodeSniffer is easy using PEAR:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pear install PHP_CodeSniffer
+</code></pre>
+</div>
+
+<p>This will also install several groups of different rules to apply, typically in /usr/share/pear/PHP/CodeSniffer/Standards/ (but this may vary slightly from system to system, especially if you’re on Windows)</p>
+
+<p>Now, if you wish, you can just run the codesniffer tool with one of the existing rule groups with a line like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>phpcs --standard<span class="o">=</span>PSR2 /directory/of/code/to/check/
+</code></pre>
+</div>
+
+<p>This will then produce a standard report on the console with any errors found. This might be fine if you adhere to one of these standards completely, but as with any process like this, it won’t be perfect for all situations. This is where you can be more specific about which rules you acually want to apply (and you can even write your own, but that’s a bit more in-depth, and probably deserves its own post)</p>
+
+<h2 id="making-a-list">Making a List</h2>
+
+<p>The first thing I did was go over each and every rule that came with CodeSniffer and pick out the ones that made sense with the TMW Coding Standards document. CodeSniffer allows you to create a rule list very easily with a ruleset.xml file, where you can either specify a single rule, a whole group, or a group with a few excluded.</p>
+
+<p>You might see advice on forums and sites online that suggest you delete or rename files in the Standards directory. Do not do this! It’s a lot better to make your own ruleset list to run, and there may even be times that you want that old rule back.</p>
+
+<p>Creating this ruleset is easy; you just need a basic xml file like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;ruleset</span> <span class="na">name=</span><span class="s">"TMW"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;description&gt;</span>A custom coding standard for TMWs PHP work<span class="nt">&lt;/description&gt;</span>
+
+	<span class="c">&lt;!-- rules here --&gt;</span>
+<span class="nt">&lt;/ruleset&gt;</span>
+</code></pre>
+</div>
+
+<p>Then, within your root node, you place your rules. So for example, this snippet which is at the top of the TMW ruleset.xml file includes all the Pear rules for classes and files, and everything in the Pear commenting group except for the file and class comment rules:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- Pear rules --&gt;</span>
+<span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">"PEAR.Classes"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">"PEAR.Commenting"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">"PEAR.Commenting.FileComment"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">"PEAR.Commenting.ClassComment"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/rule&gt;</span>
+<span class="nt">&lt;rule</span> <span class="na">ref=</span><span class="s">"PEAR.Files"</span><span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>I recommend you go through the list of rules and see what makes sense for you. Some won’t work together, such as the indentation rules, one enforces tab indents, another enforces spaces. Play around until you find a good match for your own standard.</p>
+
+<h2 id="customising-your-rules">Customising Your Rules</h2>
+
+<p>You might find that some of the rules go 90% of the way, but that other 10% just doesn’t work for you. In this instance, you can copy out the rule into a directory called Sniffs (in the same location as your ruleset.xml file) and customise the rule. One rule I did this with was the PEAR.Functions.FunctionCallSignature rule, as I didn’t like the way it enforced space indentation and a required space before the closing bracket of a function call, and I just commented out the code in the rule responsible for throwing those errors.</p>
+
+<p>This makes some of the existing rules a lot more useful, as some of them, I think, try to do a bit too much and ought really to be broken down into smaller sub-rules.</p>
+
+<h2 id="running-your-custom-rule-list">Running Your Custom Rule List</h2>
+
+<p>Now that you have you list of rules, you actually want to run your code against them. The fastest way is just to point to your XML file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>phpcs –standard<span class="o">=</span>/path/to/ruleset.xml /directory/of/code/to/check/
+</code></pre>
+</div>
+
+<p>However, it can be a bit cumbersom to constantly write out the path to your rule list, so you can make it the default with the following command (you will need to run this with root permissions):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>phpcs --config-set default_standard /path/to/ruleset.xml
+</code></pre>
+</div>
+
+<p>Now you can just check your code with a command like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>phpcs /directory/of/code/to/check/
+</code></pre>
+</div>
+
+<h2 id="choosing-what-to-check">Choosing What to Check</h2>
+
+<p>So far, all the examples I’ve shown are just checking a directory (and all sub-directories within) for PHP files to scan and report on. That may be fine for very simple things, but what if you’re building something on an existing framework or CMS. You don’t want to check all the code files of WordPress or Laravel, for example, and neither do you want to check all the 3rd party libraries that you’re using. You can instruct CodeSniffer to ignore specific files with the –ignore argument:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>phpcs --ignore<span class="o">=</span>/<span class="k">*</span>/TwitterOAuth.php /directory/of/code/to/check/
+</code></pre>
+</div>
+
+<p>You can use as many of these –ignore directives as you need, and the standard shell brace expansion can be used:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>phpcs –ignore<span class="o">=</span>laravel/app/<span class="o">{</span>config,database,lang,start,storage,tests<span class="o">}</span> laravel/app/
+</code></pre>
+</div>
+
+<p>This can be very useful for only testing your own code, and only getting a report with your own errors, and not those that Joe Bloggs made on that library you just downloaded.</p>
+
+<h2 id="getting-more-from-your-reports">Getting More From Your Reports</h2>
+
+<p>The standard report is all well and good, but there are other useful types of reports that CodeSniffer can produce for you. One is a source report, which will tally up all the specific types of issues found in your code, how many times each one was found, and gives the name and group of the exact rule that was broken. This can be especially useful when you’re testing out a new rule group (or groups) and you want to know which error comes from which rule.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>phpcs <span class="nv">report</span><span class="o">=</span><span class="nb">source</span> /directory/of/code/to/check/
+</code></pre>
+</div>
+
+<p>Another report type gives you a diff syntax that many other tools can use to fix your code automatically. In-face, CodeSniffer comes with a tool to fix these kinds of errors for you, called phpcbf (PHP Code Beautifier and Fixer)</p>
+
+<p>A final report type that I’ve found useful is the git blame report (there’s an svn blame one too), which will try to report on who made the code commit that contains the error. This can be useful in a team scenario where you might want the respective team members to fix their own issues.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Report Type</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>full</td>
+      <td>The default report type which is quite verbose</td>
+    </tr>
+    <tr>
+      <td>xml</td>
+      <td>Outputs the report as XML, useful if you’re saving this to be digested by another tool</td>
+    </tr>
+    <tr>
+      <td>json</td>
+      <td>As above, but JSON format</td>
+    </tr>
+    <tr>
+      <td>csv</td>
+      <td>Again, as above, but in CSV format</td>
+    </tr>
+    <tr>
+      <td>source</td>
+      <td>A shorter list where repeat issues are grouped, along with their totals and the Sniff group the rule belongs to</td>
+    </tr>
+    <tr>
+      <td>diff</td>
+      <td>A diff format output, useful for other tools to automatically apply fixes where possible</td>
+    </tr>
+    <tr>
+      <td>svnblame/gitblame</td>
+      <td>This report shows who was responsible for each error. For code that has not been committed, the report will show no name</td>
+    </tr>
+    <tr>
+      <td>notifysend</td>
+      <td>This doesn’t output a report, but triggers a message in the standard OS notification system. Useful when you’re performing multiple reports from the same command and want to know when it’s completed</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Hopefully you’ll have found some of this useful if you’re just getting started with CodeSniffer. It’s a powerful tool, and can do far more than what I’ve touched upon in this article, such as checking JavaScript code, and being able to run completely bespoke code to check for things that aren’t covered in the standard rules. I encourage you to play around with this, and find a setup that works for you, whether it be as part of a continuous integration chain, or as a pre-commit hook check. I’ll leave it to you to decide how best to use it.</p>
+
+	</div>
+
+	<div class="entry-meta entry-meta--post">
+		<div class="entry-date"><time>Posted on 09 Feb 2016</time></div>
+		
+		<div class="media entry-author">
+			<img src="/img/authors/asheridan.jpg" alt="Picture of Ashley Sheridan" class="media-img entry-author-img">
+			<div class="media-body">
+				<h3 class="entry-author-name"><a href="http://twitter.com/ashleyjsheridan">Ashley Sheridan</a></h3>
+				<p class="entry-author-desc">A PHP developer with a penchant for Linux, open-source and general tinkering.</p>
+			</div>
+		</div>
+
+	</div>
+
+	
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		var disqus_shortname = 'labstmw';
+
+		
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	
+
+	<!-- 
+	  <a href="/2015/11/UX-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
+	
+	  <a href="/2015/01/accessible-cross-reference-tables/">Accessible Cross Reference Tables</a><br />
+	
+	  <a href="/2015/01/communicating-between-php-and-an-arduino-with-sockets/">Communicating Between PHP and an Arduino with Sockets</a><br />
+	
+	  <a href="/2015/01/creating-a-web-app-with-grunt-part-2/">Creating a Web-app with Grunt - Part 2</a><br />
+	
+	  <a href="/2014/11/trakjs-universal-analytics-api/">Improve website event tracking with trak.js</a><br />
+	
+	  <a href="/2014/10/creating-a-web-app-with-grunt-part-1/">Creating a Web-app with Grunt - Part 1</a><br />
+	
+	  <a href="/2014/10/Interning-in-the-Tech-Department/">Interning in the Tech department</a><br />
+	
+	  <a href="/2014/10/kickoff-version-4/">Kickoff Version 4 released</a><br />
+	
+	  <a href="/2014/10/outsourcing/">Should you outsource development?</a><br />
+	
+	  <a href="/2014/08/the-road-to-kickoff-version-4/">The road to Kickoff version 4</a><br />
+	 -->
+</article>
+
+	<a class="openSource" href="/code">
+		<h2>Check out our open source projects</h2>
+		<p>We have loads of open source projects for you to try <br>Click here to have a look!</p>
+	</a>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+	<div class="container">
+		
+			<a href="/2015/11/UX-of-a-front-end-framework/" class="pagination-item pagination-item--older"><b>Older post</b><br>Improving the UX of a front-end framework</a>
+		
+		
+	</div>
+</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="socialLinks">
+		<a href="http://github.com/tmwagency/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-github"></span>@tmwagency</a>
+		<a href="http://twitter.com/tmwTechTeam/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-twitter"></span>@tmwTechTeam</a>
+		<a href="http://tmwagency.github.io/kickoff/" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-kickoff"></span>We also maintain Kickoff</a>
+		<a href="http://eepurl.com/KaKbv" class="socialLinks-item"><span aria-hidden="true" class="icon-small icon-subscribe"></span>Subscribe by Email</a>
+	</div>
+</footer>
+
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-27779119-7', 'tmw.co.uk');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>

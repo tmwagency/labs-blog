@@ -83,36 +83,32 @@
 
 <p>As with all previous releases, we see this version of Kickoff as a starting point; designed to be easily modified dependant on the use-case.  It is built to help you start projects quickly.  If a framework gets in the way of your development, then it ceases to be useful.</p>
 
-<h2>Getting started with Kickoff</h2>
-
+<h2 id="getting-started-with-kickoff">Getting started with Kickoff</h2>
 <p>We know that it isn’t always obvious where to start when beginning to use a new framework.  That is why we have created the getting started page.</p>
 
-<p>Once you have cloned/downloaded Kickoff &amp; installed the npm dependencies, running <code>grunt start</code> from your terminal will open a new page in your browser explaining where to start when developing with Kickoff. It shows how one should edit the Sass variables &amp; update the colour palette.</p>
+<p>Once you have cloned/downloaded Kickoff &amp; installed the npm dependencies, running <code class="highlighter-rouge">grunt start</code> from your terminal will open a new page in your browser explaining where to start when developing with Kickoff. It shows how one should edit the Sass variables &amp; update the colour palette.</p>
 
-<h2>CSS overview</h2>
+<h2 id="css-overview">CSS overview</h2>
 
 <p>One of the main areas we wanted to simplify in version 4 of Kickoff was the grids.We realised that the splits and shunts were not being used, so they have been removed. They will still be a part of the <a href="https://github.com/mrmartineau/Choreographic-Grid">Choreographic Grid</a>, which is still being maintained by me, and can be easily dropped-in to replace the new grid system should you still want to use those features.</p>
 
 <p>As <a href="https://github.com/nDmitry/grunt-autoprefixer">Autoprefixer</a> is now the standard in Kickoff (which means we no longer have to worry about writing vendor-prefixed code), we have added a Sass warning when you use a mixin that could be handled by Autoprefixer.</p>
 
-<p>Sass variables have changed quite a lot as well. For example <code>$base-font-size</code> is now <code>$font-size-base</code> and <code>$base-font-family</code> is now <code>$font-family-base</code>. This then matches the CSS property needed when using the variable, e.g. <code>font-family: $font-family-base</code>. It might seem like a small or needless change but we feel it is important when using the framework, day-in &amp; day-out, that the naming conventions become more intuitive. It is now easier to remember the order of the words in the variable name as it reflects the native CSS property name.</p>
+<p>Sass variables have changed quite a lot as well. For example <code class="highlighter-rouge">$base-font-size</code> is now <code class="highlighter-rouge">$font-size-base</code> and <code class="highlighter-rouge">$base-font-family</code> is now <code class="highlighter-rouge">$font-family-base</code>. This then matches the CSS property needed when using the variable, e.g. <code class="highlighter-rouge">font-family: $font-family-base</code>. It might seem like a small or needless change but we feel it is important when using the framework, day-in &amp; day-out, that the naming conventions become more intuitive. It is now easier to remember the order of the words in the variable name as it reflects the native CSS property name.</p>
 
-<h2>Javascript</h2>
-
+<h2 id="javascript">Javascript</h2>
 <p>We have simplified the JavaScript base files and made it easier than ever to modify its structure. We have removed most of the helpers, instead opting to use <a href="https://github.com/nicbell/Shimly">Shimly</a> or <a href="http://bower.io">Bower</a> to pull in dependencies.</p>
 
-<h3>Bower</h3>
-
+<h3 id="bower">Bower</h3>
 <p>We have started using Bower more and more and feel that this is the best way to manage javascript dependencies. It means that these separate items can be updated independently of the main Kickoff framework. Three libraries have been included by default, these are:</p>
 
 <ul>
-<li><a href="https://github.com/tmwagency/swiftclick">Swiftclick</a> - Developed by our own Ivan Hayes, SwiftClick is a library created to eliminate the 300ms click event delay on touch devices.</li>
-<li><a href="https://github.com/tmwagency/trak.js">Trak.js</a> - Developed by our own Zander Martineau, trak.js is a universal analytics event tracking API</li>
-<li><a href="https://github.com/ScottHamper/Cookies/">Cookies</a> - Developed by Scott Hamper, Cookies is a great Cookie manipulation library</li>
+  <li><a href="https://github.com/tmwagency/swiftclick">Swiftclick</a> - Developed by our own Ivan Hayes, SwiftClick is a library created to eliminate the 300ms click event delay on touch devices.</li>
+  <li><a href="https://github.com/tmwagency/trak.js">Trak.js</a> - Developed by our own Zander Martineau, trak.js is a universal analytics event tracking API</li>
+  <li><a href="https://github.com/ScottHamper/Cookies/">Cookies</a> - Developed by Scott Hamper, Cookies is a great Cookie manipulation library</li>
 </ul>
 
-<h3>Browserify</h3>
-
+<h3 id="browserify">Browserify</h3>
 <p>We thought hard about converting the framework over to use Browserify as default in Kickoff.  It is something we use on the majority of our projects at TMW and we feel it adds a lot of value to the way we structure our JavaScript.</p>
 
 <p>However, after playing around with integrating it, we felt that using Browserify should be kept as an optional addition to Kickoff – especially inkeeping with our design direction of keeping Kickoff as dependency–free and minimal as we can.</p>
@@ -121,25 +117,26 @@
 
 <p>If you’d like to find out more, the branch can be found at <a href="https://github.com/tmwagency/kickoff/tree/browserify">github.com/tmwagency/kickoff/tree/browserify</a></p>
 
-<h2>Grunt</h2>
-
+<h2 id="grunt">Grunt</h2>
 <p>The grunt build tasks have changed quite dramatically, but again to make it more intuitive when editing them.</p>
 
-<p>Each group of tasks have been extracted into their own separate file. For example, <code>config/css.js</code> contains all the grunt tasks relating to CSS: Sass, Autoprefixer &amp; CSSO. The <code>config/javascript.js</code> file contains the uglify (for concatenating and minfying js), shimly (for generating a javascript shims file), jshint and jQuery (for generating a custom jQuery build).</p>
+<p>Each group of tasks have been extracted into their own separate file. For example, <code class="highlighter-rouge">config/css.js</code> contains all the grunt tasks relating to CSS: Sass, Autoprefixer &amp; CSSO. The <code class="highlighter-rouge">config/javascript.js</code> file contains the uglify (for concatenating and minfying js), shimly (for generating a javascript shims file), jshint and jQuery (for generating a custom jQuery build).</p>
 
 <p>We feel having these tasks now separate makes it far easier to maintain your Grunt setup than having all of the configuration stored in one mammoth Gruntfile.</p>
 
-<h2>Yeoman generator</h2>
-
+<h2 id="yeoman-generator">Yeoman generator</h2>
 <p>The Yeoman generator will be updated to reflect all these changes, plus there will be an option to use Browserify as well. Ideally, this generator should be the only way to install Kickoff in the future.</p>
 
-<h3>Take it for a spin now</h3>
+<h3 id="take-it-for-a-spin-now">Take it for a spin now</h3>
 
 <p>What are you waiting for?! Grab a copy of Kickoff v4 and let us what you think or browse the codebase in the <a href="https://github.com/tmwagency/kickoff/tree/next">next</a> branch.</p>
 
 <p>We would love any and all feedback you have, so please leave a comment here or <a href="https://github.com/tmwagency/kickoff/issues/new">file an issue</a> on Github.</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">git clone https://github.com/tmwagency/kickoff.git -b next ‘kickoff-next’
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/tmwagency/kickoff.git -b next ‘kickoff-next’
+</code></pre>
+</div>
+
 	</div>
 
 	<div class="entry-meta entry-meta--post">
@@ -171,7 +168,9 @@
 	
 
 	<!-- 
-	  <a href="/2015/11/ux-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
+	  <a href="/2016/02/codesniffer-the-php-coding-standards-tool/">CodeSniffer – The PHP Coding Standards Tool</a><br />
+	
+	  <a href="/2015/11/UX-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
 	
 	  <a href="/2015/01/accessible-cross-reference-tables/">Accessible Cross Reference Tables</a><br />
 	
@@ -183,13 +182,11 @@
 	
 	  <a href="/2014/10/creating-a-web-app-with-grunt-part-1/">Creating a Web-app with Grunt - Part 1</a><br />
 	
-	  <a href="/2014/10/interning-in-the-tech-department/">Interning in the Tech department</a><br />
+	  <a href="/2014/10/Interning-in-the-Tech-Department/">Interning in the Tech department</a><br />
 	
 	  <a href="/2014/10/kickoff-version-4/">Kickoff Version 4 released</a><br />
 	
 	  <a href="/2014/10/outsourcing/">Should you outsource development?</a><br />
-	
-	  <a href="/2014/03/yeoman-generator-development-tips/">Yeoman Generator Development Tips</a><br />
 	 -->
 </article>
 

@@ -77,19 +77,19 @@
 
 	<div class="entry-content">
 		<h1 class="entry-title entry-title--single">A designers adventures in game development: part 1</h1>
-		<p>Over the years I&#39;ve had an interest in programming starting with Flash, a few years ago though I made the seemingly <a href="http://www.apple.com/hotnews/thoughts-on-flash/">obvious choice</a> to start moving on from Actionscript to focus on Javascript. I find that the best way to learn is by doing, so since the start of the summer I started creating a little responsive HTML and Javascript game. This and subsequent posts will document my process.</p>
+		<p>Over the years I’ve had an interest in programming starting with Flash, a few years ago though I made the seemingly <a href="http://www.apple.com/hotnews/thoughts-on-flash/">obvious choice</a> to start moving on from Actionscript to focus on Javascript. I find that the best way to learn is by doing, so since the start of the summer I started creating a little responsive HTML and Javascript game. This and subsequent posts will document my process.</p>
 
-<p>It&#39;s working title is <strong>‘Bitmap Adventure’</strong> with the story revolving around a huge villain, in the form of a block-like Monkey, kidnapping a Goat’s child. Rescuing the child and defeating the villain is your main challenge.</p>
+<p>It’s working title is <strong>‘Bitmap Adventure’</strong> with the story revolving around a huge villain, in the form of a block-like Monkey, kidnapping a Goat’s child. Rescuing the child and defeating the villain is your main challenge.</p>
 
 <p>The battle system uses Paper, Scissors, Stone (otherwise known as Janken). The visualisation of these battles uses some some basic pixel animation with cute, simple versions of the warriors. To introduce players to the battle system I decided to feature a battle in the intro itself, where you attempt to battle the villain straight away, but with battle inexperience so early on in the game you’ll lose; its all part of the intro. I’m still working on how a levelling / experience feature will work within the game.</p>
 
-<p>Developing the intro helped to get my head around how the game would work on different devices from the start. I started off with a 320px wide photoshop document when I was creating a look and feel for the game, figuring out the mobile look and size first. The reason behind this is the game could get complex so its easier to add than take away from the intended design. There were many cases of developing prototypes and designing at the same time, to ensure it looked great across all devices. With such a simple graphical style, it&#39;s a little easier to add filler for wider screen formats. Supporting Retina devices couldn’t be easier with this, as all the original sprites just needed to be resized to 200% with Nearest Neighbour image resampling to preserve the hard pixel edges.</p>
+<p>Developing the intro helped to get my head around how the game would work on different devices from the start. I started off with a 320px wide photoshop document when I was creating a look and feel for the game, figuring out the mobile look and size first. The reason behind this is the game could get complex so its easier to add than take away from the intended design. There were many cases of developing prototypes and designing at the same time, to ensure it looked great across all devices. With such a simple graphical style, it’s a little easier to add filler for wider screen formats. Supporting Retina devices couldn’t be easier with this, as all the original sprites just needed to be resized to 200% with Nearest Neighbour image resampling to preserve the hard pixel edges.</p>
 
-<figure><img src="/img/blog/adventures-in-game-dev/post1-b.jpg" alt="Positioning elements"></figure>
+<figure><img src="/img/blog/adventures-in-game-dev/post1-b.jpg" alt="Positioning elements" /></figure>
 
 <p>The game is still in the early stages, with the intro 90% complete, and the game area coming along nicely in both design and development. All the levels, weather parameters and portal positions are all managed through settings in a JSON file, which makes it easier to manage and update when needed. Levels are designed in Photoshop using tiles fitting to a 40px x 40px grid, which are then positioned in the game converting the JSON data into CSS positions.</p>
 
-<figure><img src="/img/blog/adventures-in-game-dev/post1-a.jpg" alt="Positioning elements"></figure>
+<figure><img src="/img/blog/adventures-in-game-dev/post1-a.jpg" alt="Positioning elements" /></figure>
 
 <p>The portals have been the biggest Javascript headache so far. There were a number of cases where the character would enter the portal and then not reappear through the next, showing no Javascript errors. Exiting the portal seemed to work differently on Chrome and Safari at times too; the current fix is to give Chrome a slight delay when the level reloads to fix the error.  This seems to be simply due to differences in rendering engines across different browsers.</p>
 
@@ -130,7 +130,9 @@
 	
 
 	<!-- 
-	  <a href="/2015/11/ux-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
+	  <a href="/2016/02/codesniffer-the-php-coding-standards-tool/">CodeSniffer – The PHP Coding Standards Tool</a><br />
+	
+	  <a href="/2015/11/UX-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
 	
 	  <a href="/2015/01/accessible-cross-reference-tables/">Accessible Cross Reference Tables</a><br />
 	
@@ -142,13 +144,11 @@
 	
 	  <a href="/2014/10/creating-a-web-app-with-grunt-part-1/">Creating a Web-app with Grunt - Part 1</a><br />
 	
-	  <a href="/2014/10/interning-in-the-tech-department/">Interning in the Tech department</a><br />
+	  <a href="/2014/10/Interning-in-the-Tech-Department/">Interning in the Tech department</a><br />
 	
 	  <a href="/2014/10/kickoff-version-4/">Kickoff Version 4 released</a><br />
 	
 	  <a href="/2014/10/outsourcing/">Should you outsource development?</a><br />
-	
-	  <a href="/2014/08/the-road-to-kickoff-version-4/">The road to Kickoff version 4</a><br />
 	 -->
 </article>
 

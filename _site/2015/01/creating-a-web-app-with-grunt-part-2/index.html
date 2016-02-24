@@ -88,937 +88,993 @@
 <p>If, for whatever reason, you don’t want to fork or clone the project, but want to get at the code, then you can <a href="https://github.com/munkychop/breeze/archive/tutorial-part-2.zip">download the whole project as a zip file</a>.</p>
 
 <p>Once you have the project, open Terminal and ensure that you change to the ‘breeze’ directory before running the following command to install dependencies:</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">npm install
-</code></pre></div>
-<h2>Improving the Grunt Task Workflow</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install
+</code></pre>
+</div>
+
+<h2 id="improving-the-grunt-task-workflow">Improving the Grunt Task Workflow</h2>
 
 <p>There are quite a few things that we could be doing differently in order to make the build workflow and overall code quality of our project better; by updating the Gruntfile setup we will be improving the process of loading tasks, as well as the browser coverage of our compiled CSS code. We will also automate more tasks in order to make development simpler and faster.</p>
 
-<h3>Loading Grunt Tasks Simultaneously</h3>
+<h3 id="loading-grunt-tasks-simultaneously">Loading Grunt Tasks Simultaneously</h3>
 
 <p>Currently, within our Gruntfile, we’ve been loading tasks one at a time. Instead of doing this, we’ll start using a module called <a href="https://www.npmjs.org/package/load-grunt-tasks">load-grunt-tasks</a>, which allows us to load all the necessary Grunt tasks that are defined as dev dependencies within the <em>package.json</em> file.</p>
 
 <p>Using Terminal, ensure that you have changed to the ‘breeze’ directory – we will be running all commands from this directory throughout the tutorial – and then run the following command:</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">npm install load-grunt-tasks --save-dev
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install load-grunt-tasks --save-dev
+</code></pre>
+</div>
+
 <p>This installs the <em>load-grunt-tasks</em> module into the <em>node-modules</em> folder and adds it as a development dependency within the <em>package.json</em> file.</p>
 
 <p>Once that’s done, we need to update part of our Gruntfile to make use of the module.</p>
 
 <p>This is what the relevant part of the Gruntfile looked like before:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-sass&quot;</span><span class="p">);</span>
-<span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-uglify&quot;</span><span class="p">);</span>
-<span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-connect&quot;</span><span class="p">);</span>
-<span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">&quot;grunt-contrib-watch&quot;</span><span class="p">);</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-sass"</span><span class="p">);</span>
+<span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-uglify"</span><span class="p">);</span>
+<span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-connect"</span><span class="p">);</span>
+<span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s2">"grunt-contrib-watch"</span><span class="p">);</span>
+</code></pre>
+</div>
+
 <p>We are going to replace all of that with the following single line instead:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;load-grunt-tasks&quot;</span><span class="p">)(</span><span class="nx">grunt</span><span class="p">);</span>
-</code></pre></div>
-<p>The next time we run the <code>grunt breeze</code> command, all of our npm module dependencies should be loaded, just like before, but with a much more neat and concise syntax.</p>
 
-<h3>Automatic CSS Prefixes</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">(</span><span class="s2">"load-grunt-tasks"</span><span class="p">)(</span><span class="nx">grunt</span><span class="p">);</span>
+</code></pre>
+</div>
 
-<p>Normally, in order to ensure a web application works in various browsers, we’d need to add vendor-specific prefixes, for example, <code>-webkit-transition</code>, <code>-moz-transition</code>, and <code>-ms-transition</code> would be used in addition to the standard spec of <code>transition</code>.</p>
+<p>The next time we run the <code class="highlighter-rouge">grunt breeze</code> command, all of our npm module dependencies should be loaded, just like before, but with a much more neat and concise syntax.</p>
+
+<h3 id="automatic-css-prefixes">Automatic CSS Prefixes</h3>
+<p>Normally, in order to ensure a web application works in various browsers, we’d need to add vendor-specific prefixes, for example, <code class="highlighter-rouge">-webkit-transition</code>, <code class="highlighter-rouge">-moz-transition</code>, and <code class="highlighter-rouge">-ms-transition</code> would be used in addition to the standard spec of <code class="highlighter-rouge">transition</code>.</p>
 
 <p>Instead of manually adding prefixes, we’ll start using a module called <a href="https://www.npmjs.com/package/grunt-autoprefixer">grunt-autoprefixer</a>, which allows us to write our SCSS using just the standard spec, as it will automatically add the necessary vendor prefixes where appropriate during the Grunt build step. This is a great option, because it allows us to keep our SCSS code simple and clean, rather than having it littered with prefixes.</p>
 
 <p>Using Terminal, run the following command to install autoprefixer:</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">npm install grunt-autoprefixer --save-dev
-</code></pre></div>
-<p>Now we need to add a config to the Gruntfile for autoprefixer:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">autoprefixer</span><span class="o">:</span> <span class="p">{</span>
 
-    <span class="nx">dist</span> <span class="o">:</span> <span class="p">{</span>
-        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install grunt-autoprefixer --save-dev
+</code></pre>
+</div>
+
+<p>Now we need to add a config to the Gruntfile for autoprefixer:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">autoprefixer</span><span class="err">:</span> <span class="p">{</span>
+
+    <span class="nl">dist</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nl">options</span><span class="p">:</span> <span class="p">{</span>
             <span class="c1">// add prefixes to support the last 2 browser versions,</span>
             <span class="c1">// as well as IE9+ and Android 4 stock browsers</span>
-            <span class="nx">browsers</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;last 2 versions&quot;</span><span class="p">,</span> <span class="s2">&quot;ie &gt;= 9&quot;</span><span class="p">,</span> <span class="s2">&quot;Android 4&quot;</span><span class="p">],</span>
-            <span class="nx">map</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="nl">browsers</span><span class="p">:</span> <span class="p">[</span><span class="s2">"last 2 versions"</span><span class="p">,</span> <span class="s2">"ie &gt;= 9"</span><span class="p">,</span> <span class="s2">"Android 4"</span><span class="p">],</span>
+            <span class="nx">map</span><span class="err">:</span> <span class="kc">true</span>
         <span class="p">},</span>
 
-        <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;dist/css/app.min.css&quot;</span><span class="o">:</span> <span class="s2">&quot;src/scss/app.scss&quot;</span>
+        <span class="nx">files</span><span class="err">:</span> <span class="p">{</span>
+            <span class="s2">"dist/css/app.min.css"</span><span class="err">:</span> <span class="s2">"src/scss/app.scss"</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Note that, within the scope of this tutorial, we’ll only really need to run the autoprefixer task when creating a distribution build, as when developing locally we should be using a good browser, such as Chrome, which supports a lot of the CSS spec by default. If you need to test in not-so-modern browsers during development, then the autoprefixer task should be run on every build of the SCSS code, and you may also want to look at the documentation for autoprefixer, which provides <a href="https://www.npmjs.com/package/grunt-autoprefixer#options">many configuration options</a>.</p>
 
-<h3>Auto-updating Style Changes in the Browser</h3>
-
+<h3 id="auto-updating-style-changes-in-the-browser">Auto-updating Style Changes in the Browser</h3>
 <p>The <em>watch</em> task supports an option called ‘livereload’, which can automatically reload the browser when any of the watched files are changed. To use this option, we first need to install the <em>livereload</em> browser <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei">extension for Chrome</a> or follow <a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-">the simple installation guide</a> if you want to use Firefox or Safari.</p>
 
 <p>Once livereload is installed in the browser, we then need to update the Gruntfile. Modify the config for the <em>watch</em> task so that it includes an ‘options’ object containing a ’livereload’ property:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
 
-    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">livereload</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">watch</span><span class="err">:</span> <span class="p">{</span>
+
+    <span class="nl">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nl">livereload</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="p">},</span>
 
-    <span class="nx">html</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">files</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;index.html&quot;</span><span class="p">],</span>
+    <span class="nx">html</span><span class="err">:</span> <span class="p">{</span>
+        <span class="nl">files</span><span class="p">:</span> <span class="p">[</span><span class="s2">"index.html"</span><span class="p">],</span>
     <span class="p">},</span>
 
-    <span class="nx">js</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">files</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;src/js/**/*.js&quot;</span><span class="p">],</span>
-        <span class="nx">tasks</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;uglify:dev&quot;</span><span class="p">]</span>
+    <span class="nx">js</span><span class="err">:</span> <span class="p">{</span>
+        <span class="nl">files</span><span class="p">:</span> <span class="p">[</span><span class="s2">"src/js/**/*.js"</span><span class="p">],</span>
+        <span class="nx">tasks</span><span class="err">:</span> <span class="p">[</span><span class="s2">"uglify:dev"</span><span class="p">]</span>
     <span class="p">},</span>
 
-    <span class="nx">scss</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">files</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;src/scss/**/*.scss&quot;</span><span class="p">],</span>
-        <span class="nx">tasks</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;sass:dev&quot;</span><span class="p">]</span>
+    <span class="nx">scss</span><span class="err">:</span> <span class="p">{</span>
+        <span class="nl">files</span><span class="p">:</span> <span class="p">[</span><span class="s2">"src/scss/**/*.scss"</span><span class="p">],</span>
+        <span class="nx">tasks</span><span class="err">:</span> <span class="p">[</span><span class="s2">"sass:dev"</span><span class="p">]</span>
     <span class="p">},</span>
 
-    <span class="nx">img</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">files</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;src/img/**/*.*&quot;</span><span class="p">],</span>
-        <span class="nx">tasks</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;copy:img&quot;</span><span class="p">]</span>
+    <span class="nx">img</span><span class="err">:</span> <span class="p">{</span>
+        <span class="nl">files</span><span class="p">:</span> <span class="p">[</span><span class="s2">"src/img/**/*.*"</span><span class="p">],</span>
+        <span class="nx">tasks</span><span class="err">:</span> <span class="p">[</span><span class="s2">"copy:img"</span><span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>Now when we run <code>grunt breeze</code> we will be able to turn on <em>livereload</em> for the page running in the browser. To do this, simply click on the livereload browser icon and its very subtle centre circle should turn black for Chrome/Safari, or red for Firefox, meaning that it has successfully connected to the running Grunt task.</p>
+</code></pre>
+</div>
+
+<p>Now when we run <code class="highlighter-rouge">grunt breeze</code> we will be able to turn on <em>livereload</em> for the page running in the browser. To do this, simply click on the livereload browser icon and its very subtle centre circle should turn black for Chrome/Safari, or red for Firefox, meaning that it has successfully connected to the running Grunt task.</p>
 
 <p>In Chrome/Safari:</p>
 
-<p><img src="http://ivanhayes.com/blog/wp-content/uploads/2015/01/chrome-livereload-icon-300x178.png" alt="chrome-livereload-icon"></p>
+<p><img src="http://ivanhayes.com/blog/wp-content/uploads/2015/01/chrome-livereload-icon-300x178.png" alt="chrome-livereload-icon" /></p>
 
 <p>And in Firefox:</p>
 
-<p><img src="http://ivanhayes.com/blog/wp-content/uploads/2015/01/firefox-livereload-icon.png" alt="firefox-livereload-icon"></p>
+<p><img src="http://ivanhayes.com/blog/wp-content/uploads/2015/01/firefox-livereload-icon.png" alt="firefox-livereload-icon" /></p>
 
-<h2>Implementing the OpenWeatherMap API</h2>
+<h2 id="implementing-the-openweathermap-api">Implementing the OpenWeatherMap API</h2>
 
-<p>So far, in terms of JavaScript, we&#39;ve only added an alert message. In this section we will use the HTML5 geolocation API to get the coordinates of a user and the <em>atomic</em> AJAX library to get weather data from the OpenWeatherMap API, based on the coordinates we obtain.</p>
+<p>So far, in terms of JavaScript, we’ve only added an alert message. In this section we will use the HTML5 geolocation API to get the coordinates of a user and the <em>atomic</em> AJAX library to get weather data from the OpenWeatherMap API, based on the coordinates we obtain.</p>
 
 <p>Before we get started on this section, <a href="http://openweathermap.org/register">create a free OpenWeatherMap account</a> in order to obtain a developer API key. This key will be needed later when we start making requests to the API.</p>
 
-<h3>Main Application Logic</h3>
+<h3 id="main-application-logic">Main Application Logic</h3>
 
 <p>The logic of the application will be fairly simple, and we can break it into two clearly defined parts – getting weather data for the current location coordinates, and getting weather data using a specific search term. There will also be some logic for displaying the weather information, which will be shared by both these parts.</p>
 
-<h4>Logic Using Coordinates</h4>
-
+<h4 id="logic-using-coordinates">Logic Using Coordinates</h4>
 <ol>
-<li>Attempt to get the coordinates of the current user with the HTML5 geolocation API</li>
-<li>If we get the coordinates, then make an API request to OpenWeatherMap for weather data using the coordinates</li>
-<li>Run ‘shared logic’ below</li>
+  <li>Attempt to get the coordinates of the current user with the HTML5 geolocation API</li>
+  <li>If we get the coordinates, then make an API request to OpenWeatherMap for weather data using the coordinates</li>
+  <li>Run ‘shared logic’ below</li>
 </ol>
 
-<h4>Logic Using a Search Term</h4>
-
+<h4 id="logic-using-a-search-term">Logic Using a Search Term</h4>
 <ol>
-<li>Listen for when the user submits the search form</li>
-<li>Make an api request using the text they entered into the search text field</li>
-<li>Run ‘shared logic’ below</li>
+  <li>Listen for when the user submits the search form</li>
+  <li>Make an api request using the text they entered into the search text field</li>
+  <li>Run ‘shared logic’ below</li>
 </ol>
 
-<h4>Shared Logic</h4>
-
+<h4 id="shared-logic">Shared Logic</h4>
 <ol>
-<li>Parse the JSON data received from the API</li>
-<li>If the location is found, display temperature information using the parsed data</li>
-<li>If the location is not found, or if we get an error when making the AJAX request, then display an error message to notify the user.</li>
+  <li>Parse the JSON data received from the API</li>
+  <li>If the location is found, display temperature information using the parsed data</li>
+  <li>If the location is not found, or if we get an error when making the AJAX request, then display an error message to notify the user.</li>
 </ol>
 
-<h3>Getting Started</h3>
+<h3 id="getting-started">Getting Started</h3>
 
 <p>Firstly, remove the alert that we added in the previous part of this tutorial, as it was just a temporary placeholder for our actual code.</p>
 
 <p>Next, it’s a good idea to create an immediately invoked closure which will contain all our code. Doing this is good practice, as it will stop our variables polluting the global (window) scope:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
 
-    <span class="c1">// code...</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
+
+	<span class="c1">// code...</span>
 
 <span class="p">})();</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>If you’d like more information about closures, <a href="http://code.tutsplus.com/tutorials/closures-front-to-back--net-24869">this article</a> is a pretty good one.</p>
 
 <p>We want to ensure the DOM has fully loaded before we start running any of our logic. To do this, we add a listener for the ‘DOMContentLoaded’ event and once this occurs we run an initialisation function for the application:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
 
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
+	
+	<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
 
-    <span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
-    <span class="p">{</span>
-        <span class="c1">// code...</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
+	<span class="p">{</span>
+		<span class="c1">// code...</span>
+	<span class="p">}</span>
 
 <span class="p">})();</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Now that we have the basics set up, let’s move on to the first part of the app logic – getting weather data for the current coordinates.</p>
 
-<h3>Getting Coordinated</h3>
+<h3 id="getting-coordinated">Getting Coordinated</h3>
+<p>In order to request location information for the current user, we can use the <code class="highlighter-rouge">getCurrentPosition</code> method of the <code class="highlighter-rouge">navigator.geolocation</code> object:</p>
 
-<p>In order to request location information for the current user, we can use the <code>getCurrentPosition</code> method of the <code>navigator.geolocation</code> object:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
+	
+	<span class="c1">// Add an event listener to ensure the DOM has loaded before</span>
+	<span class="c1">// initialising the application.</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
 
-    <span class="c1">// Add an event listener to ensure the DOM has loaded before</span>
-    <span class="c1">// initialising the application.</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
+	<span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
+	<span class="p">{</span>
+		<span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">geolocationSuccessHandler</span><span class="p">,</span> <span class="nx">geolocationErrorHandler</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">geolocationSuccessHandler</span><span class="p">,</span> <span class="nx">geolocationErrorHandler</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">geolocationSuccessHandler</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// get lat and lon values from the position object.</span>
+		<span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">lon</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">geolocationSuccessHandler</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// get lat and lon values from the position object.</span>
-        <span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">lon</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kd">function</span> <span class="nx">geolocationErrorHandler</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// The user has disallowed sharing their geolocation, or there was a general error obtaining the info.</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;geolocationErrorHandler&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">geolocationErrorHandler</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// The user has disallowed sharing their geolocation, or there was a general error obtaining the info.</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"geolocationErrorHandler"</span><span class="p">);</span>
+	<span class="p">}</span>
 
 <span class="p">})();</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Running this method causes a notification to be displayed within the browser. Notice that we also provide two functions as parameters – the first will be run if the user allows our web app to use location information, and the second runs if the user does not allow this, or if there is an error obtaining the information. Note that, at the time of writing, Firefox will not run the error function if a user chooses the ‘Not now’ option within the location notification – it simply fails silently in this case, which is <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=675533">a known Mozilla bug</a> that has been open for a long time. Firefox does, however, run the error handler if a user chooses the ‘Never’ option.</p>
 
 <p>Also, it’s useful to note that, if coordinates are returned, they are sometimes precise and sometimes approximate. This is because some browsers, such as Chrome, give users a choice as to whether or not a precise location should be used.</p>
 
-<p>We’re now ready to make an API request to get weather data for the coordinates we obtained from the <code>position</code> object.</p>
+<p>We’re now ready to make an API request to get weather data for the coordinates we obtained from the <code class="highlighter-rouge">position</code> object.</p>
 
-<h3>Requesting Weather Data</h3>
+<h3 id="requesting-weather-data">Requesting Weather Data</h3>
+<p>Next, add variables to store the API URL, the type of units you want (metric or imperial), and your OpenWeatherMap API key, as well as a few for alerting error messages, and a function that will get weather data from coordinates passed as parameters. You must replace the value of the <code class="highlighter-rouge">API_KEY</code> variable – ’YOUR_API_KEY_HERE’ – with the API key you got after signing up to OpenWeatherMap, ensuring that you keep the quotation marks as they are:</p>
 
-<p>Next, add variables to store the API URL, the type of units you want (metric or imperial), and your OpenWeatherMap API key, as well as a few for alerting error messages, and a function that will get weather data from coordinates passed as parameters. You must replace the value of the <code>API_KEY</code> variable – ’YOUR_API_KEY_HERE’ – with the API key you got after signing up to OpenWeatherMap, ensuring that you keep the quotation marks as they are:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
+	
+	<span class="kd">var</span> <span class="nx">API_KEY</span> <span class="o">=</span> <span class="s2">"YOUR_API_KEY_HERE"</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">=</span> <span class="s2">"metric"</span><span class="p">;</span> <span class="c1">// otherwise change to 'imperial'.</span>
+	<span class="kd">var</span> <span class="nx">API_URL</span> <span class="o">=</span> <span class="s2">"http://api.openweathermap.org/data/2.5/weather?APPID="</span> <span class="o">+</span> <span class="nx">API_KEY</span> <span class="o">+</span> <span class="s2">"&amp;units="</span> <span class="o">+</span> <span class="nx">API_UNIT_TYPE</span><span class="p">;</span>
 
-    <span class="kd">var</span> <span class="nx">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR_API_KEY_HERE&quot;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">=</span> <span class="s2">&quot;metric&quot;</span><span class="p">;</span> <span class="c1">// otherwise change to &#39;imperial&#39;.</span>
-    <span class="kd">var</span> <span class="nx">API_URL</span> <span class="o">=</span> <span class="s2">&quot;http://api.openweathermap.org/data/2.5/weather?APPID=&quot;</span> <span class="o">+</span> <span class="nx">API_KEY</span> <span class="o">+</span> <span class="s2">&quot;&amp;units=&quot;</span> <span class="o">+</span> <span class="nx">API_UNIT_TYPE</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">MESSAGE_LOCATION_NOT_FOUND</span> <span class="o">=</span> <span class="s2">"Location not found."</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">MESSAGE_API_REQUEST_ERROR</span> <span class="o">=</span> <span class="s2">"API Error."</span><span class="p">;</span>
 
-    <span class="kd">var</span> <span class="nx">MESSAGE_LOCATION_NOT_FOUND</span> <span class="o">=</span> <span class="s2">&quot;Location not found.&quot;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">MESSAGE_API_REQUEST_ERROR</span> <span class="o">=</span> <span class="s2">&quot;API Error.&quot;</span><span class="p">;</span>
+	<span class="c1">// Add an event listener to ensure the DOM has loaded before</span>
+	<span class="c1">// initialising the application.</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
 
-    <span class="c1">// Add an event listener to ensure the DOM has loaded before</span>
-    <span class="c1">// initialising the application.</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
+	<span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
+	<span class="p">{</span>
+		<span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">geolocationSuccessHandler</span><span class="p">,</span> <span class="nx">geolocationErrorHandler</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">geolocationSuccessHandler</span><span class="p">,</span> <span class="nx">geolocationErrorHandler</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">geolocationSuccessHandler</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// get lat and lon values from the position object.</span>
+		<span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">lon</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
 
-    <span class="kd">function</span> <span class="nx">geolocationSuccessHandler</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// get lat and lon values from the position object.</span>
-        <span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">lon</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
+		<span class="c1">// Load weather data using the lat and lon values, now that we have the user's position.</span>
+		<span class="nx">getWeatherDataFromCoords</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
+	<span class="p">}</span>
 
-        <span class="c1">// Load weather data using the lat and lon values, now that we have the user&#39;s position.</span>
-        <span class="nx">getWeatherDataFromCoords</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">geolocationErrorHandler</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// The user has disallowed sharing their geolocation, or there was a general error obtaining the info.</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"geolocationErrorHandler"</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">geolocationErrorHandler</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// The user has disallowed sharing their geolocation, or there was a general error obtaining the info.</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;geolocationErrorHandler&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">getWeatherDataFromCoords</span> <span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"getting weather data..."</span><span class="p">,</span> <span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
+		
+		<span class="c1">// Build a request URL based on the current lat and lon values.</span>
+		<span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">"&amp;lat="</span> <span class="o">+</span> <span class="nx">lat</span> <span class="o">+</span> <span class="s2">"&amp;lon="</span> <span class="o">+</span> <span class="nx">lon</span><span class="p">;</span>
 
-    <span class="kd">function</span> <span class="nx">getWeatherDataFromCoords</span> <span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;getting weather data...&quot;</span><span class="p">,</span> <span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
+		<span class="c1">// Make an AJAX request to the API.</span>
+		<span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
+	<span class="p">}</span>
 
-        <span class="c1">// Build a request URL based on the current lat and lon values.</span>
-        <span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">&quot;&amp;lat=&quot;</span> <span class="o">+</span> <span class="nx">lat</span> <span class="o">+</span> <span class="s2">&quot;&amp;lon=&quot;</span> <span class="o">+</span> <span class="nx">lon</span><span class="p">;</span>
+	<span class="kd">function</span> <span class="nx">apiRequestSuccess</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"weather data received."</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
 
-        <span class="c1">// Make an AJAX request to the API.</span>
-        <span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">!==</span> <span class="s2">"undefined"</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">===</span> <span class="s2">"404"</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
+			<span class="k">return</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">apiRequestSuccess</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;weather data received.&quot;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">!==</span> <span class="s2">&quot;undefined&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">===</span> <span class="s2">&quot;404&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="kd">function</span> <span class="nx">apiRequestError</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_API_REQUEST_ERROR</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">apiRequestError</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_API_REQUEST_ERROR</span><span class="p">);</span>
+	<span class="p">}</span>
 
 <span class="p">})();</span>
-</code></pre></div>
-<p>We have now built a function to request weather data – <code>getWeatherDataFromCoords</code> – and we are calling it after we have obtained the user’s coordinates, from within the <code>geolocationSuccessHandler</code> function.</p>
+</code></pre>
+</div>
+
+<p>We have now built a function to request weather data – <code class="highlighter-rouge">getWeatherDataFromCoords</code> – and we are calling it after we have obtained the user’s coordinates, from within the <code class="highlighter-rouge">geolocationSuccessHandler</code> function.</p>
 
 <p>If you open up the JavaScript console on your browser, you should see the log messages from the application, including an object containing weather information.</p>
 
-<h2>Displaying Weather Information</h2>
-
+<h2 id="displaying-weather-information">Displaying Weather Information</h2>
 <p>Logging the data we got from the API is all well and good, but it would be great to update the HTML in order to show the weather information to the user, so let’s go ahead and do that now:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
 
-    <span class="kd">var</span> <span class="nx">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR_API_KEY_HERE&quot;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">=</span> <span class="s2">&quot;metric&quot;</span><span class="p">;</span> <span class="c1">// otherwise change to &#39;imperial&#39;.</span>
-    <span class="kd">var</span> <span class="nx">API_URL</span> <span class="o">=</span> <span class="s2">&quot;http://api.openweathermap.org/data/2.5/weather?APPID=&quot;</span> <span class="o">+</span> <span class="nx">API_KEY</span> <span class="o">+</span> <span class="s2">&quot;&amp;units=&quot;</span> <span class="o">+</span> <span class="nx">API_UNIT_TYPE</span><span class="p">;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
+	
+	<span class="kd">var</span> <span class="nx">API_KEY</span> <span class="o">=</span> <span class="s2">"YOUR_API_KEY_HERE"</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">=</span> <span class="s2">"metric"</span><span class="p">;</span> <span class="c1">// otherwise change to 'imperial'.</span>
+	<span class="kd">var</span> <span class="nx">API_URL</span> <span class="o">=</span> <span class="s2">"http://api.openweathermap.org/data/2.5/weather?APPID="</span> <span class="o">+</span> <span class="nx">API_KEY</span> <span class="o">+</span> <span class="s2">"&amp;units="</span> <span class="o">+</span> <span class="nx">API_UNIT_TYPE</span><span class="p">;</span>
 
-    <span class="c1">// Use &#39;°C&#39; for metric units, or  &#39;°F&#39; for imperial units.</span>
-    <span class="kd">var</span> <span class="nx">UNITS_SUFFIX</span> <span class="o">=</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">===</span> <span class="s2">&quot;metric&quot;</span> <span class="o">?</span> <span class="s2">&quot;°C&quot;</span> <span class="o">:</span> <span class="s2">&quot;°F&quot;</span><span class="p">;</span>
+	<span class="c1">// Use '°C' for metric units, or  '°F' for imperial units.</span>
+	<span class="kd">var</span> <span class="nx">UNITS_SUFFIX</span> <span class="o">=</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">===</span> <span class="s2">"metric"</span> <span class="p">?</span> <span class="s2">"°C"</span> <span class="p">:</span> <span class="s2">"°F"</span><span class="p">;</span>
 
-    <span class="kd">var</span> <span class="nx">MESSAGE_LOCATION_NOT_FOUND</span> <span class="o">=</span> <span class="s2">&quot;Location not found. Please search for something else.&quot;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">MESSAGE_API_REQUEST_ERROR</span> <span class="o">=</span> <span class="s2">&quot;There was a problem getting weather data. Please try again.&quot;</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">MESSAGE_LOCATION_NOT_FOUND</span> <span class="o">=</span> <span class="s2">"Location not found. Please search for something else."</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">MESSAGE_API_REQUEST_ERROR</span> <span class="o">=</span> <span class="s2">"There was a problem getting weather data. Please try again."</span><span class="p">;</span>
 
-    <span class="kd">var</span> <span class="nx">_locationNameDisplay</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_temperatureDisplay</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_locationNameDisplay</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_temperatureDisplay</span><span class="p">;</span>
 
-    <span class="c1">// Add an event listener to ensure the DOM has loaded before</span>
-    <span class="c1">// initialising the application.</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
+	<span class="c1">// Add an event listener to ensure the DOM has loaded before</span>
+	<span class="c1">// initialising the application.</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
 
-    <span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nx">_locationNameDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.location-name-display&quot;</span><span class="p">);</span>
-        <span class="nx">_temperatureDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.temperature-display&quot;</span><span class="p">);</span>
+	<span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
+	<span class="p">{</span>
+		<span class="nx">_locationNameDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">".location-name-display"</span><span class="p">);</span>
+		<span class="nx">_temperatureDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">".temperature-display"</span><span class="p">);</span>
 
-        <span class="c1">// Get the geo position of the current user (if they allow this).</span>
-        <span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">geolocationSuccessHandler</span><span class="p">,</span> <span class="nx">geolocationErrorHandler</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="c1">// Get the geo position of the current user (if they allow this).</span>
+		<span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">geolocationSuccessHandler</span><span class="p">,</span> <span class="nx">geolocationErrorHandler</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">geolocationSuccessHandler</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Get lat and lon values from the position object.</span>
-        <span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">lon</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
+	<span class="kd">function</span> <span class="nx">geolocationSuccessHandler</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// Get lat and lon values from the position object.</span>
+		<span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">lon</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
 
-        <span class="c1">// Load weather data using the lat and lon values, now that we have the user&#39;s position.</span>
-        <span class="nx">getWeatherDataFromCoords</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="c1">// Load weather data using the lat and lon values, now that we have the user's position.</span>
+		<span class="nx">getWeatherDataFromCoords</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">geolocationErrorHandler</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// The user has disallowed sharing their geolocation, or there was a general error obtaining the info.</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;geolocationErrorHandler&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">geolocationErrorHandler</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// The user has disallowed sharing their geolocation, or there was a general error obtaining the info.</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"geolocationErrorHandler"</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">getWeatherDataFromCoords</span> <span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;getting weather data...&quot;</span><span class="p">,</span> <span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
+	<span class="kd">function</span> <span class="nx">getWeatherDataFromCoords</span> <span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"getting weather data..."</span><span class="p">,</span> <span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
 
-        <span class="c1">// Build a request URL based on the current lat and lon values.</span>
-        <span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">&quot;&amp;lat=&quot;</span> <span class="o">+</span> <span class="nx">lat</span> <span class="o">+</span> <span class="s2">&quot;&amp;lon=&quot;</span> <span class="o">+</span> <span class="nx">lon</span><span class="p">;</span>
+		<span class="c1">// Build a request URL based on the current lat and lon values.</span>
+		<span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">"&amp;lat="</span> <span class="o">+</span> <span class="nx">lat</span> <span class="o">+</span> <span class="s2">"&amp;lon="</span> <span class="o">+</span> <span class="nx">lon</span><span class="p">;</span>
 
-        <span class="c1">// Make an AJAX request to the API.</span>
-        <span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="c1">// Make an AJAX request to the API.</span>
+		<span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">apiRequestSuccess</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;weather data received.&quot;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+	<span class="kd">function</span> <span class="nx">apiRequestSuccess</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"weather data received."</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
 
-        <span class="c1">// The data returned by the API contains a property called &#39;cod&#39;,</span>
-        <span class="c1">// rather than &#39;code&#39;, for the response status code. This is not a typo!</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">!==</span> <span class="s2">&quot;undefined&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">===</span> <span class="s2">&quot;404&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="c1">// The data returned by the API contains a property called 'cod',</span>
+		<span class="c1">// rather than 'code', for the response status code. This is not a typo!</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">!==</span> <span class="s2">"undefined"</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">===</span> <span class="s2">"404"</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
+			<span class="k">return</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="c1">// Get the location name, country code, and temperature from the data object</span>
-        <span class="c1">// returned by the API, ensuring that we round it to the nearest integer.</span>
-        <span class="kd">var</span> <span class="nx">locationName</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">countryCode</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">sys</span><span class="p">.</span><span class="nx">country</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">temperature</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">main</span><span class="p">.</span><span class="nx">temp</span><span class="p">);</span>
+		<span class="c1">// Get the location name, country code, and temperature from the data object</span>
+		<span class="c1">// returned by the API, ensuring that we round it to the nearest integer.</span>
+		<span class="kd">var</span> <span class="nx">locationName</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">countryCode</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">sys</span><span class="p">.</span><span class="nx">country</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">temperature</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">main</span><span class="p">.</span><span class="nx">temp</span><span class="p">);</span>
 
-        <span class="c1">// Don&#39;t display anything if there is no name and country code.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">countryCode</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="c1">// Don't display anything if there is no name and country code.</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">===</span> <span class="s2">""</span> <span class="o">&amp;&amp;</span> <span class="nx">countryCode</span> <span class="o">===</span> <span class="s2">""</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
+			<span class="k">return</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">apiRequestError</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_API_REQUEST_ERROR</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">apiRequestError</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_API_REQUEST_ERROR</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">!==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">locationName</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="nx">countryCode</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">countryCode</span><span class="p">;</span>
-        <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">!==</span> <span class="s2">""</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">locationName</span> <span class="o">+</span> <span class="s2">", "</span> <span class="o">+</span> <span class="nx">countryCode</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span>
+		<span class="p">{</span>
+			<span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">countryCode</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="nx">_temperatureDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">temperature</span> <span class="o">+</span> <span class="nx">UNITS_SUFFIX</span><span class="p">;</span>
-    <span class="p">}</span>
+		<span class="nx">_temperatureDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">temperature</span> <span class="o">+</span> <span class="nx">UNITS_SUFFIX</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">})();</span>
-</code></pre></div>
-<p>Firstly, we are checking if the status code in the data object returned by the API is 404 (not found) before proceeding. If it is then we need to alert the user so they know there was a problem with the request. We then grab the location name, country code, and temperature from the API data object. Next, we check if both the location name and country code are empty strings, and if this is the case we again alert the user, since we would have nothing to display. Lastly, we call the <code>updateLocationDisplay</code> function, within which we display either the location name, country code, or both, dependant on what is available.</p>
+</code></pre>
+</div>
 
-<h2>Adding Search Functionality</h2>
+<p>Firstly, we are checking if the status code in the data object returned by the API is 404 (not found) before proceeding. If it is then we need to alert the user so they know there was a problem with the request. We then grab the location name, country code, and temperature from the API data object. Next, we check if both the location name and country code are empty strings, and if this is the case we again alert the user, since we would have nothing to display. Lastly, we call the <code class="highlighter-rouge">updateLocationDisplay</code> function, within which we display either the location name, country code, or both, dependant on what is available.</p>
 
+<h2 id="adding-search-functionality">Adding Search Functionality</h2>
 <p>At this point, we have successfully displayed weather information for a user’s coordinates, and we can further improve our application by adding a search feature, so that we can get temperature information for practically any location in the world, based on user-entered text.</p>
 
 <p>The input text field already exists in the HTML code, but is currently not functional. In this section we’ll go through the logic for using a search term. To reiterate, we want to do the following:</p>
 
 <ol>
-<li>Listen for when the user submits the search form</li>
-<li>Make an api request using the text they entered into the search text field</li>
-<li>Parse the JSON data received from the API</li>
-<li>If the location is found, display temperature information using the parsed data</li>
+  <li>Listen for when the user submits the search form</li>
+  <li>Make an api request using the text they entered into the search text field</li>
+  <li>Parse the JSON data received from the API</li>
+  <li>If the location is found, display temperature information using the parsed data</li>
 </ol>
 
 <p>We have already written the logic for <em>#3</em> and <em>#4</em>, and we should re-use this instead of creating duplicate functionality. So, we just need to create the logic for <em>#1</em> and <em>#2</em>:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
 
-    <span class="kd">var</span> <span class="nx">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR_API_KEY_HERE&quot;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">=</span> <span class="s2">&quot;metric&quot;</span><span class="p">;</span> <span class="c1">// otherwise change to &#39;imperial&#39;.</span>
-    <span class="kd">var</span> <span class="nx">API_URL</span> <span class="o">=</span> <span class="s2">&quot;http://api.openweathermap.org/data/2.5/weather?APPID=&quot;</span> <span class="o">+</span> <span class="nx">API_KEY</span> <span class="o">+</span> <span class="s2">&quot;&amp;units=&quot;</span> <span class="o">+</span> <span class="nx">API_UNIT_TYPE</span><span class="p">;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
 
-    <span class="c1">// Use &#39;°C&#39; for metric units, or  &#39;°F&#39; for imperial units.</span>
-    <span class="kd">var</span> <span class="nx">UNITS_SUFFIX</span> <span class="o">=</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">===</span> <span class="s2">&quot;metric&quot;</span> <span class="o">?</span> <span class="s2">&quot;°C&quot;</span> <span class="o">:</span> <span class="s2">&quot;°F&quot;</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">API_KEY</span> <span class="o">=</span> <span class="s2">"YOUR_API_KEY_HERE"</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">=</span> <span class="s2">"metric"</span><span class="p">;</span> <span class="c1">// otherwise change to 'imperial'.</span>
+	<span class="kd">var</span> <span class="nx">API_URL</span> <span class="o">=</span> <span class="s2">"http://api.openweathermap.org/data/2.5/weather?APPID="</span> <span class="o">+</span> <span class="nx">API_KEY</span> <span class="o">+</span> <span class="s2">"&amp;units="</span> <span class="o">+</span> <span class="nx">API_UNIT_TYPE</span><span class="p">;</span>
 
-    <span class="kd">var</span> <span class="nx">MESSAGE_LOCATION_NOT_FOUND</span> <span class="o">=</span> <span class="s2">&quot;Location not found. Please search for something else.&quot;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">MESSAGE_API_REQUEST_ERROR</span> <span class="o">=</span> <span class="s2">&quot;There was a problem getting weather data. Please try again.&quot;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">MESSAGE_SEARCH_NOT_SPECIFIED</span> <span class="o">=</span> <span class="s2">&quot;Please specify a search term.&quot;</span><span class="p">;</span>
+	<span class="c1">// Use '°C' for metric units, or  '°F' for imperial units.</span>
+	<span class="kd">var</span> <span class="nx">UNITS_SUFFIX</span> <span class="o">=</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">===</span> <span class="s2">"metric"</span> <span class="p">?</span> <span class="s2">"°C"</span> <span class="p">:</span> <span class="s2">"°F"</span><span class="p">;</span>
 
-    <span class="kd">var</span> <span class="nx">_locationSearchForm</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_locationSearchInput</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_locationNameDisplay</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_temperatureDisplay</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_waitingForData</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">MESSAGE_LOCATION_NOT_FOUND</span> <span class="o">=</span> <span class="s2">"Location not found. Please search for something else."</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">MESSAGE_API_REQUEST_ERROR</span> <span class="o">=</span> <span class="s2">"There was a problem getting weather data. Please try again."</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">MESSAGE_SEARCH_NOT_SPECIFIED</span> <span class="o">=</span> <span class="s2">"Please specify a search term."</span><span class="p">;</span>
 
-    <span class="c1">// Add an event listener to ensure the DOM has loaded before</span>
-    <span class="c1">// initialising the application.</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">_locationSearchForm</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_locationSearchInput</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_locationNameDisplay</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_temperatureDisplay</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_waitingForData</span><span class="p">;</span>
 
-    <span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nx">_locationSearchForm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#location-search-form&quot;</span><span class="p">);</span>
-        <span class="nx">_locationSearchInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.location-search-input&quot;</span><span class="p">);</span>
-        <span class="nx">_locationNameDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.location-name-display&quot;</span><span class="p">);</span>
-        <span class="nx">_temperatureDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.temperature-display&quot;</span><span class="p">);</span>
+	<span class="c1">// Add an event listener to ensure the DOM has loaded before</span>
+	<span class="c1">// initialising the application.</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
 
-        <span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
+	<span class="p">{</span>
+		<span class="nx">_locationSearchForm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#location-search-form"</span><span class="p">);</span>
+		<span class="nx">_locationSearchInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">".location-search-input"</span><span class="p">);</span>
+		<span class="nx">_locationNameDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">".location-name-display"</span><span class="p">);</span>
+		<span class="nx">_temperatureDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">".temperature-display"</span><span class="p">);</span>
 
-        <span class="c1">// Add a listener for when the search form is submitted.</span>
-        <span class="nx">_locationSearchForm</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;submit&quot;</span><span class="p">,</span> <span class="nx">locationSearchFormSubmitHandler</span><span class="p">);</span>
+		<span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 
-        <span class="c1">// Get the geo position of the current user (if they allow this).</span>
-        <span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">geolocationSuccessHandler</span><span class="p">,</span> <span class="nx">geolocationErrorHandler</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="c1">// Add a listener for when the search form is submitted.</span>
+		<span class="nx">_locationSearchForm</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"submit"</span><span class="p">,</span> <span class="nx">locationSearchFormSubmitHandler</span><span class="p">);</span>
 
-    <span class="kd">function</span> <span class="nx">geolocationSuccessHandler</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Get lat and lon values from the position object.</span>
-        <span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">lon</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
+		<span class="c1">// Get the geo position of the current user (if they allow this).</span>
+		<span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">geolocationSuccessHandler</span><span class="p">,</span> <span class="nx">geolocationErrorHandler</span><span class="p">);</span>
+	<span class="p">}</span>
 
-        <span class="c1">// Load weather data using the lat and lon values, now that we have the user&#39;s position.</span>
-        <span class="nx">getWeatherDataFromCoords</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">geolocationSuccessHandler</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// Get lat and lon values from the position object.</span>
+		<span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">lon</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
 
-    <span class="kd">function</span> <span class="nx">geolocationErrorHandler</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// The user has disallowed sharing their geolocation, or there was a general error obtaining the info.</span>
-        <span class="c1">// Even still, they will still be able to search for weather information.</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;geolocationErrorHandler&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="c1">// Load weather data using the lat and lon values, now that we have the user's position.</span>
+		<span class="nx">getWeatherDataFromCoords</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">locationSearchFormSubmitHandler</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+	<span class="kd">function</span> <span class="nx">geolocationErrorHandler</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// The user has disallowed sharing their geolocation, or there was a general error obtaining the info.</span>
+		<span class="c1">// Even still, they will still be able to search for weather information.</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"geolocationErrorHandler"</span><span class="p">);</span>
+	<span class="p">}</span>
 
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;form submit.&quot;</span><span class="p">,</span> <span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+	<span class="kd">function</span> <span class="nx">locationSearchFormSubmitHandler</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+		
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"form submit."</span><span class="p">,</span> <span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">!==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">getWeatherDataFromLocationName</span><span class="p">(</span><span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">!==</span> <span class="s2">""</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">getWeatherDataFromLocationName</span><span class="p">(</span><span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
 
-            <span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_SEARCH_NOT_SPECIFIED</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+			<span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span>
+		<span class="p">{</span>
+			<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_SEARCH_NOT_SPECIFIED</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">getWeatherDataFromCoords</span> <span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Don&#39;t do anything if we are waiting on the response of a previous API request.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">_waitingForData</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">getWeatherDataFromCoords</span> <span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// Don't do anything if we are waiting on the response of a previous API request.</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">_waitingForData</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="c1">// Disable API requests until we receive a response.</span>
-        <span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+		<span class="c1">// Disable API requests until we receive a response.</span>
+		<span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;getting weather data...&quot;</span><span class="p">,</span> <span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"getting weather data..."</span><span class="p">,</span> <span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
 
-        <span class="c1">// Build a request URL based on the current lat and lon values.</span>
-        <span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">&quot;&amp;lat=&quot;</span> <span class="o">+</span> <span class="nx">lat</span> <span class="o">+</span> <span class="s2">&quot;&amp;lon=&quot;</span> <span class="o">+</span> <span class="nx">lon</span><span class="p">;</span>
+		<span class="c1">// Build a request URL based on the current lat and lon values.</span>
+		<span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">"&amp;lat="</span> <span class="o">+</span> <span class="nx">lat</span> <span class="o">+</span> <span class="s2">"&amp;lon="</span> <span class="o">+</span> <span class="nx">lon</span><span class="p">;</span>
 
-        <span class="c1">// Make an AJAX request to the API.</span>
-        <span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="c1">// Make an AJAX request to the API.</span>
+		<span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">getWeatherDataFromLocationName</span> <span class="p">(</span><span class="nx">locationName</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Don&#39;t do anything if we are waiting on the response of a previous API request.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">_waitingForData</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">getWeatherDataFromLocationName</span> <span class="p">(</span><span class="nx">locationName</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// Don't do anything if we are waiting on the response of a previous API request.</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">_waitingForData</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="c1">// Disable API requests until we receive a response.</span>
-        <span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+		<span class="c1">// Disable API requests until we receive a response.</span>
+		<span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;getting weather data...&quot;</span><span class="p">,</span> <span class="nx">locationName</span><span class="p">);</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"getting weather data..."</span><span class="p">,</span> <span class="nx">locationName</span><span class="p">);</span>
 
-        <span class="c1">// Build a request URL based on the current lat and lon values.</span>
-        <span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">&quot;&amp;q=&quot;</span> <span class="o">+</span> <span class="nx">locationName</span><span class="p">;</span>
+		<span class="c1">// Build a request URL based on the current lat and lon values.</span>
+		<span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">"&amp;q="</span> <span class="o">+</span> <span class="nx">locationName</span><span class="p">;</span>
 
-        <span class="c1">// Make an AJAX request to the API.</span>
-        <span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="c1">// Make an AJAX request to the API.</span>
+		<span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">apiRequestSuccess</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;weather data received.&quot;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+	<span class="kd">function</span> <span class="nx">apiRequestSuccess</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"weather data received."</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
 
-        <span class="c1">// Reenable data lookups now that the API response has been received.</span>
-        <span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+		<span class="c1">// Reenable data lookups now that the API response has been received.</span>
+		<span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 
-        <span class="c1">// The data returned by the API contains a property called &#39;cod&#39;,</span>
-        <span class="c1">// rather than &#39;code&#39;, for the response status code. This is not a typo!</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">!==</span> <span class="s2">&quot;undefined&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">===</span> <span class="s2">&quot;404&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="c1">// The data returned by the API contains a property called 'cod',</span>
+		<span class="c1">// rather than 'code', for the response status code. This is not a typo!</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">!==</span> <span class="s2">"undefined"</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">===</span> <span class="s2">"404"</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
+			<span class="k">return</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="c1">// Get the location name, country code, and temperature from the data object</span>
-        <span class="c1">// returned by the API, ensuring that we round it to the nearest integer.</span>
-        <span class="kd">var</span> <span class="nx">locationName</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">countryCode</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">sys</span><span class="p">.</span><span class="nx">country</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">temperature</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">main</span><span class="p">.</span><span class="nx">temp</span><span class="p">);</span>
+		<span class="c1">// Get the location name, country code, and temperature from the data object</span>
+		<span class="c1">// returned by the API, ensuring that we round it to the nearest integer.</span>
+		<span class="kd">var</span> <span class="nx">locationName</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">countryCode</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">sys</span><span class="p">.</span><span class="nx">country</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">temperature</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">main</span><span class="p">.</span><span class="nx">temp</span><span class="p">);</span>
 
-        <span class="c1">// Don&#39;t display anything if there is no name and country code.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">countryCode</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="c1">// Don't display anything if there is no name and country code.</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">===</span> <span class="s2">""</span> <span class="o">&amp;&amp;</span> <span class="nx">countryCode</span> <span class="o">===</span> <span class="s2">""</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
+			<span class="k">return</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">apiRequestError</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_API_REQUEST_ERROR</span><span class="p">);</span>
+	<span class="kd">function</span> <span class="nx">apiRequestError</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_API_REQUEST_ERROR</span><span class="p">);</span>
 
-        <span class="c1">// Reenable data lookups so that we can retry requesting weather data.</span>
-        <span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-    <span class="p">}</span>
+		<span class="c1">// Reenable data lookups so that we can retry requesting weather data.</span>
+		<span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">!==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">locationName</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="nx">countryCode</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">countryCode</span><span class="p">;</span>
-        <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">!==</span> <span class="s2">""</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">locationName</span> <span class="o">+</span> <span class="s2">", "</span> <span class="o">+</span> <span class="nx">countryCode</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span>
+		<span class="p">{</span>
+			<span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">countryCode</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="nx">_temperatureDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">temperature</span> <span class="o">+</span> <span class="nx">UNITS_SUFFIX</span><span class="p">;</span>
-    <span class="p">}</span>
+		<span class="nx">_temperatureDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">temperature</span> <span class="o">+</span> <span class="nx">UNITS_SUFFIX</span><span class="p">;</span>
+	<span class="p">}</span>
 
 <span class="p">})();</span>
-</code></pre></div>
-<p>We have stored references to the input text field and the form within which it is contained, allowing us to listen out for when a user submits the form, so that we can run the <code>locationSearchFormSubmitHandler</code> function. Within this function, the first piece of code to get executed is <code>event.preventDefault()</code>. This stops the default form submission action so that we can write our own implementation without the page being refreshed. We then check if the input text field is empty, and if so we alert the user, otherwise the <code>getWeatherDataFromLocationName</code> function is run with the value of the input text field provided as a parameter. We then clear the contents of the input text field to make it easier for the user to search weather data for somewhere else next time.</p>
+</code></pre>
+</div>
 
-<p>The <code>getWeatherDataFromLocationName</code> function is similar to <code>getWeatherDataFromCoords</code>, but accepts a single string as a parameter, rather than coordinates. Notice also that we have added conditional logic to both of those functions, which checks the state of the <code>_waitingForData</code> boolean variable. This check is done so that only a single API request can be performed at any given time – the value of the variable is set to ‘true’ when an API request is in progress, and then back to ‘false’ when we receive a response or error.</p>
+<p>We have stored references to the input text field and the form within which it is contained, allowing us to listen out for when a user submits the form, so that we can run the <code class="highlighter-rouge">locationSearchFormSubmitHandler</code> function. Within this function, the first piece of code to get executed is <code class="highlighter-rouge">event.preventDefault()</code>. This stops the default form submission action so that we can write our own implementation without the page being refreshed. We then check if the input text field is empty, and if so we alert the user, otherwise the <code class="highlighter-rouge">getWeatherDataFromLocationName</code> function is run with the value of the input text field provided as a parameter. We then clear the contents of the input text field to make it easier for the user to search weather data for somewhere else next time.</p>
+
+<p>The <code class="highlighter-rouge">getWeatherDataFromLocationName</code> function is similar to <code class="highlighter-rouge">getWeatherDataFromCoords</code>, but accepts a single string as a parameter, rather than coordinates. Notice also that we have added conditional logic to both of those functions, which checks the state of the <code class="highlighter-rouge">_waitingForData</code> boolean variable. This check is done so that only a single API request can be performed at any given time – the value of the variable is set to ‘true’ when an API request is in progress, and then back to ‘false’ when we receive a response or error.</p>
 
 <p>We then reuse the previously created logic to parse and display the weather information.</p>
 
-<h2>Making It Pretty</h2>
+<h2 id="making-it-pretty">Making It Pretty</h2>
 
-<p>In this section we&#39;ll create some logic to dynamically update the class names of elements and then use some basic SCSS to style the application and make it look slick with CSS3 transitions.</p>
+<p>In this section we’ll create some logic to dynamically update the class names of elements and then use some basic SCSS to style the application and make it look slick with CSS3 transitions.</p>
 
-<h3>Logic to Facilitate Styling</h3>
-
+<h3 id="logic-to-facilitate-styling">Logic to Facilitate Styling</h3>
 <p>Our final JavaScript code is as follows:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
 
-    <span class="kd">var</span> <span class="nx">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR_API_KEY_HERE&quot;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">=</span> <span class="s2">&quot;metric&quot;</span><span class="p">;</span> <span class="c1">// otherwise change to &#39;imperial&#39;.</span>
-    <span class="kd">var</span> <span class="nx">API_URL</span> <span class="o">=</span> <span class="s2">&quot;http://api.openweathermap.org/data/2.5/weather?APPID=&quot;</span> <span class="o">+</span> <span class="nx">API_KEY</span> <span class="o">+</span> <span class="s2">&quot;&amp;units=&quot;</span> <span class="o">+</span> <span class="nx">API_UNIT_TYPE</span><span class="p">;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">(){</span>
+	
+	<span class="kd">var</span> <span class="nx">API_KEY</span> <span class="o">=</span> <span class="s2">"YOUR_API_KEY_HERE"</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">=</span> <span class="s2">"metric"</span><span class="p">;</span> <span class="c1">// otherwise change to 'imperial'.</span>
+	<span class="kd">var</span> <span class="nx">API_URL</span> <span class="o">=</span> <span class="s2">"http://api.openweathermap.org/data/2.5/weather?APPID="</span> <span class="o">+</span> <span class="nx">API_KEY</span> <span class="o">+</span> <span class="s2">"&amp;units="</span> <span class="o">+</span> <span class="nx">API_UNIT_TYPE</span><span class="p">;</span>
 
-    <span class="kd">var</span> <span class="nx">TEMPERATURES</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">TEMPERATURES</span> <span class="o">=</span> <span class="p">{</span>
 
-        <span class="nx">FREEZING</span>    <span class="o">:</span> <span class="p">{</span><span class="nx">MAX</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">CLASS_NAME</span> <span class="o">:</span> <span class="s2">&quot;freezing&quot;</span><span class="p">},</span>
-        <span class="nx">COLD</span>        <span class="o">:</span> <span class="p">{</span><span class="nx">MAX</span> <span class="o">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nx">CLASS_NAME</span> <span class="o">:</span> <span class="s2">&quot;cold&quot;</span><span class="p">},</span>
-        <span class="nx">WARM</span>        <span class="o">:</span> <span class="p">{</span><span class="nx">MAX</span> <span class="o">:</span> <span class="mi">16</span><span class="p">,</span> <span class="nx">CLASS_NAME</span> <span class="o">:</span> <span class="s2">&quot;warm&quot;</span><span class="p">},</span>
-        <span class="nx">HOT</span>         <span class="o">:</span> <span class="p">{</span><span class="nx">MAX</span> <span class="o">:</span> <span class="mi">24</span><span class="p">,</span> <span class="nx">CLASS_NAME</span> <span class="o">:</span> <span class="s2">&quot;hot&quot;</span><span class="p">},</span>
-        <span class="nx">BLAZING</span>     <span class="o">:</span> <span class="p">{</span><span class="nx">MAX</span> <span class="o">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">POSITIVE_INFINITY</span><span class="p">,</span> <span class="nx">CLASS_NAME</span> <span class="o">:</span> <span class="s2">&quot;blazing&quot;</span><span class="p">}</span>
-    <span class="p">};</span>
+		<span class="na">FREEZING</span>	<span class="p">:</span> <span class="p">{</span><span class="na">MAX</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">CLASS_NAME</span> <span class="p">:</span> <span class="s2">"freezing"</span><span class="p">},</span>
+		<span class="na">COLD</span>		<span class="p">:</span> <span class="p">{</span><span class="na">MAX</span> <span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="na">CLASS_NAME</span> <span class="p">:</span> <span class="s2">"cold"</span><span class="p">},</span>
+		<span class="na">WARM</span>		<span class="p">:</span> <span class="p">{</span><span class="na">MAX</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="na">CLASS_NAME</span> <span class="p">:</span> <span class="s2">"warm"</span><span class="p">},</span>
+		<span class="na">HOT</span>			<span class="p">:</span> <span class="p">{</span><span class="na">MAX</span> <span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="na">CLASS_NAME</span> <span class="p">:</span> <span class="s2">"hot"</span><span class="p">},</span>
+		<span class="na">BLAZING</span>		<span class="p">:</span> <span class="p">{</span><span class="na">MAX</span> <span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">POSITIVE_INFINITY</span><span class="p">,</span> <span class="na">CLASS_NAME</span> <span class="p">:</span> <span class="s2">"blazing"</span><span class="p">}</span>
+	<span class="p">};</span>
 
-    <span class="c1">// Use &#39;°C&#39; for metric units, or  &#39;°F&#39; for imperial units.</span>
-    <span class="kd">var</span> <span class="nx">UNITS_SUFFIX</span> <span class="o">=</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">===</span> <span class="s2">&quot;metric&quot;</span> <span class="o">?</span> <span class="s2">&quot;°C&quot;</span> <span class="o">:</span> <span class="s2">&quot;°F&quot;</span><span class="p">;</span>
+	<span class="c1">// Use '°C' for metric units, or  '°F' for imperial units.</span>
+	<span class="kd">var</span> <span class="nx">UNITS_SUFFIX</span> <span class="o">=</span> <span class="nx">API_UNIT_TYPE</span> <span class="o">===</span> <span class="s2">"metric"</span> <span class="p">?</span> <span class="s2">"°C"</span> <span class="p">:</span> <span class="s2">"°F"</span><span class="p">;</span>
 
-    <span class="kd">var</span> <span class="nx">MESSAGE_LOCATION_NOT_FOUND</span> <span class="o">=</span> <span class="s2">&quot;Location not found. Please search for something else.&quot;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">MESSAGE_API_REQUEST_ERROR</span> <span class="o">=</span> <span class="s2">&quot;There was a problem getting weather data. Please try again.&quot;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">MESSAGE_SEARCH_NOT_SPECIFIED</span> <span class="o">=</span> <span class="s2">&quot;Please specify a search term.&quot;</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">MESSAGE_LOCATION_NOT_FOUND</span> <span class="o">=</span> <span class="s2">"Location not found. Please search for something else."</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">MESSAGE_API_REQUEST_ERROR</span> <span class="o">=</span> <span class="s2">"There was a problem getting weather data. Please try again."</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">MESSAGE_SEARCH_NOT_SPECIFIED</span> <span class="o">=</span> <span class="s2">"Please specify a search term."</span><span class="p">;</span>
 
-    <span class="kd">var</span> <span class="nx">_mainContainer</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_locationSearchForm</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_locationSearchSubmitWrapper</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_locationSearchInput</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_currentTemperatureClassName</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_locationNameDisplay</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_temperatureDisplay</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">_waitingForData</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_mainContainer</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_locationSearchForm</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_locationSearchSubmitWrapper</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_locationSearchInput</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_currentTemperatureClassName</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_locationNameDisplay</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_temperatureDisplay</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">_waitingForData</span><span class="p">;</span>
 
-    <span class="c1">// Add an event listener to ensure the DOM has loaded before</span>
-    <span class="c1">// initialising the application.</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
+	<span class="c1">// Add an event listener to ensure the DOM has loaded before</span>
+	<span class="c1">// initialising the application.</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
 
-    <span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nx">_mainContainer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.main-container&quot;</span><span class="p">);</span>
-        <span class="nx">_locationSearchForm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#location-search-form&quot;</span><span class="p">);</span>
-        <span class="nx">_locationSearchSubmitWrapper</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.location-search-submit-wrapper&quot;</span><span class="p">);</span>
-        <span class="nx">_locationSearchInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.location-search-input&quot;</span><span class="p">);</span>
-        <span class="nx">_locationNameDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.location-name-display&quot;</span><span class="p">);</span>
-        <span class="nx">_temperatureDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.temperature-display&quot;</span><span class="p">);</span>
+	<span class="kd">function</span> <span class="nx">init</span> <span class="p">()</span>
+	<span class="p">{</span>
+		<span class="nx">_mainContainer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">".main-container"</span><span class="p">);</span>
+		<span class="nx">_locationSearchForm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#location-search-form"</span><span class="p">);</span>
+		<span class="nx">_locationSearchSubmitWrapper</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">".location-search-submit-wrapper"</span><span class="p">);</span>
+		<span class="nx">_locationSearchInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">".location-search-input"</span><span class="p">);</span>
+		<span class="nx">_locationNameDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">".location-name-display"</span><span class="p">);</span>
+		<span class="nx">_temperatureDisplay</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">".temperature-display"</span><span class="p">);</span>
 
-        <span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+		<span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 
-        <span class="c1">// Add a listener for when the search form is submitted.</span>
-        <span class="nx">_locationSearchForm</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;submit&quot;</span><span class="p">,</span> <span class="nx">locationSearchFormSubmitHandler</span><span class="p">);</span>
+		<span class="c1">// Add a listener for when the search form is submitted.</span>
+		<span class="nx">_locationSearchForm</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"submit"</span><span class="p">,</span> <span class="nx">locationSearchFormSubmitHandler</span><span class="p">);</span>
 
-        <span class="c1">// Get the geo position of the current user (if they allow this).</span>
-        <span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">geolocationSuccessHandler</span><span class="p">,</span> <span class="nx">geolocationErrorHandler</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="c1">// Get the geo position of the current user (if they allow this).</span>
+		<span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">geolocationSuccessHandler</span><span class="p">,</span> <span class="nx">geolocationErrorHandler</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">geolocationSuccessHandler</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Get lat and lon values from the position object.</span>
-        <span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">lon</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
+	<span class="kd">function</span> <span class="nx">geolocationSuccessHandler</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// Get lat and lon values from the position object.</span>
+		<span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">lon</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
 
-        <span class="c1">// Load weather data using the lat and lon values, now that we have the user&#39;s position.</span>
-        <span class="nx">getWeatherDataFromCoords</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="c1">// Load weather data using the lat and lon values, now that we have the user's position.</span>
+		<span class="nx">getWeatherDataFromCoords</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">geolocationErrorHandler</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// The user has disallowed sharing their geolocation, or there was a general error obtaining the info.</span>
-        <span class="c1">// Even still, they will still be able to search for weather information.</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;geolocationErrorHandler&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">geolocationErrorHandler</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// The user has disallowed sharing their geolocation, or there was a general error obtaining the info.</span>
+		<span class="c1">// Even still, they will still be able to search for weather information.</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"geolocationErrorHandler"</span><span class="p">);</span>
+	<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">locationSearchFormSubmitHandler</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+	<span class="kd">function</span> <span class="nx">locationSearchFormSubmitHandler</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+		
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"form submit."</span><span class="p">,</span> <span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
 
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;form submit.&quot;</span><span class="p">,</span> <span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">!==</span> <span class="s2">""</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">getWeatherDataFromLocationName</span><span class="p">(</span><span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">!==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">getWeatherDataFromLocationName</span><span class="p">(</span><span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+			<span class="nx">_locationSearchSubmitWrapper</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"loading"</span><span class="p">);</span>
+			<span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span>
+		<span class="p">{</span>
+			<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_SEARCH_NOT_SPECIFIED</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
-            <span class="nx">_locationSearchSubmitWrapper</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;loading&quot;</span><span class="p">);</span>
-            <span class="nx">_locationSearchInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_SEARCH_NOT_SPECIFIED</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">getWeatherDataFromCoords</span> <span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// Don't do anything if we are waiting on the response of a previous API request.</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">_waitingForData</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">getWeatherDataFromCoords</span> <span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Don&#39;t do anything if we are waiting on the response of a previous API request.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">_waitingForData</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="c1">// Disable API requests until we receive a response.</span>
+		<span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 
-        <span class="c1">// Disable API requests until we receive a response.</span>
-        <span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"getting weather data..."</span><span class="p">,</span> <span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
 
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;getting weather data...&quot;</span><span class="p">,</span> <span class="nx">lat</span><span class="p">,</span> <span class="nx">lon</span><span class="p">);</span>
+		<span class="c1">// Build a request URL based on the current lat and lon values.</span>
+		<span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">"&amp;lat="</span> <span class="o">+</span> <span class="nx">lat</span> <span class="o">+</span> <span class="s2">"&amp;lon="</span> <span class="o">+</span> <span class="nx">lon</span><span class="p">;</span>
 
-        <span class="c1">// Build a request URL based on the current lat and lon values.</span>
-        <span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">&quot;&amp;lat=&quot;</span> <span class="o">+</span> <span class="nx">lat</span> <span class="o">+</span> <span class="s2">&quot;&amp;lon=&quot;</span> <span class="o">+</span> <span class="nx">lon</span><span class="p">;</span>
+		<span class="c1">// Make an AJAX request to the API.</span>
+		<span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
+	<span class="p">}</span>
 
-        <span class="c1">// Make an AJAX request to the API.</span>
-        <span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">getWeatherDataFromLocationName</span> <span class="p">(</span><span class="nx">locationName</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// Don't do anything if we are waiting on the response of a previous API request.</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">_waitingForData</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">getWeatherDataFromLocationName</span> <span class="p">(</span><span class="nx">locationName</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// Don&#39;t do anything if we are waiting on the response of a previous API request.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">_waitingForData</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="c1">// Disable API requests until we receive a response.</span>
+		<span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 
-        <span class="c1">// Disable API requests until we receive a response.</span>
-        <span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"getting weather data..."</span><span class="p">,</span> <span class="nx">locationName</span><span class="p">);</span>
 
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;getting weather data...&quot;</span><span class="p">,</span> <span class="nx">locationName</span><span class="p">);</span>
+		<span class="c1">// Build a request URL based on the current lat and lon values.</span>
+		<span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">"&amp;q="</span> <span class="o">+</span> <span class="nx">locationName</span><span class="p">;</span>
 
-        <span class="c1">// Build a request URL based on the current lat and lon values.</span>
-        <span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="nx">API_URL</span> <span class="o">+</span> <span class="s2">&quot;&amp;q=&quot;</span> <span class="o">+</span> <span class="nx">locationName</span><span class="p">;</span>
+		<span class="c1">// Make an AJAX request to the API.</span>
+		<span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
+	<span class="p">}</span>
 
-        <span class="c1">// Make an AJAX request to the API.</span>
-        <span class="nx">atomic</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">apiRequestSuccess</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">apiRequestError</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">apiRequestSuccess</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"weather data received."</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
 
-    <span class="kd">function</span> <span class="nx">apiRequestSuccess</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;weather data received.&quot;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+		<span class="c1">// Reenable data lookups now that the API response has been received.</span>
+		<span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+		<span class="nx">_locationSearchSubmitWrapper</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"loading"</span><span class="p">);</span>
 
-        <span class="c1">// Reenable data lookups now that the API response has been received.</span>
-        <span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="nx">_locationSearchSubmitWrapper</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;loading&quot;</span><span class="p">);</span>
+		<span class="c1">// The data returned by the API contains a property called 'cod',</span>
+		<span class="c1">// rather than 'code', for the response status code. This is not a typo!</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">!==</span> <span class="s2">"undefined"</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">===</span> <span class="s2">"404"</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
+			<span class="k">return</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="c1">// The data returned by the API contains a property called &#39;cod&#39;,</span>
-        <span class="c1">// rather than &#39;code&#39;, for the response status code. This is not a typo!</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">!==</span> <span class="s2">&quot;undefined&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">cod</span> <span class="o">===</span> <span class="s2">&quot;404&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="c1">// Get the location name, country code, and temperature from the data object</span>
+		<span class="c1">// returned by the API, ensuring that we round it to the nearest integer.</span>
+		<span class="kd">var</span> <span class="nx">locationName</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">countryCode</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">sys</span><span class="p">.</span><span class="nx">country</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">temperature</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">main</span><span class="p">.</span><span class="nx">temp</span><span class="p">);</span>
 
-        <span class="c1">// Get the location name, country code, and temperature from the data object</span>
-        <span class="c1">// returned by the API, ensuring that we round it to the nearest integer.</span>
-        <span class="kd">var</span> <span class="nx">locationName</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">countryCode</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">sys</span><span class="p">.</span><span class="nx">country</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">temperature</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">main</span><span class="p">.</span><span class="nx">temp</span><span class="p">);</span>
+		<span class="c1">// Don't display anything if there is no name and country code.</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">===</span> <span class="s2">""</span> <span class="o">&amp;&amp;</span> <span class="nx">countryCode</span> <span class="o">===</span> <span class="s2">""</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
+			<span class="k">return</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="c1">// Don&#39;t display anything if there is no name and country code.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">countryCode</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_LOCATION_NOT_FOUND</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">);</span>
+		<span class="nx">updateBackgroundColor</span><span class="p">(</span><span class="nx">temperature</span><span class="p">);</span>
+	<span class="p">}</span>
 
-        <span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">);</span>
-        <span class="nx">updateBackgroundColor</span><span class="p">(</span><span class="nx">temperature</span><span class="p">);</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">apiRequestError</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_API_REQUEST_ERROR</span><span class="p">);</span>
 
-    <span class="kd">function</span> <span class="nx">apiRequestError</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="nx">MESSAGE_API_REQUEST_ERROR</span><span class="p">);</span>
+		<span class="c1">// Reenable data lookups so that we can retry requesting weather data.</span>
+		<span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
 
-        <span class="c1">// Reenable data lookups so that we can retry requesting weather data.</span>
-        <span class="nx">_waitingForData</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">!==</span> <span class="s2">""</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">locationName</span> <span class="o">+</span> <span class="s2">", "</span> <span class="o">+</span> <span class="nx">countryCode</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span>
+		<span class="p">{</span>
+			<span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">countryCode</span><span class="p">;</span>
+		<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">updateLocationDisplay</span><span class="p">(</span><span class="nx">locationName</span><span class="p">,</span> <span class="nx">countryCode</span><span class="p">,</span> <span class="nx">temperature</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">locationName</span> <span class="o">!==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">locationName</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="nx">countryCode</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="nx">_locationNameDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">countryCode</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="nx">_temperatureDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">temperature</span> <span class="o">+</span> <span class="nx">UNITS_SUFFIX</span><span class="p">;</span>
+	<span class="p">}</span>
 
-        <span class="nx">_temperatureDisplay</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">temperature</span> <span class="o">+</span> <span class="nx">UNITS_SUFFIX</span><span class="p">;</span>
-    <span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">updateBackgroundColor</span> <span class="p">(</span><span class="nx">temperature</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// If we previously set a temperature class name on the main</span>
+		<span class="c1">// container element then remove it here.</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">_currentTemperatureClassName</span> <span class="o">!==</span> <span class="s2">"undefined"</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">_mainContainer</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">_currentTemperatureClassName</span><span class="p">);</span>
+		<span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">updateBackgroundColor</span> <span class="p">(</span><span class="nx">temperature</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">// If we previously set a temperature class name on the main</span>
-        <span class="c1">// container element then remove it here.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">_currentTemperatureClassName</span> <span class="o">!==</span> <span class="s2">&quot;undefined&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">_mainContainer</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">_currentTemperatureClassName</span><span class="p">);</span>
-        <span class="p">}</span>
+		<span class="c1">// Set the '_currentTemperatureClassName' variable based on the</span>
+		<span class="c1">// constants we defined earlier.</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">temperature</span> <span class="o">&lt;=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">FREEZING</span><span class="p">.</span><span class="nx">MAX</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">_currentTemperatureClassName</span> <span class="o">=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">FREEZING</span><span class="p">.</span><span class="nx">CLASS_NAME</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">temperature</span> <span class="o">&lt;=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">COLD</span><span class="p">.</span><span class="nx">MAX</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">_currentTemperatureClassName</span> <span class="o">=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">COLD</span><span class="p">.</span><span class="nx">CLASS_NAME</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">temperature</span> <span class="o">&lt;=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">WARM</span><span class="p">.</span><span class="nx">MAX</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">_currentTemperatureClassName</span> <span class="o">=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">WARM</span><span class="p">.</span><span class="nx">CLASS_NAME</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">temperature</span> <span class="o">&lt;=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">HOT</span><span class="p">.</span><span class="nx">MAX</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="nx">_currentTemperatureClassName</span> <span class="o">=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">HOT</span><span class="p">.</span><span class="nx">CLASS_NAME</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span>
+		<span class="p">{</span>
+			<span class="nx">_currentTemperatureClassName</span> <span class="o">=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">BLAZING</span><span class="p">.</span><span class="nx">CLASS_NAME</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="c1">// Set the &#39;_currentTemperatureClassName&#39; variable based on the</span>
-        <span class="c1">// constants we defined earlier.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">temperature</span> <span class="o">&lt;=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">FREEZING</span><span class="p">.</span><span class="nx">MAX</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">_currentTemperatureClassName</span> <span class="o">=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">FREEZING</span><span class="p">.</span><span class="nx">CLASS_NAME</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">temperature</span> <span class="o">&lt;=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">COLD</span><span class="p">.</span><span class="nx">MAX</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">_currentTemperatureClassName</span> <span class="o">=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">COLD</span><span class="p">.</span><span class="nx">CLASS_NAME</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">temperature</span> <span class="o">&lt;=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">WARM</span><span class="p">.</span><span class="nx">MAX</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">_currentTemperatureClassName</span> <span class="o">=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">WARM</span><span class="p">.</span><span class="nx">CLASS_NAME</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">temperature</span> <span class="o">&lt;=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">HOT</span><span class="p">.</span><span class="nx">MAX</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">_currentTemperatureClassName</span> <span class="o">=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">HOT</span><span class="p">.</span><span class="nx">CLASS_NAME</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="nx">_currentTemperatureClassName</span> <span class="o">=</span> <span class="nx">TEMPERATURES</span><span class="p">.</span><span class="nx">BLAZING</span><span class="p">.</span><span class="nx">CLASS_NAME</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="c1">// Set a temperature class name on the main container element.</span>
-        <span class="nx">_mainContainer</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">_currentTemperatureClassName</span><span class="p">);</span>
-    <span class="p">}</span>
+		<span class="c1">// Set a temperature class name on the main container element.</span>
+		<span class="nx">_mainContainer</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">_currentTemperatureClassName</span><span class="p">);</span>
+	<span class="p">}</span>
 
 <span class="p">})();</span>
-</code></pre></div>
-<p>We’ve added a function called <code>updateBackgroundColor</code> that accepts a single numerical parameter – the current temperature. Also, we’ve created a ‘TEMPERATURES’ object, which contains information that we’ll use within the <code>updateBackgroundColor</code> function to determine which CSS class gets added to the main container <code>div</code> element of the application. If the temperature parameter value is less than or equal to the maximum ‘freezing’ temperature, then we add the ‘freezing’ class name, otherwise, if the temperature parameter value is less than or equal to the maximum ‘cold’ temperature, then we add the ‘cold’ class name, and so on. Additionally, there is a <code>_currentTemperatureClassName</code> variable for keeping track of the current class name that has been added to the main container, so that the class name can be removed the next time the function runs. This ensures we don’t end up with multiple temperature class names on the main container.</p>
+</code></pre>
+</div>
+
+<p>We’ve added a function called <code class="highlighter-rouge">updateBackgroundColor</code> that accepts a single numerical parameter – the current temperature. Also, we’ve created a ‘TEMPERATURES’ object, which contains information that we’ll use within the <code class="highlighter-rouge">updateBackgroundColor</code> function to determine which CSS class gets added to the main container <code class="highlighter-rouge">div</code> element of the application. If the temperature parameter value is less than or equal to the maximum ‘freezing’ temperature, then we add the ‘freezing’ class name, otherwise, if the temperature parameter value is less than or equal to the maximum ‘cold’ temperature, then we add the ‘cold’ class name, and so on. Additionally, there is a <code class="highlighter-rouge">_currentTemperatureClassName</code> variable for keeping track of the current class name that has been added to the main container, so that the class name can be removed the next time the function runs. This ensures we don’t end up with multiple temperature class names on the main container.</p>
 
 <p>Now that the main container has specific temperature class names added and removed, we target those class names using our SCSS code, so that the background colour is updated when we search for different locations, based on on temperature.</p>
 
-<p>Lastly, we have created a <code>_locationSearchSubmitWrapper</code> variable. this will allow us to target an element wrapping the form submit button so that we can add a transition to show when the app waiting for a response to an API request. This will provide visual feedback to the user so that they understand what  the application is doing, rather than blindly waiting for something to happen. We add and remove a ‘loading’ class to this element where appropriate.</p>
+<p>Lastly, we have created a <code class="highlighter-rouge">_locationSearchSubmitWrapper</code> variable. this will allow us to target an element wrapping the form submit button so that we can add a transition to show when the app waiting for a response to an API request. This will provide visual feedback to the user so that they understand what  the application is doing, rather than blindly waiting for something to happen. We add and remove a ‘loading’ class to this element where appropriate.</p>
 
-<h3>Styling and Transitions</h3>
-
+<h3 id="styling-and-transitions">Styling and Transitions</h3>
 <p>Let’s take a brief look at the way we will be styling the application using SCSS to illustrate some of the basic concepts of the language.</p>
 
-<h4>Partials</h4>
+<h4 id="partials">Partials</h4>
+<p>In SCSS, partials are simply files that have been broken up into logical segments, which we can include in our code using the <code class="highlighter-rouge">@import</code> directive. By convention, partial files are named with a leading underscore. Here is a basic example:</p>
 
-<p>In SCSS, partials are simply files that have been broken up into logical segments, which we can include in our code using the <code>@import</code> directive. By convention, partial files are named with a leading underscore. Here is a basic example:</p>
+<p>Main file – <em>app.scss</em>
+```scss
+body {
+	background-color: blue;
+}</p>
 
-<p>Main file – <em>app.scss</em></p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nt">body</span> <span class="p">{</span>
-    <span class="na">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
-<span class="p">}</span>
+<p>@import “some-amazing-partial”;
+```</p>
 
-<span class="k">@import</span> <span class="s2">&quot;some-amazing-partial&quot;</span><span class="p">;</span>
-</code></pre></div>
-<p>Partial file – <em>some-amazing-partial.scss</em></p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nt">body</span> <span class="p">{</span>
-    <span class="na">background-color</span><span class="o">:</span> <span class="nb">green</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>In the first file – <em>app.scss</em> – we simply set the background colour of the <code>body</code> element to blue and then import <em>some-amazing-partial.scss</em>, which then changes the background colour to green, overriding the previously set value. Note also that we don’t provide the ‘scss’ file extension when importing partials.
+<p>Partial file – <em>some-amazing-partial.scss</em>
+<code class="highlighter-rouge">scss
+body {
+	background-color: green;
+}
+</code></p>
+
+<p>In the first file – <em>app.scss</em> – we simply set the background colour of the <code class="highlighter-rouge">body</code> element to blue and then import <em>some-amazing-partial.scss</em>, which then changes the background colour to green, overriding the previously set value. Note also that we don’t provide the ‘scss’ file extension when importing partials.
 If we were to compile the above two files into pure CSS it would look as follows:</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nt">body</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="nb">green</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>so we are effectively just inserting all the content from a partial file wherever we use the <code>@import</code> directive.</p>
+</code></pre>
+</div>
 
-<h4>Variables</h4>
+<p>so we are effectively just inserting all the content from a partial file wherever we use the <code class="highlighter-rouge">@import</code> directive.</p>
 
+<h4 id="variables">Variables</h4>
 <p>We can also make use of simple variables in SCSS, the definitions for which start with a dollar sign. Variables make updating things such as colour schemes way easier than when using CSS alone. Consider the following standard CSS code:</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.first-element</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nc">.first-element</span> <span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.second-element</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.third-element</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>With standard CSS, if we wanted to change the background colour of all the targeted elements then we’d have to do so individually. Now that’s not so bad when there are only three elements, but imagine how long this simple update would take if there were hundreds of places throughout the styling code where this colour was defined! “Find and replace”, I hear you say, but what if there are some other elements that also use this colour, which we don’t want to change? Now that’s a lot of work!
 With SCSS, we could simply define some logically-named variables for our colours, and when we need to update a particular colour all that would be required is a quick change to a single variable value. Here’s a simple example:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$color-nav</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
-<span class="nv">$color-examples</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nv">$color-nav</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
+<span class="nv">$color-examples</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
 
 <span class="nc">.navigation-element</span> <span class="p">{</span>
-    <span class="na">background-color</span><span class="o">:</span> <span class="nv">$color-nav</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="nv">$color-nav</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.example-element-1</span> <span class="p">{</span>
-    <span class="na">background-color</span><span class="o">:</span> <span class="nv">$color-examples</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="nv">$color-examples</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.example-element-2</span> <span class="p">{</span>
-    <span class="na">background-color</span><span class="o">:</span> <span class="nv">$color-examples</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="nv">$color-examples</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Here we simply create two variables for colours, one for navigation and one for some example elements. Now if we want to change the colour of our navigation we can do so very easily, and without affective the colour of the example elements.</p>
 
 <p>On a side note, it’s normally a good idea to include the majority of your variables in a separate file (as we have done for this project), or group of files, so that they are always easy to find.</p>
 
-<h4>Mixins</h4>
-
+<h4 id="mixins">Mixins</h4>
 <p>In SCSS, <em>mixins</em> are effectively used to include snippets of code that we use regularly, in a similar way to JavaScript functions that return a value (but not quite the same way as SCSS functions). We can also pass parameters to mixins to alter the code the return. A good use case for a mixing would be something like including a <a href="http://www.sitepoint.com/clearing-floats-overview-different-clearfix-methods/">clearfix</a>:</p>
 
 <p>Here’s how we could fix the issue with CSS alone:</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.some-element-1</span><span class="nd">:after</span> <span class="p">{</span>
-    <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-    <span class="k">display</span><span class="o">:</span> <span class="n">table</span><span class="p">;</span>
-    <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nc">.some-element-1</span><span class="nd">:after</span> <span class="p">{</span>
+	<span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="n">table</span><span class="p">;</span>
+	<span class="nl">clear</span><span class="p">:</span> <span class="nb">both</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.some-element-2</span><span class="nd">:after</span> <span class="p">{</span>
-    <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-    <span class="k">display</span><span class="o">:</span> <span class="n">table</span><span class="p">;</span>
-    <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span>
+	<span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="n">table</span><span class="p">;</span>
+	<span class="nl">clear</span><span class="p">:</span> <span class="nb">both</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Now obviously if we have many elements that need a clearfix then we’d have to be writing this a lot. Mixins to the rescue – here’s the same thing written in SCSS:</p>
 
 <p><em>mixins.scss</em>
 A file to potentially contain many types of mixins</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@mixin</span><span class="nf"> clearfix</span> <span class="p">{</span>
-    <span class="k">&amp;</span><span class="nd">:after</span> <span class="p">{</span>
-        <span class="na">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-        <span class="na">display</span><span class="o">:</span> <span class="n">table</span><span class="p">;</span>
-        <span class="na">clear</span><span class="o">:</span> <span class="no">both</span><span class="p">;</span>
-    <span class="p">}</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">clearfix</span> <span class="p">{</span>
+	<span class="k">&amp;</span><span class="nd">:after</span> <span class="p">{</span>
+		<span class="nl">content</span><span class="p">:</span> <span class="s2">""</span><span class="p">;</span>
+		<span class="nl">display</span><span class="p">:</span> <span class="n">table</span><span class="p">;</span>
+		<span class="nl">clear</span><span class="p">:</span> <span class="nb">both</span><span class="p">;</span>
+	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="o">*</span><span class="nt">app</span><span class="nc">.scss</span><span class="o">*</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">*</span><span class="nt">app</span><span class="nc">.scss</span><span class="o">*</span>
 
 <span class="nc">.some-element-1</span> <span class="p">{</span>
-    <span class="k">@include</span><span class="nd"> clearfix</span><span class="p">;</span>
+	<span class="k">@include</span> <span class="nd">clearfix</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.some-element-2</span> <span class="p">{</span>
-    <span class="k">@include</span><span class="nd"> clearfix</span><span class="p">;</span>
+	<span class="k">@include</span> <span class="nd">clearfix</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Now that’s much neater :)</p>
 
-<h4>Transitions</h4>
+<h4 id="transitions">Transitions</h4>
 
-<p>Now, moving back to our application, we aren’t going to go into too much detail about the SCSS implementation, but one thing worth looking at briefly is CSS3 transitions. We’ll use transitions in order to give the application a nice slick look and feel – fading between background colours when the user searches for locations. To do that we simply add a transition property to the main container <code>div</code> element:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.main-container</span> <span class="p">{</span>
-    <span class="na">transition</span><span class="o">:</span> <span class="no">background-color</span> <span class="mi">1</span><span class="kt">s</span> <span class="n">linear</span><span class="p">;</span>
+<p>Now, moving back to our application, we aren’t going to go into too much detail about the SCSS implementation, but one thing worth looking at briefly is CSS3 transitions. We’ll use transitions in order to give the application a nice slick look and feel – fading between background colours when the user searches for locations. To do that we simply add a transition property to the main container <code class="highlighter-rouge">div</code> element:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nc">.main-container</span> <span class="p">{</span>
+	<span class="nl">transition</span><span class="p">:</span> <span class="n">background-color</span> <span class="m">1s</span> <span class="n">linear</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>This basically states that whenever the <code>background-color</code> property is updated for this element, the browser should transition for 1 second between the old value and the new value. Very simple, yet very effective.</p>
+</code></pre>
+</div>
+
+<p>This basically states that whenever the <code class="highlighter-rouge">background-color</code> property is updated for this element, the browser should transition for 1 second between the old value and the new value. Very simple, yet very effective.</p>
 
 <p>Finally, we will also add another transition for showing and hiding a loading icon in place of the form submit button, for when the application needs to show that it is loading:</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.location-search-submit</span><span class="o">,</span> <span class="nc">.location-search-cloud-icon</span> <span class="p">{</span>
-    <span class="na">transition</span><span class="o">:</span> <span class="no">left</span> <span class="mi">0</span><span class="mf">.4</span><span class="kt">s</span> <span class="n">ease</span><span class="p">;</span>
-    <span class="na">transition-delay</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.5</span><span class="kt">s</span><span class="p">;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nc">.location-search-submit</span><span class="o">,</span> <span class="nc">.location-search-cloud-icon</span> <span class="p">{</span>
+	<span class="nl">transition</span><span class="p">:</span> <span class="nb">left</span> <span class="m">0</span><span class="mi">.4s</span> <span class="n">ease</span><span class="p">;</span>
+	<span class="nl">transition-delay</span><span class="p">:</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>That just about wraps it up. If you have any questions about the application, including the logic, styling, or any of the concepts we’ve covered, then feel free to post a comment.</p>
 
 <p>And as always, happy coding!</p>
@@ -1054,7 +1110,9 @@ A file to potentially contain many types of mixins</p>
 	
 
 	<!-- 
-	  <a href="/2015/11/ux-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
+	  <a href="/2016/02/codesniffer-the-php-coding-standards-tool/">CodeSniffer – The PHP Coding Standards Tool</a><br />
+	
+	  <a href="/2015/11/UX-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
 	
 	  <a href="/2015/01/accessible-cross-reference-tables/">Accessible Cross Reference Tables</a><br />
 	
@@ -1064,15 +1122,13 @@ A file to potentially contain many types of mixins</p>
 	
 	  <a href="/2014/10/creating-a-web-app-with-grunt-part-1/">Creating a Web-app with Grunt - Part 1</a><br />
 	
-	  <a href="/2014/10/interning-in-the-tech-department/">Interning in the Tech department</a><br />
+	  <a href="/2014/10/Interning-in-the-Tech-Department/">Interning in the Tech department</a><br />
 	
 	  <a href="/2014/10/kickoff-version-4/">Kickoff Version 4 released</a><br />
 	
 	  <a href="/2014/10/outsourcing/">Should you outsource development?</a><br />
 	
 	  <a href="/2014/08/the-road-to-kickoff-version-4/">The road to Kickoff version 4</a><br />
-	
-	  <a href="/2014/03/yeoman-generator-development-tips/">Yeoman Generator Development Tips</a><br />
 	 -->
 </article>
 

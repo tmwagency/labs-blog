@@ -77,130 +77,142 @@
 
 	<div class="entry-content">
 		<h1 class="entry-title entry-title--single">Accessible Cross Reference Tables</h1>
-		<p>Cross-reference tables are a great tool to visually illustrate information quickly, and they&#39;re very easy to understand - if you can see them. I wanted to create such a table that was accessible on as many levels as possible, while still retaining the same look.</p>
+		<p>Cross-reference tables are a great tool to visually illustrate information quickly, and they’re very easy to understand - if you can see them. I wanted to create such a table that was accessible on as many levels as possible, while still retaining the same look.</p>
 
 <p>Thankfully, there have been many accessibility advances in traditional HTML tables that we can use for just such a task, and the particular tool I decided to use for this was the <code>headers</code> attribute of the <code>&lt;td&gt;</code> and <code>&lt;th&gt;</code> tags.</p>
 
-<p>Consider a typical cross-reference table where you&#39;re listing your preference for several TV shows:</p>
+<p>Consider a typical cross-reference table where you’re listing your preference for several TV shows:</p>
 
 <table class="table table--bordered">
 <tr>
-    <td></td><th>Great</th><th>It's ok</th><th>Awful</th>
+	<td></td><th>Great</th><th>It's ok</th><th>Awful</th>
 </tr>
 <tr>
-    <th>Firefly</th><td>x</td><td></td><td></td>
+	<th>Firefly</th><td>x</td><td></td><td></td>
 </tr>
 <tr>
-    <th>Game of Thrones</th><td></td><td>x</td><td></td>
+	<th>Game of Thrones</th><td></td><td>x</td><td></td>
 </tr>
 <tr>
-    <th>Vikings</th><td>x</td><td></td><td></td>
+	<th>Vikings</th><td>x</td><td></td><td></td>
 </tr>
 <tr>
-    <th>The Only Way is Essex</th><td></td><td></td><td>x</td>
+	<th>The Only Way is Essex</th><td></td><td></td><td>x</td>
 </tr>
 </table>
 
-<p>Visually, this is readable and simple, but imagine this going through a screen reader. There&#39;s no correlation between the headings and row data, and the &#39;x&#39; has no symantic meaning. In other words, it&#39;s not accessible.</p>
+<p>Visually, this is readable and simple, but imagine this going through a screen reader. There’s no correlation between the headings and row data, and the ‘x’ has no symantic meaning. In other words, it’s not accessible.</p>
 
 <p>The first step to making it better is to give the top row of heading cells an id each:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;tr&gt;</span>
-    <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
-    <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">&quot;tv_great&quot;</span><span class="nt">&gt;</span>Great<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">&quot;tv_ok&quot;</span><span class="nt">&gt;</span>It&#39;s ok<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">&quot;tv_awful&quot;</span><span class="nt">&gt;</span>Awful<span class="nt">&lt;/th&gt;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;tr&gt;</span>
+	<span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+	<span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"tv_great"</span><span class="nt">&gt;</span>Great<span class="nt">&lt;/th&gt;</span>
+	<span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"tv_ok"</span><span class="nt">&gt;</span>It's ok<span class="nt">&lt;/th&gt;</span>
+	<span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"tv_awful"</span><span class="nt">&gt;</span>Awful<span class="nt">&lt;/th&gt;</span>
 <span class="nt">&lt;/tr&gt;</span>
-</code></pre></div>
-<p>The W3 gives an example of how this could be used at <a href="http://www.w3.org/TR/WCAG20-TECHS/H43.html">http://www.w3.org/TR/WCAG20-TECHS/H43.html</a>, which associates every cell with a heading. We don&#39;t want that, as most of the cells will contain no data. As such, each row pertaining to a show will look like this:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;tr&gt;</span>
-    <span class="nt">&lt;th&gt;</span>Firefly<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">&quot;tv_great&quot;</span><span class="nt">&gt;</span>x<span class="nt">&lt;/td&gt;</span>
-    <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
-    <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+</code></pre>
+</div>
+
+<p>The W3 gives an example of how this could be used at <a href="http://www.w3.org/TR/WCAG20-TECHS/H43.html">http://www.w3.org/TR/WCAG20-TECHS/H43.html</a>, which associates every cell with a heading. We don’t want that, as most of the cells will contain no data. As such, each row pertaining to a show will look like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;tr&gt;</span>
+	<span class="nt">&lt;th&gt;</span>Firefly<span class="nt">&lt;/th&gt;</span>
+	<span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"tv_great"</span><span class="nt">&gt;</span>x<span class="nt">&lt;/td&gt;</span>
+	<span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+	<span class="nt">&lt;td&gt;&lt;/td&gt;</span>
 <span class="nt">&lt;/tr&gt;</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Now we have a proper relationship between data cells and their headers.</p>
 
-<p>The next step in the process is to resolve that ambiguous &#39;x&#39; used in the cells. Symantically, it has no meaning, and something better would be the word &#39;yes&#39;:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;tr&gt;</span>
-    <span class="nt">&lt;th&gt;</span>Firefly<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">&quot;tv_great&quot;</span><span class="nt">&gt;</span>yes<span class="nt">&lt;/td&gt;</span>
-    <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
-    <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+<p>The next step in the process is to resolve that ambiguous ‘x’ used in the cells. Symantically, it has no meaning, and something better would be the word ‘yes’:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;tr&gt;</span>
+	<span class="nt">&lt;th&gt;</span>Firefly<span class="nt">&lt;/th&gt;</span>
+	<span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"tv_great"</span><span class="nt">&gt;</span>yes<span class="nt">&lt;/td&gt;</span>
+	<span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+	<span class="nt">&lt;td&gt;&lt;/td&gt;</span>
 <span class="nt">&lt;/tr&gt;</span>
-</code></pre></div>
-<p>However, now that&#39;s made our table look strange, and not aesthetically appealing:</p>
+</code></pre>
+</div>
+
+<p>However, now that’s made our table look strange, and not aesthetically appealing:</p>
 
 <table class="table table--bordered">
 <tr>
-    <td></td><th>Great</th><th>It's ok</th><th>Awful</th>
+	<td></td><th>Great</th><th>It's ok</th><th>Awful</th>
 </tr>
 <tr>
-    <th>Firefly</th><td>yes</td><td></td><td></td>
+	<th>Firefly</th><td>yes</td><td></td><td></td>
 </tr>
 <tr>
-    <th>Game of Thrones</th><td></td><td>yes</td><td></td>
+	<th>Game of Thrones</th><td></td><td>yes</td><td></td>
 </tr>
 <tr>
-    <th>Vikings</th><td>yes</td><td></td><td></td>
+	<th>Vikings</th><td>yes</td><td></td><td></td>
 </tr>
 <tr>
-    <th>The Only Way is Essex</th><td></td><td></td><td>yes</td>
+	<th>The Only Way is Essex</th><td></td><td></td><td>yes</td>
 </tr>
 </table>
 
-<p>It&#39;s a simple matter of some CSS though to bring the table back to something that works better visually:</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">table</span><span class="nc">.cross_ref</span> <span class="nt">td</span><span class="o">[</span><span class="nt">headers</span><span class="o">]</span>
+<p>It’s a simple matter of some CSS though to bring the table back to something that works better visually:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">table</span><span class="nc">.cross_ref</span> <span class="nt">td</span><span class="o">[</span><span class="nt">headers</span><span class="o">]</span>
 <span class="p">{</span>
-    <span class="k">text</span><span class="o">-</span><span class="k">margin</span><span class="o">:</span> <span class="m">-999em</span><span class="p">;</span>
-    <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(tick.png)</span><span class="p">;</span>
-    <span class="k">background-repeat</span><span class="o">:</span> <span class="k">no-repeat</span><span class="p">;</span>
-    <span class="k">background</span><span class="o">-</span><span class="k">size</span><span class="o">:</span> <span class="k">auto</span> <span class="m">100%</span><span class="p">;</span>
-    <span class="k">background-position</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+	<span class="py">text-margin</span><span class="p">:</span> <span class="m">-999em</span><span class="p">;</span>
+	<span class="nl">background-image</span><span class="p">:</span> <span class="sx">url(tick.png)</span><span class="p">;</span>
+	<span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">no-repeat</span><span class="p">;</span>
+	<span class="nl">background-size</span><span class="p">:</span> <span class="nb">auto</span> <span class="m">100%</span><span class="p">;</span>
+	<span class="nl">background-position</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Making our final table look like this:</p>
 
 <table class="cross_ref table table--bordered">
 <tr>
-    <td></td><th>Great</th><th>It's ok</th><th>Awful</th>
+	<td></td><th>Great</th><th>It's ok</th><th>Awful</th>
 </tr>
 <tr>
-    <th>Firefly</th>
-    <td headers="tv_great">yes</td>
-    <td></td>
-    <td></td>
+	<th>Firefly</th>
+	<td headers="tv_great">yes</td>
+	<td></td>
+	<td></td>
 </tr>
 <tr>
-    <th>Game of Thrones</th>
-    <td></td>
-    <td headers="tv_ok">yes</td>
-    <td></td>
+	<th>Game of Thrones</th>
+	<td></td>
+	<td headers="tv_ok">yes</td>
+	<td></td>
 </tr>
 <tr>
-    <th>Vikings</th>
-    <td headers="tv_great">yes</td>
-    <td></td>
-    <td></td>
+	<th>Vikings</th>
+	<td headers="tv_great">yes</td>
+	<td></td>
+	<td></td>
 </tr>
 <tr>
-    <th>The Only Way is Essex</th>
-    <td></td>
-    <td></td>
-    <td headers="tv_awful">yes</td>
+	<th>The Only Way is Essex</th>
+	<td></td>
+	<td></td>
+	<td headers="tv_awful">yes</td>
 </tr>
 </table>
-
 <style>
 table.cross_ref td[headers]
 {
-    text-indent: -999em;
-    background-image: url(/img/blog/accessible-cross-reference-tables/tick.png);
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: center;
+	text-indent: -999em;
+	background-image: url(/img/blog/accessible-cross-reference-tables/tick.png);
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	background-position: center;
 }
 </style>
+
 
 	</div>
 
@@ -233,7 +245,9 @@ table.cross_ref td[headers]
 	
 
 	<!-- 
-	  <a href="/2015/11/ux-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
+	  <a href="/2016/02/codesniffer-the-php-coding-standards-tool/">CodeSniffer – The PHP Coding Standards Tool</a><br />
+	
+	  <a href="/2015/11/UX-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
 	
 	  <a href="/2015/01/communicating-between-php-and-an-arduino-with-sockets/">Communicating Between PHP and an Arduino with Sockets</a><br />
 	
@@ -243,15 +257,13 @@ table.cross_ref td[headers]
 	
 	  <a href="/2014/10/creating-a-web-app-with-grunt-part-1/">Creating a Web-app with Grunt - Part 1</a><br />
 	
-	  <a href="/2014/10/interning-in-the-tech-department/">Interning in the Tech department</a><br />
+	  <a href="/2014/10/Interning-in-the-Tech-Department/">Interning in the Tech department</a><br />
 	
 	  <a href="/2014/10/kickoff-version-4/">Kickoff Version 4 released</a><br />
 	
 	  <a href="/2014/10/outsourcing/">Should you outsource development?</a><br />
 	
 	  <a href="/2014/08/the-road-to-kickoff-version-4/">The road to Kickoff version 4</a><br />
-	
-	  <a href="/2014/03/yeoman-generator-development-tips/">Yeoman Generator Development Tips</a><br />
 	 -->
 </article>
 
@@ -267,7 +279,7 @@ table.cross_ref td[headers]
 			<a href="/2015/01/communicating-between-php-and-an-arduino-with-sockets/" class="pagination-item pagination-item--older"><b>Older post</b><br>Communicating Between PHP and an Arduino with Sockets</a>
 		
 		
-			<a href="/2015/11/ux-of-a-front-end-framework/" class="pagination-item pagination-item--newer"><b>Newer post</b><br>Improving the UX of a front-end framework</a>
+			<a href="/2015/11/UX-of-a-front-end-framework/" class="pagination-item pagination-item--newer"><b>Newer post</b><br>Improving the UX of a front-end framework</a>
 		
 	</div>
 </div>

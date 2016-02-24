@@ -77,76 +77,99 @@
 
 	<div class="entry-content">
 		<h1 class="entry-title entry-title--single">Faster tapping with SwiftClick</h1>
-		<p>As many of you will have experienced when using touch devices such as iPhones, tapping on HTML elements sometimes feels a bit sluggish. This is because there is a <a href="http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away">300ms delay</a> before click events are fired. As a user experience this is clunky behaviour and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and create a variable for the event name to use in click listeners – the value of which being either &#39;touchstart&#39; for devices that support touch, or &#39;click&#39; for those that don&#39;t:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">clickEventType</span> <span class="o">=</span> <span class="s2">&quot;ontouchstart&quot;</span> <span class="k">in</span> <span class="nb">window</span> <span class="o">?</span> <span class="s2">&quot;touchstart&quot;</span> <span class="o">:</span> <span class="s2">&quot;click&quot;</span><span class="p">;</span>
-</code></pre></div>
-<p>The problem with this detection method is that laptops or monitors that support touch would expect a touch event, meaning that if a mouse was being used then click events wouldn&#39;t work. Because of this the detection method was refined to check if the device supports both touch and orientation change and only use touch events if both conditions are met:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">clickEventType</span> <span class="o">=</span> <span class="s2">&quot;onorientationchange&quot;</span> <span class="k">in</span> <span class="nb">window</span> <span class="o">&amp;&amp;</span> <span class="s2">&quot;ontouchstart&quot;</span> <span class="k">in</span> <span class="nb">window</span> <span class="o">?</span> <span class="s2">&quot;touchstart&quot;</span> <span class="o">:</span> <span class="s2">&quot;click&quot;</span><span class="p">;</span>
-</code></pre></div>
+		<p>As many of you will have experienced when using touch devices such as iPhones, tapping on HTML elements sometimes feels a bit sluggish. This is because there is a <a href="http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away">300ms delay</a> before click events are fired. As a user experience this is clunky behaviour and so the exploration of potential solutions to this problem worked its way into our labs here at TMW. Since the issue only occurs on devices that support touch events our initial approach was to simply run a basic test for touch support and create a variable for the event name to use in click listeners – the value of which being either ‘touchstart’ for devices that support touch, or ‘click’ for those that don’t:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">clickEventType</span> <span class="o">=</span> <span class="s2">"ontouchstart"</span> <span class="k">in</span> <span class="nb">window</span> <span class="p">?</span> <span class="s2">"touchstart"</span> <span class="p">:</span> <span class="s2">"click"</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>The problem with this detection method is that laptops or monitors that support touch would expect a touch event, meaning that if a mouse was being used then click events wouldn’t work. Because of this the detection method was refined to check if the device supports both touch and orientation change and only use touch events if both conditions are met:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">clickEventType</span> <span class="o">=</span> <span class="s2">"onorientationchange"</span> <span class="k">in</span> <span class="nb">window</span> <span class="o">&amp;&amp;</span> <span class="s2">"ontouchstart"</span> <span class="k">in</span> <span class="nb">window</span> <span class="p">?</span> <span class="s2">"touchstart"</span> <span class="p">:</span> <span class="s2">"click"</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p>This detection method worked well in the majority of situations we needed.</p>
 
-<p>We would then use the <code>&#39;clickEventType&#39;</code> variable in any event listeners that needed to get a click event:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">someEl</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">clickEventType</span><span class="p">,</span> <span class="nx">fn</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-</code></pre></div>
-<p>This worked pretty nicely, with the main drawback being the fact that we would need to ensure the &#39;clickEventType&#39; variable was used anywhere we needed to add a click listener, which can be problematic when projects are picked up by new developers who may not necessarily realise that this variable is being used at all.</p>
+<p>We would then use the <code class="highlighter-rouge">'clickEventType'</code> variable in any event listeners that needed to get a click event:</p>
 
-<p>Other options were explored and we started to use a really nice utility called <a href="https://github.com/ftlabs/fastclick">FastClick</a>, developed by <a href="https://github.com/ftlabs">FT Labs</a>. FastClick hijacks regular click events when necessary, converts them to touch events and then fires a synthesised click event. This allows JavaScript event listeners to be registered using the normal &#39;click&#39; event type, but has the advantage of these events being fired earlier than normal – effectively removing the 300ms delay. For the most part this worked really well, but we eventually began to find that the util sometimes exhibited strange behaviour, such as events not firing when links were clicked and then firing later on, at the same time as other click events when different elements were clicked. And at 25kb non-minified (1441 bytes minified &amp; gzipped) it is also quite heavy in file size when considering the simple way in which we needed to use it. We therefore felt the time was right to create our own solution – <a href="https://github.com/tmwagency/swiftclick">SwiftClick</a>.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">someEl</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">clickEventType</span><span class="p">,</span> <span class="nx">fn</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>This worked pretty nicely, with the main drawback being the fact that we would need to ensure the ‘clickEventType’ variable was used anywhere we needed to add a click listener, which can be problematic when projects are picked up by new developers who may not necessarily realise that this variable is being used at all.</p>
+
+<p>Other options were explored and we started to use a really nice utility called <a href="https://github.com/ftlabs/fastclick">FastClick</a>, developed by <a href="https://github.com/ftlabs">FT Labs</a>. FastClick hijacks regular click events when necessary, converts them to touch events and then fires a synthesised click event. This allows JavaScript event listeners to be registered using the normal ‘click’ event type, but has the advantage of these events being fired earlier than normal – effectively removing the 300ms delay. For the most part this worked really well, but we eventually began to find that the util sometimes exhibited strange behaviour, such as events not firing when links were clicked and then firing later on, at the same time as other click events when different elements were clicked. And at 25kb non-minified (1441 bytes minified &amp; gzipped) it is also quite heavy in file size when considering the simple way in which we needed to use it. We therefore felt the time was right to create our own solution – <a href="https://github.com/tmwagency/swiftclick">SwiftClick</a>.</p>
 
 <p>SwiftClick is heavily based on FastClick, but was designed to be super lightweight — weighing in at a mere 5KB non-minified and a teeny-tiny 417 bytes minified &amp; gzipped!</p>
 
 <p>In contrast with FastClick, which does a lot under the hood to fix obscure browser bugs for complex elements like form, select, and textarea, by default SwiftClick focuses on basic element types that are typically used in modern interactive development and so these bugs are not a big concern.</p>
 
-<h2>Usage</h2>
+<p>##Usage</p>
 
 <p>Firstly, grab either the <a href="https://raw2.github.com/tmwagency/swiftclick/master/js/dist/swiftclick.min.js">minified</a>, or <a href="https://raw2.github.com/tmwagency/swiftclick/master/js/libs/swiftclick.js">non-minified</a> source from Github, or install via Bower using the following command in your command prompt:</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">bower install swiftclick
-</code></pre></div>
-<h3>Include SwiftClick in your application</h3>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;application/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;path/to/swiftclick.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre></div>
-<h3>Setup SwiftClick</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>bower install swiftclick
+</code></pre>
+</div>
+
+<p>###Include SwiftClick in your application
+<code class="highlighter-rouge">html
+&lt;script type="application/javascript" src="path/to/swiftclick.min.js"&gt;&lt;/script&gt;
+</code></p>
+
+<p>###Setup SwiftClick</p>
 
 <p>Setting up SwiftClick is a very easy process, which mirrors that of FastClick in that instances must be attached to a context element. Click events from all elements within the context element are automatically captured and converted to touch events when necessary.</p>
 
-<p>Start by creating a reference to a new instance of SwiftClick using the &#39;attach&#39; helper method and attach it to a context element. Attaching to document.body is easiest if you only need a single instance of SwiftClick:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-</code></pre></div>
-<p>If necessary, multiple instances of SwiftClick can be created for specific context elements which, although not really necessary in most cases, can sometimes be useful for optimising applications with a large amount of HTML:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">navigationSwiftClick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nx">someNavElement</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">uiSwiftClick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nx">someOtherElement</span><span class="p">);</span>
-</code></pre></div>
-<h3>Default Elements</h3>
+<p>Start by creating a reference to a new instance of SwiftClick using the ‘attach’ helper method and attach it to a context element. Attaching to document.body is easiest if you only need a single instance of SwiftClick:</p>
 
-<p>Once attached, by default SwiftClick will track events originating from the following element types:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>If necessary, multiple instances of SwiftClick can be created for specific context elements which, although not really necessary in most cases, can sometimes be useful for optimising applications with a large amount of HTML:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">navigationSwiftClick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nx">someNavElement</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">uiSwiftClick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nx">someOtherElement</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>###Default Elements
+Once attached, by default SwiftClick will track events originating from the following element types:</p>
 
 <ul>
-<li><code>&lt;a&gt;</code></li>
-<li><code>&lt;div&gt;</code></li>
-<li><code>&lt;span&gt;</code></li>
-<li><code>&lt;button&gt;</code></li>
+  <li><code class="highlighter-rouge">&lt;a&gt;</code></li>
+  <li><code class="highlighter-rouge">&lt;div&gt;</code></li>
+  <li><code class="highlighter-rouge">&lt;span&gt;</code></li>
+  <li><code class="highlighter-rouge">&lt;button&gt;</code></li>
 </ul>
 
-<h3>Adding non-default element types</h3>
+<p>###Adding non-default element types
+If necessary you can make SwiftClick track events originating from additional element types by adding an array of node names. This requires a reference to an instance of SwiftClick:</p>
 
-<p>If necessary you can make SwiftClick track events originating from additional element types by adding an array of node names. This requires a reference to an instance of SwiftClick:</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span> <span class="p">(</span><span class="nx">someElement</span><span class="p">);</span>
-<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">addNodeNamesToTrack</span> <span class="p">([</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;h1&quot;</span><span class="p">,</span> <span class="s2">&quot;nav&quot;</span><span class="p">]);</span>
-</code></pre></div>
-<h3>Replacing all stored node names to track</h3>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span> <span class="p">(</span><span class="nx">someElement</span><span class="p">);</span>
-<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">replaceNodeNamesToTrack</span> <span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;div&quot;</span><span class="p">]);</span>
-</code></pre></div>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span> <span class="p">(</span><span class="nx">someElement</span><span class="p">);</span>
+<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">addNodeNamesToTrack</span> <span class="p">([</span><span class="s2">"p"</span><span class="p">,</span> <span class="s2">"h1"</span><span class="p">,</span> <span class="s2">"nav"</span><span class="p">]);</span>
+</code></pre>
+</div>
+
+<p>###Replacing all stored node names to track</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">swiftclick</span> <span class="o">=</span> <span class="nx">SwiftClick</span><span class="p">.</span><span class="nx">attach</span> <span class="p">(</span><span class="nx">someElement</span><span class="p">);</span>
+<span class="nx">swiftclick</span><span class="p">.</span><span class="nx">replaceNodeNamesToTrack</span> <span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"div"</span><span class="p">]);</span>
+</code></pre>
+</div>
+
 <p>Doing this will remove all default node names, as well as any that have been added, and replace them with the node names within the array that is passed in, resulting in only the new node names being tracked.</p>
 
-<h3>Automatically disabled when not needed</h3>
+<p>###Automatically disabled when not needed
+SwiftClick only intercepts events for touch devices that support orientation change, otherwise it just sits there looking pretty.</p>
 
-<p>SwiftClick only intercepts events for touch devices that support orientation change, otherwise it just sits there looking pretty.</p>
-
-<h2>About the Project</h2>
-
-<p>SwiftClick was developed and is currently maintained by <a href="https://twitter.com/munkychop">Ivan Hayes</a>.</p>
+<p>##About the Project
+SwiftClick was developed and is currently maintained by <a href="https://twitter.com/munkychop">Ivan Hayes</a>.</p>
 
 <p>Head over to the Github <a href="https://github.com/tmwagency/swiftclick">project page</a> to find out more. Go ahead and star the project to keep up with its latest developments :-)</p>
+
 
 	</div>
 
@@ -179,7 +202,9 @@
 	
 
 	<!-- 
-	  <a href="/2015/11/ux-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
+	  <a href="/2016/02/codesniffer-the-php-coding-standards-tool/">CodeSniffer – The PHP Coding Standards Tool</a><br />
+	
+	  <a href="/2015/11/UX-of-a-front-end-framework/">Improving the UX of a front-end framework</a><br />
 	
 	  <a href="/2015/01/accessible-cross-reference-tables/">Accessible Cross Reference Tables</a><br />
 	
@@ -191,13 +216,11 @@
 	
 	  <a href="/2014/10/creating-a-web-app-with-grunt-part-1/">Creating a Web-app with Grunt - Part 1</a><br />
 	
-	  <a href="/2014/10/interning-in-the-tech-department/">Interning in the Tech department</a><br />
+	  <a href="/2014/10/Interning-in-the-Tech-Department/">Interning in the Tech department</a><br />
 	
 	  <a href="/2014/10/kickoff-version-4/">Kickoff Version 4 released</a><br />
 	
 	  <a href="/2014/10/outsourcing/">Should you outsource development?</a><br />
-	
-	  <a href="/2014/08/the-road-to-kickoff-version-4/">The road to Kickoff version 4</a><br />
 	 -->
 </article>
 
